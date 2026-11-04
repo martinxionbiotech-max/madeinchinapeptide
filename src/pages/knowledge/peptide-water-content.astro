@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Measuring water content by Karl Fischer';
+const description = 'Coulometric versus volumetric Karl Fischer, oven methods, sampling hygroscopic powder, and why loss on drying is not water content.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-water-content/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Water content'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Water is the smallest thing on a peptide certificate and one of the most consequential. It dilutes the peptide mass you weigh, plasticises the cake, enables hydrolysis, and is the first number to look at when a lot behaves differently from the last one. It is also the number most often reported without a method, which makes it impossible to compare between suppliers.</p>
+
+    <h2>Why the number matters three times over</h2>
+    <p>Water enters three separate calculations, and confusing them is a common source of disagreement:</p>
+    <ul>
+      <li><strong>As weight.</strong> A vial labelled 10 mg contains 10 mg of powder, not 10 mg of peptide. Water is part of that powder, so it reduces the peptide mass available for an experiment.</li>
+      <li><strong>As a stability variable.</strong> In the solid state, water is the medium in which hydrolysis and some aggregation pathways proceed. A cake above its intended moisture level ages faster, even at the same storage temperature.</li>
+      <li><strong>As a release result.</strong> Water content is a lot-specific measurement that belongs on the certificate with a limit and a method — not a generic “complies”.</li>
+    </ul>
+    <p>The arithmetic that combines water, counter-ion and purity into net peptide content is set out in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content and cost per mg</a>. This article is about how the water figure itself is obtained and how to read it.</p>
+
+    <h2>What the methods actually measure</h2>
+    <table>
+      <thead><tr><th>Method</th><th>Typical range</th><th>What it measures</th><th>Main pitfalls</th></tr></thead>
+      <tbody>
+        <tr><td>Loss on drying (LOD)</td><td>0.1–100%</td><td>Anything volatile that leaves the sample under the specified conditions</td><td>Counts residual solvents and some volatile degradants as “water”; result depends on temperature and time</td></tr>
+        <tr><td>Karl Fischer, volumetric</td><td>~0.1–100%</td><td>Water by a stoichiometric reaction with iodine</td><td>Sample size must be large enough; side reactions with aldehydes and ketones; reagent drift</td></tr>
+        <tr><td>Karl Fischer, coulometric</td><td>~10 µg to a few %</td><td>Water by electrochemical generation of iodine, quantified by charge</td><td>Small samples are less representative; drift and side reactions matter more at low levels</td></tr>
+        <tr><td>Oven + Karl Fischer</td><td>Method-dependent</td><td>Water released from a solid on heating, carried into the titration cell</td><td>Oven temperature must release water without decomposing the peptide or driving off solvents</td></tr>
+        <tr><td>Near-infrared (NIR)</td><td>Calibration-dependent</td><td>Water by a multivariate model</td><td>Only as good as the calibration set; not a primary method</td></tr>
+      </tbody>
+    </table>
+    <p>Karl Fischer is the reference method for water because the chemistry is specific: one mole of water reacts with one mole of iodine in the presence of sulfur dioxide and a base. Volumetric KF delivers iodine from a titrant of known concentration; coulometric KF generates iodine at the anode and calculates the amount from the current and time, using Faraday's law. For a lyophilised peptide at a few percent moisture, either can work; for low-level work, coulometric is the usual choice.</p>
+
+    <h2>What “loss on drying” is not</h2>
+    <p>LOD is a gravimetric method: weigh, heat under defined conditions, weigh again, call the difference water. It is cheap and it is not specific. A peptide that retains acetonitrile or TFA, or that loses a volatile protecting-group by-product, will report a loss that is not water. Conversely, a sample that takes up water during cooling before the second weighing can report too little.</p>
+    <p>This matters when the two numbers are compared across suppliers. “Water content ≤5% by LOD” and “water content 2.1% by coulometric KF” are not the same measurement, and a difference between them may reflect the methods rather than the material. When a certificate says “water” without naming the method, the defensible assumption is that the number cannot be compared with anything.</p>
+
+    <h2>Sampling is the hard part</h2>
+    <p>A peptide cake is hygroscopic. The moment a vial is opened in a humid room, the surface layer begins to take up water, and a sample taken from the top of the cake may not represent the vial. Three practical consequences:</p>
+    <ul>
+      <li><strong>Equilibrate sealed vials to room temperature before opening.</strong> Cold glass attracts condensation on the inside as well as the outside.</li>
+      <li><strong>Work fast, and take the sample from a consistent place.</strong> If the method samples the whole vial, say so. If it samples a portion, record how it was taken.</li>
+      <li><strong>Use a dry glove box or a low-humidity enclosure for hygroscopic material.</strong> For a 1–2 mg sample in a coulometric cell, a few micrograms of surface water is a large relative error.</li>
+    </ul>
+    <p>The sample size also matters. Coulometric cells are sensitive at the microgram level, so a 1 mg sample of a 2% moisture powder contains about 20 µg of water — measurable, but only if the blank and the drift are under control. A 10 mg sample is more representative of the vial but may overload a small cell. The method should state the sample size, because the result depends on it.</p>
+
+    <h2>Interferences and drift</h2>
+    <p>Karl Fischer is specific for water, but not infinitely so. The classic interferences are:</p>
+    <ul>
+      <li><strong>Aldehydes and ketones</strong> can react with methanol in the reagent to form acetals or ketals, releasing water and producing a positive bias. Some are worse than others, and the effect is time-dependent.</li>
+      <li><strong>Strong acids and bases</strong> shift the reagent pH away from its optimum and change the reaction stoichiometry.</li>
+      <li><strong>Oxidising and reducing substances</strong> can react with iodine or with the iodide system directly.</li>
+      <li><strong>Incomplete dissolution</strong> leaves water trapped in the solid, which is why oven methods exist for insoluble material.</li>
+    </ul>
+    <p>Drift is the instrument's background signal: water entering the cell from the atmosphere, from the reagent or from a leak. A method that does not report a stable drift before injection and a blank value is not under control, particularly at low moisture levels. For a certificate, the useful fields are the result, the method (volumetric, coulometric or oven), the oven temperature if used, and the sample size.</p>
+
+    <h2>How to read a water result on a COA</h2>
+    <table>
+      <thead><tr><th>What the COA says</th><th>What it establishes</th><th>What it does not</th></tr></thead>
+      <tbody>
+        <tr><td>“Water: 3.2% (Karl Fischer, coulometric)”</td><td>A lot-specific measurement by a named method</td><td>Whether the sample was representative, or whether the limit is appropriate for the product</td></tr>
+        <tr><td>“Water: ≤5%”</td><td>A specification limit exists</td><td>The measured value; a limit is not a result</td></tr>
+        <tr><td>“Water: complies”</td><td>Almost nothing</td><td>Any number, any method, any basis</td></tr>
+        <tr><td>“Loss on drying: 4.1%”</td><td>Volatile content under stated conditions</td><td>That the volatile material is water</td></tr>
+        <tr><td>No water field at all</td><td>—</td><td>Whether the material was dried, and how much peptide the vial actually contains</td></tr>
+      </tbody>
+    </table>
+    <p>A single result is also less informative than a trend. Three lots at 1.8%, 2.0% and 2.1% describe a controlled process; three lots at 2%, 4% and 6% describe a drying step that is drifting, even if all three are within a 8% limit. The trend view is the same one used for purity in <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</p>
+
+    <h2>What to specify</h2>
+    <p>For research-grade material, a workable specification has four parts:</p>
+    <ol>
+      <li><strong>A limit</strong> appropriate to the peptide and the container. Limits are product-specific; a common research convention is a few percent, but the number should be justified rather than copied.</li>
+      <li><strong>A method</strong> — coulometric KF, volumetric KF or oven KF — named on the certificate.</li>
+      <li><strong>A per-lot result</strong>, not a range and not “complies”.</li>
+      <li><strong>A storage statement</strong> that matches the sensitivity: sealed, desiccated, and equilibrated before opening.</li>
+    </ol>
+    <p>If the water result and the peptide content do not reconcile — for example, a 98% peptide content alongside 6% water and a counter-ion — the mass balance is the place to look. The components have to add up, and a certificate where they do not is telling you something about how the numbers were produced.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical methods and specification practice; it makes no claim about the water content of any specific product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization explained</a> — why residual moisture is set by the drying cycle</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content and cost</a> — how water enters the peptide-mass arithmetic</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — the other component that dilutes peptide mass</li>
+      <li><a href="/knowledge/peptide-residual-solvents/">Residual solvents</a> — the volatiles that LOD can mistake for water</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — moisture uptake after the vial is opened</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — certificates that report moisture as “N/A”</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-water-content/" />
+</BaseLayout>
