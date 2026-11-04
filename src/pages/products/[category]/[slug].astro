@@ -8,6 +8,33 @@ export function getStaticPaths() {
 const { category, slug } = Astro.params as { category: Category; slug: string };
 const p = products.find(x => x.slug === slug)!;
 const cat = categories[category];
+const reading: Record<Category, { href: string; label: string }[]> = {
+  tirzepatide: [
+    { href: '/knowledge/how-to-verify-peptide-purity/', label: 'How to verify purity before you buy' },
+    { href: '/knowledge/peptide-lot-consistency/', label: 'Lot-to-lot consistency' },
+    { href: '/knowledge/peptide-cold-chain-logistics/', label: 'Cold chain and transit' },
+  ],
+  semaglutide: [
+    { href: '/knowledge/how-to-verify-peptide-purity/', label: 'How to verify purity before you buy' },
+    { href: '/knowledge/peptide-lot-consistency/', label: 'Lot-to-lot consistency' },
+    { href: '/knowledge/peptide-coa-red-flags/', label: 'COA red flags' },
+  ],
+  research: [
+    { href: '/knowledge/peptide-reconstitution-guide/', label: 'Reconstitution practice' },
+    { href: '/knowledge/peptide-storage-handling/', label: 'Storage and handling' },
+    { href: '/knowledge/peptide-synthesis-spps-explained/', label: 'How the peptide is made' },
+  ],
+  cosmetic: [
+    { href: '/knowledge/how-to-verify-peptide-purity/', label: 'How to verify purity before you buy' },
+    { href: '/knowledge/peptide-storage-handling/', label: 'Storage and handling' },
+    { href: '/knowledge/peptide-procurement-contract-terms/', label: 'Procurement contract terms' },
+  ],
+  accessories: [
+    { href: '/knowledge/peptide-reconstitution-guide/', label: 'Reconstitution practice' },
+    { href: '/knowledge/peptide-storage-handling/', label: 'Storage and handling' },
+    { href: '/knowledge/peptide-coa-red-flags/', label: 'COA red flags' },
+  ],
+};
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -89,6 +116,11 @@ const ld = {
       {products.filter(x => x.category === category && x.slug !== p.slug).slice(0, 5).map(x => (
         <li><a href={`/products/${x.category}/${x.slug}/`}>{x.name}</a> — {x.strength}, {x.form.toLowerCase()}</li>
       ))}
+    </ul>
+
+    <h2>Further reading</h2>
+    <ul>
+      {reading[category].map(r => <li><a href={r.href}>{r.label}</a></li>)}
     </ul>
 
     <h2>Related</h2>
