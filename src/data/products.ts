@@ -1,4 +1,4 @@
-export type Category = 'tirzepatide' | 'semaglutide' | 'research' | 'cosmetic' | 'accessories';
+export type Category = 'tirzepatide' | 'semaglutide' | 'retatrutide' | 'research' | 'cosmetic' | 'accessories';
 
 export interface Product {
   slug: string;
@@ -45,6 +45,16 @@ export const categories: Record<Category, CategoryInfo> = {
       position: 'Semaglutide buyers are shifting from single vials to documented bulk lots. My position: the winning suppliers will be those who can show lot-to-lot consistency, not those with the widest catalogue.',
       reasoning: 'Semaglutide is widely available; differentiation has moved to documentation and consistency. A buyer who has been burned by a bad lot will pay for traceability.',
       disclosure: 'Commercial interest: we supply semaglutide. The observation on buyer behaviour comes from inquiry patterns, not a formal survey.' 
+    },
+  },
+  retatrutide: {
+    name: 'Retatrutide',
+    title: 'Retatrutide (Research Grade) — Bulk & OEM Supply',
+    description: 'Retatrutide reference material for laboratory research, supplied as lyophilized powder. Batch-specific HPLC and MS documentation with wholesale and OEM options for qualified research buyers.',
+    take: {
+      position: 'Retatrutide is the newest of the incretin-class research peptides and the one with the least independent analytical history in the grey market. My position: treat every lot as unverified until you have seen its own chromatogram.',
+      reasoning: 'Demand arrived faster than the supply chain matured. When a compound is new, the number of laboratories that have actually run it is small, so buyer-side verification replaces the informal reputation that older molecules have accumulated.',
+      disclosure: 'Commercial interest: we list retatrutide for research supply. We deliberately publish no purity figure until a lot exists, because a catalogue-wide number would be a guess.'
     },
   },
   research: {
@@ -113,6 +123,12 @@ P({ slug:'tirzepatide-30mg', name:'Tirzepatide 30mg', category:'tirzepatide', st
      packaging:'5 mL amber vial, single vial per box', moq:'10 vials', leadTime:'3–7 business days',
      docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
      summary:'Tirzepatide reference material supplied as a sterile-filtered, lyophilized powder. Intended for laboratory research only; not for human or veterinary use.' }),
+P({ slug:'tirzepatide-60mg', name:'Tirzepatide 60mg', category:'tirzepatide', strength:'60 mg/vial', form:'Lyophilized powder',
+     note: 'A distributor-scale fill for buyers who repackage into smaller units. Because the material is handled more before it reaches the bench, ask for the fill-weight check and the seal integrity record alongside the COA.',
+     cas:'2023788-19-2', mw:'4813.45 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'10 mL amber vial, single vial per box', moq:'5 vials', leadTime:'5–10 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Tirzepatide reference material supplied as a sterile-filtered, lyophilized powder. Intended for laboratory research only; not for human or veterinary use.' }),
 
   // ---- Semaglutide ----
 P({ slug:'semaglutide-2mg', name:'Semaglutide 2mg', category:'semaglutide', strength:'2 mg/vial', form:'Lyophilized powder',
@@ -151,6 +167,38 @@ P({ slug:'semaglutide-30mg', name:'Semaglutide 30mg', category:'semaglutide', st
      packaging:'5 mL amber vial, single vial per box', moq:'10 vials', leadTime:'3–7 business days',
      docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
      summary:'Semaglutide reference material as lyophilized powder for in-vitro laboratory research. Not for human or veterinary use.' }),
+P({ slug:'semaglutide-50mg', name:'Semaglutide 50mg', category:'semaglutide', strength:'50 mg/vial', form:'Lyophilized powder',
+     note: 'A high-load vial for distributor and OEM buyers. At this fill the lot is usually produced to order rather than drawn from stock, so the lead time is longer and the batch number is issued at order confirmation.',
+     cas:'910463-68-2', mw:'4113.58 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'10 mL amber vial, single vial per box', moq:'5 vials', leadTime:'7–12 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Semaglutide reference material as lyophilized powder for in-vitro laboratory research. Not for human or veterinary use.' }),
+
+  // ---- Retatrutide ----
+P({ slug:'retatrutide-5mg', name:'Retatrutide 5mg', category:'retatrutide', strength:'5 mg/vial', form:'Lyophilized powder',
+     note: 'A pilot fill for laboratories establishing an assay for a compound with little published bench experience. Small vials let a lab test solubility and chromatography behaviour before committing to a larger lot.',
+     cas:'2381089-83-2', mw:'4731.4 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'2 mL amber vial, single vial per box', moq:'10 vials', leadTime:'5–10 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Retatrutide (LY3437943) reference material as lyophilized powder, supplied for in-vitro laboratory research only.' }),
+P({ slug:'retatrutide-20mg', name:'Retatrutide 20mg', category:'retatrutide', strength:'20 mg/vial', form:'Lyophilized powder',
+     note: 'The working format for most laboratory programs: enough material for a multi-week series without the handling burden of a distributor-size vial.',
+     cas:'2381089-83-2', mw:'4731.4 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'5 mL amber vial, single vial per box', moq:'10 vials', leadTime:'5–10 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Retatrutide (LY3437943) reference material as lyophilized powder, supplied for in-vitro laboratory research only.' }),
+P({ slug:'retatrutide-30mg', name:'Retatrutide 30mg', category:'retatrutide', strength:'30 mg/vial', form:'Lyophilized powder',
+     note: 'A larger laboratory fill for repeat assays drawn from a single lot. Keeping one batch number across a study removes lot transitions from your variables.',
+     cas:'2381089-83-2', mw:'4731.4 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'5 mL amber vial, single vial per box', moq:'10 vials', leadTime:'5–10 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Retatrutide (LY3437943) reference material as lyophilized powder, supplied for in-vitro laboratory research only.' }),
+P({ slug:'retatrutide-60mg', name:'Retatrutide 60mg', category:'retatrutide', strength:'60 mg/vial', form:'Lyophilized powder',
+     note: 'A bulk fill produced against a confirmed order. Expect a longer lead time and a batch number issued after production, not pulled from existing stock.',
+     cas:'2381089-83-2', mw:'4731.4 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'−20 °C, protect from light; reconstituted solution 2–8 °C',
+     packaging:'10 mL amber vial, single vial per box', moq:'5 vials', leadTime:'7–12 business days',
+     docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
+     summary:'Retatrutide (LY3437943) reference material as lyophilized powder, supplied for in-vitro laboratory research only.' }),
 
   // ---- Research peptides ----
 P({ slug:'bpc-157-5mg', name:'BPC-157 5mg', category:'research', strength:'5 mg/vial', form:'Lyophilized powder',

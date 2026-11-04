@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Semaglutide vs tirzepatide vs retatrutide: a buyer’s comparison';
+const description = 'How the three incretin-class research peptides differ in sequence, receptor profile, molecular weight and analytical burden — and what that means when you specify a lot.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/glp-1-research-peptides-compared/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Compound comparison'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">These three compounds arrive in the same quotation requests and are often discussed as if they were three strengths of one product. Analytically they are three different molecules with different synthesis difficulty, different impurity risks and different documentation needs.</p>
+
+    <h2>The short comparison</h2>
+    <table>
+      <thead><tr><th>Property</th><th>Semaglutide</th><th>Tirzepatide</th><th>Retatrutide</th></tr></thead>
+      <tbody>
+        <tr><td>CAS number</td><td>910463-68-2</td><td>2023788-19-2</td><td>2381089-83-2</td></tr>
+        <tr><td>Reference molecular weight</td><td>4113.58 g/mol</td><td>4813.45 g/mol</td><td>4731.4 g/mol</td></tr>
+        <tr><td>Residue count</td><td>31</td><td>39</td><td>39</td></tr>
+        <tr><td>Receptor profile studied</td><td>GLP-1</td><td>GIP and GLP-1</td><td>GIP, GLP-1 and glucagon</td></tr>
+        <tr><td>Lipid side chain</td><td>C18 diacid via linker</td><td>C20 diacid via linker</td><td>C20 diacid via linker</td></tr>
+        <tr><td>Regulatory status of the reference drug</td><td>Approved in multiple markets</td><td>Approved in multiple markets</td><td>Investigational</td></tr>
+        <tr><td>Typical bulk availability</td><td>Widest</td><td>Wide</td><td>Narrowest</td></tr>
+      </tbody>
+    </table>
+    <p class="small muted">Molecular weights are reference values for the free peptide; the counter-ion form on your COA determines the mass you will actually measure. Regulatory status is stated for context only — the material we supply is a research reference standard, not a medicine.</p>
+
+    <h2>Why the sequence matters to a buyer</h2>
+    <p>Every additional residue is another coupling and deprotection step, and every failure in that chain becomes a deletion or truncation impurity. A 39-residue peptide has more opportunities for closely related impurities than a 31-residue one, and those impurities often elute near the main peak. That is the practical reason a chromatogram from a 39-residue lot deserves more scrutiny than one from a short peptide: the integration decisions behind the purity number carry more weight.</p>
+    <p>The lipid side chain adds a second dimension. Lipidation is introduced through a linker and a fatty-acid coupling, and incomplete lipidation produces a species that is structurally very similar to the target but different in mass. A purity figure from UV detection alone will not distinguish them reliably; mass spectrometry confirmation is not optional for these compounds.</p>
+
+    <h2>Three different analytical burdens</h2>
+    <ul>
+      <li><strong>Semaglutide.</strong> The most produced of the three, which means the most method experience — and the most template certificates in circulation. Ask for the chromatogram at the wavelength used for quantitation, plus the integration table.</li>
+      <li><strong>Tirzepatide.</strong> Two receptor activities and a longer chain. Expect a more complex impurity profile and ask specifically whether the method resolves the di-lipidated and mono-lipidated species.</li>
+      <li><strong>Retatrutide.</strong> The least mature supply chain. Fewer laboratories have run it, so published comparative data is thinner and buyer-side verification carries more of the weight. Request a retention sample with the first lot.</li>
+    </ul>
+
+    <h2>What to specify in a purchase order</h2>
+    <p>The molecule name alone is not a specification. For any of the three, a usable specification names the counter-ion form (acetate, TFA or sodium), the minimum purity by a stated HPLC method, a maximum for the largest unspecified impurity, water content by Karl Fischer, and the test methods used for identity. Where the compound is new to your laboratory, add a requirement for a retention sample and for the full chromatogram file, not a screenshot.</p>
+    <p>If you are comparing quotations, normalise before you compare. Price per vial is meaningless when one offer is 5&nbsp;mg of acetate and another is 10&nbsp;mg of TFA salt — the peptide content per vial differs, and so does the mass you will weigh out.</p>
+
+    <h2>Common buyer mistakes with this class</h2>
+    <ul>
+      <li><strong>Treating the three as interchangeable.</strong> Different mass, different receptor profile, different impurity pattern. A method validated on one does not transfer without revalidation.</li>
+      <li><strong>Buying on nominal strength.</strong> A 10&nbsp;mg fill of a salt form does not contain 10&nbsp;mg of free peptide.</li>
+      <li><strong>Accepting a catalogue-wide purity claim.</strong> These compounds are made in campaigns; the number that matters belongs to the lot in the box.</li>
+      <li><strong>Ignoring cold chain on small orders.</strong> A single vial shipped without insulation in summer can arrive warm; lyophilized material is robust but not indestructible.</li>
+    </ul>
+
+    <h2>Where each fits in a laboratory programme</h2>
+    <p>For analytical method development, semaglutide is usually the pragmatic starting point because reference material and published methods are easiest to obtain. Tirzepatide is the natural second step when the work needs a dual-agonist reference. Retatrutide belongs in a programme that can afford independent verification of each lot, and it is a poor choice for a first purchase from an unproven supplier.</p>
+
+    <div class="ruo">All three compounds are supplied for laboratory research use only. They are not medicines, foods, cosmetics or veterinary products, and nothing on this page describes or supports administration to humans or animals. Statements about receptor profiles summarise published research literature; they are not claims about the material we sell.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/products/semaglutide/">Semaglutide — bulk and OEM supply</a></li>
+      <li><a href="/products/tirzepatide/">Tirzepatide — bulk and OEM supply</a></li>
+      <li><a href="/products/retatrutide/">Retatrutide — bulk and OEM supply</a></li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">How to verify peptide purity</a> — what HPLC and MS each prove</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — spotting a recycled certificate</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — controlling drift across batches</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/glp-1-research-peptides-compared/" />
+</BaseLayout>
