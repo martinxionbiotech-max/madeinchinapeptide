@@ -22,7 +22,8 @@ const ld = {
     { '@type': 'PropertyValue', name: 'Storage', value: p.storage },
     { '@type': 'PropertyValue', name: 'MOQ', value: p.moq },
   ],
-  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'USD', price: '0', url: `https://madeinchinapeptide.com/products/${category}/${slug}/` },
+  url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
+  audience: { '@type': 'BusinessAudience', audienceType: 'Research laboratories and distributors' },
 };
 ---
 <BaseLayout title={`${p.name} — Bulk & OEM Supply | Made in China Peptide`} description={`${p.name} (${p.strength}) research-grade ${p.form.toLowerCase()}. ${p.purity}. Bulk and OEM supply with batch COA. Research use only.`} canonical={`/products/${category}/${slug}/`}>

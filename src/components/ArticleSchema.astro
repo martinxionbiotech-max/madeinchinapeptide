@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+interface Props { title: string; description: string; path: string; section?: string }
+const { title, description, path, section = 'Research peptide sourcing' } = Astro.props;
+const url = `${site.url}${path}`;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  url,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  inLanguage: 'en',
+  isPartOf: { '@id': `${site.url}/#website` },
+  publisher: { '@id': `${site.url}/#organization` },
+  about: { '@type': 'Thing', name: section },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />

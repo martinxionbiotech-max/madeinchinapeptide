@@ -8,6 +8,19 @@ const clusters = [...new Set(articles.map(a => a.cluster))];
     <p class="breadcrumb"><a href="/">Home</a> › Knowledge</p>
     <h1>Knowledge base</h1>
     <p class="lead muted" style="max-width:800px;">Practical, evidence-oriented guides for buyers of research peptides: how to read analytical data, how to store material, and how to evaluate a supplier without visiting the factory.</p>
+    <section style="margin-top:32px;">
+      <h2>Comparisons</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3><a href="/compare/china-vs-us-peptide-suppliers/">China vs US peptide suppliers</a></h3>
+          <p>What actually differs — documentation, lead time, price structure and risk.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/compare/peptide-purity-grades/">Peptide purity grades explained</a></h3>
+          <p>What 95%, 98% and 99% mean analytically, and which grade fits which use.</p>
+        </div>
+      </div>
+    </section>
     {clusters.map(c => (
       <section style="margin-top:32px;">
         <h2>{c}</h2>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Peptide Procurement Contract Terms — A Buyer's Clause List" description="The clauses that decide whether a peptide supply contract actually protects you: specification annex, acceptance testing, change control, claims window and Incoterms." canonical="/knowledge/peptide-procurement-contract-terms/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Procurement contract terms'}]} />
+    <h1>Peptide procurement contract terms</h1>
+    <p class="lead muted">Most supply disputes are not about bad faith. They are about a purchase order that never said what “the same product” means. These are the clauses worth negotiating before the first bulk lot.</p>
+
+    <h2>1. Specification annex, not a product name</h2>
+    <p>A product name is a label, not a specification. Attach an annex that fixes, at minimum: sequence or molecular formula, counter-ion form (acetate, TFA, HCl), assay or purity by HPLC method, water content, appearance, and the analytical method used to measure each. If the annex says “≥98%” without naming the method, the number is not enforceable.</p>
+
+    <h2>2. Sampling and acceptance testing</h2>
+    <p>Write down who tests, on what sample, and against what limit. Two workable models:</p>
+    <table>
+      <thead><tr><th>Model</th><th>How it works</th><th>Trade-off</th></tr></thead>
+      <tbody>
+        <tr><td>Supplier COA + buyer verification</td><td>Supplier releases the lot; buyer may retest and reject on failure</td><td>Fast, but the buyer carries the testing cost and the burden of proof</td></tr>
+        <tr><td>Pre-shipment sample approval</td><td>Retained sample is sent ahead; buyer approves before the lot ships</td><td>Slower, but disputes surface before freight and customs cost are sunk</td></tr>
+      </tbody>
+    </table>
+    <p>Whichever you choose, define the acceptance criteria numerically and name a referee laboratory or method for disagreements.</p>
+
+    <h2>3. Retention samples and batch records</h2>
+    <p>Ask for a retained sample from the same lot, held for an agreed period, plus the batch record summary that links the lot number to synthesis, purification and QC dates. Without retention samples, a dispute a year later becomes a memory contest.</p>
+
+    <h2>4. Change control</h2>
+    <p>Suppliers change things quietly: a new purification step, a different counter-ion, a subcontracted lyophilization line. A change-control clause requires written notice and, where the change affects the specification, re-qualification before shipment. This is the single clause most often missing from first-time orders.</p>
+
+    <h2>5. Claims window and remedy</h2>
+    <p>Define how long after delivery a quality claim can be raised, what evidence is required (photos, retained sample, third-party result), and what the remedy is — replacement, credit, or refund. A common structure is a short window for visible damage and a longer one for analytical failure, with the clock starting at delivery rather than shipment.</p>
+
+    <h2>6. Incoterms and risk transfer</h2>
+    <p>State the Incoterm and the named place. EXW leaves export clearance and transit risk with you; DDP puts them on the supplier but usually at a higher price. For research material, the practical split is often FOB or CIF to your forwarder, with the buyer owning the import permit and customs classification. Ambiguity here is where “the shipment was seized” arguments begin.</p>
+
+    <h2>7. Documentation deliverables</h2>
+    <p>List every document as a deliverable with a due date: COA per lot, safety data sheet, specification sheet, packing list, commercial invoice, certificate of origin if needed, and any statements your jurisdiction requires. Tie payment of the balance to receipt of the documentation package, not just the goods.</p>
+
+    <h2>8. Exclusivity, tooling and OEM terms</h2>
+    <p>For private-label work, settle ownership of the label artwork, who holds the registration or notification, whether the supplier may sell the same formulation to others, and what happens to tooling or custom packaging at the end of the agreement. Exclusivity without a volume commitment is usually cosmetic.</p>
+
+    <h2>9. Audit rights and subcontractors</h2>
+    <p>Reserve the right to a remote or on-site audit with reasonable notice, and require disclosure of subcontractors that handle synthesis, purification, filling or lyophilization. If a supplier cannot name its subcontractors, you cannot assess concentration risk.</p>
+
+    <h2>10. Termination and continuity</h2>
+    <p>Define notice periods, what happens to open orders, and whether the supplier must provide a final documentation package and retention samples on exit. A supply agreement that ends without records leaves you unable to support your own customers.</p>
+
+    <div class="note">This is a commercial checklist, not legal advice. Have counsel review the agreement under the law that governs it, and confirm import requirements for your destination before signing.</div>
+
+    <div class="ruo">Research use only. Nothing here is a claim about the safety, efficacy or regulatory status of any compound.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">China peptide supplier checklist</a> — the 12-point evaluation behind these clauses</li>
+      <li><a href="/knowledge/bulk-peptide-sourcing-risks/">Bulk sourcing risks</a> — concentration, lot drift and payment exposure</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — how our quotation and documentation flow works</li>
+      <li><a href="/quality/coa/">COA review</a> — what a batch-linked certificate should contain</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={"Peptide Procurement Contract Terms — A Buyer's Clause List"} description={"The clauses that decide whether a peptide supply contract actually protects you: specification annex, acceptance testing, change control, claims window and Incoterms."} path={"/knowledge/peptide-procurement-contract-terms/"} />
+</BaseLayout>

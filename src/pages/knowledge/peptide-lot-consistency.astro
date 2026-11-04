@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Lot-to-Lot Consistency — Why the Same Peptide Isn't the Same" description="Lot drift in peptide supply: what changes between batches, how to detect it with retention samples and trend data, and what to put in your specification." canonical="/knowledge/peptide-lot-consistency/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Lot-to-lot consistency'}]} />
+    <h1>Lot-to-lot consistency: why the same peptide isn't the same</h1>
+    <p class="lead muted">Two vials can carry the same name, the same nominal purity and the same certificate format — and still behave differently. The difference is usually not fraud. It is normal process variation that nobody trended.</p>
+
+    <h2>Where variation comes from</h2>
+    <ul>
+      <li><strong>Synthesis scale.</strong> A 1&nbsp;g run and a 100&nbsp;g run do not have identical coupling efficiency; impurities scale differently.</li>
+      <li><strong>Purification.</strong> Gradient shape, column load and fraction cut points determine which impurities are removed and which survive.</li>
+      <li><strong>Counter-ion exchange.</strong> The same peptide as acetate and as TFA differs in mass, solubility and pH in solution.</li>
+      <li><strong>Lyophilization.</strong> Cycle changes affect residual moisture, cake structure and reconstitution behaviour.</li>
+      <li><strong>Raw materials.</strong> Resin and amino acid suppliers change; a new lot of resin can shift the impurity profile.</li>
+    </ul>
+
+    <h2>What a purity number hides</h2>
+    <p>“98% by HPLC” says the main peak is 98% of the integrated area at one wavelength. It does not tell you what the other 2% is, whether the method resolved related impurities, or whether the same impurity is present in every lot. A lot that is 98% pure with a growing deletion sequence is a different product from a lot that is 98% pure with a stable profile.</p>
+
+    <h2>Four practical controls</h2>
+    <table>
+      <thead><tr><th>Control</th><th>What it catches</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td>Retention sample per lot</td><td>Enables side-by-side retest and visual comparison later</td><td>Low — ask for it in the contract</td></tr>
+        <tr><td>Full chromatogram, not just a number</td><td>Impurity profile changes that purity alone conceals</td><td>Low — require the PDF attachment</td></tr>
+        <tr><td>Trend table across lots</td><td>Slow drift in purity, water content or appearance</td><td>Medium — a simple spreadsheet</td></tr>
+        <tr><td>Periodic independent retest</td><td>Divergence between supplier COA and reality</td><td>Medium — cost per lot, sample the critical ones</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Reading a trend, not a certificate</h2>
+    <p>Ask for the last several lots of the same SKU and plot purity, water content and appearance against date. Stable numbers with a stable chromatogram shape are reassuring. A purity figure that sits at 98.1, 98.0, 97.9, 97.8 over a year is technically in spec but describes a process moving in one direction. The question to ask is what changed — column, resin, scale or operator.</p>
+
+    <h2>Specifications that actually constrain drift</h2>
+    <ul>
+      <li>Purity by a named method, with a minimum and a defined integration threshold</li>
+      <li>Maximum unspecified impurity, not only total purity</li>
+      <li>Water content range by Karl Fischer</li>
+      <li>Counter-ion form and residual solvent limits where relevant</li>
+      <li>Appearance and reconstitution description</li>
+      <li>Lot-to-lot comparability statement: the supplier confirms the impurity profile is consistent with the prior lot</li>
+    </ul>
+
+    <h2>When a new lot is not interchangeable</h2>
+    <p>If your work depends on a specific lot — an assay, a stability study, a reference standard — freeze enough of that lot to finish the work. Treating a new batch as a drop-in replacement is an assumption, not a control. Where interchangeability matters, ask for a comparability package before you switch.</p>
+
+    <div class="ruo">Research use only. This article describes quality-control practice; it makes no claim about any specific compound.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">How to verify peptide purity</a> — methods and what each one proves</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — spotting a recycled certificate</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — keeping a lot stable once it arrives</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS and the release workflow</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={"Lot-to-Lot Consistency — Why the Same Peptide Isn't the Same"} description={"Lot drift in peptide supply: what changes between batches, how to detect it with retention samples and trend data, and what to put in your specification."} path={"/knowledge/peptide-lot-consistency/"} />
+</BaseLayout>
