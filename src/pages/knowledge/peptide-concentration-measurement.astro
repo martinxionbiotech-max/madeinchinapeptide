@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Measuring peptide concentration';
+const description = 'A280, A214, colorimetric assays and amino-acid analysis — what each measures, how to compute an extinction coefficient, and where the error comes from.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-concentration-measurement/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Concentration measurement'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Weighing a powder gives you one number. Dissolving it gives you another, and the two rarely agree. This guide covers the methods used to measure how much peptide is actually in a solution, what each method is blind to, and how to keep the arithmetic honest when several of those numbers are uncertain.</p>
+
+    <h2>Three different quantities, often conflated</h2>
+    <p>Before choosing a method, decide which question you are answering:</p>
+    <ul>
+      <li><strong>Powder mass.</strong> What the balance reads. Includes counter-ions, water and any residual solvent or excipient.</li>
+      <li><strong>Peptide mass.</strong> The fraction of that powder that is peptide, on a defined basis. This is the net peptide content question covered in <a href="/knowledge/peptide-net-content-and-cost/">net content and cost per mg</a>.</li>
+      <li><strong>Concentration of the intact species in solution.</strong> What is dissolved, still intact, and not lost to adsorption or aggregation. This is the hardest of the three and the one most assays actually report poorly.</li>
+    </ul>
+    <p>A certificate can tell you the first two, approximately. It almost never tells you the third, because that depends on what you did in your own laboratory.</p>
+
+    <h2>The methods, and what each one is blind to</h2>
+    <table>
+      <thead><tr><th>Method</th><th>What it responds to</th><th>Main blind spot</th></tr></thead>
+      <tbody>
+        <tr><td>UV A280</td><td>Trp, Tyr, and disulfide bonds</td><td>Peptides with no aromatic residues give essentially no signal</td></tr>
+        <tr><td>UV A214 / A205</td><td>The peptide backbone</td><td>Buffers, salts and denaturants absorb strongly at the same wavelength</td></tr>
+        <tr><td>BCA</td><td>Cu(II) reduction, mainly by the backbone plus Cys/Tyr/Trp</td><td>Reducing agents (DTT, TCEP) and sequence-dependent response versus a protein standard</td></tr>
+        <tr><td>Bradford</td><td>Coomassie binding to Arg, aromatic and hydrophobic residues</td><td>Short or hydrophilic peptides may bind poorly; detergent interference</td></tr>
+        <tr><td>Amino-acid analysis</td><td>Residue composition after hydrolysis</td><td>Destroys Trp, converts Asn/Gln; reports composition, not intact mass</td></tr>
+        <tr><td>Nitrogen determination</td><td>Total nitrogen (Dumas or Kjeldahl)</td><td>Assumes a nitrogen factor; counts nitrogen from salts and excipients</td></tr>
+        <tr><td>qNMR</td><td>A resolved proton signal against an internal standard</td><td>Needs mM solubility and a clean, assignable signal</td></tr>
+      </tbody>
+    </table>
+    <p>No single row is a reference method for every peptide. The choice follows from the sequence and from how accurate the number needs to be.</p>
+
+    <h2>A280: cheap, fast, and sequence-dependent</h2>
+    <p>Absorbance follows Beer–Lambert: <code>A = ε · c · l</code>, with ε in M⁻¹cm⁻¹, c in mol/L and l the path length in cm. For a 1 cm cuvette the arithmetic is direct. The only difficult term is ε, and for a peptide you can estimate it from the sequence using residue contributions that are widely used in protein chemistry:</p>
+    <table>
+      <thead><tr><th>Contribution at 280 nm</th><th>ε (M⁻¹cm⁻¹)</th></tr></thead>
+      <tbody>
+        <tr><td>Tryptophan</td><td>5,500</td></tr>
+        <tr><td>Tyrosine</td><td>1,490</td></tr>
+        <tr><td>Cystine (disulfide)</td><td>125</td></tr>
+      </tbody>
+    </table>
+    <p>These are empirical averages for unfolded peptides and proteins. They assume the chromophores are fully exposed and that no other species absorbs at 280 nm. Both assumptions are worth checking.</p>
+
+    <h3>A worked example</h3>
+    <p>Take a peptide of molecular weight 1,200 Da containing one tryptophan and no tyrosine or cysteine. Then ε ≈ 5,500 M⁻¹cm⁻¹. A blank-corrected absorbance of 0.550 in a 1 cm cuvette gives:</p>
+    <ul>
+      <li>c = 0.550 ÷ 5,500 = 1.00 × 10⁻⁴ mol/L = 100 µM</li>
+      <li>mass concentration = 100 µmol/L × 1,200 g/mol = 120 mg/L = 0.12 mg/mL</li>
+    </ul>
+    <p>If that sample had been diluted 1:20 before reading, the stock is 2.4 mg/mL. The dilution factor is where most arithmetic errors enter, so write it down before you touch the cuvette.</p>
+    <p>Note how small the measured concentration is. A 1 mg/mL solution of this peptide would read about A = 4.6 — far outside the linear range of most spectrophotometers. Dilute into the 0.1–1.0 range rather than trusting an absorbance of 3 or 4.</p>
+
+    <h2>When A280 fails</h2>
+    <ul>
+      <li><strong>No aromatic residues.</strong> Many short peptides contain neither Trp nor Tyr. Their A280 is near zero, and any small absorbance is probably scatter or an impurity, not the peptide.</li>
+      <li><strong>Light scattering.</strong> A cloudy solution raises the apparent absorbance across the whole spectrum. Read at 320 or 340 nm, where the peptide does not absorb; a reading above roughly 0.05 means the sample needs clarification before the A280 means anything.</li>
+      <li><strong>UV-absorbing excipients.</strong> Phenol red, some detergents, imidazole and residual aromatic solvents all contribute. A buffer blank only helps if the buffer is truly identical.</li>
+      <li><strong>Adsorption losses.</strong> Material that stuck to the filter or the tube is not in the cuvette. Filtering a dilute peptide solution can remove a meaningful fraction, especially for hydrophobic sequences.</li>
+    </ul>
+
+    <h2>A214 and A205: signal without aromatics, noise from everything else</h2>
+    <p>Below about 220 nm the peptide bond itself absorbs, so even a peptide of glycines gives a signal. That solves the aromatic problem and creates a buffer problem: Tris, imidazole, guanidine, EDTA and many detergents absorb strongly in this region, and dissolved oxygen and stray light add noise. A205 is sometimes used as a compromise, but it sits close to the same interferences.</p>
+    <p>Practical rules: use a matched buffer blank, keep the absorbance low, and do not compare A214 readings between two different buffers. If the buffer absorbs more than the peptide, change the buffer or change the method — dilution does not fix a blank that is itself off-scale.</p>
+
+    <h2>Colorimetric assays: a standard curve is an assumption</h2>
+    <p>BCA and Bradford are convenient and both are calibrated against a standard, usually BSA. That calibration embeds the standard's sequence, size and reactivity. A 12-residue peptide is not a 66 kDa protein: its response per mass can differ substantially, and in the case of Bradford it may barely bind at all.</p>
+    <p>BCA has an additional trap for peptide work. It depends on Cu(II) reduction, so free cysteine, DTT and TCEP all produce a signal whether or not peptide is present. If your buffer contains a reducing agent, BCA is measuring the buffer. Either remove the reductant or choose another method.</p>
+    <p>Used with a matched peptide standard of the same sequence, these assays can be perfectly adequate for relative comparisons — for example, checking whether a filtration step lost material. Used with a BSA curve to assign an absolute concentration, they carry an uncertainty that is rarely stated and sometimes larger than the effect being studied.</p>
+
+    <h2>Amino-acid analysis and nitrogen: composition, not intactness</h2>
+    <p>Amino-acid analysis hydrolyses the peptide and quantifies the residues. With a norleucine internal standard it gives a good measure of peptide mass, and it is one of the better ways to establish net content. Its limits are chemical: tryptophan is destroyed by standard acid hydrolysis unless a separate procedure is used, and Asn and Gln are converted to Asp and Glu, so the composition cannot distinguish them.</p>
+    <p>Nitrogen determination is faster and needs less material, but it relies on a nitrogen-to-peptide conversion factor. Peptides vary in nitrogen content with sequence, and any nitrogen-containing salt or excipient inflates the result. It is a useful orthogonal check, not a primary assignment.</p>
+
+    <h2>Error stacks faster than most people expect</h2>
+    <p>Independent relative errors combine in quadrature. A 2% uncertainty on absorbance, a 5% uncertainty on the extinction coefficient and a 1% dilution error give roughly √(2² + 5² + 1²) ≈ 5.5% on the final concentration. Add a 3% uncertainty in net peptide content and the number is closer to 6%.</p>
+    <p>That matters when a method is used to prove something. A 6% difference between two lots is not evidence of a difference; a 6% recovery after a filtration step is not evidence of loss. Report the uncertainty, or at least avoid claiming precision the method cannot support.</p>
+
+    <h2>A defensible sequence for the bench</h2>
+    <ol>
+      <li>Write down which quantity you need: powder mass, peptide mass, or intact concentration in solution.</li>
+      <li>Start from the certificate: net peptide content, counter-ion, water, and the basis on which each was reported.</li>
+      <li>Weigh an amount the balance can actually resolve — a 0.1 mg readability balance is not appropriate for 2 mg.</li>
+      <li>Dissolve in a defined volume of a buffer you have also set aside as blank. Record pH and appearance.</li>
+      <li>Clarify by centrifugation rather than filtration if material is scarce; filtration can adsorb peptide.</li>
+      <li>Dilute into the linear range, and record the dilution factor at the time you make it.</li>
+      <li>Read the blank and the sample at the analytical wavelength, and read both at 320 or 340 nm for scatter.</li>
+      <li>Calculate, then cross-check with a second method if the number will be used for a decision.</li>
+    </ol>
+    <p>The concentration you calculate is only as good as the extinction coefficient and the purity basis behind it. For work where the absolute number matters — a quantitative binding assay, a dosing-free in vitro screen, a stability time course — a second, independent method is usually worth the material it consumes.</p>
+
+    <h2>What a supplier can and cannot tell you</h2>
+    <p>For a lyophilized powder, a supplier can report net peptide content, water, counter-ion and purity by a named method. Those are properties of the lot. What they cannot report is the concentration of your solution, because it depends on your weighing, your buffer and your handling.</p>
+    <p>If you are buying a liquid formulation rather than a powder, the questions change: concentration basis (as-is or peptide basis), the assay method and its uncertainty, the buffer composition, and whether the concentration was verified after sterile filtration. Ask for the method, not just the number — a concentration without a method is a claim.</p>
+    <p>Related arithmetic for preparing that solution is in the <a href="/knowledge/peptide-reconstitution-guide/">reconstitution guide</a> and the <a href="/tools/reconstitution-calculator/">reconstitution calculator</a>; the failure modes that make a solution appear weaker than it is are covered in <a href="/knowledge/peptide-solubility-troubleshooting/">solubility troubleshooting</a> and <a href="/knowledge/peptide-aggregation-self-assembly/">aggregation and self-assembly</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes measurement methods and arithmetic; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content and cost per mg</a> — the powder-side arithmetic</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution guide</a> — solvent choice and preparation practice</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Acetate vs TFA counter-ion forms</a> — why salt form shifts the mass balance</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — what HPLC and MS do and do not establish</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Peptide identity by mass spectrometry</a> — intact mass and its limits</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — soluble material that stops being soluble</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-concentration-measurement/" />
+</BaseLayout>
