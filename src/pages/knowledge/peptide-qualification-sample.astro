@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Ordering a qualification sample';
+const description = 'How to size, code, test and compare peptide samples from competing suppliers — and what a single vial can and cannot tell you before a bulk order.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-qualification-sample/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Qualification samples'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A sample order is the cheapest experiment in procurement and the one most often run badly. Buyers order one vial, look at it, accept the supplier's own certificate, and then place a bulk order on the strength of a document they have not tested. Done properly, a sample answers a narrow question — does this supplier's material meet my specification when I measure it — and leaves the questions it cannot answer clearly open.</p>
+
+    <h2>Decide the question before ordering</h2>
+    <p>“Is this supplier good?” is not answerable with a sample. “Does this lot meet the limits I wrote, measured by my method, at the purity I specified?” is. Write the acceptance criteria down before the samples arrive, including the method and the basis of the purity figure, because the numbers are otherwise easy to reinterpret after the fact.</p>
+    <p>The criteria should include what would make you walk away, not only what would make you buy. A sample that fails water content but passes purity is still a fail if your specification has a water limit — and that is exactly the kind of result a supplier's summary COA tends to omit.</p>
+
+    <h2>How much to order</h2>
+    <p>Enough to test, enough to use, and enough to keep. Three purposes, three quantities:</p>
+    <ul>
+      <li><strong>Analytical.</strong> Identity, purity and water typically consume a few milligrams each. Allow for duplicate injections and one failed run.</li>
+      <li><strong>Application trial.</strong> Whatever your workflow actually needs, plus the losses described in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a> and, for cell work, <a href="/knowledge/peptides-in-cell-culture-assays/">cell-culture handling</a>.</li>
+      <li><strong>Retain.</strong> A portion held unopened, at the recommended condition, so a disputed result can be re-tested later.</li>
+    </ul>
+    <p>In practice this usually means two or three vials of the smallest commercial size rather than one. A single vial split between testing and use leaves no retain, and a single vial tested once gives you no way to distinguish a bad lot from a bad injection. Ordering the smallest catalogue size also tells you something about how the supplier packs and labels that size.</p>
+
+    <h2>Code the samples, not the suppliers</h2>
+    <p>If you are comparing two or three suppliers, have the samples shipped to a receiving point where they can be relabelled with codes before anyone in the laboratory sees the supplier name. The person running the assay should not know which vial is which; the person interpreting the results should decide the comparison after the numbers exist.</p>
+    <p>Send all coded samples to the same laboratory, in the same batch of work, against the same method. Comparing supplier A's certificate from March with supplier B's in-house result from June is not a comparison — it is two unrelated measurements with a conclusion attached.</p>
+    <table>
+      <thead><tr><th>Test</th><th>What it settles</th><th>What it does not</th></tr></thead>
+      <tbody>
+        <tr><td>Intact mass (MS)</td><td>Whether a species of the expected mass is present</td><td>Sequence order or stereochemistry — see <a href="/knowledge/peptide-ms-ms-sequence-confirmation/">MS/MS confirmation</a></td></tr>
+        <tr><td>Purity by HPLC, your method</td><td>Main-peak share under stated conditions</td><td>Peptide content, counter-ion or water</td></tr>
+        <tr><td>Water by Karl Fischer</td><td>Residual moisture in the cake</td><td>Whether the cake will survive transit</td></tr>
+        <tr><td>Appearance and reconstitution</td><td>Cake integrity, colour, solubility in your solvent</td><td>Purity, identity or sterility</td></tr>
+        <tr><td>Peptide content (AAA or nitrogen)</td><td>Mass of peptide per vial, not per fill weight</td><td>Purity of that peptide</td></tr>
+      </tbody>
+    </table>
+    <p>Which of these you need depends on what you are buying. For a catalogue peptide used in assay development, identity, purity and solubility may be enough. For a custom sequence or a first order from a new site, add content and, where the sequence is long or the synthesis difficult, fragmentation-based confirmation.</p>
+
+    <h2>Read the certificate against the vial</h2>
+    <p>The sample's COA should carry the same lot number as the label. Check the three things that are easiest to get wrong and hardest to notice: the lot number, the test methods, and the basis of the purity figure. A certificate with a method column that says only “HPLC” tells you nothing about whether the number is comparable with your own run.</p>
+    <p>If the supplier's purity is 98.4% and yours is 96.1%, the useful question is not who is right but which method differs — wavelength, gradient, column, injection load, integration threshold. That reconciliation is the same exercise described in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>, and a supplier who can discuss it is worth more than one who cannot.</p>
+
+    <h2>What one sample cannot tell you</h2>
+    <ul>
+      <li><strong>Lot-to-lot consistency.</strong> One lot is one data point; drift appears across lots. That is a separate programme, covered in <a href="/knowledge/peptide-lot-consistency/">lot consistency</a>.</li>
+      <li><strong>Scale-up behaviour.</strong> A 5 mg sample and a 50 g campaign are different chemical problems.</li>
+      <li><strong>Packaging and cold chain in transit.</strong> The sample may arrive in a padded envelope while bulk ships in a validated shipper — or the reverse.</li>
+      <li><strong>Lead time under load.</strong> Samples are prioritised; production orders queue.</li>
+      <li><strong>Whether the bulk lot will be made the same way.</strong> Only change control and, ideally, an audit address that.</li>
+    </ul>
+    <p>Treat a passing sample as a licence to place a first production order, not as a supplier qualification. The qualification is the sequence: sample, first lot, incoming test, second lot, and a documented comparison between them.</p>
+
+    <h2>The arithmetic that justifies the exercise</h2>
+    <p>Compare the cost of the sample programme — samples, freight, and third-party testing of two or three candidates — with the cost of discovering a specification failure after a bulk lot has been paid for, cleared customs and stored. For most buyers the sample programme is a small fraction of one bulk order, and its real product is not a certificate: it is the knowledge of how each supplier responds when a result disagrees with their own.</p>
+    <p>That response is the thing you are really buying. A supplier who asks for the chromatogram, discusses the method and offers a replacement or a credit is behaving like a partner in a specification. One who explains that your laboratory must be wrong has told you what the first dispute will feel like.</p>
+
+    <h2>Document the outcome</h2>
+    <p>Record, per candidate: sample lot, date received, condition on arrival, tests run, results, the supplier's response, and the decision with its reason. Keep the retain vial labelled with the same code. When the first bulk order arrives, the sample record is the baseline against which the incoming test is compared — and if the numbers diverge, you will want the retain, the chromatogram and the date.</p>
+    <p>What to do with the first bulk delivery is set out in <a href="/knowledge/peptide-sampling-and-batch-release/">sampling and batch release</a>; how to turn the acceptance criteria into a contractual limit is in <a href="/knowledge/peptide-specification-annex/">the specification annex</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes procurement practice and analytical interpretation; it makes no claim about any specific supplier or product, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — what to ask a laboratory for</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — incoming inspection of a bulk lot</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — why one good lot is not a trend</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Supplier checklist</a> — the screening that precedes a sample order</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — documents and walkthrough before the visit</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing the limits the sample is judged against</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-qualification-sample/" />
+</BaseLayout>

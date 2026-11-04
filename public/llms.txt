@@ -22,6 +22,7 @@
 - /knowledge/peptide-supplier-site-audit-questionnaire/ — printable 40-question site-audit checklist by quality/production/documentation/traceability
 - /knowledge/remote-peptide-supplier-audit/ — document request list, video walkthrough script and a scoring rubric
 - /knowledge/second-peptide-supplier-qualification/ — dual sourcing, parallel qualification lots and change control
+- /knowledge/peptide-qualification-sample/ — sample sizing, blind coding, test panel and comparison before a bulk order
 - /knowledge/peptide-supplier-payment-terms/ — deposits, balance payments, L/C and escrow risk, bank-detail fraud checks
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
