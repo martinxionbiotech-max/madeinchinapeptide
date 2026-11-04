@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide sampling and batch release';
+const description = 'How many vials to test, composite versus individual samples, retain stock, and an OOS investigation that does not turn into testing into compliance.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-sampling-and-batch-release/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Sampling & release'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A certificate of analysis describes the sample the supplier chose to test. It does not describe the vial in your hand. The distance between those two things is set by the sampling plan — and by what you do when your own result disagrees with the paper that came in the box.</p>
+
+    <h2>Why sampling is a decision, not a formality</h2>
+    <p>Lyophilized peptide is not a homogeneous liquid. Fill weight varies vial to vial, residual moisture varies with position in the shelf stack, and a lyophilization run can produce a gradient of cake quality from front to back of the chamber. A supplier who pulls one vial from the top tray and reports 98.4% has told you something true about that vial. Whether it is true about the thousand vials behind it depends on how the lot was mixed, filled and sampled.</p>
+    <p>That is not an accusation. It is the reason sampling plans exist in every regulated manufacturing sector, and the reason a buyer should be able to state their own plan rather than accept whatever the supplier's QA department happened to do.</p>
+
+    <h2>What a sampling plan has to specify</h2>
+    <table>
+      <thead><tr><th>Element</th><th>What it fixes</th><th>If left open</th></tr></thead>
+      <tbody>
+        <tr><td>Sample size</td><td>How many units are drawn from the lot</td><td>The supplier decides, and usually draws the minimum</td></tr>
+        <tr><td>Selection method</td><td>Random, stratified by tray or pallet, or convenience</td><td>Top-of-stack bias</td></tr>
+        <tr><td>Composite or individual</td><td>Whether units are pooled before assay</td><td>Vial-to-vial variation disappears into an average</td></tr>
+        <tr><td>Who samples</td><td>Supplier, buyer, or a third party at the supplier's site</td><td>No independent record of what was drawn</td></tr>
+        <tr><td>Acceptance criteria</td><td>The numeric limits a unit must meet</td><td>“Passes” becomes a judgement, not a test</td></tr>
+        <tr><td>Retain quantity</td><td>How much is held back for future disputes</td><td>Nothing left to re-test when a question arises later</td></tr>
+      </tbody>
+    </table>
+    <p>In practice most of this belongs in the technical annex rather than in email, because an agreement that lives only in a thread is gone by the next purchase order — see <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a>.</p>
+
+    <h2>The square-root rule, and what it does not buy you</h2>
+    <p>The common heuristic for incoming sampling is √N + 1: for a lot of 1,000 units, draw 33. It is cheap, widely used, and has no statistical basis in acceptance sampling. It scales with lot size, which intuition wants, but it says nothing about the risk you are accepting.</p>
+    <p>Attribute sampling standards such as ISO 2859-1 work the other way round: you choose an acceptable quality limit (AQL) and an inspection level first, and the tables return a sample size and an acceptance number. The tables are unusable without an AQL, and an AQL is a business decision — how often are you willing to accept a lot that is, say, 1.5% non-conforming? For research material nobody usually states one, which is exactly why the default becomes “whatever the supplier did”.</p>
+    <p>A little arithmetic makes the trade-off concrete. If 25% of the units in a lot are defective and you sample 10 at random, the chance that none of them is defective is 0.75<sup>10</sup> ≈ 0.056 — so about 94% of the time you would catch at least one. Drop the defect rate to 5% and the same 10 units miss it 0.95<sup>10</sup> ≈ 60% of the time. Small samples find gross problems and are almost blind to subtle ones. That is a property of the arithmetic, not of the supplier.</p>
+
+    <h2>Composite versus individual samples</h2>
+    <p>Pooling is the most consequential choice on the list, because it is irreversible and invisible in the result.</p>
+    <ul>
+      <li><strong>Composite.</strong> Several units are combined and assayed once. It gives an average, uses less analytical capacity, and is appropriate when the question is “is the lot broadly as specified”. It cannot answer “is every vial as specified”, and it dilutes a single bad unit by the number of units pooled.</li>
+      <li><strong>Individual.</strong> Units are assayed separately. It costs more and it is the only way to see distribution — which is what you need if you are qualifying a new supplier or investigating a complaint.</li>
+      <li><strong>Hybrid.</strong> Assay a composite for the full panel, and individual units for a cheap, sensitive attribute such as fill weight or cake appearance. Fill weight is the highest-value low-cost heterogeneity signal available: it needs only a calibrated balance, it is non-destructive in the sense that the powder is still usable, and a wide spread across vials tells you the fill line was not in control even before any assay is run.</li>
+    </ul>
+    <p>If you ask for individual results, ask in advance. A supplier asked after the fact to produce per-vial data will either decline or produce it from a re-test, and a re-test is a different sample.</p>
+
+    <h2>What to test on receipt</h2>
+    <p>Receipt testing is not a repeat of the supplier's release panel. It is a check that the material in front of you matches the material described, plus whatever attribute your own work depends on.</p>
+    <table>
+      <thead><tr><th>Test</th><th>Question it answers</th><th>Panel</th></tr></thead>
+      <tbody>
+        <tr><td>Appearance and cake integrity</td><td>Is this the same physical form that was shipped — intact plug, no melt-back, no discoloration?</td><td>Every receipt</td></tr>
+        <tr><td>Fill weight</td><td>Is the net mass what was ordered, within an agreed tolerance?</td><td>Every receipt</td></tr>
+        <tr><td>Identity by MS</td><td>Is the observed mass consistent with the labelled sequence?</td><td>First lot, new supplier, any dispute</td></tr>
+        <tr><td>Purity by HPLC</td><td>Is the main peak where the certificate shows it, at the area the certificate claims?</td><td>First lot, new supplier, any dispute</td></tr>
+        <tr><td>Water by Karl Fischer</td><td>Was the cake dried as claimed, and has it picked up moisture since?</td><td>When net content or weighing matters</td></tr>
+        <tr><td>Solubility in your solvent</td><td>Does it dissolve the way your method assumes?</td><td>When the assay depends on it</td></tr>
+      </tbody>
+    </table>
+    <p>Water deserves a note: a lyophilized cake can leave the factory at one moisture level and arrive at another, because the vial closure is a barrier with a permeation rate, not a seal in the absolute sense. If your net-content arithmetic assumes a dry powder, measure it rather than assuming it — see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</p>
+    <p>Full re-validation of every release test is rarely worth it for research material. The purpose of receipt testing is to detect a mismatch, not to re-certify the batch. What matters is that the tests you do run are the ones whose failure would change your decision.</p>
+
+    <h2>Retain samples: buy the option before you need it</h2>
+    <p>A retain sample is material held back, unopened, under stated conditions, so that a question raised months later can be answered against the same lot rather than against a new purchase. It is the cheapest risk control in the entire transaction and the one most often skipped.</p>
+    <ul>
+      <li><strong>Quantity.</strong> Enough to repeat the full release panel at least twice. If a dispute arises you will test the retain, and possibly send a portion to a third party — a single aliquot is not enough.</li>
+      <li><strong>Condition.</strong> The same storage condition as the working stock, recorded. A retain sample kept in a drawer is not a retain sample.</li>
+      <li><strong>Duration.</strong> At minimum for as long as you are still using material from that lot; longer if you may need to support a customer or a regulatory question.</li>
+      <li><strong>Chain of custody.</strong> Lot number, date received, who opened what, and which vial is still sealed. Without this, the retain's evidential value collapses the moment someone dips into it.</li>
+    </ul>
+    <p>Agree the retain quantity in the purchase order. Suppliers will usually provide it, but rarely volunteer it, and “we keep retain samples” is not the same as “you hold retain samples”.</p>
+
+    <h2>OOS and OOT are different problems</h2>
+    <p>An out-of-specification (OOS) result falls outside an established limit. An out-of-trend (OOT) result is inside the limit but inconsistent with the history of previous lots — a purity drifting from 98.9% to 98.2% to 97.8% is OOT before it is ever OOS, and it is the more useful signal because it arrives while you can still act cheaply. Trend review needs a history, which means keeping your own results rather than filing certificates — see <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</p>
+    <p>An OOS result is a finding about a test, not immediately a finding about the material. The investigation has two phases and they must run in order:</p>
+    <ol>
+      <li><strong>Laboratory phase.</strong> Was the result caused by the method, the analyst, the instrument or the sample preparation? Check integration, injection volume, column condition, diluent, standard preparation, and whether the sample was fully dissolved. This phase either finds an assignable cause or documents that none was found.</li>
+      <li><strong>Manufacturing phase.</strong> Only if the laboratory is cleared does the question become what happened to the material — a different lot, a degraded shipment, a filling error.</li>
+    </ol>
+    <p>Re-testing is legitimate only after an assignable cause has been identified and the original result has been invalidated for a stated reason. Re-testing because the first answer was inconvenient is not an investigation; it is a search for a number you like, and the industry term for it is testing into compliance.</p>
+    <p>Two practices to refuse outright:</p>
+    <ul>
+      <li><strong>Averaging a pass and a fail.</strong> If one result is validly out of specification and another is validly in, the material has not been shown to conform. An average of a passing and a failing result is not a passing result.</li>
+      <li><strong>The unplanned “two out of three” rule.</strong> A pre-specified retest plan with a defined number of replicates and a defined decision rule can be statistically defensible. Applied after the fact to rescue a failing result, it is just repeated sampling until the noise cooperates.</li>
+    </ul>
+
+    <h2>When your result disagrees with the certificate</h2>
+    <p>Disagreement is common and usually has an innocent explanation — different column, different gradient, different injection solvent, a sample that was not fully dissolved, or a purity figure calculated on a different basis. The productive sequence is:</p>
+    <ol>
+      <li>Re-check your own method against the one printed on the certificate before concluding anything. Area percent and mass percent are not interchangeable, and neither are anhydrous and as-is bases.</li>
+      <li>Send the comparison, not the conclusion: your chromatogram, the method conditions, and the numeric result. Suppliers respond to data far better than to accusations.</li>
+      <li>Ask for the raw data behind their figure — chromatogram, integration parameters, and the standard used. A certificate that cannot be accompanied by a chromatogram has told you something on its own.</li>
+      <li>If the gap survives, test the retain sample. This is the moment the retain earns its cost: it is the only sample that is unambiguously from the delivered lot and unambiguously in your control.</li>
+      <li>Escalate to a third-party laboratory with a written scope, and agree in advance who bears the cost depending on the outcome.</li>
+    </ol>
+    <p>Record all of it. A dated receipt record with the sample identity, the balance used, the method version and the raw output is what turns a disagreement into a documented deviation — and it is what makes the next shipment better.</p>
+
+    <h2>Questions for the supplier</h2>
+    <ul>
+      <li>How many units were drawn from this lot, by what method, and were they pooled or assayed individually?</li>
+      <li>Were the sampled units taken from the same lyophilization run that filled the shipped vials, and can the run be identified on the certificate?</li>
+      <li>What is the fill-weight tolerance for this product, and what was the observed range for this lot?</li>
+      <li>Will you supply retain material from this lot, in the quantity we specify, held under the stated condition?</li>
+      <li>If our receipt test disagrees with your certificate, what is your investigation procedure and who pays for third-party arbitration?</li>
+    </ul>
+    <p>None of these questions require the supplier to disclose a trade secret. All of them require them to have a system. The answers are more informative than the certificate's pass column — see <a href="/quality/coa/">reading a COA</a> for the document side of the same problem.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes sampling and quality-control practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — where the sampling plan and acceptance criteria belong</li>
+      <li><a href="/quality/coa/">Reading a COA</a> — what the supplier's document does and does not establish</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — using your own results as a trend baseline</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Stability studies</a> — why a release result is not a shelf life</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization</a> — where vial-to-vial variation comes from</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — fill weight, water and the arithmetic between them</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-sampling-and-batch-release/" />
+</BaseLayout>

@@ -31,4 +31,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-adsorption-labware', title:'Peptide adsorption to labware', desc:'Why dilute peptide solutions lose concentration in tubes, filters and cuvettes — and which handling changes reduce it.', cluster:'Handling' },
   { slug:'peptide-concentration-measurement', title:'Measuring peptide concentration', desc:'A280, A214, colorimetric assays and amino-acid analysis — what each measures and where the error comes from.', cluster:'Quality & testing' },
   { slug:'peptide-net-content-and-cost', title:'Net peptide content and cost per mg', desc:'Fill weight is not peptide mass — how counter-ions, water and purity change the arithmetic, and how to normalise quotations.', cluster:'Quality & testing' },
+  { slug:'peptide-sampling-and-batch-release', title:'Sampling and batch release', desc:'How many vials to test, composite versus individual samples, retain stock and an OOS investigation that stays honest.', cluster:'Quality & testing' },
 ];
