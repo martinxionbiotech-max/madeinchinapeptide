@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Elemental impurities in peptides';
+const description = 'Where metals enter peptide synthesis, what ICH Q3D element classes mean for a research-grade product, and how ICP-MS results should be reported.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-elemental-impurities/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Elemental impurities'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Residual solvents get attention because they are volatile and easy to list. Elements do not: they do not evaporate, they are not destroyed by chromatography, and a metal that enters during synthesis or purification stays in the vial. For a research-grade peptide the regulatory arithmetic of a daily dose does not apply, which makes the limits a matter for the specification — and that is precisely why the method and the reporting basis need to be agreed in writing.</p>
+
+    <h2>Where metals come from</h2>
+    <p>A peptide is assembled from amino acids, but it is made in a chemical plant. Each stage is a potential source:</p>
+    <table>
+      <thead><tr><th>Stage</th><th>Likely elements</th><th>Mechanism</th></tr></thead>
+      <tbody>
+        <tr><td>Solid-phase synthesis</td><td>Pd, Cu, Ni</td><td>Catalysts used in orthogonal deprotection or coupling; copper in some ligation chemistries</td></tr>
+        <tr><td>Cleavage and deprotection</td><td>Fe, Cr, Ni, Mo</td><td>Contact with stainless-steel reactors, transfer lines and fittings, especially at low pH</td></tr>
+        <tr><td>Purification</td><td>Fe, Cr, Ni, Zn</td><td>Chromatography skids, pumps and column hardware; leached under acidic mobile phases</td></tr>
+        <tr><td>Water and reagents</td><td>Pb, As, Cd, Hg</td><td>Trace contamination in water, acids, bases and salts; concentrated by volume</td></tr>
+        <tr><td>Packaging and handling</td><td>Al, Si, Ba, B</td><td>Glass contact, vial washing residues, dust and environmental exposure</td></tr>
+      </tbody>
+    </table>
+    <p>The pattern is not random. A synthesis route that uses palladium will have a palladium question; a route that avoids it will not. Asking “which catalysts and metal reagents does this route use?” is more productive than asking for a generic heavy-metals test.</p>
+
+    <h2>What the Q3D classes actually mean</h2>
+    <p>ICH Q3D groups elements by toxicity and likelihood of occurrence. The classification is a risk-assessment input, not a table of limits that can be copied onto a certificate:</p>
+    <ul>
+      <li><strong>Class 1:</strong> As, Cd, Hg, Pb — human toxicants with little or no therapeutic benefit; the first elements to control.</li>
+      <li><strong>Class 2A:</strong> Co, V, Ni — relatively likely to be present, so a risk assessment is expected by default.</li>
+      <li><strong>Class 2B:</strong> Ag, Au, Ir, Os, Pd, Pt, Rh, Ru, Se, Tl — present only if deliberately added or introduced by equipment; assess if the route uses them.</li>
+      <li><strong>Class 3:</strong> Ba, Cr, Cu, Li, Mo, Sb, Sn — lower oral toxicity, but relevant to inhalation and to routes using those reagents.</li>
+    </ul>
+    <p>Q3D derives permitted daily exposures from a dose. A research peptide has no defined human dose, so the PDE cannot be converted into a ppm limit in the way a pharmaceutical specification does. What remains is a contractual limit agreed with the supplier, justified by the route and the intended laboratory use. A certificate that simply says “heavy metals: complies” without stating the elements, the method and the limit has not answered the question.</p>
+
+    <h2>Why “heavy metals &lt;10 ppm” is not enough</h2>
+    <p>The classic colorimetric heavy-metals test responds to a subset of elements and reports a single summed result against a lead standard. It cannot tell you whether the result comes from iron, zinc, copper or lead, and its detection capability is poor by modern standards. Many pharmacopoeias have replaced it for new products with element-specific instrumental methods for exactly that reason.</p>
+    <p>If a supplier's certificate still reports a single “heavy metals” figure, ask which method produced it and which elements it covers. If the answer is a colorimetric limit test, the number is a screening result, not an elemental impurity profile.</p>
+
+    <h2>ICP-MS and ICP-OES</h2>
+    <p>Inductively coupled plasma mass spectrometry (ICP-MS) is the usual method for trace elements in peptides: it reaches low parts-per-billion levels for most elements and can measure many elements in one run. ICP-OES is cheaper to operate and more tolerant of matrix, but its detection limits are higher — often adequate for major contaminants and not for Class 1 elements at tight limits.</p>
+    <p>Both methods share the same weak point: sample preparation. A peptide must be dissolved or digested completely, or the result describes only the soluble fraction. Closed-vessel microwave digestion with nitric acid is common; hydrofluoric acid may be needed for silica-containing material but brings its own hazards and interferences. Incomplete digestion shows up as low recovery of a spiked element and as variability between replicates.</p>
+    <table>
+      <thead><tr><th>Reported item</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Elements and their limits</td><td>A total without a list cannot be compared with a specification</td></tr>
+        <tr><td>Method and digestion</td><td>ICP-MS versus ICP-OES, open versus closed vessel, acid used</td></tr>
+        <tr><td>Internal standard and recovery</td><td>Shows whether matrix effects and preparation losses were controlled</td></tr>
+        <tr><td>Limit of quantification per element</td><td>A result below LOQ is not the same as zero</td></tr>
+        <tr><td>Blank and spike recovery</td><td>The evidence that the method worked on this matrix</td></tr>
+        <tr><td>Basis</td><td>As-is powder, anhydrous, or peptide content — mass fraction changes with the basis</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Speciation is a separate question</h2>
+    <p>ICP-MS measures total element concentration, not chemical form. That distinction matters for elements whose toxicity depends on oxidation state or species — chromium(III) versus chromium(VI), inorganic versus organic arsenic, mercury species. A total chromium result of a few ppm does not tell you which form is present, and a method that reports only the total cannot answer a speciation question. If speciation matters for the intended use, it needs a separate method and a separate conversation.</p>
+
+    <h2>Setting a limit you can defend</h2>
+    <p>For a research-grade peptide, a workable specification has four parts:</p>
+    <ol>
+      <li><strong>Element list</strong> based on the route — the Class 1 set plus any element deliberately used or likely from equipment.</li>
+      <li><strong>Limit per element</strong>, stated in µg/g (ppm) on a defined basis, with a stated rationale: route-based, equipment-based, or customer requirement.</li>
+      <li><strong>Method</strong> — ICP-MS or ICP-OES, digestion procedure, and the laboratory that runs it.</li>
+      <li><strong>Reporting rule</strong> for results below LOQ, and for any element not detected.</li>
+    </ol>
+    <p>The limit should not be tighter than the method can reliably deliver. A 0.1 ppm limit measured by a method with a 1 ppm LOQ is not a specification; it is a number that will be reported as “below LOQ” forever. The same discipline used for <a href="/knowledge/peptide-specification-annex/">specification annexes</a> applies here: a limit without a method is not testable.</p>
+
+    <h2>Control before testing</h2>
+    <p>Testing finds contamination; it does not prevent it. The controls that matter are upstream: qualified water, reagent specifications, passivated stainless steel, dedicated equipment for metal-sensitive steps, cleaning validation between campaigns, and a documented list of catalysts used in the route. A supplier who can describe those controls is more convincing than one who offers a certificate with a long element list and no method.</p>
+    <p>This is also where the <a href="/knowledge/remote-peptide-supplier-audit/">remote audit</a> earns its place: asking to see the water system, the reactor material and the cleaning records tells you more about elemental risk than a single batch result.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical and specification practice; it makes no claim that any product or supplier meets a particular elemental limit, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-residual-solvents/">Residual solvents</a> — the volatile counterpart to elemental impurities</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — turning a limit into a testable clause</li>
+      <li><a href="/knowledge/analytical-method-validation/">Analytical method validation</a> — what an elemental method needs before release use</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — organic impurities from the same process</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — equipment, water and cleaning evidence</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-elemental-impurities/" />
+</BaseLayout>
