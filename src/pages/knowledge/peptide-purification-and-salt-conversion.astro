@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Purification and salt conversion';
+const description = 'From crude cleavage cocktail to a filled vial: how preparative HPLC, fraction pooling and counter-ion exchange set the purity, yield and salt form you receive.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-purification-and-salt-conversion/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Purification & salt conversion'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A certificate usually reports one purity number and one molecular weight. Between the crude resin and the vial there are two processes that determine both — and they are where most of the cost, and most of the batch-to-batch variation, actually lives.</p>
+
+    <h2>Where the crude peptide stands</h2>
+    <p>Cleavage from the resin delivers a solution containing the target sequence plus everything the synthesis failed to do perfectly: truncated sequences, sequences with a missing or extra coupling, oxidised variants, and residual protecting-group adducts. After precipitation and drying this is the crude peptide, and its target content is often far below what a buyer would accept.</p>
+    <p>Crude purity is a property of the synthesis, not of the purification. A 30-residue sequence with several difficult couplings may come out of cleavage at 40–50% target content; a short, well-behaved sequence may exceed 80%. Purification cannot create material that is not there — it can only remove what is not the target, and every removal step costs yield.</p>
+
+    <h2>Preparative HPLC: the same principle as analysis, different objective</h2>
+    <p>Preparative reversed-phase HPLC uses the same retention logic as the analytical column discussed in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>, but the column is wider, the load is measured in grams, and the fraction collector — not the integrator — is the output. The practical differences matter to a buyer:</p>
+    <table>
+      <thead><tr><th>Parameter</th><th>Analytical scale</th><th>Preparative scale</th></tr></thead>
+      <tbody>
+        <tr><td>Objective</td><td>Resolve and quantify every species</td><td>Recover the target at the required purity</td></tr>
+        <tr><td>Column diameter</td><td>2–4.6 mm</td><td>10–50 mm and above</td></tr>
+        <tr><td>Load</td><td>Micrograms</td><td>Milligrams to grams per injection</td></tr>
+        <tr><td>Mobile phase</td><td>Acetonitrile/water with 0.1% TFA</td><td>Same chemistry, larger volumes, solvent recovery matters</td></tr>
+        <tr><td>Peak shape</td><td>Diagnostic</td><td>Overload distorts peaks; resolution is traded for throughput</td></tr>
+        <tr><td>Output</td><td>Area percent</td><td>Pooled fractions, then re-analysis</td></tr>
+      </tbody>
+    </table>
+    <p>Because the column is overloaded relative to analytical conditions, the separation is deliberately imperfect. The operator cuts fractions around the target peak, and where the cut is placed is a commercial decision as much as a technical one: a tight cut raises purity and lowers yield; a loose cut does the reverse. This is why two suppliers can both report “98%” while one delivers materially more material per gram of crude.</p>
+
+    <h2>Fraction pooling is a purity decision made in real time</h2>
+    <p>Fractions are collected across the target peak and analysed — typically by analytical HPLC, often by MS — before pooling. Three pooling strategies are common:</p>
+    <ul>
+      <li><strong>Centre cut only.</strong> Highest purity per pool, lowest recovery. Appropriate when the specification is tight and the crude is cheap relative to the target purity.</li>
+      <li><strong>Centre plus shoulders, re-purified.</strong> The shoulders are pooled and run through a second purification. More work, better overall yield at the same final purity.</li>
+      <li><strong>Wide pool.</strong> Maximum recovery, purity dependent on the crude. This is how a “98%” claim can coexist with a chromatogram whose main peak sits on a substantial shoulder.</li>
+    </ul>
+    <p>A useful question for a supplier is not “what purity do you reach” but “what is your recovery from crude to released batch, and is the reported purity measured on the pooled batch or the best fraction?” A certificate with no batch-level chromatogram cannot answer either.</p>
+
+    <h2>The yield arithmetic</h2>
+    <p>An illustrative sequence of losses — the numbers are chosen to make the arithmetic visible, not to describe any particular supplier:</p>
+    <ul>
+      <li>10 g crude at 55% target content = 5.5 g of target sequence.</li>
+      <li>Preparative recovery of 75% of that target = 4.1 g in the pooled fractions.</li>
+      <li>Salt conversion and lyophilisation losses of 10% = about 3.7 g of finished peptide.</li>
+      <li>Overall yield from crude target = roughly 67%; from crude weight = 37%.</li>
+    </ul>
+    <p>Everything downstream of the synthesis — solvent, column time, lyophiliser cycles, QC — is paid for by that yield. It is the main reason price per gram rises steeply as the requested purity moves from 95% to 98% to 99%, and why very high purity on a difficult sequence is quoted with a longer lead time rather than simply a higher price.</p>
+
+    <h2>Why the counter-ion is a process choice</h2>
+    <p>Reversed-phase purification with trifluoroacetic acid as the ion-pairing agent leaves the peptide as a TFA salt. TFA is volatile, which is convenient during lyophilisation, and it sharpens peaks, which is convenient during purification. It is also the default form in which most research peptides ship.</p>
+    <p>Some applications prefer acetate: TFA can be problematic in cell-culture work at higher concentrations, and acetate is the more common counter-ion for material intended for biological assays. Converting means exchanging the anion without changing the peptide:</p>
+    <ul>
+      <li><strong>Ion-exchange resin.</strong> The peptide solution is passed through an anion-exchange resin in the acetate form; TFA is retained and acetate replaces it. Fast, but dilution and additional handling losses are real.</li>
+      <li><strong>Repeated lyophilisation from dilute acetic acid.</strong> Volatile exchange by mass action. Gentle, slow, and rarely complete in a single cycle.</li>
+      <li><strong>Preparative HPLC with an acetate buffer.</strong> Exchange and purification in one step, at the cost of a second chromatography run.</li>
+    </ul>
+    <p>The mass consequence is predictable. Each TFA anion (≈113 Da) replaced by acetate (≈59 Da) lowers the salt mass by roughly 54 Da per basic site. A peptide with four basic residues fully converted therefore differs by about 216 Da — enough to look like a discrepancy if you compare a catalogue molecular weight against a mass spectrum without knowing which form was measured. The calculation of peptide content from salt mass is set out in <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a>.</p>
+
+    <h2>What “fully converted” can and cannot mean</h2>
+    <p>Exchange is an equilibrium process, and a residual fraction of TFA usually remains. The honest specification is not “TFA-free” but a limit: residual TFA below a stated level, measured by a stated method, on a stated basis. Ion chromatography or headspace GC with a suitable derivatisation or detection scheme can quantify it; a certificate that says only “acetate salt” without a residual figure is describing the intent, not the result.</p>
+    <p>The same logic applies to water content. Lyophilisation removes bulk solvent but leaves bound water, and the amount depends on the cycle and on the peptide. Karl Fischer titration gives the number; without it, “dry powder” is an observation, not a specification. Both residual solvent and water affect net peptide content, which is why the cost comparison in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a> uses the as-is mass rather than the label weight.</p>
+
+    <h2>Lyophilisation is part of purification, not packaging</h2>
+    <p>After pooling, the solution is typically diluted with water to reduce acetonitrile, filtered, and freeze-dried. Two things can go wrong at this stage in ways that a purity assay will not reveal:</p>
+    <ul>
+      <li><strong>Buffer concentration.</strong> A pooled fraction carrying a high salt load can collapse or melt during drying, producing a shrunk cake and a batch with uneven moisture.</li>
+      <li><strong>Aggregation on concentration.</strong> Removing solvent increases peptide concentration in the liquid phase before freezing; hydrophobic sequences can aggregate there and stay aggregated in the cake.</li>
+    </ul>
+    <p>Neither is visible on a certificate that reports only HPLC purity. Both show up later, as poor reconstitution or a drifting assay, which is why the questions in <a href="/knowledge/peptide-lyophilization-explained/">lyophilization</a> are worth asking before a bulk order rather than after.</p>
+
+    <h2>Scale-up changes the process, not just the quantity</h2>
+    <p>A 100 mg purification and a 100 g purification are not the same method run longer. Column loading, gradient slope, fraction volume and the acceptable pressure drop all change. The practical consequences a buyer should expect:</p>
+    <ul>
+      <li><strong>Method redevelopment at scale.</strong> A gradient that resolves well on a 10 mm column may not resolve on a 50 mm column at ten times the load.</li>
+      <li><strong>Longer pool hold times.</strong> Fractions sitting in a collector for hours are exposed to solvent and temperature; stability during processing becomes a real variable.</li>
+      <li><strong>More solvent per gram.</strong> Acetonitrile consumption and recovery drive cost and, in some jurisdictions, environmental reporting.</li>
+      <li><strong>Different impurity profile.</strong> Not because the chemistry changed, but because the cut points moved. This is one reason a small qualification lot and a bulk lot can differ in ways that look like quality drift.</li>
+    </ul>
+    <p>The bridge between a sample and a commercial batch should therefore be a defined comparison — same method, same acceptance criteria, side-by-side chromatograms — rather than an assumption that the process is scale-invariant. That is the same bridging logic described in <a href="/knowledge/second-peptide-supplier-qualification/">qualifying a second supplier</a>, applied within one supplier.</p>
+
+    <h2>Questions that separate a process from a claim</h2>
+    <ul>
+      <li>What is the crude purity of this sequence, and what is the recovery from crude to released batch?</li>
+      <li>Is the reported purity measured on the pooled, lyophilised batch or on a selected fraction?</li>
+      <li>Which counter-ion form is supplied, and what is the residual TFA (or acetate) limit and method?</li>
+      <li>What is the water content by Karl Fischer, and on what basis is purity reported — as-is, anhydrous or peptide basis?</li>
+      <li>Was the batch purified on the same column geometry and gradient as the qualification lot?</li>
+      <li>What is the hold time between pooling and lyophilisation, and is stability over that hold time known?</li>
+    </ul>
+    <p>None of these require a supplier to disclose proprietary process details. All of them require that a process exists and is measured — which is the distinction between a certificate that describes a batch and one that describes a hope.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes manufacturing and analytical practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — acetate vs TFA, mass and peptide content</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading an HPLC chromatogram</a> — what the analytical trace does and does not show</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Impurities from synthesis</a> — what purification is trying to remove</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization</a> — the drying step and its failure modes</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — converting salt mass to peptide mass</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing these requirements into a purchase document</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — the analytical panel behind a release</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-purification-and-salt-conversion/" />
+</BaseLayout>

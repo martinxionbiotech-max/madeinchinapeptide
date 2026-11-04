@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Inventory and retest dates';
+const description = 'Lead-time variance, safety stock arithmetic, retest versus expiry, and a quarantine routine that keeps an old vial out of a new experiment.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-inventory-and-retest-dates/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Inventory & retest dates'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Most peptide shortages are not caused by a supplier failing. They are caused by ordering on the assumption that the next delivery will arrive as fast as the last one — and finding out during an experiment that it will not.</p>
+
+    <h2>The three clocks on every vial</h2>
+    <p>A vial carries three independent dates, and conflating them causes both waste and failed assays:</p>
+    <table>
+      <thead><tr><th>Date</th><th>What it means</th><th>What it does not mean</th></tr></thead>
+      <tbody>
+        <tr><td>Manufacture date</td><td>When the batch was produced</td><td>That the material is still suitable today</td></tr>
+        <tr><td>Retest date</td><td>The date by which the supplier warrants the specification, subject to re-analysis</td><td>That the material is unusable afterwards — it means re-test before use</td></tr>
+        <tr><td>Expiry date</td><td>The end of the supported shelf life; no re-test extends it</td><td>That the material was ever tested at that date</td></tr>
+      </tbody>
+    </table>
+    <p>For research peptides, a retest date is usually the honest construct: the supplier has stability data covering a period, and beyond that period the specification is not warranted without fresh analysis. An expiry date is a stronger claim and should be backed by real-time data on the same container and format. If a certificate carries neither, the shelf life is undefined — which is not the same as infinite. The data behind such claims is discussed in <a href="/knowledge/peptide-stability-studies/">stability studies</a>.</p>
+
+    <h2>Retest is an action, not a label</h2>
+    <p>When a vial passes its retest date, one of three things should happen, and “use it anyway” is not among them:</p>
+    <ol>
+      <li><strong>Re-test against the specification</strong> — identity by MS, purity by HPLC, water by Karl Fischer, appearance and solubility. If the results meet the original limits, assign a new retest interval and record the decision.</li>
+      <li><strong>Re-qualify for a narrower use</strong> — for example, keep it for a qualitative assay where a small purity loss is tolerable, and document the restriction.</li>
+      <li><strong>Retire it</strong> — remove from inventory, mark the vial, and record why. A retired vial that stays in the fridge is a future mistake.</li>
+    </ol>
+    <p>Re-testing is only meaningful if the original specification is known. This is another reason to keep the batch certificate with the vial rather than in a shared drive that nobody opens: the re-test has to be judged against something.</p>
+
+    <h2>Safety stock, with arithmetic</h2>
+    <p>The reorder point answers one question: at what stock level do we place the next order so that a normal delay does not stop work? A workable approximation:</p>
+    <p><strong>Reorder point = (average weekly use × average lead time in weeks) + safety stock</strong></p>
+    <p>Safety stock covers the variability, not the average. Using a service-level factor z (1.65 for roughly 95% coverage), lead-time standard deviation σ<sub>LT</sub>, and weekly demand d:</p>
+    <p><strong>Safety stock ≈ z × σ<sub>LT</sub> × d</strong></p>
+    <p>An example with round numbers: weekly use of 10 vials, average lead time 6 weeks, lead-time standard deviation 2 weeks.</p>
+    <ul>
+      <li>Lead-time demand = 10 × 6 = 60 vials.</li>
+      <li>Safety stock = 1.65 × 2 × 10 = 33 vials.</li>
+      <li>Reorder point = 60 + 33 = 93 vials.</li>
+    </ul>
+    <p>In words: order when the shelf drops to about 93 vials, not when it drops to 60. The extra 33 is the price of not running out during a customs delay — and for imported material, a two-week standard deviation on lead time is optimistic rather than pessimistic.</p>
+    <p>Two refinements matter in practice. If demand is lumpy — a few large experiments rather than a steady trickle — use the maximum plausible consumption over the lead time instead of the average, because the average hides the spike. And if the material is expensive or short-dated, do not simply raise safety stock: shorten the review cycle and order smaller quantities more often, which trades price per gram against holding risk.</p>
+
+    <h2>The hidden cost of holding</h2>
+    <p>Safety stock is not free, and for peptides the holding cost is not mainly warehouse space:</p>
+    <ul>
+      <li><strong>Degradation over time.</strong> Every month on the shelf is a month off the retest window, and the material may need re-testing before use.</li>
+      <li><strong>Capital tied up.</strong> Bulk pricing rewards large orders, but a large order of a compound you use twice a year is a bet on the stability of your own research plan.</li>
+      <li><strong>Obsolescence.</strong> A project changes target; the vial does not.</li>
+      <li><strong>Freeze–thaw exposure.</strong> A large stock is opened more often than a small one, and each opening is a cycle.</li>
+    </ul>
+    <p>The right quantity is the one that covers the retest interval at your consumption rate, not the one that gets the best unit price. The pricing structure behind volume breaks is covered in <a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ and pricing tiers</a>.</p>
+
+    <h2>A quarantine routine that survives contact with a lab</h2>
+    <p>Receipt is the point where most inventory errors are introduced. A short, enforced routine prevents them:</p>
+    <ol>
+      <li><strong>Log on arrival</strong> — date, supplier, catalogue number, lot, quantity, storage condition, and the name of the person who received it.</li>
+      <li><strong>Inspect before storing</strong> — vial integrity, cake appearance, label legibility, cold-chain indicator if present. Photograph anything anomalous.</li>
+      <li><strong>Separate until released</strong> — a physical quarantine box or a labelled shelf, not a mental note. Nothing enters the working stock until the certificate has been checked against the order.</li>
+      <li><strong>Check the certificate against the lot</strong> — batch number, test items, methods, and whether the chromatogram belongs to this lot. The checks are set out in <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>.</li>
+      <li><strong>Assign an internal ID</strong> and write the retest date on the vial and in the inventory record.</li>
+      <li><strong>Store at the specified condition</strong>, desiccated, protected from light, and in a container that will not be opened for every use — aliquot if the vial is large.</li>
+    </ol>
+    <p>The single most effective control is the physical separation of unreleased material. A quarantine shelf is cheap; investigating why an unverified lot was used in a three-week experiment is not.</p>
+
+    <h2>FIFO, and why it fails</h2>
+    <p>First-in-first-out is the default rule and it is usually right. It fails in one common situation: when a newer lot is analytically better than an older one, and the older lot is used first to “use it up”. That is a false economy if the older lot is near its retest date and the assay is sensitive to purity.</p>
+    <p>A more defensible rule is: <strong>FIFO within a qualification status</strong>. Use the oldest lot that is still within its retest window and meets the specification. If an older lot needs re-testing before use, that cost belongs in the decision, not in a surprise during the run. Lot-to-lot differences and how to characterise them are covered in <a href="/knowledge/peptide-lot-consistency/">lot consistency</a>.</p>
+
+    <h2>When to re-test versus when to re-order</h2>
+    <table>
+      <thead><tr><th>Situation</th><th>Re-test</th><th>Re-order</th></tr></thead>
+      <tbody>
+        <tr><td>Past retest date, small quantity left, experiment imminent</td><td>Yes, if the assay can wait for results</td><td>Yes — do not depend on the outcome</td></tr>
+        <tr><td>Past retest date, bulk quantity, stable sequence</td><td>Yes, full panel</td><td>No, if re-test passes and use is planned</td></tr>
+        <tr><td>Within date, but cake discoloured or vial damaged</td><td>Yes — visual change is a result</td><td>Yes, in parallel</td></tr>
+        <tr><td>Within date, assay drifted with no protocol change</td><td>Yes, plus a retained-sample comparison</td><td>Only if re-test fails</td></tr>
+        <tr><td>New lot arrived, old lot still in date</td><td>No</td><td>No — but qualify the new lot before switching</td></tr>
+      </tbody>
+    </table>
+    <p>Note the third and fourth rows: a visual or assay anomaly is a reason to test, not a reason to assume. The material may be fine and the problem elsewhere; the only way to know is to measure.</p>
+
+    <h2>Records that make the next decision cheap</h2>
+    <p>An inventory record worth keeping has six fields per lot: internal ID, supplier lot, quantity received, date received, retest date, and current status (quarantined, released, retired). Add a free-text note for anything unusual. That is enough to answer the questions that actually arise: what do we have, how old is it, and may we use it.</p>
+    <p>It is also enough to notice a pattern. If the same lot keeps failing re-test, the storage condition or the supplier's stability claim is the problem — and both are cheaper to fix than to rediscover.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes inventory practice; it makes no claim about any specific compound, gives no dosing guidance, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-stability-studies/">Stability studies</a> — what supports a retest date</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot consistency</a> — comparing an old lot with a new one</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — the receipt check</li>
+      <li><a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ and pricing tiers</a> — the cost side of order quantity</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Cold chain and logistics</a> — what happens between order and arrival</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-inventory-and-retest-dates/" />
+</BaseLayout>

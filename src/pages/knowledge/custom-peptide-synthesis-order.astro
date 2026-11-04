@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Ordering a custom peptide';
+const description = 'A sequence string is not an order. The fields that determine feasibility, price and whether the delivered material can be used for the assay you designed.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/custom-peptide-synthesis-order/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Custom synthesis orders'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Custom synthesis quotations are cheap and fast to obtain, and that is part of the problem: two quotes for the same sequence can differ by a factor of five and both be honest, because they are quoting different products.</p>
+
+    <h2>The sequence is the beginning, not the specification</h2>
+    <p>“Ac-XXXX-NH₂, 95%, 10 mg” leaves at least a dozen decisions unstated. Each one is a line item in a real quotation, and each one can make the difference between material that works in your assay and material you cannot use.</p>
+    <table>
+      <thead><tr><th>Field</th><th>Why it changes the product</th><th>Example of a complete entry</th></tr></thead>
+      <tbody>
+        <tr><td>Sequence</td><td>One-letter code, N→C direction, unambiguous residues</td><td>H-Ala-Gly-Ser-OH, written N to C</td></tr>
+        <tr><td>Length</td><td>Cost rises non-linearly with residues; coupling efficiency falls</td><td>State the residue count</td></tr>
+        <tr><td>N-terminus</td><td>Free amine, acetyl, biotin, fluorophore, fatty acid</td><td>Acetylated, or free amine</td></tr>
+        <tr><td>C-terminus</td><td>Free acid vs amide — a 1 Da difference that changes charge and stability</td><td>C-terminal amide</td></tr>
+        <tr><td>Non-natural residues</td><td>D-amino acids, β-amino acids, N-methylation, stapling</td><td>Specify position and stereochemistry</td></tr>
+        <tr><td>Labelling</td><td>FAM, FITC, biotin at a defined position, with or without a linker</td><td>Biotin at Lys⁵ via Ahx linker</td></tr>
+        <tr><td>Disulfides</td><td>Which cysteines pair; random oxidation gives a mixture</td><td>Cys²–Cys⁷, Cys⁴–Cys¹¹</td></tr>
+        <tr><td>Cyclisation</td><td>Head-to-tail, side-chain-to-side-chain, or lactam bridge</td><td>Head-to-tail cyclic</td></tr>
+        <tr><td>Scale</td><td>mg, g; affects purification method and price per mg</td><td>50 mg delivered</td></tr>
+        <tr><td>Purity</td><td>By HPLC area percent, with method stated</td><td>≥95% by RP-HPLC, 214 nm</td></tr>
+        <tr><td>Counter-ion</td><td>TFA or acetate; changes mass and assay compatibility</td><td>Acetate salt</td></tr>
+        <tr><td>Deliverable</td><td>Vial format, fill mass basis, documentation</td><td>10 mg × 5 vials, peptide basis stated</td></tr>
+      </tbody>
+    </table>
+    <p>The specification annex article covers how to write these as testable limits in a purchase document — see <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a>. This article is about the earlier step: deciding what you actually need.</p>
+
+    <h2>Sequence features that drive difficulty</h2>
+    <p>Suppliers price difficulty, not just length. The features below are the usual reasons a quote comes back high or with a longer lead time:</p>
+    <ul>
+      <li><strong>Hydrophobic stretches.</strong> Long runs of leucine, isoleucine, valine or phenylalanine aggregate on the resin and during cleavage, reducing coupling efficiency and complicating purification.</li>
+      <li><strong>Multiple cysteines.</strong> Each disulfide pairing is a folding problem; four cysteines give three possible pairings, and the desired one may not be favoured.</li>
+      <li><strong>Arginine-rich sequences.</strong> Guanidinium side chains interact strongly with resin and with purification media, and the peptide can be difficult to release from the column.</li>
+      <li><strong>β-branched and sterically hindered residues</strong> (Val, Ile, Thr) slow coupling and increase deletion impurities.</li>
+      <li><strong>Long proline runs</strong> and sequences prone to aspartimide formation during coupling.</li>
+      <li><strong>Length beyond about 40–50 residues.</strong> Stepwise yield compounds: at 99% average coupling, a 50-mer is already at roughly 60% full-length before purification (0.99⁵⁰ ≈ 0.61).</li>
+    </ul>
+    <p>That last arithmetic is worth internalising. It is not a supplier's limitation; it is the reason long sequences are quoted at a different order of magnitude, and why a fragment-condensation or native-ligation route may be proposed instead of straight solid-phase synthesis.</p>
+
+    <h2>Purity grade: choose by use, not by prestige</h2>
+    <p>Moving from 95% to 98% can double the price because it costs yield, not because the extra 3% is inherently expensive. Whether that trade is worth it depends on what the material is for:</p>
+    <ul>
+      <li><strong>Immunoassay or ELISA coating.</strong> Impurities can cross-react or raise background; a high grade is usually cheap insurance relative to the cost of the assay.</li>
+      <li><strong>Analytical standards and method development.</strong> You need a well-characterised main peak and, often, a known impurity profile. Purity grade and full data matter more than mass.</li>
+      <li><strong>Structural studies.</strong> Homogeneity matters; a mixture of diastereomers may not crystallise or may not give interpretable spectra.</li>
+      <li><strong>Bulk screening or optimisation runs.</strong> A lower grade may be adequate if the readout is tolerant and the lot is characterised.</li>
+    </ul>
+    <p>What purity grade cannot do is fix a wrong sequence. Area percent is silent on whether the main peak is the intended molecule; that requires mass confirmation. See <a href="/knowledge/peptide-mass-spec-identity/">mass spectrometry identity</a> for what a mass match does and does not prove.</p>
+
+    <h2>Scale and fill: the part buyers most often get wrong</h2>
+    <p>“10 mg” is ambiguous in three independent ways:</p>
+    <ol>
+      <li><strong>Fill weight vs peptide content.</strong> A vial containing 10 mg of powder at 80% net peptide content contains 8 mg of peptide, and the salt and water make up the rest. If your assay is planned on peptide mass, the shortfall is 20%.</li>
+      <li><strong>Per vial vs total.</strong> Five vials at 10 mg each is 50 mg; five vials totalling 10 mg is not.</li>
+      <li><strong>Overfill vs exact fill.</strong> Some suppliers add a small overfill to compensate for handling loss; if you are calculating molarity from the label, overfill changes the concentration.</li>
+    </ol>
+    <p>The arithmetic of net content is worked through in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content and cost per mg</a>. The practical rule: state the basis explicitly — “10 mg peptide content per vial, peptide basis, net content ≥80%” — and ask for the fill weight and the net content result on the certificate.</p>
+
+    <h2>What to ask before accepting a quote</h2>
+    <ul>
+      <li>Is the quoted price per vial or per mg, and on which basis is the milligram defined?</li>
+      <li>What is the expected crude purity for this sequence, and what recovery from crude is assumed in the price?</li>
+      <li>Which counter-ion will be supplied, and is a residual TFA limit reported?</li>
+      <li>What is the expected lead time, and what part of it is synthesis versus purification versus QC?</li>
+      <li>Which analytical data accompany the batch — HPLC at which wavelength, MS by which ionisation mode, and are the raw traces included?</li>
+      <li>If the sequence proves difficult, will the supplier re-quote or deliver at a lower purity, and who decides?</li>
+      <li>Is the sequence treated as confidential, and is there a written undertaking?</li>
+    </ul>
+    <p>That last item is not paranoia. Custom sequences are often the most valuable thing in the transaction, and a supplier who will not put confidentiality in writing is telling you something about how they handle information.</p>
+
+    <h2>Red flags in a custom quote</h2>
+    <table>
+      <thead><tr><th>Signal</th><th>What it usually means</th></tr></thead>
+      <tbody>
+        <tr><td>A quote returned in minutes for a 40-mer with four cysteines</td><td>Template pricing, not a feasibility assessment</td></tr>
+        <tr><td>No question about disulfide pairing or terminus</td><td>The order will be made with default assumptions</td></tr>
+        <tr><td>“Purity 98%” with no method or wavelength</td><td>The number is not a measurement</td></tr>
+        <tr><td>Price far below every other quote with no explanation</td><td>Different scale, different grade, or a different (possibly resold) product</td></tr>
+        <tr><td>Refusal to provide a chromatogram before shipment</td><td>You are buying a promise, not a batch</td></tr>
+        <tr><td>Lead time quoted without a QC stage</td><td>Release testing may be nominal</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A practical ordering sequence</h2>
+    <ol>
+      <li><strong>Write the sequence</strong> in one-letter code with explicit N- and C-termini, and check the residue count yourself.</li>
+      <li><strong>Compute the expected mass</strong> from residue masses plus terminal groups, and decide whether you expect the free or salt form. The arithmetic is in <a href="/knowledge/peptide-sequence-notation/">sequence notation and molecular weight</a>.</li>
+      <li><strong>Define the assay first.</strong> Concentration, solvent, plate type and readout determine the purity grade, the counter-ion and the quantity you need.</li>
+      <li><strong>Request quotes with a fixed field list</strong>, so that the quotes are comparable.</li>
+      <li><strong>Order a small qualification lot</strong> and test it in your own system before committing to bulk.</li>
+      <li><strong>Write the acceptance criteria into the purchase order</strong>, including what happens if the batch fails.</li>
+    </ol>
+    <p>Steps 1–3 cost an hour and prevent most of the expensive mistakes. The rest is procurement discipline, which the <a href="/knowledge/china-peptide-supplier-checklist/">supplier checklist</a> covers in more detail.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes procurement and analytical practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-specification-annex/">Writing a specification annex</a> — turning requirements into testable limits</li>
+      <li><a href="/knowledge/peptide-sequence-notation/">Sequence notation and molecular weight</a> — checking the sequence and its mass</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — what a milligram actually contains</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — choosing TFA or acetate</li>
+      <li><a href="/knowledge/peptide-purification-and-salt-conversion/">Purification and salt conversion</a> — where yield and purity are decided</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Supplier checklist</a> — qualifying the supplier behind the quote</li>
+      <li><a href="/oem-private-label/">OEM and private label</a> — when the order becomes a branded product</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/custom-peptide-synthesis-order/" />
+</BaseLayout>

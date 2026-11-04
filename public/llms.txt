@@ -30,6 +30,10 @@
 - /knowledge/peptide-residual-solvents/ — solvent residues from synthesis and purification, headspace GC and COA fields
 - /knowledge/peptide-net-content-and-cost/ — fill weight vs peptide mass, salt and water correction, cost per mg
 - /knowledge/peptide-sampling-and-batch-release/ — sampling plans, receipt testing, retain samples and OOS investigation
+- /knowledge/peptide-purification-and-salt-conversion/ — preparative HPLC, fraction pooling, yield and counter-ion exchange
+- /knowledge/peptide-aggregate-analytics/ — SEC, DLS, AUC and FTIR: what each aggregate method measures
+- /knowledge/custom-peptide-synthesis-order/ — custom sequence orders: fields, difficulty drivers, scale basis
+- /knowledge/peptide-inventory-and-retest-dates/ — safety stock, retest dates, quarantine and FIFO
 - /knowledge/peptide-synthesis-impurities/ — synthesis-derived impurities, mass-shifted vs mass-silent, impurity statement fields
 - /knowledge/peptides-in-cell-culture-assays/ — adsorption, serum binding, vehicle and readout interference in in-vitro work
 - /tools/ — laboratory calculators

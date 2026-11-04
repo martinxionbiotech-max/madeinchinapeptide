@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Measuring peptide aggregates';
+const description = 'Four techniques see four different things. What each aggregate method actually measures, where it misleads, and what to ask a supplier to report.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-aggregate-analytics/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Aggregate analytics'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“Aggregation” is not one measurement. It is a family of phenomena that different instruments report in different units, on different time scales, with different sensitivities — which is why two labs can test the same vial and disagree.</p>
+
+    <h2>Start with what you are trying to detect</h2>
+    <p>Aggregates differ in at least four dimensions, and no single method covers all of them:</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>Range that matters</th><th>Method that sees it</th></tr></thead>
+      <tbody>
+        <tr><td>Size</td><td>Dimers (≈2–10 kDa) to micron-scale particles</td><td>SEC for small oligomers; DLS and particle counting for larger</td></tr>
+        <tr><td>Quantity</td><td>0.1% to tens of percent</td><td>SEC with UV detection; AUC</td></tr>
+        <tr><td>Reversibility</td><td>Reversible self-assembly vs covalent aggregate</td><td>Dilution series; AUC; SEC with and without denaturant</td></tr>
+        <tr><td>Structure</td><td>Amorphous aggregate vs cross-β fibril</td><td>FTIR amide I; ThT fluorescence; electron microscopy</td></tr>
+      </tbody>
+    </table>
+    <p>A certificate that says “no aggregation” without naming the method is not reporting a result. It is reporting an absence of measurement.</p>
+
+    <h2>SEC: the workhorse, with a known blind spot</h2>
+    <p>Size-exclusion chromatography separates by hydrodynamic volume. The column matrix has pores of a defined size range; molecules larger than the pores are excluded and elute first, while smaller molecules enter the pores and are retarded. For peptides, the useful pore range is much smaller than for antibodies, and the mobile phase usually needs a high organic content or a denaturing additive to keep the peptide from adsorbing to the resin.</p>
+    <p>Three practical consequences:</p>
+    <ul>
+      <li><strong>Adsorption inflates the aggregate result.</strong> A hydrophobic peptide can stick to the column and elute as a broad, late hump that looks like a small species. Recovery should be checked by comparing the total peak area against an injection of known amount.</li>
+      <li><strong>Dilution dissociates reversible aggregates.</strong> The column dilutes the sample as it separates it. A weak dimer held together by hydrophobic contact may be gone by the time it reaches the detector, so SEC under-reports reversible self-assembly.</li>
+      <li><strong>The void volume hides large species.</strong> Anything larger than the exclusion limit elutes as a single peak at the void volume, unresolved from other large species — and sometimes from the column's own artefacts.</li>
+    </ul>
+    <p>SEC is therefore good at quantifying covalent dimers and stable oligomers, and poor at proving the absence of everything else. A reported “monomer content 99.2%” means 99.2% of the UV-absorbing material eluted in the monomer peak under those conditions — no more.</p>
+
+    <h2>DLS: sensitive, semi-quantitative, easily over-read</h2>
+    <p>Dynamic light scattering measures the fluctuation of scattered light intensity and derives a hydrodynamic radius. It requires no separation, so it does not perturb the equilibrium — an advantage for reversible assembly. It is also:</p>
+    <ul>
+      <li><strong>Intensity-weighted.</strong> Scattering intensity scales roughly with the sixth power of radius, so a tiny number of large species dominates the signal. A DLS “peak” at 200 nm may represent a handful of particles.</li>
+      <li><strong>Polydispersity-sensitive.</strong> A broad or multi-modal distribution is difficult to invert into a size distribution, and the reported “peak size” depends on the algorithm.</li>
+      <li><strong>Concentration-sensitive in the wrong direction.</strong> Very dilute samples scatter weakly and produce noisy correlograms; the fit may still return a number.</li>
+    </ul>
+    <p>DLS is useful for detecting that something large is present and for comparing formulations side by side under identical conditions. It is not a purity assay, and a DLS result should never be used to claim a percentage of aggregate.</p>
+
+    <h2>AUC: the reference method, rarely available</h2>
+    <p>Analytical ultracentrifugation separates species in a centrifugal field and measures their concentration distribution optically. Sedimentation velocity analysis resolves monomers, dimers and larger oligomers in solution, without a column matrix and without dilution artefacts.</p>
+    <p>It is also slow, sample-hungry by peptide standards, and requires specialist fitting expertise. For a research peptide supplier it is almost never part of routine release. Its value to a buyer is as an arbiter: when SEC and DLS disagree, AUC on a retained sample is what settles the question.</p>
+
+    <h2>FTIR: structure, not quantity</h2>
+    <p>The amide I band (roughly 1600–1700 cm⁻¹) reports backbone conformation. A shift toward the 1620–1640 cm⁻¹ region is associated with β-sheet, and intermolecular β-sheet is characteristic of many aggregated states; a strong band near 1650–1658 cm⁻¹ indicates mostly unordered or α-helical structure.</p>
+    <p>What FTIR does not do is count. It tells you that a population has changed conformation, not what fraction of the mass is aggregated. It is also affected by water vapour and by the drying method used to prepare the sample, both of which can shift the baseline enough to change the interpretation.</p>
+
+    <h2>ThT and other dye-binding assays</h2>
+    <p>Thioflavin T fluoresces when bound to cross-β fibril structure. It is fast, cheap and sensitive — and it answers a narrow question: are fibrillar species present? Amorphous aggregates do not bind ThT, so a negative result says nothing about them. Several classes of compound can also produce false positives by competing for the dye or by fluorescing themselves, which is why a ThT result is normally confirmed by a second method such as FTIR or microscopy.</p>
+
+    <h2>What a certificate can reasonably include</h2>
+    <p>For a lyophilised research peptide, an honest aggregate panel is modest:</p>
+    <ul>
+      <li><strong>SEC monomer content</strong>, with the mobile phase and column range stated, plus a recovery check.</li>
+      <li><strong>Visual inspection</strong> of the reconstituted solution against a dark and a light background, recorded as an observation.</li>
+      <li><strong>Optional DLS</strong> for a size distribution at a stated concentration, reported as a distribution rather than a single number.</li>
+      <li><strong>For material intended for biological assay</strong>, a ThT or FTIR result if fibril formation is a plausible failure mode for that sequence.</li>
+    </ul>
+    <p>What should not appear is a bare “aggregation: none” with no method, no concentration and no acceptance criterion. The general problem of claims without methods is covered in <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>.</p>
+
+    <h2>Sample handling decides the result</h2>
+    <p>Aggregate measurements are unusually sensitive to how the sample was prepared, and the differences are large enough to change a pass into a fail:</p>
+    <table>
+      <thead><tr><th>Variable</th><th>Effect</th><th>What to fix</th></tr></thead>
+      <tbody>
+        <tr><td>Reconstitution concentration</td><td>Higher concentration shifts equilibrium toward assembly</td><td>State the concentration; compare like with like</td></tr>
+        <tr><td>Filtering before injection</td><td>Removes large species and adsorbs peptide</td><td>Report whether the sample was filtered, and through what</td></tr>
+        <tr><td>Time since reconstitution</td><td>Assembly can continue for hours</td><td>Fix the hold time and temperature before analysis</td></tr>
+        <tr><td>Agitation</td><td>Air–liquid interfaces nucleate aggregation</td><td>Avoid vortexing; define mixing</td></tr>
+        <tr><td>Freeze–thaw cycles</td><td>Each cycle adds a nucleation opportunity</td><td>Single-use aliquots; record cycle count</td></tr>
+        <tr><td>Temperature</td><td>Kinetics and equilibrium both move</td><td>Analyse at a stated temperature</td></tr>
+      </tbody>
+    </table>
+    <p>Two labs can therefore both be competent and still disagree, because one filtered and the other did not, or because one analysed immediately and the other after a queue. When comparing data, compare the method section first.</p>
+
+    <h2>Why this matters commercially</h2>
+    <p>Aggregation is one of the few quality attributes that can be materially worse in a bulk batch than in the qualification sample without any change in reported HPLC purity. Purity by area percent measures UV-absorbing species separated on a column; it does not measure whether the material will stay in solution at your working concentration. That is why the handling guidance in <a href="/knowledge/peptide-aggregation-self-assembly/">aggregation and self-assembly</a> and <a href="/knowledge/peptide-solubility-troubleshooting/">solubility troubleshooting</a> belongs next to the analytical methods rather than after them.</p>
+    <p>Practically: if a sequence is known to be difficult, agree the aggregate panel and the sample preparation before the order, not after a failed assay. Retain a sample from the qualification lot so that a later disagreement can be resolved against a known reference rather than against a memory.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical technique; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — mechanisms and bench-level diagnosis</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the powder will not dissolve</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading an HPLC chromatogram</a> — what area percent does and does not mean</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity</a> — the orthogonal confirmation</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — reducing the opportunities for aggregation</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — the site's analytical framework</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-aggregate-analytics/" />
+</BaseLayout>
