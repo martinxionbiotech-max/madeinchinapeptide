@@ -57,6 +57,7 @@
 - /knowledge/peptide-appearance-inspection/ — colour, cake form and solution clarity: what appearance flags and what it cannot prove
 - /knowledge/peptide-customs-hold/ — customs detention types, first-48-hour response, cold chain and release/return/abandon decisions
 - /knowledge/peptide-extractables-leachables/ — container and closure extractables, leachables, silicone oil and what a supplier can document
+- /knowledge/peptide-cargo-insurance/ — Incoterm risk, cargo clauses, temperature exclusions and claim documentation
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide
