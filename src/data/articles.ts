@@ -59,4 +59,5 @@ export const articles: ArticleMeta[] = [
   { slug:'third-party-peptide-testing', title:'Using a third-party laboratory', desc:'Accreditation scope, briefing the lab, sample logistics and how to read an independent peptide test report.', cluster:'Sourcing' },
   { slug:'peptide-appearance-inspection', title:'Peptide appearance and visual inspection', desc:'What powder colour, cake form and solution clarity can and cannot tell you — and how to inspect and record appearance reproducibly.', cluster:'Quality & testing' },
   { slug:'peptide-customs-hold', title:'Customs holds on peptide shipments', desc:'Why customs detains peptide shipments, what to send in the first 48 hours, and how to choose between release, return and reship.', cluster:'Compliance & shipping' },
+  { slug:'peptide-extractables-leachables', title:'Packaging extractables and leachables', desc:'What container and closure materials release into a peptide, how extractables differ from leachables, and what a supplier can document.', cluster:'Quality & testing' },
 ];

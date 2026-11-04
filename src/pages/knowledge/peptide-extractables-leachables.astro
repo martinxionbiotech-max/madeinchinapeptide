@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Packaging extractables and leachables';
+const description = 'What container and closure materials release into a peptide, how extractables studies differ from leachables, and what a supplier can actually document.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-extractables-leachables/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Extractables & leachables'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A vial and a stopper are not inert. They contain antioxidants, accelerators, plasticisers, lubricants and coatings, and some of those substances migrate into the product or its headspace. For a lyophilised peptide the amounts are usually small, but “small” is not “zero”, and the species involved can be reactive. The distinction between what a material <em>can</em> release and what it <em>does</em> release into your product is the whole subject.</p>
+
+    <h2>Two words that are not interchangeable</h2>
+    <table>
+      <thead><tr><th>Term</th><th>Definition</th><th>How it is studied</th></tr></thead>
+      <tbody>
+        <tr><td>Extractables</td><td>Substances that can be extracted from a packaging component under aggressive laboratory conditions</td><td>Forced extraction with solvents, heat and time; analysis by GC-MS, LC-MS and ICP-MS</td></tr>
+        <tr><td>Leachables</td><td>Substances actually found in the product under real storage conditions</td><td>Analysis of the product or placebo at timepoints, with methods sensitive enough for the expected levels</td></tr>
+      </tbody>
+    </table>
+    <p>An extractables study answers “what is in this material”. A leachables study answers “what reached my product”. A supplier who provides only the first has described the container, not the compatibility of the container with the peptide. The relevant framework is USP &lt;1663&gt; for extractables assessment and USP &lt;1664&gt; for leachables assessment, alongside the container standards such as USP &lt;661&gt; and the pharmacopoeial glass monographs.</p>
+
+    <h2>Where the substances come from</h2>
+    <table>
+      <thead><tr><th>Component</th><th>Typical sources</th><th>Why a peptide might care</th></tr></thead>
+      <tbody>
+        <tr><td>Elastomer stopper</td><td>Vulcanising agents, accelerators, antioxidants, plasticisers, fillers, silicone oil</td><td>Reactive species can modify Lys or N-terminal groups; silicone can adsorb peptide and create particles</td></tr>
+        <tr><td>Glass vial</td><td>Alkali and boron oxides, forming lubricants, tungsten from the forming needle</td><td>pH shift during storage; delamination particles; tungsten residues in the base</td></tr>
+        <tr><td>Coatings and films</td><td>Polymer resins, adhesion promoters, solvents</td><td>Oligomers and residues can migrate; coating integrity is a variable</td></tr>
+        <tr><td>Labels and adhesives</td><td>Acrylic or rubber adhesives, inks, varnishes</td><td>Adhesive components can pass through a permeable secondary pack or contaminate the outer surface</td></tr>
+        <tr><td>Secondary packaging</td><td>Plastic bags, foils, desiccant sachets</td><td>Volatile organics in the headspace of a sealed pouch; desiccant dust</td></tr>
+      </tbody>
+    </table>
+    <p>Silicone oil deserves separate mention. It is used as a lubricant on stoppers and syringes, it is not a single pure compound, and it can form visible droplets or a film on the inside of a vial. For a peptide, the concerns are particle formation and adsorption of hydrophobic sequences onto the silicone layer — a loss that is easy to miss because the solution remains clear.</p>
+
+    <h2>Why lyophilised powder is not automatically safe</h2>
+    <p>Direct contact between a dry cake and the stopper is limited, which reduces extraction compared with a liquid-filled vial. Three routes remain:</p>
+    <ul>
+      <li><strong>Vapour transfer.</strong> Volatile extractables enter the headspace and can partition into the cake, especially during long storage or temperature excursions.</li>
+      <li><strong>Contact at the interface.</strong> The cake touches the vial wall and the stopper in places; a stopper that is pushed in after filling contacts the product directly.</li>
+      <li><strong>Reconstitution.</strong> The solvent that dissolves the peptide also dissolves or disperses whatever is on the surfaces it touches, so a leachable that was immobile in the dry state can become mobile in solution.</li>
+    </ul>
+    <p>The last point is the one most often overlooked: compatibility should be assessed for the reconstituted solution as well as the powder, because that is when the product is in contact with the container as a liquid.</p>
+
+    <h2>How an assessment is structured</h2>
+    <ol>
+      <li><strong>Define the contact material.</strong> Glass type, stopper formulation and coating, any silicone oil, secondary pack. “Pharmaceutical-grade vial” is not a specification.</li>
+      <li><strong>Extract the components.</strong> Use solvents that bracket the product: aqueous at relevant pH, an organic solvent, and heat. Analyse the extract for volatile, semi-volatile and elemental species.</li>
+      <li><strong>Build the extractables list.</strong> Identify what is present, at what level, and with what toxicological or reactivity concern.</li>
+      <li><strong>Correlate to the product.</strong> Develop methods sensitive enough to detect the listed species in the product matrix, and run them on stored samples.</li>
+      <li><strong>Assess the risk.</strong> Compare leachable levels with a safety or quality threshold, and consider reactivity with the peptide, not only toxicity.</li>
+    </ol>
+    <p>This is product-specific work. A study performed on a different formulation, a different stopper lot or a different fill volume is supporting information, not a conclusion. That is why a supplier's container certificate can be genuine and still not answer your question.</p>
+
+    <h2>What can go wrong with a peptide specifically</h2>
+    <ul>
+      <li><strong>Adduct formation.</strong> Reactive carbonyls or aldehydes from a stopper can form Schiff bases with lysine side chains or the N-terminus, producing a mass shift that looks like a degradation product.</li>
+      <li><strong>Oxidation.</strong> Peroxides and radicals from packaging components can oxidise Met, Trp or Cys, particularly in the presence of trace metals.</li>
+      <li><strong>pH drift.</strong> Alkali leaching from glass raises the pH of a low-buffer solution, changing solubility and accelerating deamidation.</li>
+      <li><strong>Particles.</strong> Silicone droplets, glass flakes and delamination are visible or sub-visible particles that a 0.22 µm filter is not designed to remove.</li>
+      <li><strong>Adsorption.</strong> Peptide lost to a silicone film or a coated surface is a potency loss that no certificate will show.</li>
+    </ul>
+
+    <h2>What a supplier can document — and what it cannot</h2>
+    <table>
+      <thead><tr><th>Document</th><th>What it supports</th><th>What it does not</th></tr></thead>
+      <tbody>
+        <tr><td>Container specification (glass type, stopper formulation)</td><td>Identifies the materials of construction</td><td>That they are compatible with your peptide</td></tr>
+        <tr><td>Container compliance statement (USP &lt;661&gt;, Ph. Eur. 3.2.1)</td><td>The container meets a pharmacopoeial standard</td><td>That no leachables reach the product</td></tr>
+        <tr><td>Extractables study on the components</td><td>A candidate list of species and levels</td><td>That those species are present in the product</td></tr>
+        <tr><td>Leachables study on the product</td><td>What was found under the studied conditions</td><td>That nothing else is present below the method's limit</td></tr>
+        <tr><td>“Pharmaceutical grade” claim</td><td>Marketing language</td><td>Any of the above</td></tr>
+      </tbody>
+    </table>
+    <p>For research-grade material, a full leachables package is uncommon and may not be proportionate. What is reasonable to ask is: which container and stopper are used, is the stopper coated or siliconised, has any extractables work been done on those components, and have customers reported particle or adduct issues with this product. The answers are more useful than a logo.</p>
+
+    <h2>Practical checks on arrival</h2>
+    <ul>
+      <li>Inspect the vial and stopper for silicone droplets, discolouration, cracks and loose particles.</li>
+      <li>After reconstitution, view against a dark background for sub-visible haze and droplets; a hand-held light at a low angle helps.</li>
+      <li>If a mass shift appears in the intact MS, consider an adduct before assuming a degradation pathway.</li>
+      <li>For long storage, keep the vial upright and avoid repeated stopper penetration; each puncture creates a path and a particle source.</li>
+      <li>Record container and stopper lot numbers where the supplier provides them, so a packaging change can be traced.</li>
+    </ul>
+    <p>Packaging is part of the specification, not an afterthought. The choices that reduce moisture and oxygen ingress are covered in <a href="/knowledge/peptide-packaging-configurations/">packaging configurations</a>; this article is about what the materials themselves can add to the product.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes packaging assessment concepts; it makes no claim that any container, stopper or product has been tested for extractables or leachables, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a> — container, closure and barrier choices</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/peptide-residual-solvents/">Residual solvents</a> — the other volatile species in a lot</li>
+      <li><a href="/knowledge/peptide-elemental-impurities/">Elemental impurities</a> — metals from equipment and materials</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity</a> — reading adducts and shifts</li>
+      <li><a href="/knowledge/peptide-appearance-inspection/">Appearance and visual inspection</a> — particles and colour on arrival</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-extractables-leachables/" />
+</BaseLayout>
