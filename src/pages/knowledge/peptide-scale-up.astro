@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Scaling peptide production to kilograms';
+const description = 'Why a peptide process does not scale linearly, what changes between gram and kilogram batches, and the evidence a scale-up should produce.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-scale-up/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Scale-up'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A supplier can make a beautiful 100 mg batch and a disappointing 10 kg batch from the same written procedure. Scale changes the physics of mixing, heat removal, filtration and drying long before it changes the chemistry on paper. Buying bulk means buying the scale behaviour, not only the molecule.</p>
+
+    <h2>Scale is a process variable</h2>
+    <p>In solid-phase peptide synthesis, the chemistry is broadly the same at every scale: anchor, couple, deprotect, cleave, purify, dry. What changes is how fast reagents reach the resin, how quickly heat is removed, how uniformly the resin bed is washed, how long filtration takes and how evenly a shelf dries. Those are engineering variables, and they influence the impurity profile.</p>
+    <table>
+      <thead><tr><th>Stage</th><th>What changes with scale</th><th>Likely quality effect if uncontrolled</th></tr></thead>
+      <tbody>
+        <tr><td>Resin loading and coupling</td><td>Mixing efficiency, reagent distribution, local concentration</td><td>Incomplete coupling, truncated sequences, higher deletion impurities</td></tr>
+        <tr><td>Deprotection</td><td>Heat removal, acid contact time, agitation</td><td>Incomplete deprotection or side reactions; racemisation if heat accumulates</td></tr>
+        <tr><td>Cleavage</td><td>Exotherm, addition rate, vessel heat transfer</td><td>Oxidation, alkylation, Asp-Pro cleavage, colour bodies</td></tr>
+        <tr><td>Purification</td><td>Column diameter, bed height, load ratio, flow distribution</td><td>Poorer resolution, overlapping fractions, lower pool purity</td></tr>
+        <tr><td>Filtration and transfer</td><td>Line length, pressure, hold-up volume</td><td>Product loss, longer hold times, particle generation</td></tr>
+        <tr><td>Lyophilisation</td><td>Shelf load, vial spacing, edge effects, cycle control</td><td>Collapse, meltback, uneven residual moisture across the shelf</td></tr>
+        <tr><td>Packaging</td><td>Bulk vs vial, subdivision time, static</td><td>Homogeneity differences, moisture pickup, adsorption loss</td></tr>
+      </tbody>
+    </table>
+    <p>The useful question is not “can you make a kilogram?” but “what evidence shows the kilogram behaves like the gram?”. Those are different questions, and only the second one protects the buyer.</p>
+
+    <h2>Three scales, three kinds of evidence</h2>
+    <ul>
+      <li><strong>Laboratory scale (milligrams to a few grams).</strong> Established by the catalogue lot and the qualification sample. It proves the sequence can be made; it says little about a production batch.</li>
+      <li><strong>Pilot scale (tens to hundreds of grams).</strong> The bridge. This is where mixing, heat transfer and purification load first become visible, and where an engineering run should be documented.</li>
+      <li><strong>Production scale (kilograms).</strong> Established by consecutive validation batches, homogeneity sampling and a comparison of impurity profiles against the pilot scale.</li>
+    </ul>
+    <p>A supplier who jumps from a 1 g catalogue lot to a 10 kg offer without a pilot step is not necessarily unsafe, but the burden of evidence is higher. Ask which scale produced the lot on the certificate, and which scale will produce the order.</p>
+
+    <h2>What “same process” should mean</h2>
+    <p>“Same process” is often used to mean “same recipe”. For scale-up it should mean the same controlled parameters, with the engineering values adjusted and justified:</p>
+    <ul>
+      <li><strong>Equivalents and concentrations</strong> held constant, or changed with a stated rationale.</li>
+      <li><strong>Addition rates and temperatures</strong> controlled at the larger scale, not merely “added over time”.</li>
+      <li><strong>Mixing</strong> demonstrated by a measurable parameter — torque, power per volume, or a tracer study — rather than by impeller speed alone.</li>
+      <li><strong>Wash volumes</strong> scaled by resin bed volume, not by vessel volume.</li>
+      <li><strong>Purification load</strong> expressed as mass per litre of resin or per column cross-section, not as a fixed sample volume.</li>
+      <li><strong>Drying</strong> controlled by shelf temperature, pressure and time, with a load pattern that matches the production configuration.</li>
+    </ul>
+    <p>If the supplier cannot describe how these were adjusted, the scale-up was probably a trial rather than a transfer.</p>
+
+    <h2>The impurity profile is the fingerprint</h2>
+    <p>The most informative comparison between scales is not the purity number but the impurity profile: which peaks appear, at what relative size, and whether new ones emerge. A gram batch at 98% and a kilogram batch at 98% can still be different materials if the impurity pattern has changed.</p>
+    <p>Ask for the chromatograms side by side, at the same method and scale, with the main peak normalised. Three patterns are meaningful:</p>
+    <ul>
+      <li><strong>Same peaks, same proportions:</strong> the scale change preserved the process.</li>
+      <li><strong>Same peaks, different proportions:</strong> a kinetic or mixing difference; ask which step changed.</li>
+      <li><strong>New peaks:</strong> a new pathway has appeared — heat, local concentration, longer hold time or a different reagent lot.</li>
+    </ul>
+    <p>Mass spectrometry can help identify a new peak, but the first question is process, not structure: at which step did it appear?</p>
+
+    <h2>Homogeneity at the batch level</h2>
+    <p>A kilogram batch is not automatically uniform. Powder blending, bulk packaging and vial filling can all create gradients. If the material is supplied as a single bulk container, the sample you test may not represent the top and bottom of the container. If it is supplied as many vials, the first and last vial may differ in fill or moisture.</p>
+    <p>Useful evidence includes a sampling plan across the batch, results from at least the beginning and end of packaging, and a statement of whether the batch was blended. For a research product these are reasonable questions, not regulatory demands. A supplier who has never been asked them may still be able to answer from the batch record; one who cannot answer at all has not characterised the batch.</p>
+
+    <h2>Scale and the commercial offer</h2>
+    <p>Bulk pricing usually assumes a larger batch, and the quote should say which one. Three numbers should agree: the batch size used for the price, the batch size on the certificate, and the batch size that will be shipped. A price based on a 100 g batch applied to a 1 kg order is a signal that the “bulk” tier is a discount, not a scale.</p>
+    <p>It is also worth asking what happens at the boundary. A supplier whose reactor comfortably makes 500 g may quote 1 kg by running two batches and combining them. That is legitimate if the combination is documented and the blend is tested; it is a problem if two lots are shipped as one without a blend record. The question “is this one batch or a blend?” belongs in the RFQ, alongside the batch size.</p>
+
+    <h2>Technology transfer to a second site</h2>
+    <p>If the production site changes — a new facility, a partner, a second line — the scale may stay the same while the equipment changes. That is still a transfer, and it needs the same evidence: process parameters, analytical methods, impurity profile comparison and at least one bridging batch. A site change without bridging data is one of the clearest reasons to pause an order, and it is covered in <a href="/knowledge/second-peptide-supplier-qualification/">second-supplier qualification</a>.</p>
+
+    <h2>Questions for the supplier</h2>
+    <table>
+      <thead><tr><th>Question</th><th>What a good answer contains</th></tr></thead>
+      <tbody>
+        <tr><td>What scale produced the lot on this COA?</td><td>A number in grams or kilograms, and the reactor or batch record reference</td></tr>
+        <tr><td>What scale will produce my order?</td><td>The same number, or a stated difference with bridging data</td></tr>
+        <tr><td>Was there a pilot run, and is it documented?</td><td>A batch record and a comparison, not a verbal assurance</td></tr>
+        <tr><td>How were mixing and heat transfer controlled at scale?</td><td>A parameter and a rationale, not “we stirred longer”</td></tr>
+        <tr><td>Can I see impurity profiles at both scales?</td><td>Chromatograms at the same method, with the main peak normalised</td></tr>
+        <tr><td>Is my order one batch or a blend?</td><td>A direct answer and, if a blend, a blend record</td></tr>
+        <tr><td>What is the largest single batch you have run?</td><td>A number consistent with the equipment list and the site tour</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Red flags</h2>
+    <ul>
+      <li>A bulk quote with no batch size attached.</li>
+      <li>“Same process” with no pilot or engineering run mentioned.</li>
+      <li>Purity identical to two decimal places across every scale and lot.</li>
+      <li>Impurity profiles that are never shown, only summarised.</li>
+      <li>A capacity claim that does not match the reactor or lyophiliser count.</li>
+      <li>A site change described as a formality, with no bridging batch.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This article describes production scale-up practice; it makes no claim about the capacity or performance of any specific supplier and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/custom-peptide-synthesis-order/">Custom synthesis orders</a> — the fields that define a custom batch</li>
+      <li><a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ and pricing tiers</a> — how batch size shapes the quote</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — what the profile is made of</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — the same comparison across routine batches</li>
+      <li><a href="/knowledge/second-peptide-supplier-qualification/">Second-supplier qualification</a> — bridging a site or source change</li>
+      <li><a href="/knowledge/peptide-supplier-corporate-due-diligence/">Corporate due diligence</a> — checking capacity claims against the entity</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-scale-up/" />
+</BaseLayout>

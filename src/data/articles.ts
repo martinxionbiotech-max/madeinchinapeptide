@@ -66,4 +66,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-subvisible-particles', title:'Subvisible particles in peptide solutions', desc:'Light obscuration versus membrane microscopy, where particles come from, and what a particle count can and cannot tell you.', cluster:'Quality & testing' },
   { slug:'peptide-cross-contamination', title:'Cross-contamination in peptide plants', desc:'How multi-product plants carry material between lots, what changeover and cleaning verification can show, and what to ask.', cluster:'Quality & testing' },
   { slug:'peptide-data-integrity', title:'Data integrity in peptide QC records', desc:'What raw data, audit trails and integration settings reveal about a peptide certificate, and the records a buyer should ask for.', cluster:'Quality & testing' },
+  { slug:'peptide-scale-up', title:'Scaling peptide production to kilograms', desc:'Why a peptide process does not scale linearly, what changes between gram and kilogram batches, and the evidence to request.', cluster:'Manufacturing' },
 ];
