@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="How to Verify Peptide Purity Before You Buy" description="A practical method for verifying peptide purity: reading HPLC chromatograms, interpreting MS identity data, and spotting recycled COAs." canonical="/knowledge/how-to-verify-peptide-purity/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/knowledge/">Knowledge</a> › Purity verification</p>
+    <h1>How to verify peptide purity before you buy</h1>
+    <p class="lead muted">Purity is the most quoted and least verified number in the peptide trade. Here is a practical way to check it without owning a lab.</p>
+
+    <h2>Start with a batch-specific COA</h2>
+    <p>Ask for the certificate for the lot you will receive — not a generic product COA. Check that the batch number matches the label and invoice. If the supplier cannot provide this before payment, that is the answer.</p>
+
+    <h2>Read the chromatogram, not the percentage</h2>
+    <p>A purity figure without a chromatogram is unverifiable. Look for: baseline separation, visible impurity peaks, integration marks, and a retention time consistent with the method. A perfectly clean trace with no minor peaks is unusual for real synthesis and deserves scrutiny.</p>
+
+    <h2>Confirm identity with mass spec</h2>
+    <p>HPLC tells you the main peak is homogeneous; MS tells you it is the right molecule. The observed mass should match the expected molecular weight within the instrument's tolerance. Ask for the spectrum, not just "MS: conforms".</p>
+
+    <h2>Check the method details</h2>
+    <ul>
+      <li>Column type and dimensions</li>
+      <li>Mobile phase and gradient</li>
+      <li>Detection wavelength</li>
+      <li>Injection volume and sample concentration</li>
+    </ul>
+    <p>Without these, the percentage is not reproducible and cannot be compared across suppliers.</p>
+
+    <h2>Net peptide content vs HPLC purity</h2>
+    <p>A sample can be 98% pure by HPLC and still contain water, counter-ions or excipients that reduce the actual peptide content. For quantitative work, ask for assay or net peptide content.</p>
+
+    <h2>A practical checklist</h2>
+    <table>
+      <thead><tr><th>Check</th><th>Pass condition</th></tr></thead>
+      <tbody>
+        <tr><td>Batch number on COA matches label</td><td>Exact match</td></tr>
+        <tr><td>Chromatogram included</td><td>Visible integration and impurity profile</td></tr>
+        <tr><td>MS spectrum included</td><td>Observed mass matches expected</td></tr>
+        <tr><td>Water content reported</td><td>Value stated, method named</td></tr>
+        <tr><td>Methods described</td><td>Column, gradient, wavelength</td></tr>
+        <tr><td>Release signature and date</td><td>Present and consistent</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ruo">Research use only. This guide is about analytical verification, not human use.</div>
+  </div>
+</BaseLayout>

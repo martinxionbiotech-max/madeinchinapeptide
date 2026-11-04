@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Contact & RFQ — Made in China Peptide" description="Request a quotation for research peptides: send product, strength, quantity and destination. Response within one business day." canonical="/contact/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Contact</p>
+    <h1>Request a quotation</h1>
+    <p class="lead muted">Tell us what you need and where it is going. We reply within one business day with availability, pricing tier, lead time and documentation.</p>
+
+    <h2>What to include</h2>
+    <ul>
+      <li>Products and strengths (SKU list is ideal)</li>
+      <li>Quantity per SKU</li>
+      <li>Destination country</li>
+      <li>Documentation needs (COA, MSDS, custom label)</li>
+      <li>Buyer type: laboratory, distributor, brand/OEM</li>
+    </ul>
+
+    <h2>Contact channels</h2>
+    <table>
+      <tbody>
+        <tr><th style="width:180px;">Email</th><td><a href={`mailto:${site.email}`}>{site.email}</a></td></tr>
+        <tr><th>WhatsApp</th><td>{site.whatsapp}</td></tr>
+        <tr><th>Response time</th><td>Within 1 business day (Mon–Sat, UTC+8)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">We only quote to business buyers. Requests that indicate personal human use will be declined.</div>
+    <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

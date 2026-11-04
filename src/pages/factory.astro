@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Factory & Supply Chain — Peptide Manufacturing in China" description="How research peptides are synthesized, purified, lyophilized and released in China: process chain, equipment, capacity model and traceability framework." canonical="/factory/">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Home</a> › Factory</p>
+    <h1>Factory &amp; supply chain</h1>
+    <p class="lead muted" style="max-width:840px;">"Made in China" is a location, not a quality standard. What determines the product is the process chain behind it — and whether that chain is documented well enough to audit.</p>
+
+    <h2>The process chain</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>What happens</th><th>Why it matters to buyers</th></tr></thead>
+      <tbody>
+        <tr><td>Peptide synthesis</td><td>Solid-phase synthesis (SPPS), resin loading, coupling cycles</td><td>Sequence fidelity and side-reaction control</td></tr>
+        <tr><td>Cleavage &amp; deprotection</td><td>Cleavage from resin, side-chain deprotection</td><td>Yield and impurity profile</td></tr>
+        <tr><td>Purification</td><td>Preparative RP-HPLC fractions</td><td>Purity and batch-to-batch consistency</td></tr>
+        <tr><td>Lyophilization</td><td>Freeze-drying under controlled cycle</td><td>Cake structure, residual moisture, stability</td></tr>
+        <tr><td>QC release</td><td>HPLC, MS, moisture, appearance</td><td>Documented evidence per lot</td></tr>
+        <tr><td>Fill &amp; pack</td><td>Vial fill, crimp, label, batch coding</td><td>Traceability to the lot you receive</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Capacity model</h2>
+    <p>We do not publish a single "tons per year" figure as if it were audited. Capacity depends on peptide length, purification yield and lyophilization cycle time. For planning purposes, share your SKU list and target volumes and we will confirm realistic monthly output and lead time per product.</p>
+
+    <h2>Traceability framework</h2>
+    <ul>
+      <li>Batch number assigned at synthesis and carried through purification, lyophilization, fill and packing.</li>
+      <li>Analytical results filed against the batch, not against the product name.</li>
+      <li>Retention samples kept for the stated shelf life.</li>
+      <li>Deviation log for out-of-specification lots; OOS material is not released.</li>
+    </ul>
+
+    <h2>What buyers can audit</h2>
+    <p>Qualified buyers can request a documented quality questionnaire, sample COAs from previous lots, and (for larger programs) a video walkthrough of the production and QC areas. We do not stage factory visits as a marketing device; we answer specific process questions with records.</p>
+
+    <div class="ruo" style="margin:28px 0;">{site.ruo}</div>
+  </div>
+</BaseLayout>

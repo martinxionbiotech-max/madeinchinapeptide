@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Peptide Reconstitution Guide (Laboratory Practice)" description="Laboratory reconstitution practice for lyophilized peptides: solvent choice, concentration calculation, handling and storage of solutions." canonical="/knowledge/peptide-reconstitution-guide/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/knowledge/">Knowledge</a> › Reconstitution</p>
+    <h1>Peptide reconstitution: laboratory practice</h1>
+    <p class="lead muted">A practical guide to dissolving lyophilized peptide for in-vitro work. This is laboratory technique, not medical guidance.</p>
+
+    <h2>Before you open the vial</h2>
+    <ul>
+      <li>Equilibrate the sealed vial to room temperature (15–30 min).</li>
+      <li>Work on a clean bench; wear gloves and eye protection.</li>
+      <li>Read the COA for the recommended solvent and any handling notes.</li>
+    </ul>
+
+    <h2>Choosing the solvent</h2>
+    <table>
+      <thead><tr><th>Peptide type</th><th>Typical solvent</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Hydrophilic peptides</td><td>Laboratory-grade water</td><td>Start with water; add buffer if needed</td></tr>
+        <tr><td>Hydrophobic peptides</td><td>Water + acetonitrile or DMSO (small %)</td><td>Add organic phase gradually</td></tr>
+        <tr><td>Peptides prone to aggregation</td><td>Buffer at defined pH</td><td>Avoid high concentration stock</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Concentration calculation</h2>
+    <p>Concentration (mg/mL) = mass of peptide (mg) ÷ volume of solvent (mL). For molar concentration, divide by molecular weight: molarity (M) = (mg/mL) ÷ (g/mol) ÷ 1000. Always record the actual mass and volume used.</p>
+
+    <h2>Technique</h2>
+    <ol>
+      <li>Add solvent slowly down the vial wall; do not dump it onto the cake.</li>
+      <li>Swirl gently — do not vortex, which can shear and cause aggregation.</li>
+      <li>Let it stand until dissolved; some peptides need 10–30 minutes.</li>
+      <li>Inspect for undissolved particles before use.</li>
+    </ol>
+
+    <h2>Storage of solutions</h2>
+    <ul>
+      <li>Aliquot immediately into single-use volumes.</li>
+      <li>Short term: 2–8 °C, protected from light.</li>
+      <li>Long term: −20 °C or below; avoid repeated freeze–thaw.</li>
+      <li>Record reconstitution date on each aliquot.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. Not for human or veterinary use.</div>
+  </div>
+</BaseLayout>

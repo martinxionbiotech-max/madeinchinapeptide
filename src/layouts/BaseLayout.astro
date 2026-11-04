@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+const { title, description = site.description, canonical, noindex = false } = Astro.props;
+const canonicalUrl = canonical ? `${site.url}${canonical}` : new URL(Astro.url.pathname, site.url).href;
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: site.brand,
+  url: site.url,
+  description: site.description,
+  email: site.email,
+  founder: { '@type': 'Person', name: 'Sales Team' },
+  foundingDate: site.founded,
+  areaServed: 'Worldwide',
+  knowsAbout: ['Research peptides', 'Peptide synthesis', 'Lyophilized peptides', 'Bulk peptide supply', 'Peptide OEM'],
+};
+const webSiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${site.url}/#website`,
+  url: site.url,
+  name: site.brand,
+  publisher: { '@id': `${site.url}/#organization` },
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex && <meta name="robots" content="noindex,nofollow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.brand} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={`${site.url}/images/og-default.svg`} />
+  <meta property="og:image" content={`${site.url}/images/og-default.svg`} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(webSiteLd)} />
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

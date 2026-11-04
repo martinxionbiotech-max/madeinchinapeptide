@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Peptide MOQ and Pricing Tiers Explained" description="How peptide minimum order quantities and volume pricing actually work: per-SKU tiers, packaging costs, documentation costs and the real break-even." canonical="/knowledge/peptide-moq-and-pricing-tiers/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/knowledge/">Knowledge</a> › MOQ &amp; pricing</p>
+    <h1>Peptide MOQ and pricing tiers explained</h1>
+    <p class="lead muted">MOQ is not a negotiation trick. It reflects batch economics — and understanding it makes you a better buyer.</p>
+
+    <h2>Why MOQs exist</h2>
+    <p>A synthesis batch has fixed costs: resin, reagents, purification runs, lyophilization cycles, analytical release and packaging setup. A 10-vial order and a 1,000-vial order share most of those costs. The MOQ is the point where the supplier can recover the batch setup without pricing the small order at a loss.</p>
+
+    <h2>How tiers usually work</h2>
+    <table>
+      <thead><tr><th>Tier</th><th>Typical quantity</th><th>What changes</th></tr></thead>
+      <tbody>
+        <tr><td>Sample</td><td>1–5 vials</td><td>Highest unit cost; often capped</td></tr>
+        <tr><td>Standard</td><td>10–50 vials</td><td>Base wholesale price</td></tr>
+        <tr><td>Volume</td><td>100–500 vials</td><td>Lower unit cost; packaging amortised</td></tr>
+        <tr><td>Program</td><td>500+ vials or gram scale</td><td>Quoted per contract; scheduled production</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What actually drives unit price</h2>
+    <ul>
+      <li><strong>Peptide length and synthesis difficulty</strong> — longer sequences mean more coupling steps and lower yield.</li>
+      <li><strong>Purity target</strong> — 95% and 98% are different purification burdens, not marketing labels.</li>
+      <li><strong>Fill size</strong> — the vial, stopper, crimp and label cost is per unit and does not scale down.</li>
+      <li><strong>Documentation</strong> — standard COA is included; additional testing (third-party, sterility, endotoxin) adds cost and time.</li>
+      <li><strong>Packaging</strong> — custom boxes and labels have their own MOQs.</li>
+    </ul>
+
+    <h2>The break-even question</h2>
+    <p>Compare total landed cost, not unit price: product + freight + duty + documentation + your own QC re-testing. A cheaper vial that fails your incoming test is the most expensive option in the table.</p>
+
+    <h2>Negotiation levers</h2>
+    <ol>
+      <li>Consolidate SKUs into one shipment to reduce freight per unit.</li>
+      <li>Accept standard packaging to avoid custom MOQs.</li>
+      <li>Commit to a scheduled repeat order instead of a one-off.</li>
+      <li>Provide a clear forecast — suppliers price certainty.</li>
+    </ul>
+
+    <div class="ruo">Research use only.</div>
+  </div>
+</BaseLayout>

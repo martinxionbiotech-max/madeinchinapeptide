@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Wholesale Research Peptides from China — Bulk Pricing & Supply" description="Wholesale and bulk research peptide supply from China: tiered pricing, MOQ from 10 vials, batch COA, distributor terms and export documentation." canonical="/wholesale/">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Home</a> › Wholesale</p>
+    <h1>Wholesale &amp; bulk research peptide supply</h1>
+    <p class="lead muted" style="max-width:820px;">Built for distributors, laboratories and research suppliers who buy in repeat volumes — not single vials. This page explains how our wholesale model works, what determines price, and what documentation travels with each shipment.</p>
+
+    <h2>What "wholesale" means here</h2>
+    <p>We supply three commercial formats. They differ in volume, packaging and documentation depth — not in the underlying product standard.</p>
+    <div class="grid grid-3">
+      <div class="card"><h3>Vial &amp; kit supply</h3><p>Standard vial formats from 10-unit MOQs, suitable for laboratories and small distributors. Batch COA included.</p></div>
+      <div class="card"><h3>Bulk quantities</h3><p>Higher-volume vial packs and gram-scale material for distributors and formulators. Quoted per order.</p></div>
+      <div class="card"><h3>OEM / private label</h3><p>Your label, box and documentation package. See the <a href="/oem-private-label/">OEM page</a>.</p></div>
+    </div>
+
+    <h2>What determines the price</h2>
+    <table>
+      <thead><tr><th>Factor</th><th>Effect on price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Peptide and strength</td><td>Base cost</td><td>Longer sequences and higher loads cost more per vial</td></tr>
+        <tr><td>Quantity tier</td><td>Lower unit cost at volume</td><td>Tiers apply per SKU, not across mixed orders</td></tr>
+        <tr><td>Packaging</td><td>Vial size, box, inserts</td><td>Custom packaging is quoted separately</td></tr>
+        <tr><td>Documentation</td><td>Standard COA included; extra testing quoted</td><td>Third-party testing adds lead time</td></tr>
+        <tr><td>Destination</td><td>Freight and compliance cost</td><td>Some destinations are restricted — see <a href="/compliance/shipping-customs/">Shipping &amp; Customs</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Order flow</h2>
+    <ol>
+      <li><strong>RFQ:</strong> send SKUs, strengths, quantities and destination.</li>
+      <li><strong>Quotation:</strong> we confirm availability, tier price, lead time and documentation.</li>
+      <li><strong>Sample (optional):</strong> qualified buyers can request a sample with its batch COA.</li>
+      <li><strong>Payment &amp; production:</strong> T/T, or terms for repeat buyers after review.</li>
+      <li><strong>Shipping:</strong> tracked export shipment with commercial invoice and packing list.</li>
+    </ol>
+
+    <h2>Documentation that ships with every order</h2>
+    <ul>
+      <li>Batch-specific certificate of analysis (identity, purity, appearance, water content where applicable)</li>
+      <li>HPLC chromatogram for the lot</li>
+      <li>Mass-spectrometry confirmation</li>
+      <li>MSDS and storage instructions</li>
+      <li>Commercial invoice and packing list for customs</li>
+    </ul>
+
+    <p><a class="btn" href="/contact/">Request a wholesale quotation</a></p>
+    <div class="ruo" style="margin:28px 0;">{site.ruo} Wholesale supply is limited to qualified business buyers; we may request company information before quoting.</div>
+  </div>
+</BaseLayout>

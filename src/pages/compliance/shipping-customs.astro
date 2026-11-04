@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Shipping & Customs — Research Peptide Export" description="Shipping methods, documentation, customs declarations, restricted destinations and buyer responsibilities for research peptide imports." canonical="/compliance/shipping-customs/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Shipping &amp; Customs</p>
+    <h1>Shipping &amp; customs</h1>
+
+    <h2>Shipping methods</h2>
+    <table>
+      <thead><tr><th>Method</th><th>Typical transit</th><th>Tracking</th></tr></thead>
+      <tbody>
+        <tr><td>International express (courier)</td><td>3–7 business days</td><td>Yes</td></tr>
+        <tr><td>Air freight (bulk orders)</td><td>5–10 business days</td><td>Yes</td></tr>
+        <tr><td>Sea freight (large volume)</td><td>Quoted per route</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Documentation</h2>
+    <ul>
+      <li>Commercial invoice and packing list</li>
+      <li>Certificate of analysis for each batch</li>
+      <li>MSDS where required by the carrier</li>
+      <li>Certificate of origin on request</li>
+    </ul>
+
+    <h2>Customs declarations</h2>
+    <p>Shipments are declared accurately under the applicable commodity description. We do not under-declare value or misdescribe goods. Buyers are responsible for import duties, taxes and any import licence requirements.</p>
+
+    <h2>Restricted destinations</h2>
+    <p>We do not ship to destinations where the products are prohibited, or where the buyer cannot demonstrate lawful import. Restricted lists are reviewed regularly and confirmed at quotation stage.</p>
+
+    <h2>Buyer responsibilities</h2>
+    <ul>
+      <li>Confirm the products may lawfully be imported into your country</li>
+      <li>Provide an accurate delivery address and contact</li>
+      <li>Clear customs and pay applicable duties</li>
+      <li>Notify us of any seizure or hold within 48 hours</li>
+    </ul>
+
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

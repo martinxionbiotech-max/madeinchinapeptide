@@ -1,0 +1,20 @@
+# Made in China Peptide
+
+> B2B sourcing channel for research-grade peptides manufactured in China: batch-specific COA, HPLC/MS data, bulk and OEM supply for laboratories, distributors and research brands.
+
+## Key pages
+- /products/ — catalogue of research peptides and cosmetic raw materials
+- /wholesale/ — wholesale and bulk ordering model, pricing factors, documentation
+- /oem-private-label/ — OEM and private-label process, label rules
+- /quality/ — QC framework, analytical methods, COA structure
+- /quality/coa/ — how to read a peptide certificate of analysis
+- /quality/testing-methods/ — HPLC, MS, Karl Fischer explained
+- /factory/ — process chain and traceability framework
+- /knowledge/ — sourcing and quality guides
+- /compliance/research-use-only/ — permitted and prohibited uses
+- /compliance/shipping-customs/ — shipping, documentation, restricted destinations
+- /contact/ — RFQ
+
+## Notes
+- All products are for laboratory research use only; not for human or veterinary use.
+- Purity is batch-specific and stated on each lot's COA.

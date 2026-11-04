@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Peptide Purity Grades — What 95%, 98% and 99% Actually Mean" description="How peptide purity grades are measured, why the same percentage can mean different things, and how to choose a grade for your application." canonical="/compare/peptide-purity-grades/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Compare › Purity grades</p>
+    <h1>Peptide purity grades: what the percentages mean</h1>
+    <p class="lead muted">Purity is a measurement, not a grade. Two suppliers quoting "98%" can be measuring different things under different conditions.</p>
+
+    <h2>The common labels</h2>
+    <table>
+      <thead><tr><th>Label</th><th>Typical HPLC area %</th><th>Common use</th></tr></thead>
+      <tbody>
+        <tr><td>Crude</td><td>50–80%</td><td>Further purification, non-quantitative work</td></tr>
+        <tr><td>Research grade</td><td>≥95%</td><td>General in-vitro research</td></tr>
+        <tr><td>High purity</td><td>≥98%</td><td>Assays, reference work</td></tr>
+        <tr><td>Ultra purity</td><td>≥99%</td><td>Quantitative and sensitive applications</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why the same number differs</h2>
+    <ul>
+      <li><strong>Wavelength</strong> — 214 nm and 280 nm see different impurities.</li>
+      <li><strong>Gradient</strong> — a shallow gradient resolves more peaks and can lower the reported purity.</li>
+      <li><strong>Integration</strong> — how small peaks are integrated changes the percentage.</li>
+      <li><strong>Sample load</strong> — overloading the column distorts the profile.</li>
+      <li><strong>Net content</strong> — purity excludes water and counter-ions; content does not.</li>
+    </ul>
+
+    <h2>Choosing a grade</h2>
+    <p>Match the grade to the question your experiment asks. Screening work rarely needs 99%; a quantitative assay usually does. Buying ultra-purity for a qualitative check is waste; buying research grade for a reference standard is a false economy.</p>
+
+    <h2>What to request</h2>
+    <ul>
+      <li>Chromatogram with method details (column, gradient, wavelength)</li>
+      <li>MS spectrum for identity</li>
+      <li>Water content and, where relevant, net peptide content</li>
+      <li>The batch number, so the data matches what you receive</li>
+    </ul>
+
+    <div class="ruo">Research use only.</div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Terms of Service — Made in China Peptide" description="Terms governing the supply of research peptides: eligibility, orders, payment, shipping, liability and governing law." canonical="/compliance/terms/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Terms</p>
+    <h1>Terms of Service</h1>
+    <p class="small muted">Last updated: 2026-11-04</p>
+
+    <h2>1. Eligibility</h2>
+    <p>Our products are sold exclusively to business buyers — laboratories, distributors, manufacturers and research organisations — for laboratory research use. By ordering, you confirm you are at least 21 years old and authorised to purchase on behalf of your organisation.</p>
+
+    <h2>2. Products and specifications</h2>
+    <p>Product descriptions state form, strength, storage and documentation. Purity and analytical results are batch-specific and provided in the certificate of analysis for the lot supplied. Specifications may be updated; the COA for your batch governs.</p>
+
+    <h2>3. Orders and payment</h2>
+    <p>Orders are confirmed after written quotation and payment (or agreed terms). We may decline orders that appear inconsistent with research use or that originate from restricted destinations.</p>
+
+    <h2>4. Shipping and risk</h2>
+    <p>Title and risk pass according to the agreed Incoterm. Buyers are responsible for import clearance, duties and compliance with local law. See <a href="/compliance/shipping-customs/">Shipping &amp; Customs</a>.</p>
+
+    <h2>5. Returns</h2>
+    <p>Claims for damage, shortage or specification non-conformance must be raised within 7 days of delivery with photographic evidence. See <a href="/compliance/returns/">Returns</a>.</p>
+
+    <h2>6. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, our liability is limited to the invoiced value of the affected products. We are not liable for indirect, incidental or consequential loss, including loss of research data, profits or business opportunity.</p>
+
+    <h2>7. Compliance with law</h2>
+    <p>Buyers are solely responsible for compliance with the laws and regulations of their jurisdiction, including import, possession and use restrictions. Products must not be resold for human or animal consumption.</p>
+
+    <h2>8. Governing law</h2>
+    <p>These terms are governed by the laws of the jurisdiction stated in the sales contract. Disputes are resolved by negotiation, then by the competent courts of that jurisdiction.</p>
+
+    <h2>9. Contact</h2>
+    <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+  </div>
+</BaseLayout>

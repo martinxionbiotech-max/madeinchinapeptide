@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Certificate of Analysis (COA) — How to Read It | Made in China Peptide" description="What a peptide certificate of analysis should contain, how to verify HPLC and MS data, and the red flags that indicate a recycled or fabricated COA." canonical="/quality/coa/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/quality/">Quality</a> › COA</p>
+    <h1>How to read a peptide COA</h1>
+    <p class="lead muted">A certificate of analysis is only useful if it is batch-specific and method-specific. Here is what to check, in order.</p>
+
+    <h2>1. Batch linkage</h2>
+    <p>The COA must state a batch or lot number that matches the vial label and the invoice. A COA without a batch number cannot be tied to what you received.</p>
+
+    <h2>2. Test items and methods</h2>
+    <table>
+      <thead><tr><th>Item</th><th>Method</th><th>What "good" looks like</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>ESI-MS / MALDI-TOF</td><td>Observed mass matches expected within instrument tolerance</td></tr>
+        <tr><td>Purity</td><td>RP-HPLC, UV</td><td>Main peak with visible integration; impurity profile stated</td></tr>
+        <tr><td>Water content</td><td>Karl Fischer</td><td>Stated value, not "N/A"</td></tr>
+        <tr><td>Appearance</td><td>Visual</td><td>Consistent cake/powder description</td></tr>
+        <tr><td>Sterility (if claimed)</td><td>Per method stated</td><td>Only claim if actually tested</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Chromatogram, not just a number</h2>
+    <p>A purity percentage without the chromatogram is unverifiable. Look at peak shape, integration baseline and whether impurity peaks are shown at all. A suspiciously clean chromatogram with no minor peaks deserves a second look.</p>
+
+    <h2>4. Signatures and dates</h2>
+    <p>Release date, analyst/reviewer signature and expiry should be present and internally consistent with the manufacture date.</p>
+
+    <h2>Red flags</h2>
+    <ul>
+      <li>Same COA file reused across different batches or products</li>
+      <li>Purity stated to two decimals with no chromatogram</li>
+      <li>No batch number, or batch number that does not match the label</li>
+      <li>Methods listed as "in-house" with no description</li>
+      <li>Certification logos that cannot be verified with the issuing body</li>
+    </ul>
+
+    <p><a href="/contact/">Request a sample COA</a></p>
+  </div>
+</BaseLayout>

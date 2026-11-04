@@ -1,0 +1,24 @@
+---
+interface Crumb { label: string; href?: string }
+interface Props { items: Crumb[] }
+const { items } = Astro.props;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    ...(c.href ? { item: `https://madeinchinapeptide.com${c.href}` } : {}),
+  })),
+};
+---
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  {items.map((c, i) => (
+    <>
+      {i > 0 && <span aria-hidden="true"> › </span>}
+      {c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
+    </>
+  ))}
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />

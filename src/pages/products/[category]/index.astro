@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { products, categories, type Category } from '../../../data/products';
+export function getStaticPaths() {
+  return Object.keys(categories).map((c) => ({ params: { category: c } }));
+}
+const { category } = Astro.params as { category: Category };
+const cat = categories[category];
+const items = products.filter(p => p.category === category);
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type':'Question', name:'Is purity the same for every batch?', acceptedAnswer:{ '@type':'Answer', text:'No. Purity is measured per lot and stated on that lot certificate of analysis.' } },
+    { '@type':'Question', name:'Can I order a sample before a bulk order?', acceptedAnswer:{ '@type':'Answer', text:'Yes, for qualified business buyers. The sample ships with its own batch COA.' } },
+    { '@type':'Question', name:'Do you ship to my country?', acceptedAnswer:{ '@type':'Answer', text:'Most destinations are serviceable, but some are restricted. Confirm at quotation stage.' } },
+  ],
+};
+---
+
+<BaseLayout title={`${cat.title} | Made in China Peptide`} description={cat.description} canonical={`/products/${category}/`}>
+  <div class="wrap">
+    <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name}]} />
+    <h1>{cat.name}</h1>
+    <p class="lead muted" style="max-width:800px;">{cat.description}</p>
+    <table>
+      <thead><tr><th>Product</th><th>Strength</th><th>Form</th><th>Purity</th><th>MOQ</th><th>Documents</th><th></th></tr></thead>
+      <tbody>
+        {items.map(p => (
+          <tr>
+            <td><a href={`/products/${category}/${p.slug}/`}>{p.name}</a></td>
+            <td>{p.strength}</td>
+            <td>{p.form}</td>
+            <td>{p.purity}</td>
+            <td>{p.moq}</td>
+            <td>{p.docs.join(', ')}</td>
+            <td><a href={`/products/${category}/${p.slug}/`}>View</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <h2>Choosing within this category</h2>
+    <p>Strength is the first decision, but it is not the only one. Confirm the vial format that fits your workflow, the documentation package your institution requires, and whether you need standard or custom labelling. For repeat purchasing, ask for two or three consecutive lot COAs — consistency across lots matters more than a single clean result.</p>
+    <ul>
+      <li><strong>Documentation:</strong> COA with HPLC chromatogram and MS confirmation for the specific lot.</li>
+      <li><strong>Packaging:</strong> vial size and fill volume affect handling and cost per mg.</li>
+      <li><strong>Volume:</strong> tier pricing starts at the stated MOQ; see <a href="/wholesale/">wholesale</a>.</li>
+      <li><strong>Custom label:</strong> available for qualified buyers — see <a href="/oem-private-label/">OEM</a>.</li>
+    </ul>
+
+    <h2>Frequently asked</h2>
+    <h3>Is purity the same for every batch?</h3>
+    <p>No. Purity is measured per lot and stated on that lot's COA. We do not publish a single "typical" figure as a substitute for batch data.</p>
+    <h3>Can I order a sample before a bulk order?</h3>
+    <p>Yes, for qualified business buyers. The sample ships with its own batch COA so you can verify before committing to volume.</p>
+    <h3>Do you ship to my country?</h3>
+    <p>Most destinations are serviceable, but some are restricted. Check <a href="/compliance/shipping-customs/">Shipping &amp; Customs</a> and confirm at quotation stage.</p>
+
+    <div class="ruo" style="margin:28px 0;">{items.length} products in this category. All supplied for laboratory research use only.</div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</BaseLayout>

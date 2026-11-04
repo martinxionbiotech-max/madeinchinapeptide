@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Peptide Synthesis (SPPS) Explained for Buyers" description="What solid-phase peptide synthesis means for purity, yield and cost — and how synthesis choices show up in the COA you receive." canonical="/knowledge/peptide-synthesis-spps-explained/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/knowledge/">Knowledge</a> › Synthesis</p>
+    <h1>Peptide synthesis (SPPS) explained for buyers</h1>
+    <p class="lead muted">You do not need to run a synthesizer to buy well — but understanding the process explains most of the price and purity differences you see.</p>
+
+    <h2>The basic sequence</h2>
+    <ol>
+      <li><strong>Resin loading</strong> — the first amino acid is anchored to a solid support.</li>
+      <li><strong>Coupling cycles</strong> — protected amino acids are added one by one; each cycle includes coupling, washing and deprotection.</li>
+      <li><strong>Cleavage</strong> — the peptide is released from the resin and side-chain protecting groups are removed.</li>
+      <li><strong>Purification</strong> — preparative HPLC isolates the target peak from deletion and truncation impurities.</li>
+      <li><strong>Lyophilization</strong> — the purified solution is freeze-dried into a stable powder.</li>
+    </ol>
+
+    <h2>Why length matters</h2>
+    <p>Each coupling cycle is rarely 100% efficient. A 10-mer with 99% average coupling still accumulates measurable truncation impurities; a 30-mer compounds the problem. This is why longer peptides cost more and why "crude" versus "purified" is a meaningful distinction.</p>
+
+    <h2>Where impurities come from</h2>
+    <table>
+      <thead><tr><th>Impurity type</th><th>Cause</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Deletion sequences</td><td>Incomplete coupling</td><td>Close-eluting impurities; hard to separate</td></tr>
+        <tr><td>Truncation</td><td>Premature chain termination</td><td>Lower yield; purity profile complexity</td></tr>
+        <tr><td>Oxidation</td><td>Air/light exposure of sensitive residues</td><td>Mass shift; activity loss</td></tr>
+        <tr><td>Counter-ions / salts</td><td>Purification and lyophilization</td><td>Lower net peptide content</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What this means when buying</h2>
+    <ul>
+      <li>Ask for the purification method, not just the purity number.</li>
+      <li>For long peptides, expect a more complex impurity profile and price accordingly.</li>
+      <li>Request net peptide content when quantitative work matters.</li>
+      <li>Treat "crude" material as a different product from purified material.</li>
+    </ul>
+
+    <h2>The buyer's rule of thumb</h2>
+    <p>If two quotes differ by more than the cost of purification, one of them is not doing the purification. The COA will tell you which.</p>
+
+    <div class="ruo">Research use only.</div>
+  </div>
+</BaseLayout>

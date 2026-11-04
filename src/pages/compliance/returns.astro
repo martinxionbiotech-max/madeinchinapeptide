@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Returns & Claims — Made in China Peptide" description="Return and quality claim policy for research peptide orders: timelines, evidence requirements and resolution options." canonical="/compliance/returns/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Returns</p>
+    <h1>Returns &amp; quality claims</h1>
+
+    <h2>Claim window</h2>
+    <p>Damage, shortage or specification non-conformance must be reported within <strong>7 calendar days</strong> of delivery. Claims raised later cannot be verified against the shipped batch.</p>
+
+    <h2>What to send</h2>
+    <ul>
+      <li>Order number and batch number</li>
+      <li>Photographs of the vial, label, packaging and any damage</li>
+      <li>A short description of the issue and the analytical result you obtained (if applicable)</li>
+    </ul>
+
+    <h2>Resolution</h2>
+    <table>
+      <thead><tr><th>Situation</th><th>Resolution</th></tr></thead>
+      <tbody>
+        <tr><td>Transit damage</td><td>Replacement or credit, subject to carrier claim</td></tr>
+        <tr><td>Short shipment</td><td>Replacement of missing units</td></tr>
+        <tr><td>Specification non-conformance (verified)</td><td>Replacement from a conforming batch or refund</td></tr>
+        <tr><td>Buyer error (wrong SKU ordered)</td><td>Not returnable; lyophilized products cannot be restocked once shipped</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Not accepted</h2>
+    <ul>
+      <li>Returns of opened or reconstituted material</li>
+      <li>Claims without batch identification</li>
+      <li>Claims based on human-use outcomes — products are not supplied for human use</li>
+    </ul>
+
+    <p>Email claims to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products, categories } from '../../data/products';
+---
+<BaseLayout title="Research Peptide Catalogue — Bulk & OEM Supply | Made in China Peptide" description="Browse research-grade peptides available for bulk and OEM supply from China: tirzepatide, semaglutide, BPC-157, TB-500, GHK-Cu and more. Batch COA on request." canonical="/products/">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Home</a> › Products</p>
+    <h1>Research peptide catalogue</h1>
+    <p class="lead muted" style="max-width:760px;">A focused catalogue of research-grade peptides and cosmetic raw materials. Every listing states its form, storage requirements and documentation package. Purity is batch-specific — request the COA for the lot you are evaluating.</p>
+    {Object.entries(categories).map(([slug, c]) => {
+      const items = products.filter(p => p.category === slug);
+      return (
+        <section style="margin-top:36px;">
+          <h2><a href={`/products/${slug}/`}>{c.name}</a> <span class="tag">{items.length} SKUs</span></h2>
+          <table>
+            <thead><tr><th>Product</th><th>Strength</th><th>Form</th><th>MOQ</th><th>Lead time</th><th></th></tr></thead>
+            <tbody>
+              {items.map(p => (
+                <tr>
+                  <td><a href={`/products/${p.category}/${p.slug}/`}>{p.name}</a></td>
+                  <td>{p.strength}</td>
+                  <td>{p.form}</td>
+                  <td>{p.moq}</td>
+                  <td>{p.leadTime}</td>
+                  <td><a href={`/products/${p.category}/${p.slug}/`}>View</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      );
+    })}
+    <div class="ruo" style="margin:32px 0;">All products are supplied for laboratory research use only. Not for human or veterinary use.</div>
+  </div>
+</BaseLayout>

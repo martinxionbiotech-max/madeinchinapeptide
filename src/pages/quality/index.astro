@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Quality Control & Batch Documentation — Research Peptides" description="How research peptides are tested and released: HPLC purity, mass-spectrometry identity, water content, batch records, COA structure and traceability." canonical="/quality/">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Home</a> › Quality</p>
+    <h1>Quality control &amp; batch documentation</h1>
+    <p class="lead muted" style="max-width:840px;">Purity claims are cheap. What matters is whether the claim on the label can be traced to a specific lot, a specific method and a specific result. This page describes the testing and release framework behind every batch we ship.</p>
+
+    <h2>The release chain</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>What is checked</th><th>Record</th></tr></thead>
+      <tbody>
+        <tr><td>Incoming material</td><td>Identity, appearance, supplier documentation</td><td>Receiving record</td></tr>
+        <tr><td>Synthesis &amp; purification</td><td>Process parameters, purification fractions</td><td>Batch production record</td></tr>
+        <tr><td>Lyophilization</td><td>Cycle parameters, residual moisture</td><td>Lyophilization log</td></tr>
+        <tr><td>Analytical release</td><td>HPLC purity, MS identity, appearance, water content</td><td>COA + chromatogram + MS spectrum</td></tr>
+        <tr><td>Packaging &amp; labeling</td><td>Fill weight, label content, batch/expiry</td><td>Packaging record</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Analytical methods</h2>
+    <h3>HPLC purity</h3>
+    <p>Reverse-phase HPLC with UV detection at the compound-appropriate wavelength. Purity is reported as area percentage of the main peak; the chromatogram is included with the COA so buyers can see the integration, not just a number.</p>
+    <h3>Mass-spectrometry identity</h3>
+    <p>ESI-MS or MALDI-TOF confirmation of the expected molecular ion. This is the check that distinguishes "the right peak" from "the right molecule".</p>
+    <h3>Water content</h3>
+    <p>Karl Fischer titration where applicable. Residual moisture affects stability and weighing accuracy, and is reported rather than assumed.</p>
+    <h3>Appearance &amp; solubility</h3>
+    <p>Visual inspection of the lyophilized cake and a solubility check in the recommended laboratory solvent.</p>
+
+    <h2>What a COA from us contains</h2>
+    <ul>
+      <li>Product name, strength, batch number, manufacture and expiry dates</li>
+      <li>Test items, methods, specifications and results</li>
+      <li>HPLC chromatogram with integration data</li>
+      <li>MS spectrum and interpretation</li>
+      <li>Storage and handling statement</li>
+      <li>Release signature and date</li>
+    </ul>
+
+    <h2>What we do not claim</h2>
+    <div class="note">We do not claim a universal "99% purity" across products, and we do not reuse one COA across lots. If a supplier cannot show you the chromatogram for the batch you are buying, the number is marketing, not data.</div>
+
+    <p><a href="/quality/coa/">See a sample COA structure</a> · <a href="/quality/testing-methods/">Testing methods in detail</a></p>
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

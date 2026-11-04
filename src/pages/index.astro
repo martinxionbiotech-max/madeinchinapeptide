@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { products, categories } from '../data/products';
+const featured = products.filter(p => ['tirzepatide-10mg','semaglutide-10mg','bpc-157-10mg','ghk-cu-50mg','tb-500-5mg','nad-plus-500mg'].includes(p.slug));
+---
+<BaseLayout title="Made in China Peptide — Research Peptide Wholesale & Bulk Supply" description="B2B sourcing for research peptides manufactured in China. Batch documentation, HPLC data, bulk pricing and OEM/private-label programs for laboratories and distributors." canonical="/">
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">Research use only · B2B supply</span>
+      <h1>Research peptides from China, documented batch by batch.</h1>
+      <p class="lead">A sourcing channel built for laboratories, distributors and research suppliers who need more than a price list: batch-specific HPLC data, traceable documentation, bulk supply and OEM/private-label programs.</p>
+      <p style="margin-top:24px;">
+        <a class="btn" href="/products/">Browse catalogue</a>
+        <a class="btn btn-ghost" href="/wholesale/" style="margin-left:10px;">Wholesale &amp; bulk</a>
+      </p>
+      <p class="small muted" style="margin-top:18px;">{site.ruo}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Why buyers work with us</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>Documentation first</h3><p>Every batch ships with a COA, HPLC chromatogram and MS confirmation. Batch numbers are traceable to production records.</p></div>
+        <div class="card"><h3>Bulk-ready supply</h3><p>Vial, kit and gram-scale bulk formats with tiered wholesale pricing for qualified distributors and laboratories.</p></div>
+        <div class="card"><h3>OEM &amp; private label</h3><p>Custom vial labels, boxes and documentation packages for brands that need a supplier, not a marketplace.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>Catalogue</h2>
+      <div class="grid grid-3">
+        {Object.entries(categories).map(([slug, c]) => (
+          <div class="card">
+            <h3><a href={`/products/${slug}/`}>{c.name}</a></h3>
+            <p>{c.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Featured products</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Strength</th><th>Form</th><th>Purity</th><th>MOQ</th><th></th></tr></thead>
+        <tbody>
+          {featured.map(p => (
+            <tr>
+              <td><a href={`/products/${p.category}/${p.slug}/`}>{p.name}</a></td>
+              <td>{p.strength}</td>
+              <td>{p.form}</td>
+              <td>{p.purity}</td>
+              <td>{p.moq}</td>
+              <td><a href={`/products/${p.category}/${p.slug}/`}>Details</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">Purity is batch-specific and stated on each lot's certificate of analysis. Request a sample COA before ordering.</p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>How ordering works</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>1. Specify</h3><p>Send the product, strength, quantity and destination country. We confirm availability, documentation and lead time.</p></div>
+        <div class="card"><h3>2. Verify</h3><p>Review the batch COA and analytical data before payment. Samples are available for qualified buyers.</p></div>
+        <div class="card"><h3>3. Ship</h3><p>Discreet, tracked international shipping with commercial invoice and documentation prepared for customs review.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="ruo">{site.ruo} Buyers must be 21+ and legally permitted to purchase research chemicals in their jurisdiction.</div>
+    </div>
+  </section>
+</BaseLayout>

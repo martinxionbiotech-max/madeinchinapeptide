@@ -1,0 +1,48 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+const links = [
+  { label: 'Products', href: '/products/' },
+  { label: 'Wholesale', href: '/wholesale/' },
+  { label: 'OEM / Private Label', href: '/oem-private-label/' },
+  { label: 'Quality', href: '/quality/' },
+  { label: 'Knowledge', href: '/knowledge/' },
+];
+const legal = [
+  { label: 'Research Use Only', href: '/compliance/research-use-only/' },
+  { label: 'Terms of Service', href: '/compliance/terms/' },
+  { label: 'Privacy Policy', href: '/compliance/privacy/' },
+  { label: 'Shipping & Customs', href: '/compliance/shipping-customs/' },
+  { label: 'Returns', href: '/compliance/returns/' },
+];
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>{site.brand}</h4>
+        <p class="small" style="color:#a9bccf;max-width:34ch;">{site.tagline}</p>
+        <p class="tiny" style="color:#8fa3b8;">{site.ruo}</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>{links.map(l => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>Compliance</h4>
+        <ul>{legal.map(l => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><strong>WhatsApp:</strong> {site.whatsapp}</li>
+          <li>{site.address}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; {year} {site.brand}. All rights reserved. Products are supplied for laboratory research use only.
+    </div>
+  </div>
+</footer>

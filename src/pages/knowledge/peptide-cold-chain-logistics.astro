@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Peptide Cold Chain & Logistics — Practical Guide" description="Cold chain and logistics for lyophilized peptides: temperature limits, insulated packaging, transit risks and what to check on arrival." canonical="/knowledge/peptide-cold-chain-logistics/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Cold chain & logistics'}]} />
+    <h1>Peptide cold chain and logistics</h1>
+    <p class="lead muted">Lyophilized peptides are more forgiving than solutions, but transit heat, customs holds and humidity still matter. Here is the practical picture.</p>
+
+    <h2>Stability of lyophilized material in transit</h2>
+    <p>A properly lyophilized cake with low residual moisture is stable at ambient temperature for days to weeks, depending on the peptide. The risk rises with heat exposure, humidity and time. Summer routes and customs holds are the two common failure points.</p>
+
+    <h2>Packaging options</h2>
+    <table>
+      <thead><tr><th>Option</th><th>Use case</th><th>Limitation</th></tr></thead>
+      <tbody>
+        <tr><td>Ambient with desiccant</td><td>Short transit, stable peptides</td><td>Not for heat-sensitive compounds</td></tr>
+        <tr><td>Insulated box + phase-change packs</td><td>Summer routes, multi-day transit</td><td>Adds weight and cost</td></tr>
+        <tr><td>Cold-chain courier</td><td>Sensitive or high-value lots</td><td>Limited destinations, higher freight</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What to check on arrival</h2>
+    <ul>
+      <li>Outer packaging intact; no signs of heat or water damage</li>
+      <li>Phase-change packs still within their working range (if used)</li>
+      <li>Vial seals and crimps intact</li>
+      <li>Batch number matches the COA and invoice</li>
+      <li>Cake appearance consistent with the certificate</li>
+    </ul>
+
+    <h2>If a shipment arrives warm</h2>
+    <p>Do not assume the material is ruined — lyophilized peptides tolerate short ambient exposure. Record the condition, photograph it, and ask the supplier for the stability data supporting ambient transit for that compound. If the lot is critical, test it before use.</p>
+
+    <h2>Customs holds</h2>
+    <p>A hold can extend transit by days or weeks. For sensitive compounds, plan for it: ship earlier, use insulated packaging, and keep the tracking active so you can intervene with the broker.</p>
+
+    <div class="ruo">Research use only. This is logistics guidance, not a stability guarantee for any specific compound.</div>
+  </div>
+</BaseLayout>

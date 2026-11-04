@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Peptide Testing Methods — HPLC, MS, Karl Fischer Explained" description="Technical explanation of the analytical methods used to release research peptides: reverse-phase HPLC, ESI-MS/MALDI-TOF, Karl Fischer moisture, and what each method can and cannot prove." canonical="/quality/testing-methods/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/quality/">Quality</a> › Testing methods</p>
+    <h1>Testing methods, and what they actually prove</h1>
+    <p class="lead muted">Each analytical method answers a different question. Confusing them is how bad batches pass "QC".</p>
+
+    <h2>Reverse-phase HPLC — how much of the main thing is there?</h2>
+    <p>RP-HPLC separates components by hydrophobicity. For peptides, purity is usually reported as the area percentage of the main peak at a defined wavelength. It answers: <em>what fraction of the UV-absorbing material is the target peak?</em> It does not, by itself, prove identity, and it can overstate purity if the compound has low UV absorbance or if impurities co-elute.</p>
+
+    <h2>Mass spectrometry — is it the right molecule?</h2>
+    <p>ESI-MS or MALDI-TOF measures the mass-to-charge ratio of ions. It answers: <em>does the material contain a species with the expected molecular mass?</em> It is the identity check. It does not measure purity, and a match at the expected mass does not exclude isomers or modified variants with the same nominal mass.</p>
+
+    <h2>Karl Fischer — how much water is in the powder?</h2>
+    <p>Residual moisture affects stability, weighing accuracy and apparent purity. A lyophilized powder with high moisture can degrade faster and weigh inaccurately. The method answers: <em>what is the water content?</em></p>
+
+    <h2>Peptide content (assay) — how much is peptide vs counter-ion/salt?</h2>
+    <p>Net peptide content differs from HPLC purity: a sample can be 98% pure by HPLC and still contain a significant fraction of counter-ions, water or excipients. For quantitative work, ask for assay or net-peptide content, not just purity.</p>
+
+    <h2>What a combined package proves</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Method</th><th>Limited by</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS</td><td>Resolution; isomers</td></tr>
+        <tr><td>Purity profile</td><td>HPLC</td><td>UV response; co-elution</td></tr>
+        <tr><td>Moisture</td><td>Karl Fischer</td><td>Sample handling</td></tr>
+        <tr><td>Net peptide content</td><td>Assay / amino-acid analysis</td><td>Method availability</td></tr>
+        <tr><td>Sterility / endotoxin</td><td>Microbial / LAL</td><td>Only if actually performed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</BaseLayout>

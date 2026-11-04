@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { products, categories, type Category } from '../../../data/products';
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { category: p.category, slug: p.slug } }));
+}
+const { category, slug } = Astro.params as { category: Category; slug: string };
+const p = products.find(x => x.slug === slug)!;
+const cat = categories[category];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  description: p.summary,
+  brand: { '@type': 'Brand', name: 'Made in China Peptide' },
+  category: 'Research chemicals',
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Strength', value: p.strength },
+    { '@type': 'PropertyValue', name: 'Form', value: p.form },
+    { '@type': 'PropertyValue', name: 'Purity', value: p.purity },
+    { '@type': 'PropertyValue', name: 'Storage', value: p.storage },
+    { '@type': 'PropertyValue', name: 'MOQ', value: p.moq },
+  ],
+  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'USD', price: '0', url: `https://madeinchinapeptide.com/products/${category}/${slug}/` },
+};
+---
+<BaseLayout title={`${p.name} — Bulk & OEM Supply | Made in China Peptide`} description={`${p.name} (${p.strength}) research-grade ${p.form.toLowerCase()}. ${p.purity}. Bulk and OEM supply with batch COA. Research use only.`} canonical={`/products/${category}/${slug}/`}>
+  <div class="wrap">
+    <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name,href:`/products/${category}/`},{label:p.name}]} />
+    <h1>{p.name}</h1>
+    <div class="grid grid-2" style="align-items:start;gap:32px;">
+      <div>
+        <p class="lead muted" style="max-width:800px;">{p.summary}</p>
+      </div>
+      <div>
+        <img src={`/images/products/vial-${category}.svg`} alt={`${p.name} — research-grade vial (layout image)`} width="640" height="640" style="max-width:280px;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;" loading="lazy" />
+        <p class="tiny muted" style="margin-top:8px;">Illustrative image. Actual vial and label may differ by batch and packaging option.</p>
+      </div>
+    </div>
+
+    <h2>Specifications</h2>
+    <table>
+      <tbody>
+        <tr><th style="width:220px;">Product</th><td>{p.name}</td></tr>
+        <tr><th>Strength</th><td>{p.strength}</td></tr>
+        <tr><th>Form</th><td>{p.form}</td></tr>
+        {p.cas && <tr><th>CAS number</th><td>{p.cas}</td></tr>}
+        {p.mw && <tr><th>Molecular weight</th><td>{p.mw}</td></tr>}
+        <tr><th>Purity</th><td>{p.purity}</td></tr>
+        <tr><th>Storage</th><td>{p.storage}</td></tr>
+        <tr><th>Packaging</th><td>{p.packaging}</td></tr>
+        <tr><th>MOQ</th><td>{p.moq}</td></tr>
+        <tr><th>Lead time</th><td>{p.leadTime}</td></tr>
+        <tr><th>Documentation</th><td>{p.docs.join(' · ')}</td></tr>
+      </tbody>
+    </table>
+
+    {p.note && (<><h2>Lot notes</h2><p>{p.note}</p></>)}
+
+    <h2>Documentation &amp; batch traceability</h2>
+    <p>Each production lot is assigned a batch number that links to its certificate of analysis, HPLC chromatogram and mass-spec confirmation. We do not publish a single "typical" purity figure as if it applied to every lot — the COA for the specific batch is the authoritative document. Request a sample COA before purchase.</p>
+
+    <h2>Bulk &amp; wholesale pricing</h2>
+    <p>Pricing is quantity-tiered and depends on strength, packaging and destination. Standard tiers start at {p.moq}; distributor and OEM volumes are quoted individually. <a href="/wholesale/">See how wholesale ordering works</a> or <a href="/contact/">request a quotation</a>.</p>
+
+    <h2>Handling notes</h2>
+    <ul>
+      <li>Store lyophilized material at −20 °C, protected from light and moisture.</li>
+      <li>Allow vials to reach room temperature before opening to avoid condensation.</li>
+      <li>Reconstitute only with appropriate laboratory-grade solvent for in-vitro work; do not use for injection.</li>
+      <li> Aliquot reconstituted material to avoid repeated freeze–thaw cycles.</li>
+    </ul>
+
+    <div class="ruo" style="margin:28px 0;">{p.name} is supplied for laboratory research use only. It is not a drug, food, cosmetic or veterinary product and must not be administered to humans or animals.</div>
+
+    {cat.take && (
+      <>
+        <h2 id="authors-take">The Author's Take</h2>
+        <p><strong>Position.</strong> {cat.take.position}</p>
+        <p><strong>Reasoning.</strong> {cat.take.reasoning}</p>
+        <p class="small muted"><strong>Disclosure.</strong> {cat.take.disclosure}</p>
+      </>
+    )}
+
+    <h2>Related products</h2>
+    <ul>
+      {products.filter(x => x.category === category && x.slug !== p.slug).slice(0, 5).map(x => (
+        <li><a href={`/products/${x.category}/${x.slug}/`}>{x.name}</a> — {x.strength}, {x.form.toLowerCase()}</li>
+      ))}
+    </ul>
+
+    <h2>Related</h2>
+    <p>
+      <a href={`/products/${category}/`}>All {cat.name}</a> ·
+      <a href="/quality/">Quality &amp; testing</a> ·
+      <a href="/knowledge/">Research knowledge base</a>
+    </p>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</BaseLayout>

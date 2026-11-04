@@ -1,0 +1,17 @@
+---
+import { site, nav } from '../data/site';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">MICP</span>
+      <span>{site.brand}</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {nav.map((n) => (
+        <a href={n.href} class={path.startsWith(n.href) && n.href !== '/' ? '' : ''}>{n.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

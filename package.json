@@ -1,0 +1,17 @@
+{
+  "name": "madeinchinapeptide",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/generate-markdown.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.12.0"
+  },
+  "devDependencies": {
+    "node-html-markdown": "^2.0.0"
+  }
+}
