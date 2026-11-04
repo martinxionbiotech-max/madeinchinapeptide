@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ArticleSchema from '../components/ArticleSchema.astro';
+
+const groups = [
+  {
+    name: 'Analytical & quality',
+    terms: [
+      ['HPLC', 'High-performance liquid chromatography. Separates components of a sample and reports area percentages at a chosen wavelength; the basis of most peptide purity figures.', '/knowledge/how-to-verify-peptide-purity/'],
+      ['Chromatogram', 'The plotted output of an HPLC run. Look at peak shape, baseline and impurity peaks, not only the main-peak percentage.', '/knowledge/peptide-coa-red-flags/'],
+      ['Mass spectrometry (MS)', 'Measures molecular mass to confirm identity. An MS result supports “this is the right molecule”; it does not by itself prove purity.', '/quality/testing-methods/'],
+      ['Purity vs assay', 'Purity is the share of the main peak by a given method. Assay is the quantity of the target compound measured against a standard. They are not interchangeable.', '/knowledge/how-to-verify-peptide-purity/'],
+      ['Related impurity', 'A molecule close in structure to the target — a deletion, truncation or oxidation product. Its profile matters more than a single purity number.', '/knowledge/peptide-lot-consistency/'],
+      ['Karl Fischer titration', 'The standard method for water content in a lyophilized cake. Residual moisture affects stability and cake integrity.', '/quality/testing-methods/'],
+      ['COA (certificate of analysis)', 'The lot-specific document stating test methods, results and specification limits. It must reference the batch it belongs to.', '/quality/coa/'],
+      ['Retention sample', 'Material held back from a lot for later comparison or retest. Ask for it contractually; it is the cheapest dispute tool you have.', '/knowledge/peptide-procurement-contract-terms/'],
+      ['Specification', 'The written set of limits and methods a lot must meet. A product name is not a specification.', '/knowledge/peptide-procurement-contract-terms/'],
+      ['OOS (out of specification)', 'A result outside the agreed limits. The response — rejection, investigation or retest — should be defined before you order.', '/knowledge/peptide-procurement-contract-terms/'],
+    ],
+  },
+  {
+    name: 'Manufacturing',
+    terms: [
+      ['SPPS', 'Solid-phase peptide synthesis. The peptide is built stepwise on a resin, then cleaved and purified. Scale and resin choice drive impurity profiles.', '/knowledge/peptide-synthesis-spps-explained/'],
+      ['Resin', 'The solid support for SPPS. A change of resin lot can shift coupling efficiency and the impurity profile.', '/knowledge/peptide-synthesis-spps-explained/'],
+      ['Cleavage and deprotection', 'The step that releases the peptide from the resin and removes side-chain protecting groups. Incomplete cleavage leaves modified by-products.', '/knowledge/peptide-synthesis-spps-explained/'],
+      ['Purification', 'Usually preparative HPLC. Gradient and fraction cutting determine which impurities survive into the final lot.', '/knowledge/peptide-synthesis-spps-explained/'],
+      ['Lyophilization', 'Freeze-drying. Removes water from the purified solution to give a stable cake; the cycle affects moisture and cake structure.', '/knowledge/peptide-storage-handling/'],
+      ['Counter-ion', 'The ion paired with the peptide — commonly acetate or TFA. It changes mass, pH and solubility, and should be stated on the specification.', '/knowledge/peptide-lot-consistency/'],
+      ['Batch / lot', 'A single production run with one batch number. Certificates and retention samples attach to the lot, not to the product name.', '/knowledge/peptide-lot-consistency/'],
+      ['Scale-up', 'Moving a synthesis from grams to tens or hundreds of grams. Coupling and purification behaviour change; a successful small run does not guarantee the large one.', '/knowledge/peptide-lot-consistency/'],
+    ],
+  },
+  {
+    name: 'Sourcing & commercial',
+    terms: [
+      ['MOQ', 'Minimum order quantity. Often set per SKU and per packaging format rather than per order.', '/knowledge/peptide-moq-and-pricing-tiers/'],
+      ['Tier pricing', 'Unit price steps tied to quantity. Confirm whether tiers apply per SKU or across a mixed order.', '/knowledge/peptide-moq-and-pricing-tiers/'],
+      ['RFQ', 'Request for quotation. A useful RFQ lists SKU, strength, quantity, destination and documentation requirements.', '/contact/'],
+      ['Incoterms', 'Standard trade terms (EXW, FOB, CIF, DDP) that allocate cost and risk. Name the term and the place in the contract.', '/knowledge/peptide-procurement-contract-terms/'],
+      ['HS code', 'Customs classification code. The code determines duty and whether an import permit is required at destination.', '/knowledge/shipping-peptides-customs-guide/'],
+      ['Change control', 'The contractual process for notifying and approving changes to process, site or specification. Its absence is a common source of silent drift.', '/knowledge/peptide-procurement-contract-terms/'],
+      ['OEM', 'Original equipment manufacturer. Here: supply under the buyer’s brand, with agreed label and documentation.', '/oem-private-label/'],
+      ['Private label', 'A product sold under the buyer’s brand rather than the manufacturer’s. Label rules and registrations differ by market.', '/oem-private-label/'],
+      ['Qualification', 'The pre-order process of checking documentation, samples and references before committing to a supplier.', '/knowledge/china-peptide-supplier-checklist/'],
+      ['Dual sourcing', 'Qualifying a second supplier for a critical SKU to reduce single-source risk. Requires comparable specifications.', '/knowledge/bulk-peptide-sourcing-risks/'],
+    ],
+  },
+  {
+    name: 'Handling & logistics',
+    terms: [
+      ['Lyophilized powder', 'Freeze-dried peptide, typically a porous cake or powder in a sealed vial. More stable in transit than a solution.', '/knowledge/peptide-storage-handling/'],
+      ['Reconstitution', 'Dissolving lyophilized peptide in a suitable laboratory solvent. Concentration is calculated from the measured mass, not assumed.', '/knowledge/peptide-reconstitution-guide/'],
+      ['Freeze–thaw cycle', 'Repeated freezing and thawing of a solution. Aliquot before freezing to limit damage.', '/knowledge/peptide-reconstitution-guide/'],
+      ['Cold chain', 'Temperature-controlled handling from dispatch to delivery. Required for sensitive material; overkill for many lyophilized lots on short routes.', '/knowledge/peptide-cold-chain-logistics/'],
+      ['Phase-change pack', 'A pack that holds a temperature band during transit. Check it is still within range on arrival.', '/knowledge/peptide-cold-chain-logistics/'],
+      ['Desiccant', 'A moisture absorber included in packaging. It manages humidity, not temperature.', '/knowledge/peptide-cold-chain-logistics/'],
+      ['Customs hold', 'Detention of a shipment for inspection or missing documents. Plan for it on time-sensitive orders.', '/knowledge/shipping-peptides-customs-guide/'],
+      ['RUO', 'Research use only. A labelling and use restriction: not for human or veterinary use, diagnosis, treatment or cosmetic application.', '/compliance/research-use-only/'],
+    ],
+  },
+];
+---
+<BaseLayout title="Peptide Sourcing & Quality Glossary" description="Definitions for the terms that decide peptide quality and supply: HPLC, COA, SPPS, counter-ion, MOQ, Incoterms, retention samples and more." canonical="/glossary/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Glossary'}]} />
+    <h1>Glossary</h1>
+    <p class="lead muted">Short, practical definitions for the vocabulary used in peptide sourcing, analytics and logistics. Each entry links to the guide that covers it in depth.</p>
+
+    {groups.map(g => (
+      <section>
+        <h2>{g.name}</h2>
+        <dl>
+          {g.terms.map(([term, def, href]) => (
+            <div style="margin:0 0 14px;">
+              <dt style="font-weight:650;color:var(--navy);">{term}</dt>
+              <dd style="margin:2px 0 0;">{def} <a href={href}>Read more</a></dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))}
+
+    <div class="ruo">Research use only. Definitions describe laboratory and commercial practice; they are not medical or regulatory advice.</div>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+      <li><a href="/quality/">Quality framework</a></li>
+      <li><a href="/products/">Product catalogue</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title="Peptide Sourcing & Quality Glossary" description="Definitions for the terms that decide peptide quality and supply: HPLC, COA, SPPS, counter-ion, MOQ, Incoterms and retention samples." path="/glossary/" section="Peptide sourcing glossary" />
+</BaseLayout>
