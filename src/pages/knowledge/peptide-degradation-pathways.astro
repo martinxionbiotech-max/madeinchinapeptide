@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide degradation pathways';
+const description = 'Hydrolysis, oxidation, deamidation and isomerisation — which residues fail first, how pH and temperature change the rate, and what a COA can and cannot show.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-degradation-pathways/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Degradation pathways'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A peptide does not fail in one way. It hydrolyses, oxidises, deamidates and isomerises at different rates depending on sequence, pH, water and temperature — and each route leaves a different fingerprint. Knowing which one is active tells you what to change, and what a certificate can realistically detect.</p>
+
+    <h2>The four chemical routes</h2>
+    <table>
+      <thead><tr><th>Route</th><th>What happens</th><th>Mass shift</th><th>Sequence hotspots</th></tr></thead>
+      <tbody>
+        <tr><td>Hydrolysis</td><td>A peptide bond is cleaved, adding water</td><td>+18.011 Da per cleavage</td><td>Asp–Pro and Asp–Gly bonds; Asp-X generally acid-labile</td></tr>
+        <tr><td>Oxidation</td><td>Met → methionine sulfoxide; Trp, His and Cys also oxidise</td><td>+15.995 Da (Met, single oxidation)</td><td>Solvent-exposed Met and Trp; Cys to disulfide or sulfonic acid</td></tr>
+        <tr><td>Deamidation</td><td>Asn → Asp or isoAsp via a succinimide intermediate; Gln much slower</td><td>+0.984 Da</td><td>Asn–Gly and Asn–Ser motifs; Asn followed by small residues</td></tr>
+        <tr><td>Isomerisation / racemisation</td><td>Asp → isoAsp; chiral centres invert under basic conditions</td><td>None (isobaric)</td><td>Asp–Gly, Asp–Ser; Cys, Ser, Thr at high pH</td></tr>
+      </tbody>
+    </table>
+    <p>Two of these are mass-silent. Isomerisation and racemisation produce molecules with the same mass and often the same UV spectrum as the parent, which is why an intact-mass check and a single-wavelength purity figure can both look clean while the material has changed. Detecting them needs chromatographic separation of the variants, peptide mapping, or a chiral method — not a certificate template.</p>
+
+    <h2>Hydrolysis: the one moisture controls</h2>
+    <p>Peptide-bond hydrolysis needs water. In a well-dried lyophilized cake, residual moisture is low and the reaction is slow; in solution, it is a matter of pH and temperature. Acid catalyses cleavage at Asp–Pro bonds, which is why a sequence with an Asp–Pro motif is a known fragility rather than a surprise. Base catalyses a different set of reactions, including deamidation and disulfide scrambling.</p>
+    <p>The practical consequence: a lyophilized lot that is dry and stored cold is not the same product as a reconstituted stock left on the bench. Solution stability is a separate question from shelf life of the powder, and it has to be established for your buffer rather than assumed from the certificate. This is the distinction set out in <a href="/knowledge/peptide-stability-studies/">stability studies</a>.</p>
+
+    <h2>Oxidation: oxygen, light and trace metals</h2>
+    <p>Methionine oxidation is the most common and the easiest to monitor: a +16 Da shift on intact MS, and a peak that grows with time and oxygen exposure. Tryptophan oxidation is more complex and can fragment the indole ring; histidine and cysteine are also susceptible. Trace iron or copper from buffers, water or stainless surfaces catalyses the reaction, and so does light.</p>
+    <p>Controls that actually work: inert headspace in the container, avoiding metal contact in buffers, protecting from light, and limiting the time a solution sits at room temperature. Adding an antioxidant is not automatically a fix — some antioxidants are themselves reactive with peptides, and the choice is a formulation decision, not a default. Packaging choices that reduce oxygen exposure are covered in <a href="/knowledge/peptide-packaging-configurations/">packaging configurations</a>.</p>
+
+    <h2>Deamidation: the charge variant generator</h2>
+    <p>Deamidation converts Asn to Asp (and isoAsp), adding a negative charge at neutral pH. The reaction runs through a cyclic succinimide, so the rate depends strongly on the following residue and on pH; Asn–Gly is the classic fast motif. Because the product differs by about 1 Da and by one charge, it separates well on ion exchange or on a shallow HPLC gradient, but poorly on a fast generic gradient.</p>
+    <p>This is one of the reasons a purity figure measured on a 10-minute generic method can overstate the quality of a peptide that has been in solution for a week. If deamidation matters to your work, ask for a method that resolves the variant, or run a forced-degradation sample to see where it elutes. The integration and peak-shape consequences are covered in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</p>
+
+    <h2>Isomerisation and racemisation: the invisible ones</h2>
+    <p>Asp isomerisation forms isoAsp through the same succinimide intermediate as deamidation, with no mass change. Racemisation at cysteine, serine or threonine is base-catalysed and also mass-silent. Both change the molecule's shape and its interaction with a target, while leaving identity tests intact. The only reliable detectors are methods that separate the variants — peptide mapping with UPLC, isoAsp-specific enzymatic assays, or chiral chromatography — and those are specialist tests, not routine release items.</p>
+    <p>For a buyer, the practical takeaway is about claims: a supplier who reports only “purity 98.5% by HPLC” has not told you whether isomerised material is present, because the method may not resolve it. Whether that matters depends on your use; for a screening assay it may not, and for a quantitative binding study it may.</p>
+
+    <h2>Pyroglutamate: usually intentional, sometimes not</h2>
+    <p>N-terminal glutamine or glutamate can cyclise to pyroglutamate, losing ammonia (−17.026 Da). For many peptides this is a deliberate part of the intended structure and is specified in the sequence. It becomes a problem when it happens partially and uncontrolled, giving a mixture of two species that differ by 17 Da and by one charge. If the certificate's molecular weight matches the pyroglutamate form, confirm that the sequence you intend is the one being sold — this is the kind of mismatch covered in <a href="/knowledge/peptide-sequence-notation/">sequence and molecular weight</a>.</p>
+
+    <h2>What accelerates all of them</h2>
+    <ul>
+      <li><strong>Temperature.</strong> As a rule of thumb, many degradation reactions roughly double to triple in rate for every 10 °C — which is why a “brief” warm step is rarely brief in reaction terms.</li>
+      <li><strong>pH extremes.</strong> Both acid and base catalyse hydrolysis; base also drives deamidation, isomerisation and racemisation. A buffer at the pH your peptide is stable in is worth more than a fancier container.</li>
+      <li><strong>Water activity.</strong> In the solid state, moisture is the enabler. A cake that takes up water during repeated opening degrades faster than the same cake kept sealed.</li>
+      <li><strong>Oxygen and light.</strong> Both are avoidable and both are routinely underestimated.</li>
+      <li><strong>Trace metals and peroxides.</strong> Buffer salts, water systems and plasticisers can carry them.</li>
+      <li><strong>Time in solution.</strong> The single largest variable most laboratories control least.</li>
+    </ul>
+
+    <h2>What to ask, and what not to expect</h2>
+    <p>Useful questions for a supplier: Is the release method stability-indicating, and does it resolve the known degradants of this sequence? Was forced degradation performed, and what did it show? What is the residual moisture specification, and is it measured per lot? Has the container closure been included in any stability study? What is the reported appearance of the reconstituted solution, and at what concentration?</p>
+    <p>What not to expect: a routine certificate that proves the absence of isomers, or a shelf-life claim derived from a single release assay. A certificate describes a lot at a point in time; degradation is a process. The gap between the two is why <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a> and retention samples matter more than the headline purity number.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes chemical degradation pathways; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-stability-studies/">Stability studies</a> — how degradation is measured over time</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — the conditions that slow all four routes</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spec identity</a> — which shifts an intact mass can reveal</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — resolving variants and degradants</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization</a> — residual moisture and cake quality</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — the physical route, not a chemical one</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-degradation-pathways/" />
+</BaseLayout>

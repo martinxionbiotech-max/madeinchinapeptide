@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Writing a peptide specification annex';
+const description = 'The fields a peptide specification annex needs — identity, purity method, salt form, water, packaging — and the omissions that make a limit unenforceable.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-specification-annex/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Specification annex'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“Semaglutide, ≥98%” is a product description, not a specification. This is the field list that turns it into something a laboratory can test and a supplier can be held to — including the three ambiguities that cause most arguments.</p>
+
+    <h2>Why the annex is the technical document</h2>
+    <p>A purchase contract says what happens if material fails. The specification annex says what “fail” means. If the annex is thin, the contract has nothing to enforce, and every disagreement becomes a negotiation about intentions. The annex should be short enough to read in five minutes and specific enough that two laboratories testing the same lot reach the same verdict.</p>
+
+    <h2>1. Identity block</h2>
+    <table>
+      <thead><tr><th>Field</th><th>What to state</th></tr></thead>
+      <tbody>
+        <tr><td>Product name</td><td>The name you will use on the label, plus any synonym the supplier uses — aliases are a common source of mismatch</td></tr>
+        <tr><td>Sequence</td><td>One-letter code, N→C direction stated, with every non-standard residue and terminal modification written out</td></tr>
+        <tr><td>Molecular weight</td><td>The value and whether it is monoisotopic or average; state the calculated value from the sequence, not only the catalogue figure</td></tr>
+        <tr><td>CAS number</td><td>Where one exists. A CAS number identifies a substance, not a grade, and does not substitute for the sequence</td></tr>
+        <tr><td>Counter-ion form</td><td>Acetate, TFA, HCl, or “as free base”; if a mixture is acceptable, state the ratio or the limit</td></tr>
+        <tr><td>Appearance</td><td>Colour and form of the lyophilized cake or powder; add the appearance of the reconstituted solution if you will rely on it</td></tr>
+      </tbody>
+    </table>
+    <p>Identity is the one block where “report” is not good enough. If the annex does not fix the sequence and the salt form, a supplier can ship a materially different molecule that passes every purity limit you wrote. The arithmetic behind sequence-to-mass is covered in <a href="/knowledge/peptide-sequence-notation/">sequence and molecular weight</a>.</p>
+
+    <h2>2. Purity and assay block</h2>
+    <p>This is where most annexes fail, because “purity” is used for at least three different measurements:</p>
+    <ul>
+      <li><strong>Chromatographic purity (area %)</strong> — the target peak as a fraction of UV-absorbing peak area, at a stated wavelength, on a stated method.</li>
+      <li><strong>Assay or net peptide content</strong> — the mass fraction of the peptide itself, excluding counter-ion, water and residual solvent.</li>
+      <li><strong>Impurity profile</strong> — individual and total specified impurities, each with its own limit.</li>
+    </ul>
+    <p>A limit of “≥98%” without naming which of these it refers to is not testable. Write the method into the annex: column chemistry and dimensions, mobile phases, gradient, detection wavelength, injection concentration, integration rules and the system-suitability criteria. If the method is the supplier's in-house method, attach the summary; if it is a pharmacopoeial method, cite the monograph and edition. The difference between area percent and mass percent is worked through in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</p>
+
+    <h2>3. The basis-of-calculation problem</h2>
+    <p>The same lot can be “99%” or “82%” depending on the denominator. Three bases are common and they are not interchangeable:</p>
+    <table>
+      <thead><tr><th>Basis</th><th>Denominator</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>As-is</td><td>Everything in the vial, including water and counter-ion</td><td>Weighing and shipping; what you actually receive</td></tr>
+        <tr><td>Anhydrous</td><td>Everything except water</td><td>Comparing lots where moisture varies</td></tr>
+        <tr><td>Peptide base</td><td>The peptide moiety only, counter-ion excluded</td><td>Molar calculations and cost-per-mg comparisons</td></tr>
+      </tbody>
+    </table>
+    <p>Put the basis in the annex, next to the number. Then put it in the certificate template too, so the release value and the specification are expressed the same way. A supplier who reports “98.5%” without a basis has told you less than they appear to. The cost consequence is covered in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content and cost per mg</a>.</p>
+
+    <h2>4. Physical and chemical block</h2>
+    <table>
+      <thead><tr><th>Field</th><th>Method</th><th>Why it belongs in the annex</th></tr></thead>
+      <tbody>
+        <tr><td>Water content</td><td>Karl Fischer</td><td>Affects stability, weighing and the as-is basis</td></tr>
+        <tr><td>Residual organic solvents</td><td>GC, where relevant</td><td>Purification residues change handling and smell; some are regulated</td></tr>
+        <tr><td>pH of reconstituted solution</td><td>Stated concentration and solvent</td><td>A release check that also predicts handling behaviour</td></tr>
+        <tr><td>Solubility</td><td>Stated solvent and concentration</td><td>“Freely soluble” without conditions is not a criterion</td></tr>
+        <tr><td>Endotoxin / bioburden</td><td>LAL / microbial count</td><td>Only if actually performed — never list a limit you do not intend to test</td></tr>
+        <tr><td>Heavy metals / elemental impurities</td><td>ICP-MS or compendial method</td><td>Relevant where catalysts or metal handling are part of the route</td></tr>
+      </tbody>
+    </table>
+    <p>The endotoxin row deserves emphasis: listing a limit implies a test. If the annex says “endotoxin ≤ X EU/mg” and the certificate never reports it, you have created an unverifiable requirement — worse than omitting it, because it looks controlled. What each test can and cannot show is set out in <a href="/knowledge/peptide-endotoxin-bioburden/">endotoxin and bioburden</a> and <a href="/quality/testing-methods/">testing methods</a>.</p>
+
+    <h2>5. Fill, packaging and labelling block</h2>
+    <p>The annex should fix the container closure and the fill, not leave them to the order confirmation. At minimum: primary container and material, nominal fill with tolerance, headspace treatment, desiccant, secondary pack, and the label content for every layer. Packaging choices and their failure modes are covered in <a href="/knowledge/peptide-packaging-configurations/">packaging configurations</a>.</p>
+
+    <h2>6. Sampling, retention and documentation</h2>
+    <p>State the sampling plan — how many containers, how the sample is drawn, who holds it — and require a retained sample from the same lot for an agreed period. Then list the documents that must accompany each shipment: certificate of analysis per lot, specification sheet, safety data sheet, packing list and commercial invoice. Make the annex reference the document numbers so a shipment can be checked against it without interpretation.</p>
+
+    <h2>7. Common omissions that make a limit unenforceable</h2>
+    <ul>
+      <li><strong>No method.</strong> A numeric limit without a method is a preference.</li>
+      <li><strong>No basis.</strong> As-is, anhydrous or peptide base — unstated means the supplier chooses, and they will choose the flattering one.</li>
+      <li><strong>No impurity limits.</strong> Total purity can pass while a single specified impurity is far above what your work tolerates.</li>
+      <li><strong>No units on microbiological limits.</strong> EU/mg, EU/mL and EU per vial are different specifications.</li>
+      <li><strong>No revision control.</strong> An undated annex cannot be referenced in a dispute; give it a version, an effective date and a change log.</li>
+      <li><strong>No acceptance criteria for appearance of solution.</strong> Visible particles, colour and clarity are cheap to specify and hard to argue about later.</li>
+      <li><strong>No reference standard.</strong> If purity is measured against an in-house standard, say what it is and how it was qualified.</li>
+      <li><strong>Contradiction with the certificate template.</strong> If the annex asks for water content but the certificate has no field for it, the requirement will quietly disappear.</li>
+    </ul>
+
+    <h2>8. Keep it alive</h2>
+    <p>A specification annex is a controlled document. Give it a revision number, date every change, and route changes through the same change-control clause as the supply agreement — otherwise a “minor” edit to a limit becomes a silent renegotiation. Review it after the first three lots: the values you wrote before you had data are hypotheses, and the first real certificates are the evidence. If a limit turns out to be unmeasurable at your scale, fix the annex rather than tolerating a permanent deviation.</p>
+
+    <div class="note">This is a technical drafting checklist, not legal advice. Have the annex reviewed together with the supply agreement under the governing law, and confirm destination import requirements separately.</div>
+
+    <div class="ruo">For laboratory research use only. This article describes specification practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Procurement contract terms</a> — the clauses that sit around this annex</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — the basis-of-calculation problem in money terms</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — why the salt belongs in the identity block</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — what a purity method must state</li>
+      <li><a href="/quality/coa/">COA review</a> — checking a certificate against the annex</li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a> — the fill and container fields</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-specification-annex/" />
+</BaseLayout>

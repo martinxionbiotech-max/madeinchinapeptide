@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide aggregation and self-assembly';
+const description = 'Why peptide solutions turn opalescent or lose recovery: aggregation versus sequence-directed assembly, how to tell them apart, and what to control.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-aggregation-self-assembly/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Aggregation and self-assembly'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A peptide that dissolves clear can still be unusable an hour later. Loss of soluble material, a drifting assay and a chromatogram that no longer matches the certificate are usually one problem seen from three angles — and the first useful step is deciding whether you are looking at disorder-driven aggregation or a sequence that is assembling on purpose.</p>
+
+    <h2>Two phenomena, one symptom</h2>
+    <p><strong>Aggregation</strong> is non-specific. Partly unfolded or surface-active peptide molecules stick to each other through hydrophobic patches and charge neutralisation. It is driven by concentration, temperature, interfaces and time, and it gets worse when the peptide is stressed. <strong>Self-assembly</strong> is sequence-encoded: alternating hydrophobic and hydrophilic residues, β-sheet-prone segments or complementary charged faces cause molecules to stack into defined structures — fibrils, tapes, ribbons, or a translucent gel — at concentrations where a non-assembling peptide of the same length would stay clear.</p>
+    <p>The practical difference is what you can change. Aggregation is usually managed by formulation and handling. Self-assembly is a property of the molecule; you either work below its critical concentration or you accept the assembled state and characterise it.</p>
+
+    <h2>Why it matters commercially, not just analytically</h2>
+    <ul>
+      <li><strong>Recovery falls before purity does.</strong> Aggregates may precipitate or be retained by a filter, so the material never reaches the assay. The remaining solution can look <em>more</em> pure on an area-percent basis while you have lost a large fraction of the vial.</li>
+      <li><strong>Chromatography changes shape.</strong> Aggregates can elute as a broad hump, tail or ghost peak, or not elute at all. See <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading an HPLC chromatogram</a> for the peak-shape diagnostics.</li>
+      <li><strong>Mass spectrometry can still pass.</strong> The monomer mass is unchanged by non-covalent assembly, so an identity check on a diluted sample may confirm the sequence while the concentrated stock is unusable.</li>
+      <li><strong>Assay results drift.</strong> If your readout depends on soluble concentration, an aggregating stock produces a dose–response that flattens at the top and changes between days.</li>
+    </ul>
+
+    <h2>The variables that actually move the equilibrium</h2>
+    <table>
+      <thead><tr><th>Variable</th><th>Effect</th><th>What to do about it</th></tr></thead>
+      <tbody>
+        <tr><td>Concentration</td><td>Association scales with concentration; assembly often has a threshold</td><td>Work at the lowest concentration your assay tolerates; make a concentrated stock only if you will dilute it immediately</td></tr>
+        <tr><td>pH near pI</td><td>Net charge approaches zero, electrostatic repulsion disappears</td><td>Buffer away from the calculated pI; record the final pH, not just the buffer name</td></tr>
+        <tr><td>Ionic strength</td><td>Kosmotropic salts screen charge and strengthen hydrophobic contacts; chaotropic ions weaken them</td><td>Keep salt modest; if you must add salt, add it last and note the final composition</td></tr>
+        <tr><td>Temperature</td><td>Higher temperature accelerates collision and partial unfolding</td><td>Keep stocks cold; warm only briefly and never as a routine fix</td></tr>
+        <tr><td>Interfaces</td><td>Air–liquid, vial wall, silicone oil and filter membranes nucleate aggregation</td><td>Avoid vortexing and foaming; use low-binding tubes; pre-wet or use low-adsorption filters</td></tr>
+        <tr><td>Freeze–thaw</td><td>Ice crystals concentrate solute and shear the peptide</td><td>Aliquot before freezing; thaw once, on ice, and do not refreeze</td></tr>
+        <tr><td>Residual solvent and salt form</td><td>TFA and residual organic solvent shift solution behaviour</td><td>Read the certificate; compare lots on salt form and residual solvents — see <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Telling the two apart without a specialised lab</h2>
+    <ol>
+      <li><strong>Look at the solution against a dark background in oblique light.</strong> Opalescence that appears within minutes at high concentration and disappears on dilution points to concentration-driven association. A gel that forms at a reproducible threshold and survives dilution points to sequence-directed assembly.</li>
+      <li><strong>Centrifuge a sample and assay both fractions.</strong> Pelleted material means the aggregate is large enough to sediment. If protein is missing from the supernatant but no pellet is visible, the loss is probably on the tube wall or the filter — a different problem.</li>
+      <li><strong>Compare absorbance before and after filtration.</strong> A large drop across a 0.22 µm membrane means either aggregate removal or membrane adsorption; run a blank solution through an identical filter to separate the two.</li>
+      <li><strong>Run the same sample at two concentrations.</strong> Non-specific aggregation usually shows a continuous change; a critical micelle-like threshold is a hallmark of assembly.</li>
+      <li><strong>Check the time course.</strong> Immediate cloudiness is usually solubility or pH. Cloudiness that develops over hours to days at constant conditions is aggregation kinetics, and it is the pattern to worry about for stored stocks.</li>
+    </ol>
+    <p>Where the distinction matters to a programme — for example a peptide that gels at working concentration — the definitive techniques are dynamic light scattering for particle size, thioflavin T fluorescence for amyloid-like β-sheet fibrils, and electron microscopy for morphology. Those are specialist measurements; a supplier's certificate will not contain them, and no certificate should be read as evidence that they were done.</p>
+
+    <h2>Preventing the problem in the first place</h2>
+    <ul>
+      <li><strong>Dissolve gently.</strong> Add solvent down the wall and let the cake wet. Vortexing creates foam, and foam is an air–liquid interface with a huge surface area.</li>
+      <li><strong>Keep stocks at the lowest practical concentration</strong> and dilute into final buffer immediately before use.</li>
+      <li><strong>Aliquot single-use volumes</strong> at the start, not after the third freeze–thaw.</li>
+      <li><strong>Choose the buffer deliberately.</strong> A buffer that holds pH away from the pI, at modest ionic strength, is usually better than water — even though water dissolves the cake faster.</li>
+      <li><strong>Use low-binding plasticware</strong> and avoid transferring between many tubes; every transfer adds a surface.</li>
+      <li><strong>Record everything.</strong> Lot, solvent, final pH, concentration, temperature and time to appearance change. Without that record, a batch complaint cannot be distinguished from a preparation difference — see <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</li>
+    </ul>
+
+    <h2>What to ask a supplier</h2>
+    <p>Aggregation is a property of the material only in part; it is also a property of how the material was dried, packaged and shipped. Questions that produce useful answers:</p>
+    <ul>
+      <li>What is the appearance of the reconstituted solution stated on the release record, and at what concentration was it assessed?</li>
+      <li>Is residual moisture and residual organic solvent reported per lot? Both change the effective concentration you weigh out.</li>
+      <li>Was the batch lyophilised from a solvent system that leaves the peptide in a readily wettable cake, and is the cake appearance consistent between lots?</li>
+      <li>Can you provide the chromatogram for this lot, not only the area percent? A recovery or mass-balance figure is more informative than purity alone.</li>
+    </ul>
+    <p>A supplier who answers with a certificate template and no lot-specific data has not answered. That is a sourcing signal, not a technical one — the <a href="/quality/coa/">COA review guide</a> covers the fields that should be lot-linked.</p>
+
+    <h2>When the peptide is meant to assemble</h2>
+    <p>Some sequences are supplied precisely because they self-assemble: hydrogel-forming peptides, fibril-forming model peptides and amphiphilic building blocks. For those, the assembled state is the product, and the quality question changes from “does it stay monomeric” to “is the assembly reproducible”. Ask for the batch's own characterisation — concentration at gelation, morphology by microscopy where available, and the solvent system used — and treat any assembly behaviour you observe as something to compare against that baseline, not as a defect by default. This site supplies research materials; whether a given sequence is intended to assemble is a property of the sequence, and we do not claim assembly behaviour for any catalogue item.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes laboratory observation and handling; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the problem is dissolving, not staying dissolved</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and technique</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading an HPLC chromatogram</a> — peak shape and recovery</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — when behaviour changes between batches</li>
+      <li><a href="/quality/testing-methods/">Analytical methods</a> — what each test can and cannot show</li>
+      <li><a href="/glossary/">Glossary</a> — aggregation, pI, kosmotropic and related terms</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-aggregation-self-assembly/" />
+</BaseLayout>
