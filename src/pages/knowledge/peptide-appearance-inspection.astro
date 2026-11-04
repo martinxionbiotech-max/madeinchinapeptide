@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide appearance and visual inspection';
+const description = 'What powder colour, cake form and solution clarity can and cannot tell you, and how to inspect and record appearance reproducibly.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-appearance-inspection/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Appearance checks'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Appearance is the cheapest test on the certificate and the one most often reduced to a phrase copied from the last lot. It is also the first observation you make on arrival, before any instrument is switched on. Used properly it is an early warning; used as a formality it is a sentence that survives every batch, including a bad one.</p>
+
+    <h2>What “appearance” covers</h2>
+    <p>A complete appearance description has three parts, and they answer different questions:</p>
+    <table>
+      <thead><tr><th>Observation</th><th>What it describes</th><th>What it can flag</th></tr></thead>
+      <tbody>
+        <tr><td>Colour and form of the solid</td><td>White to off-white powder, cake, flakes or gum; uniform or mottled</td><td>Oxidation, residual solvent, incomplete drying, meltback, contamination</td></tr>
+        <tr><td>Cake structure, for lyophilised material</td><td>Intact plug, shrinkage, cracks, collapse, ring on the wall</td><td>Cycle problems, moisture, fill or container mismatch</td></tr>
+        <tr><td>Clarity of the reconstituted solution</td><td>Clear, opalescent, hazy, coloured, particulate</td><td>Incomplete dissolution, aggregation, insoluble impurities, filter debris</td></tr>
+      </tbody>
+    </table>
+    <p>Each is a qualitative observation, and each becomes more useful when the conditions are fixed and the result is recorded against a reference rather than described from memory.</p>
+
+    <h2>Why a peptide has a colour</h2>
+    <p>Most synthetic peptides are white to off-white. Colour that departs from that range usually has an identifiable cause:</p>
+    <ul>
+      <li><strong>Oxidation of aromatic residues.</strong> Trp and Tyr oxidation products can be coloured, and the colour deepens as the reaction proceeds. A pink or yellow tint that appears on storage is a reason to look at the chromatogram, not only the photo.</li>
+      <li><strong>Trace metals.</strong> Iron from equipment or reagents gives yellow to brown tints at very low levels. Copper can produce blue-green shades. Neither is visible in a certificate unless elemental analysis was run.</li>
+      <li><strong>Residual solvents or reagents.</strong> Some protecting-group fragments and solvents are coloured; incomplete drying can leave a tint that disappears on further drying.</li>
+      <li><strong>Reaction with container or closure.</strong> A coloured extractable from a cap liner or a label adhesive is a contamination question, not a peptide question.</li>
+      <li><strong>Maillard chemistry.</strong> If a formulation contains a reducing sugar, browning on storage is a known pathway. Most research peptides are not formulated this way, but the possibility is worth ruling out before blaming the peptide.</li>
+    </ul>
+    <p>None of these can be diagnosed from colour alone. The value of the observation is that it tells you where to look next.</p>
+
+    <h2>Standardising the inspection</h2>
+    <p>Two people looking at the same vial under different lights can describe it differently. A workable routine fixes the variables:</p>
+    <ol>
+      <li><strong>Light.</strong> Use a consistent source — a daylight-balanced lamp or a well-lit bench — and avoid coloured or dim ambient light. A phone torch is not a standard.</li>
+      <li><strong>Background.</strong> View against both a white and a black background. A white background reveals colour; a black background reveals haze and particles.</li>
+      <li><strong>Distance and angle.</strong> Hold the vial at a consistent distance, and rotate it to see the whole cake and the wall.</li>
+      <li><strong>Reference.</strong> Keep a photograph of an accepted lot, taken under the same conditions, with a scale and a label visible.</li>
+      <li><strong>Record.</strong> Write the description in the same vocabulary each time — “white to off-white cake, intact, no visible foreign particles” — rather than inventing a new phrase per lot.</li>
+    </ol>
+    <p>For solution clarity, inspect immediately after dissolution and again after standing, because some hazes are transient. View against black for particles and against white for colour. A hand-held light at a low angle makes fine particles easier to see; it does not make them countable.</p>
+
+    <h2>What appearance cannot prove</h2>
+    <p>This is the part that matters most in a purchase decision. Appearance is a composite, non-specific observation:</p>
+    <ul>
+      <li><strong>It cannot establish identity.</strong> Two different peptides can both be white powders.</li>
+      <li><strong>It cannot establish purity.</strong> A 90% lot and a 99% lot may look identical.</li>
+      <li><strong>It cannot establish sterility or endotoxin status.</strong> A clear solution is not a sterile solution.</li>
+      <li><strong>It cannot quantify water.</strong> A cake that looks dry may carry several percent moisture.</li>
+      <li><strong>It is observer-dependent.</strong> “Off-white” covers a range, and the boundary between off-white and pale yellow is a judgement.</li>
+    </ul>
+    <p>Appearance is therefore a screening observation and a trend item, not a release test on its own. Its proper role is to trigger an investigation — a chromatogram, a water result, a container check — when it changes.</p>
+
+    <h2>Reading the appearance field on a COA</h2>
+    <table>
+      <thead><tr><th>What the COA says</th><th>What it tells you</th></tr></thead>
+      <tbody>
+        <tr><td>“White to off-white powder”</td><td>A conventional description; ask whether it is the observed result for this lot or a template</td></tr>
+        <tr><td>“White lyophilised cake”</td><td>Describes the form; says nothing about cake integrity</td></tr>
+        <tr><td>“Complies”</td><td>Nothing measurable; there is no stated criterion</td></tr>
+        <tr><td>A colour code or reference number</td><td>Useful only if the standard and the viewing conditions are named</td></tr>
+        <tr><td>No appearance field</td><td>An incomplete release record, even for research material</td></tr>
+      </tbody>
+    </table>
+    <p>The follow-up question is not “what does it look like” but “was this description recorded for this lot, and against what criterion”. A supplier who can answer that has a release process; one who cannot has a template.</p>
+
+    <h2>Trend, not snapshot</h2>
+    <p>A single appearance observation is weak. A series is informative: a supplier whose lots move from white to cream to yellow over a year is describing a process drifting, even if every certificate says “off-white”. If you keep a reference photograph per lot, the comparison takes seconds and does not depend on memory.</p>
+    <p>The same logic applies within your own laboratory. Photograph the vial on arrival, before storage, and again when it is opened for the last time. If a colour change appears during storage, the pair of images separates a supplier issue from a storage issue — and that distinction decides who pays for the replacement.</p>
+
+    <h2>Cake defects, briefly</h2>
+    <p>Lyophilised cake has its own vocabulary — shrinkage, collapse, meltback, cracks, a ring of dried material on the wall, a plug that has pulled away from the glass. These are process observations and are covered in <a href="/knowledge/peptide-lyophilization-explained/">lyophilization explained</a>. For appearance purposes, the rule is simple: record what you see, photograph it, and treat any departure from the accepted reference as a question for the supplier rather than a cosmetic detail.</p>
+
+    <h2>Practical checklist</h2>
+    <ul>
+      <li>Inspect on arrival, before the vial goes into storage.</li>
+      <li>Use consistent light, both backgrounds, and a reference photograph with a scale.</li>
+      <li>Record colour, form, cake integrity and any visible particles in fixed vocabulary.</li>
+      <li>Reconstitute a small portion and record clarity against both backgrounds.</li>
+      <li>Compare with the previous lot, not with an abstract ideal.</li>
+      <li>Escalate any change with an analytical result — appearance alone is a prompt, not a conclusion.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This article describes visual inspection practice; it makes no claim about the appearance or quality of any specific product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization explained</a> — what cake defects mean for the drying cycle</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — changes that appear after arrival</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the solution is not clear</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — template descriptions and missing fields</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — turning observations into a trend</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — where appearance fits in receipt testing</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-appearance-inspection/" />
+</BaseLayout>
