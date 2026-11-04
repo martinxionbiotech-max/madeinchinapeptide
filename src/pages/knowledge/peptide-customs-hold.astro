@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Customs holds on peptide shipments';
+const description = 'Why customs detains peptide shipments, what to send in the first 48 hours, and how to choose between release, return and reship.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-customs-hold/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Customs holds'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A customs hold is not a single event. It can be a missing document, a description that does not match the invoice, a valuation question, a permit requirement or a physical inspection. The response time is short, the material may be temperature-sensitive, and the wrong move — altering a document, asking a broker to “make it pass” — turns a delay into a liability. This is a practical sequence, not legal advice; the rules are jurisdiction-specific and your broker or counsel has the final word.</p>
+
+    <h2>First, identify which kind of hold</h2>
+    <p>The notice usually names the authority and a reason code. The categories below behave differently, and mixing them up wastes the first day:</p>
+    <table>
+      <thead><tr><th>Type</th><th>Typical trigger</th><th>Usual resolution path</th></tr></thead>
+      <tbody>
+        <tr><td>Document query</td><td>Missing invoice, packing list, certificate, permit or end-use statement</td><td>Submit the missing document through the broker; often resolved in days</td></tr>
+        <tr><td>Description or classification mismatch</td><td>Vague goods description, inconsistent HS code, invoice and label disagree</td><td>Correct explanation with supporting technical data; classification ruling if needed</td></tr>
+        <tr><td>Valuation query</td><td>Price below the authority's reference, related-party transaction, missing payment evidence</td><td>Provide transaction evidence, price basis and payment records</td></tr>
+        <tr><td>Permit or restriction</td><td>Product requires an import permit, or is controlled/prohibited in the destination</td><td>Apply for the permit if eligible; otherwise release may not be possible</td></tr>
+        <tr><td>Physical inspection</td><td>Random or targeted examination, x-ray anomaly, label query</td><td>Cooperate; expect delay and possible repacking; check cold chain afterwards</td></tr>
+        <tr><td>Safety or cold-chain concern</td><td>Leaking, damaged packaging, undeclared dry ice, temperature excursion</td><td>Provide SDS and handling instructions; may require safe disposal or return</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The first 48 hours</h2>
+    <ol>
+      <li><strong>Get the notice in writing.</strong> Ask the broker for the full text, the reason code, the responding authority, the deadline and the name of the officer or desk handling it.</li>
+      <li><strong>Confirm who is the importer of record.</strong> Only that party, or a broker authorised by them, can usually respond. If the consignee is a forwarder or a related entity, clarify authority before filing anything.</li>
+      <li><strong>Assemble the core pack.</strong> Commercial invoice, packing list, air waybill or bill of lading, certificate of analysis, safety data sheet, and a short technical statement describing the material and its intended research use.</li>
+      <li><strong>Reconcile the documents.</strong> Product name, CAS number if applicable, quantity, value, HS code, consignee and country of origin should agree across invoice, packing list, label and COA. Most holds are document inconsistencies, not product problems.</li>
+      <li><strong>Respond through the broker, in writing.</strong> Keep a dated record of every submission and every reply. Verbal assurances are not a record.</li>
+    </ol>
+
+    <h2>Descriptions that cause holds</h2>
+    <p>“Peptide” alone is a category, not a description. A shipment described that way invites a question because the officer cannot tell what the substance is, what it is for, or whether it is controlled. A usable description names the substance, gives the quantity and form, and states the intended use. Where a CAS number exists, it belongs on the invoice and the COA, and it should match.</p>
+    <p>The same logic applies to the end-use statement. “Research use only, not for human or veterinary use” is a factual statement about the intended use; it is not a magic phrase, and it does not override a restriction that applies to the substance itself. If the product is controlled in the destination, the statement does not make it importable.</p>
+
+    <h2>Never alter a document retrospectively</h2>
+    <p>The instinct when a value or description is queried is to issue a “corrected” invoice that matches what the authority expects. That is the wrong move if it changes the facts. A correction that reflects a genuine error, documented and explained, is normal commercial practice. A correction that changes the declared value, the goods description or the origin to obtain release is misdeclaration, and it exposes the importer — not the supplier — to penalties and seizure.</p>
+    <p>The same applies to a broker who offers to “handle” a restricted item by describing it differently. That is a reason to change broker, not a solution.</p>
+
+    <h2>Cold chain during the hold</h2>
+    <p>A document query can be resolved while the shipment sits in a warehouse; a physical inspection can take longer and may involve opening the package. For a peptide that needs 2–8 °C, the questions are:</p>
+    <ul>
+      <li>Where exactly is the shipment being held, and at what temperature?</li>
+      <li>Was the insulated packaging opened, and was it repacked with coolant?</li>
+      <li>How long has it been outside the intended range, and is there a temperature record?</li>
+      <li>If release is delayed beyond the coolant's rated duration, can the shipment be moved to a cold room, or returned?</li>
+    </ul>
+    <p>A lyophilised peptide is more forgiving than a solution, but “more forgiving” is not “unaffected”. If the hold is long or the packaging was opened, test on arrival rather than assuming the material survived — appearance, water content and purity are the minimum. The cold-chain variables are covered in <a href="/knowledge/peptide-cold-chain-logistics/">cold chain and logistics</a>.</p>
+
+    <h2>Release, return or abandon</h2>
+    <p>When release is not possible, the decision is commercial and should be made with numbers:</p>
+    <table>
+      <thead><tr><th>Option</th><th>When it makes sense</th><th>What to get in writing</th></tr></thead>
+      <tbody>
+        <tr><td>Release after permit or correction</td><td>The obstacle is documentation or an obtainable permit</td><td>Approval reference, release date, any conditions</td></tr>
+        <tr><td>Return to sender</td><td>The goods are not prohibited to export, and the supplier will accept them</td><td>Return authorisation, freight cost allocation, condition on arrival</td></tr>
+        <tr><td>Reship from origin</td><td>The original is lost or delayed beyond use, and the supplier will replace</td><td>Who pays freight and any duty, and what happens to the original</td></tr>
+        <tr><td>Abandon or destroy</td><td>Return is more expensive than the goods, or the material cannot lawfully move</td><td>Destruction certificate, cost, and confirmation that liability is closed</td></tr>
+      </tbody>
+    </table>
+    <p>Insurance and Incoterms decide who bears which cost. If the terms were DDP, the seller carries import clearance; if FOB or CIF, the buyer is usually the importer of record and owns the problem. That allocation is worth checking before the first shipment, not during a hold; the terms are compared in <a href="/knowledge/how-to-buy-research-peptides-from-china/">how to buy from China</a>.</p>
+
+    <h2>Prevention is cheaper than response</h2>
+    <ul>
+      <li>Use a broker who has handled research chemicals and can explain classification, not one who promises “guaranteed clearance”.</li>
+      <li>Check destination restrictions before ordering, especially for controlled or scheduled substances.</li>
+      <li>Make invoice, packing list, label and COA agree on name, CAS, quantity and value.</li>
+      <li>State the research-use purpose factually, and keep the statement consistent across documents.</li>
+      <li>For temperature-sensitive goods, ship with a logger and enough coolant for the realistic transit plus a margin.</li>
+      <li>Keep the full document pack in one place, so a query can be answered in hours rather than days.</li>
+    </ul>
+    <p>A hold is usually a document problem wearing a customs uniform. The parties who resolve it fastest are the ones who can produce a consistent pack immediately and who refuse to change facts to fit the question.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes commercial and logistical practice; it is not legal or customs advice, and it makes no claim about the importability of any specific substance in any jurisdiction. It does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Shipping peptides and customs documentation</a> — the documents and classification basics</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Cold chain and logistics</a> — temperature limits and arrival checks</li>
+      <li><a href="/knowledge/how-to-buy-research-peptides-from-china/">How to buy from China</a> — Incoterms and the order sequence</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Procurement contract terms</a> — who bears clearance and delay risk</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — what to check after a delay</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-customs-hold/" />
+</BaseLayout>

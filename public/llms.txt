@@ -55,6 +55,7 @@
 - /knowledge/peptide-dmso-stocks/ — DMSO stock preparation, plastic compatibility, dilution shock and freeze–thaw
 - /knowledge/third-party-peptide-testing/ — commissioning independent testing: accreditation scope, briefing, logistics and report reading
 - /knowledge/peptide-appearance-inspection/ — colour, cake form and solution clarity: what appearance flags and what it cannot prove
+- /knowledge/peptide-customs-hold/ — customs detention types, first-48-hour response, cold chain and release/return/abandon decisions
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide
