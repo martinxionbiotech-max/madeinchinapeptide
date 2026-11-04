@@ -19,12 +19,14 @@
 - /knowledge/peptide-aggregation-self-assembly/ — aggregation vs sequence-directed self-assembly, detection and prevention
 - /knowledge/peptide-packaging-configurations/ — vial vs bulk pack, headspace, desiccants and RFQ packaging fields
 - /knowledge/peptide-specification-annex/ — the field list that makes a peptide limit testable, and the common omissions
+- /knowledge/remote-peptide-supplier-audit/ — document request list, video walkthrough script and a scoring rubric
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
 - /knowledge/peptide-mass-spec-identity/ — monoisotopic vs average mass, adducts and ppm error in MS identity checks
 - /knowledge/peptide-sequence-notation/ — one-letter codes, residue mass arithmetic, terminal modifications and checking a catalogue MW
 - /knowledge/peptide-stability-studies/ — real-time vs accelerated stability data, assay panel and stability-claim red flags
 - /knowledge/peptide-degradation-pathways/ — hydrolysis, oxidation, deamidation, isomerisation and what a COA can detect
+- /knowledge/peptide-residual-solvents/ — solvent residues from synthesis and purification, headspace GC and COA fields
 - /knowledge/peptide-net-content-and-cost/ — fill weight vs peptide mass, salt and water correction, cost per mg
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials

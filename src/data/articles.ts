@@ -22,9 +22,11 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-cold-chain-logistics', title:'Peptide cold chain & logistics', desc:'Temperature limits, insulated packaging and what to check on arrival.', cluster:'Compliance & shipping' },
   { slug:'peptide-procurement-contract-terms', title:'Peptide procurement contract terms', desc:'Specification annex, acceptance testing, change control and Incoterms.', cluster:'Sourcing' },
   { slug:'peptide-specification-annex', title:'Writing a peptide specification annex', desc:'The fields that make a limit testable — identity, purity method, basis of calculation, water, packaging — and the omissions that void it.', cluster:'Sourcing' },
+  { slug:'remote-peptide-supplier-audit', title:'Auditing a peptide supplier remotely', desc:'Document request list, live video walkthrough and a scoring rubric for evaluating a supplier without a site visit.', cluster:'Sourcing' },
   { slug:'peptide-lot-consistency', title:'Lot-to-lot consistency in peptide supply', desc:'Why two batches of the same peptide differ, and how to control the drift.', cluster:'Quality & testing' },
   { slug:'peptide-sequence-notation', title:'Peptide sequence and molecular weight', desc:'One-letter codes, residue mass arithmetic, terminal modifications and why a catalogue MW may not match your sum.', cluster:'Compound background' },
   { slug:'peptide-stability-studies', title:'Peptide stability studies explained', desc:'Real-time vs accelerated data, the assay panel at each timepoint, and why a COA is not a shelf-life study.', cluster:'Quality & testing' },
   { slug:'peptide-degradation-pathways', title:'Peptide degradation pathways', desc:'Hydrolysis, oxidation, deamidation and isomerisation — which residues fail first, and what a certificate can actually show.', cluster:'Quality & testing' },
+  { slug:'peptide-residual-solvents', title:'Residual solvents in peptides', desc:'Where acetonitrile, DMF and TFA residues come from, how headspace GC measures them, and what a COA should state.', cluster:'Quality & testing' },
   { slug:'peptide-net-content-and-cost', title:'Net peptide content and cost per mg', desc:'Fill weight is not peptide mass — how counter-ions, water and purity change the arithmetic, and how to normalise quotations.', cluster:'Quality & testing' },
 ];

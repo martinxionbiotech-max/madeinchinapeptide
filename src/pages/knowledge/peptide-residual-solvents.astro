@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Residual solvents in peptides';
+const description = 'Acetonitrile, DMF, methanol and TFA left from synthesis and purification — ICH Q3C classes, headspace GC, and what a COA should report.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-residual-solvents/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Residual solvents'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Every peptide is made and purified in solvent, and some of it stays behind. The amount is usually small, but it is one of the few specification fields that is both easy to omit and impossible to see — a certificate can look complete while saying nothing about what the powder smells of.</p>
+
+    <h2>Where the solvent comes from</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>Typical solvents</th><th>What remains</th></tr></thead>
+      <tbody>
+        <tr><td>Solid-phase synthesis</td><td>DMF, DCM, NMP, piperidine solutions</td><td>DMF and NMP are high-boiling and the hardest to remove; DCM is volatile but toxicologically classified</td></tr>
+        <tr><td>Cleavage and deprotection</td><td>TFA, with scavengers such as TIPS or thioanisole</td><td>Residual TFA and scavenger residues; TFA also remains as the counter-ion if the peptide is not exchanged</td></tr>
+        <tr><td>Preparative HPLC</td><td>Acetonitrile, water, TFA or formic acid</td><td>Acetonitrile in the pooled fractions; the acid determines the salt form</td></tr>
+        <tr><td>Desalting / lyophilization</td><td>Water, sometimes tert-butanol</td><td>Water (measured as residual moisture) and tert-butanol if used as a co-solvent</td></tr>
+        <tr><td>Precipitation</td><td>Diethyl ether, MTBE</td><td>Ether residues, which are volatile but can be trapped in the cake</td></tr>
+      </tbody>
+    </table>
+    <p>The pattern matters: the solvents that are hardest to remove are the ones with high boiling points and good solvency for the peptide — DMF and NMP. A lyophilization cycle removes water well and DMF poorly, so a batch that was not thoroughly washed before drying can carry more DMF than a batch that was.</p>
+
+    <h2>Why it is a specification field</h2>
+    <ul>
+      <li><strong>Toxicology.</strong> Several process solvents have established exposure limits; the classification exists because the residue, not the process, is what a user is exposed to.</li>
+      <li><strong>Mass balance.</strong> Residual solvent is part of the powder mass but not part of the peptide. It shifts net peptide content and therefore every molar calculation — see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</li>
+      <li><strong>Assay interference.</strong> Some solvents absorb in the UV region used for peptide detection, or shift retention in the injection solvent.</li>
+      <li><strong>Handling.</strong> A residual solvent can plasticise the cake, change its appearance, or make a hygroscopic powder stick to the vial.</li>
+      <li><strong>Odour.</strong> A strong smell is a signal that something volatile is present, but it is not a measurement and cannot tell you which solvent or how much.</li>
+    </ul>
+
+    <h2>The ICH Q3C framework, and its limit for research material</h2>
+    <p>ICH Q3C classifies residual solvents by toxicological risk:</p>
+    <table>
+      <thead><tr><th>Class</th><th>Meaning</th><th>Examples relevant to peptide processing</th></tr></thead>
+      <tbody>
+        <tr><td>Class 1</td><td>Should be avoided; known human carcinogens or environmental hazards</td><td>Benzene, carbon tetrachloride, 1,2-dichloroethane</td></tr>
+        <tr><td>Class 2</td><td>Limited, because of inherent toxicity</td><td>Acetonitrile, dichloromethane, methanol, toluene, NMP, DMF</td></tr>
+        <tr><td>Class 3</td><td>Low toxic potential; typically limited to a few thousand ppm</td><td>Ethanol, ethyl acetate, tert-butanol, heptane</td></tr>
+      </tbody>
+    </table>
+    <p>The Q3C limits are expressed as permitted daily exposure, which requires a daily dose. Research material has no defined dose, so the limit has to be agreed contractually as a concentration in ppm rather than derived from a dose. That is not a loophole; it is the reason the specification annex should state the limit explicitly instead of citing “ICH Q3C compliant” and leaving the arithmetic to the supplier. TFA is a separate case: it is usually controlled as the counter-ion and as residual acid, not as a Q3C Class 3 solvent.</p>
+
+    <h2>How it is measured</h2>
+    <p>Headspace gas chromatography with flame-ionisation detection is the standard approach: the sample is sealed in a vial, heated so volatiles partition into the headspace, and injected. GC-MS is used when identification is needed or when a peak appears that the method does not expect.</p>
+    <p>Three method details decide whether a result means anything:</p>
+    <ol>
+      <li><strong>Sample preparation.</strong> The peptide does not evaporate; the solvent must. Dissolving the sample in a solvent that also contains the analyte, or heating too briefly, gives a falsely low result.</li>
+      <li><strong>Limit of detection and quantification.</strong> “Not detected” is only informative if the LOD is stated. A method with an LOD of 500 ppm cannot support a 100 ppm specification.</li>
+      <li><strong>Recovery.</strong> A spiked sample should recover a known addition within a stated range. Without a recovery experiment, the result is relative, not absolute.</li>
+    </ol>
+    <p>“Loss on drying” is not a residual solvent test. It measures total volatile loss under stated conditions, cannot identify what was lost, and includes water. A batch can pass loss on drying and still carry a specific solvent above its limit.</p>
+
+    <h2>What a certificate should say</h2>
+    <table>
+      <thead><tr><th>Field</th><th>Good practice</th><th>What to watch for</th></tr></thead>
+      <tbody>
+        <tr><td>Solvent identity</td><td>Named individually, matching the process</td><td>“Residual solvents: passes” with no list</td></tr>
+        <tr><td>Result</td><td>ppm per solvent, per lot</td><td>A single summed figure that hides one high value</td></tr>
+        <tr><td>Method</td><td>Headspace GC, column, detector, LOD/LOQ</td><td>“GC” with no conditions</td></tr>
+        <tr><td>Limit</td><td>Numeric, agreed in the specification</td><td>“Complies with ICH” without a number</td></tr>
+        <tr><td>Not detected</td><td>Stated with the LOD</td><td>ND presented as zero</td></tr>
+      </tbody>
+    </table>
+    <p>A certificate that reports only “residual solvents: conforms” is not wrong, but it is uninformative: you cannot compare it across lots, and you cannot tell whether the method could have found a problem. The same logic applies to every field on the document — see <a href="/quality/coa/">reading a COA</a>.</p>
+
+    <h2>What to do about a high result</h2>
+    <p>First, confirm it is real: ask for the chromatogram, the LOD and the recovery data. A single high value with no chromatogram is a number, not a finding. If it is real, the response depends on the solvent — a Class 3 solvent at a modest multiple of a typical limit is a different conversation from a Class 2 solvent above its limit. In either case, the material can usually be re-dried or re-worked by the supplier, but that is a new lot with a new certificate, not a correction to the old one.</p>
+    <p>Do not try to remove residual solvent in your own laboratory by heating the powder. You will change the cake, drive off water as well as solvent, and create an uncharacterised material. The right place to fix it is the process, before release.</p>
+
+    <h2>Questions for the supplier</h2>
+    <ul>
+      <li>Which solvents are used in synthesis, cleavage and purification for this product, and which are tested in the release panel?</li>
+      <li>What are the LOD and LOQ of the headspace method, and was recovery verified?</li>
+      <li>Is the limit a ppm specification or a Q3C statement, and what number applies to this product?</li>
+      <li>What was the last lot's actual result, not the pass/fail status?</li>
+      <li>If the peptide is a TFA salt, is residual TFA controlled separately, and how is the counter-ion ratio determined?</li>
+    </ul>
+    <p>These belong in the technical annex, not only in email. A limit that exists only in correspondence disappears at the next order — see <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical and specification practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — where the ppm limit belongs</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — TFA as salt, not just as solvent</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer and GC in context</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization</a> — what drying does and does not remove</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — solvent residue in the mass balance</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-residual-solvents/" />
+</BaseLayout>

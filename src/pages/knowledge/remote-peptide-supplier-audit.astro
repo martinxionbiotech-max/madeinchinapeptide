@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Auditing a peptide supplier remotely';
+const description = 'A document request list, a video-walkthrough script and a scoring rubric for evaluating a peptide supplier without travelling to the site.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/remote-peptide-supplier-audit/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Remote supplier audit'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A site visit answers questions a certificate cannot. When travel is impractical, a structured remote audit still separates a supplier who knows their process from one who forwards documents — provided you ask for things that are hard to fabricate and score the answers the same way every time.</p>
+
+    <h2>What a remote audit can and cannot do</h2>
+    <p>It can verify that documents exist, that they are internally consistent, that equipment is present and identified, and that staff can explain their own process. It cannot verify housekeeping, actual behaviour on an unannounced day, or whether the deviation you were shown is the only one. Treat the remote audit as a filter that decides whether a site visit or a trial order is worth the cost — not as a substitute for either.</p>
+
+    <h2>Step 1: the document request</h2>
+    <p>Send the list before scheduling the call, and ask for files rather than descriptions. A supplier who needs a week to produce a batch record summary has told you something about their record system.</p>
+    <table>
+      <thead><tr><th>Document</th><th>What you are checking</th></tr></thead>
+      <tbody>
+        <tr><td>Company registration and site address</td><td>That the legal entity, the invoicing entity and the manufacturing site are the same or explicitly related</td></tr>
+        <tr><td>Facility layout with room functions</td><td>Whether synthesis, purification, drying, QC and packaging are separated and how material moves between them</td></tr>
+        <tr><td>Equipment list with IDs and capacities</td><td>Whether the scale they quote matches the reactors and lyophilizers they have</td></tr>
+        <tr><td>Batch record summary for a recent lot</td><td>Whether the lot number on the COA traces to synthesis, purification and QC dates</td></tr>
+        <tr><td>COA template and one real COA</td><td>Whether the template has lot-linked fields or is a fill-in-the-blank certificate</td></tr>
+        <tr><td>Analytical method summaries</td><td>Column, gradient, wavelength, integration — enough to judge whether the method is specific</td></tr>
+        <tr><td>Deviation and CAPA procedure, with a redacted example</td><td>Whether the system exists and has ever produced a record</td></tr>
+        <tr><td>Change-control procedure</td><td>What triggers notification to the customer, and who approves</td></tr>
+        <tr><td>Subcontractor list</td><td>Which steps are outsourced — synthesis, purification, filling, lyophilization, testing</td></tr>
+        <tr><td>Retention sample policy</td><td>Whether samples are held per lot, for how long and under what conditions</td></tr>
+        <tr><td>Shipping validation or thermal data</td><td>Whether the shipper configuration was tested or only described</td></tr>
+      </tbody>
+    </table>
+    <p>Cross-check before the call: the site address on the registration against the address on the COA; the equipment capacity against the batch size quoted; the lot number on the COA against the batch record. Inconsistencies found on paper are the most productive use of the interview time.</p>
+
+    <h2>Step 2: the video walkthrough</h2>
+    <p>Ask for a live call with a handheld camera, not an edited video. Edited footage is a marketing asset; a live walk is an observation. Give the sequence in advance so the visit is efficient, and ask the camera operator to keep walking rather than stopping at staged benches.</p>
+    <ol>
+      <li><strong>Receiving and warehouse.</strong> Resin, reagent and solvent storage; how containers are labelled; whether incoming material is quarantined until released.</li>
+      <li><strong>Weighing and dispensing.</strong> Balances, calibration stickers, dedicated spatulas, and how small quantities are handled without cross-contamination.</li>
+      <li><strong>Synthesis.</strong> Reactor IDs; ask the operator to read the ID plate aloud and match it to the equipment list. Ask what the current batch is and which lot it will become.</li>
+      <li><strong>Cleavage and purification.</strong> HPLC columns, fraction collection, how fractions are pooled and on what criterion.</li>
+      <li><strong>Lyophilization.</strong> Loaded shelves, cycle display, and how cycle records are retained. Ask what the last failed cycle was and what was done.</li>
+      <li><strong>QC laboratory.</strong> Instruments with IDs, column logs, a chromatogram on screen with the method visible, and the standard preparation area.</li>
+      <li><strong>Packaging.</strong> Vial washing and depyrogenation if applicable, filling, stoppering, labelling, and the secondary pack area.</li>
+      <li><strong>Retention samples.</strong> The actual shelf, the actual boxes, and a sample pulled at random to match a lot number you already hold.</li>
+    </ol>
+    <p>During the walk, ask for two unscripted things: a page from an equipment logbook for a date you choose, and a batch record for a lot you did not pre-announce. Both are difficult to prepare in advance and easy to verify for internal consistency.</p>
+
+    <h2>Step 3: the questions that reveal the system</h2>
+    <p>Ask each function the same kind of question — what happens when something goes wrong — rather than what the procedure says. A documented procedure can be recited; a real system produces a specific story.</p>
+    <ul>
+      <li>“Tell me about the last out-of-specification result. What was it, what did you do, and who signed it off?”</li>
+      <li>“When did you last change a purification method, and which customers were notified?”</li>
+      <li>“If I retest this lot in six months and get a lower purity, what is your position?”</li>
+      <li>“Which steps in this product are subcontracted, and how do you qualify that subcontractor?”</li>
+      <li>“What is your water content specification, and what was the last lot's actual result?”</li>
+      <li>“How do you handle a customer's third-party result that disagrees with your COA?”</li>
+    </ul>
+    <p>Answers that drift into general assurance (“we have strict quality control”) without a specific instance are the signal. A good supplier will name a lot, a date and a person.</p>
+
+    <h2>Step 4: score it, don't impression it</h2>
+    <p>Score each dimension from 1 to 5 immediately after the call, before comparing suppliers, and keep the evidence next to the score.</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>1 — weak</th><th>3 — adequate</th><th>5 — strong</th></tr></thead>
+      <tbody>
+        <tr><td>Documentation</td><td>Template COA, no lot linkage</td><td>Lot-linked COA, batch record on request</td><td>Full traceability from resin to release, retained records</td></tr>
+        <tr><td>Analytical capability</td><td>Outsources all testing, no method detail</td><td>In-house HPLC, MS outsourced</td><td>In-house HPLC and MS, method development, forced degradation</td></tr>
+        <tr><td>Deviation handling</td><td>“We have no deviations”</td><td>Procedure exists, example vague</td><td>Specific recent example with root cause and CAPA</td></tr>
+        <tr><td>Change control</td><td>No procedure</td><td>Procedure exists, notification discretionary</td><td>Written notification and re-qualification trigger</td></tr>
+        <tr><td>Capacity match</td><td>Quoted scale exceeds equipment</td><td>Plausible, not demonstrated</td><td>Demonstrated with IDs, logs and a live batch</td></tr>
+        <tr><td>Packaging and shipping</td><td>Described only</td><td>Standard configuration, no data</td><td>Validated shipper, thermal data, lot-level packing records</td></tr>
+      </tbody>
+    </table>
+    <p>Weight the dimensions for your use. A screening laboratory may care most about analytical capability; a distributor may weigh documentation and packaging more heavily. Record the weighting before scoring so the result is not retrofitted to a preferred supplier.</p>
+
+    <h2>Red flags specific to remote audits</h2>
+    <ul>
+      <li>Only edited video is offered, or the live call is repeatedly rescheduled.</li>
+      <li>Equipment ID plates cannot be read, or do not match the equipment list.</li>
+      <li>Rooms are skipped with an explanation that is never followed up.</li>
+      <li>Every document has the same creation timestamp or the same author.</li>
+      <li>The supplier cannot produce a COA for the lot you already bought.</li>
+      <li>“No deviations” from a site that has been operating for years.</li>
+      <li>Retention samples exist as a policy but not as a shelf you can see.</li>
+    </ul>
+    <p>One red flag is a question; three is a decision. None of them, individually, proves bad faith — but together they describe a supplier whose documents are produced for customers rather than for the process.</p>
+
+    <h2>Close the loop with a sample</h2>
+    <p>The audit ends with material, not impressions. Order a small lot and send a portion to a third-party laboratory for identity and purity by a method you specified. Compare the result with the supplier's COA and with your own in-house result. That triangulation is worth more than any questionnaire, and it is the only step that tests the product rather than the presentation. What to ask the laboratory for is covered in <a href="/knowledge/how-to-verify-peptide-purity/">verifying peptide purity</a>; the certificate checks are in <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>.</p>
+    <p>Then write the findings into the specification annex and the supply agreement, so the audit has a contractual consequence rather than ending as a file. The field list is in <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes supplier evaluation practice; it makes no claim about any specific supplier or compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">China peptide supplier checklist</a> — the 12-point framework this audit operationalises</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — turning findings into testable requirements</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Contract terms</a> — audit rights, change control and claims</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — document-level inconsistencies</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying purity</a> — the third-party sample check</li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a> — what to inspect at the end of the line</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/remote-peptide-supplier-audit/" />
+</BaseLayout>
