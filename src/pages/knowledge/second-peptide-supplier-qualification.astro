@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Qualifying a second peptide supplier';
+const description = 'Dual sourcing without doubling risk: parallel qualification lots, bridging data, split-lot economics and change-control clauses that keep a switch reversible.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/second-peptide-supplier-qualification/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Second sourcing'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Single sourcing is a bet that one factory, one shipping route and one quality system will keep working. Dual sourcing is a bet that the cost of maintaining two is lower than the cost of losing one. Both bets can be right — but only if the second supplier is qualified before you need them, not during the week the first one fails.</p>
+
+    <h2>What single sourcing actually exposes you to</h2>
+    <ul>
+      <li><strong>Concentration.</strong> One process, one site, one set of equipment. A column change, a facility move or a regulatory action removes your supply entirely.</li>
+      <li><strong>Capacity.</strong> Your order competes with larger customers for the same reactor time, and you find out at the point of delay rather than at the point of quoting.</li>
+      <li><strong>Commercial drift.</strong> A supplier with no credible alternative knows it. Price and lead-time negotiations get harder every year.</li>
+      <li><strong>Customs and route.</strong> A single shipping lane is a single point of failure for documentation, inspection or a change in import practice.</li>
+      <li><strong>Discontinuation.</strong> Niche sequences get dropped when a catalogue is pruned, usually with short notice.</li>
+    </ul>
+    <p>None of these are hypothetical. They are the ordinary reasons procurement teams keep a second source, and they apply to research peptides exactly as they apply to any other specialty chemical.</p>
+
+    <h2>Why dual sourcing is not free</h2>
+    <p>The costs are real and usually understated at the decision stage:</p>
+    <table>
+      <thead><tr><th>Cost</th><th>What it looks like</th></tr></thead>
+      <tbody>
+        <tr><td>Split volume</td><td>Two orders each fall into a worse price tier; total spend rises even at the same unit price</td></tr>
+        <tr><td>Two MOQs</td><td>Working capital tied up twice, and shelf life consumed on both stocks</td></tr>
+        <tr><td>Two documentation sets</td><td>Two CoA formats, two specification interpretations, two sets of expiry logic</td></tr>
+        <tr><td>Two impurity fingerprints</td><td>Your own trend baseline fragments; a shift in either supplier is harder to see</td></tr>
+        <tr><td>Qualification effort</td><td>Testing, bridging studies and review time — a real project, not a purchase order</td></tr>
+      </tbody>
+    </table>
+    <p>That is why the useful question is not “should we dual source” but “for which SKUs, at what split, and against what evidence”. A 70/30 split on your two highest-volume items is often better than a 50/50 split on everything, because the second source stays warm at the lowest possible carrying cost.</p>
+
+    <h2>What “qualified” should mean</h2>
+    <p>Most organisations call a supplier qualified after a sample arrives and looks acceptable. That is a screening, not a qualification. A defensible qualification has four parts:</p>
+    <ol>
+      <li><strong>Documentary.</strong> Business identity, production site, scope of what they actually manufacture versus trade, quality manual or equivalent, and the release panel they run.</li>
+      <li><strong>Analytical.</strong> Material tested against your specification, by a method you can compare with your existing supplier's.</li>
+      <li><strong>Performance.</strong> The material works in your application, judged against criteria written down before the test.</li>
+      <li><strong>Repeatability.</strong> A second lot, ordered later, meets the same criteria. One good lot proves a sample; two prove a process.</li>
+    </ol>
+    <p>Only the fourth step distinguishes a supplier from a lucky shipment, and it is the one most often skipped because by then everyone has moved on to the next project.</p>
+
+    <h2>Parallel qualification: test side by side, not sequentially</h2>
+    <p>The single most useful practical change is to run the incumbent and the candidate in the same analytical session, on the same instrument, with the same method and, where possible, the same analyst. Sequential testing a year apart introduces method drift, column lot changes and reagent differences that will be mistaken for supplier differences.</p>
+    <p>Compare more than the purity number:</p>
+    <ul>
+      <li><strong>Impurity profile, overlaid.</strong> Same peaks in the same ratios suggests a similar process; a different pattern is not automatically worse, but it must be understood.</li>
+      <li><strong>Water content</strong> by Karl Fischer, because it changes net content and weighing.</li>
+      <li><strong>Counter-ion and salt form</strong>, because an acetate and a TFA salt are not interchangeable at the same milligram weight — see <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a>.</li>
+      <li><strong>Fill weight distribution</strong> across several vials, which is cheap and reveals fill-line control.</li>
+      <li><strong>Solubility behaviour</strong> in your actual diluent, at your actual concentration.</li>
+    </ul>
+    <p>Record the comparison as a document with a conclusion, not as a folder of certificates. The conclusion is what a future auditor or colleague will need.</p>
+
+    <h2>Bridging: the part that is specific to you</h2>
+    <p>Bridging is the evidence that changing supplier does not change your results. It is not a regulatory formality imported from pharma; it is the plain question of whether your assay, your cell work or your formulation behaves the same on the new material.</p>
+    <p>Write the acceptance criteria first. “Equivalent” is not a criterion; “main peak within 0.5 area percent of the incumbent, same retention time within the method's system suitability window, and no new impurity above 0.2%” is. If the application is biological, the criteria should include the readout you actually rely on, with the replicate structure and the variability you already expect from the assay — otherwise you will be unable to tell a material difference from normal noise.</p>
+    <p>Run the bridge on a lot you intend to keep using, not on the qualification sample that the supplier selected by hand. The sample and the first commercial lot are different events.</p>
+
+    <h2>The trap: two suppliers, one factory</h2>
+    <p>A large share of the peptide trade is intermediated. Two trading companies with different names, different websites and different certificates can be selling material from the same production site. Buying from both diversifies your invoices, not your risk.</p>
+    <p>Ways to test the assumption:</p>
+    <ul>
+      <li>Ask each supplier for the production site address and the entity that holds the manufacturing operation, not the sales office.</li>
+      <li>Compare impurity fingerprints. Two “independent” manufacturers rarely produce identical minor-peak patterns at the same ratios.</li>
+      <li>Compare document templates, batch-number formats and CoA layout. Shared templates are not proof, but identical formatting plus identical impurity profiles is a strong hint.</li>
+      <li>Ask directly who manufactures the lot and whether they will name the site on the certificate.</li>
+    </ul>
+    <p>A supplier who will not name a site is not necessarily hiding one, but you cannot claim dual sourcing on the basis of an unnamed facility — see <a href="/knowledge/remote-peptide-supplier-audit/">remote supplier audit</a> for the document list that resolves this.</p>
+
+    <h2>Change control: the clauses that make a switch reversible</h2>
+    <p>Qualification is a snapshot. Change control is what keeps the snapshot valid after the supplier alters something you never see. The clauses worth insisting on:</p>
+    <table>
+      <thead><tr><th>Clause</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Notification before change</td><td>Site, scale, synthesis route, purification method or subcontractor — with a stated notice period and the right to re-qualify</td></tr>
+        <tr><td>No substitution without approval</td><td>Material from another site or line must not be shipped under the same product code</td></tr>
+        <tr><td>Lot traceability</td><td>Batch number linked to manufacture date, site and release record</td></tr>
+        <tr><td>Retain samples</td><td>Held by the supplier for an agreed period, available for comparison</td></tr>
+        <tr><td>Last-time buy</td><td>If a product is discontinued, a defined window to order remaining stock</td></tr>
+        <tr><td>Audit rights</td><td>Document-based or on-site, triggered by a quality event</td></tr>
+      </tbody>
+    </table>
+    <p>These belong in the supply agreement rather than in a purchase order, because a PO expires and an agreement does not — the clause-level detail sits in <a href="/knowledge/peptide-procurement-contract-terms/">procurement contract terms</a>.</p>
+
+    <h2>When not to dual source</h2>
+    <p>Dual sourcing is not automatically mature procurement. It is a poor fit when:</p>
+    <ul>
+      <li>Volume is so low that a split puts both orders below MOQ and raises unit cost materially.</li>
+      <li>The product is a commodity where switching is genuinely easy and a second qualification adds nothing.</li>
+      <li>Your analytical capacity is the bottleneck — an unqualified second source you cannot test is not a backup, it is a name on a list.</li>
+      <li>The second supplier's material would need a different specification, doubling your documentation for one SKU.</li>
+    </ul>
+    <p>In those cases the better investment is usually a deeper relationship with the single source: agreed capacity, prior notice of change, and retain samples — not a second name that has never shipped.</p>
+
+    <h2>Questions for the candidate supplier</h2>
+    <ul>
+      <li>Do you manufacture this product, or trade it? If you trade, who manufactures it and can the site be named on the certificate?</li>
+      <li>What is your release panel for this product, and can you run our specification instead of yours?</li>
+      <li>Can you supply two consecutive lots for qualification, and hold retain samples from both?</li>
+      <li>What notice do you give for a change of site, scale or purification method?</li>
+      <li>What is your lead time at our volume in a normal month, and in your peak month?</li>
+      <li>If we qualify you and then order nothing for a year, does the qualification still stand?</li>
+    </ul>
+    <p>The last question is the honest one. A second source that has to be re-qualified from scratch every time is not a contingency plan; it is a first source with extra paperwork.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes procurement and qualification practice; it makes no claim about any specific compound or supplier and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Supplier checklist</a> — the twelve-point screening that precedes qualification</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — documents, video walkthrough and scoring</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — the drift you are trying to avoid</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — how to test the qualification lots</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Contract terms</a> — where change-control clauses live</li>
+      <li><a href="/wholesale/">Wholesale supply</a> — MOQ, tiers and documentation model</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/second-peptide-supplier-qualification/" />
+</BaseLayout>
