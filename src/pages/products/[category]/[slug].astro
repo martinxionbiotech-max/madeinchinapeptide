@@ -40,6 +40,9 @@ const reading: Record<Category, { href: string; label: string }[]> = {
     { href: '/knowledge/peptide-coa-red-flags/', label: 'COA red flags' },
   ],
 };
+const fullTitle = `${p.name} — Bulk & OEM Supply | Made in China Peptide`;
+// Keep the SERP title inside ~65 characters; long compound names fall back to a shorter suffix.
+const seoTitle = fullTitle.length > 65 ? `${p.name} — Bulk & OEM` : fullTitle;
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -58,7 +61,7 @@ const ld = {
   audience: { '@type': 'BusinessAudience', audienceType: 'Research laboratories and distributors' },
 };
 ---
-<BaseLayout title={`${p.name} — Bulk & OEM Supply | Made in China Peptide`} description={`${p.name} — ${p.form.toLowerCase()} for laboratory research. Batch-specific COA with HPLC and MS data; bulk and OEM supply.`} canonical={`/products/${category}/${slug}/`}>
+<BaseLayout title={seoTitle} description={`${p.name} — ${p.form.toLowerCase()} for laboratory research. Batch-specific COA with HPLC and MS data; bulk and OEM supply.`} canonical={`/products/${category}/${slug}/`}>
   <div class="wrap">
     <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name,href:`/products/${category}/`},{label:p.name}]} />
     <h1>{p.name}</h1>

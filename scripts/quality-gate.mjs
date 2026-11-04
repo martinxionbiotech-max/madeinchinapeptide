@@ -15,6 +15,7 @@ const walk = (d, acc = []) => {
 
 const files = walk(dist).filter(f => f.endsWith('.html'));
 const pageOf = f => f.replace(/^dist/, '').replace(/index\.html$/, '') || '/';
+const decode = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const exists = urlPath => {
   const clean = urlPath.split('#')[0].split('?')[0];
   if (!clean.startsWith('/')) return true;
@@ -25,6 +26,7 @@ const exists = urlPath => {
 };
 
 const problems = [];
+const warnings = [];
 const titles = new Map();
 const descriptions = new Map();
 const typeCounts = {};
@@ -51,10 +53,19 @@ for (const f of files) {
   }
 
   // metadata
-  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
-  const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+  const title = decode((html.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
+  const desc = decode((html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
   if (!title) problems.push(`missing title: ${page}`);
   if (!desc) problems.push(`missing meta description: ${page}`);
+  if (desc && desc.length > 160) problems.push(`description ${desc.length} chars (>160): ${page}`);
+  if (desc && desc.length < 60) warnings.push(`description ${desc.length} chars (<60): ${page}`);
+  if (title && title.length > 65) warnings.push(`title ${title.length} chars (>65): ${page}`);
+
+  // canonical + social tags
+  const canonical = (html.match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+  if (!canonical) problems.push(`missing canonical: ${page}`);
+  else if (!canonical.startsWith('https://madeinchinapeptide.com/')) problems.push(`canonical not absolute: ${page} -> ${canonical}`);
+  if (!/<meta property="og:image"/.test(html)) problems.push(`missing og:image: ${page}`);
   titles.set(title, (titles.get(title) || 0) + 1);
   descriptions.set(desc, (descriptions.get(desc) || 0) + 1);
 
@@ -98,6 +109,10 @@ const orphans = [...inbound.entries()].filter(([, n]) => n === 0).map(([p]) => p
 console.log(`pages: ${files.length}`);
 console.log('schema:', JSON.stringify(typeCounts));
 if (orphans.length) console.log('no inbound links:', orphans.join(', '));
+if (warnings.length) {
+  console.log(`\n${warnings.length} warning(s):`);
+  for (const w of warnings) console.log(' -', w);
+}
 if (problems.length) {
   console.error(`\n${problems.length} problem(s):`);
   for (const p of problems) console.error(' -', p);
