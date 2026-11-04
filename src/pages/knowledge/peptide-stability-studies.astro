@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide stability studies explained';
+const description = 'What real-time and accelerated stability data actually show, which assays belong at each timepoint, and why a COA is not a shelf-life study.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-stability-studies/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Stability studies'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“Shelf life: 24 months” is a common line on a peptide quotation and almost never supported by the document that accompanies it. A certificate of analysis describes one lot on one day. A stability study is a different object: a protocol, a set of timepoints, and a trend.</p>
+
+    <h2>Two questions, two kinds of data</h2>
+    <p>Buyers usually mean one of two things by “is it stable”:</p>
+    <ul>
+      <li><strong>Will this lot still meet specification at the end of the stated shelf life, stored as directed?</strong> That is answered by real-time data at the intended storage condition.</li>
+      <li><strong>What happens if it is exposed to heat or moisture in transit?</strong> That is answered by accelerated and stress data, which describe degradation pathways rather than a calendar.</li>
+    </ul>
+    <p>Accelerated data are useful for comparing formulations and for understanding failure modes. They are not a shortcut to a shelf-life number for a lyophilised solid, for reasons set out below.</p>
+
+    <h2>What the ICH conditions are</h2>
+    <p>The familiar storage conditions come from ICH Q1A(R2), and they are worth knowing because a supplier's study either follows them or does not:</p>
+    <table>
+      <thead><tr><th>Intended storage</th><th>Long-term condition</th><th>Accelerated condition</th></tr></thead>
+      <tbody>
+        <tr><td>Room temperature</td><td>25 °C ± 2 °C / 60% RH ± 5%</td><td>40 °C ± 2 °C / 75% RH ± 5%</td></tr>
+        <tr><td>Refrigerated</td><td>5 °C ± 3 °C</td><td>25 °C ± 2 °C / 60% RH ± 5%</td></tr>
+        <tr><td>Frozen</td><td>−20 °C ± 5 °C</td><td>No accelerated condition; elevated-temperature storage is used to study excursions</td></tr>
+      </tbody>
+    </table>
+    <p>Accelerated studies normally run for six months and real-time studies for at least twelve months at the time of filing, with data continuing afterwards. Those minima come from pharmaceutical submissions; a research supplier is not filing a drug application, but the structure of the evidence is the same. If a supplier cannot say which condition their number refers to, the number is marketing.</p>
+
+    <h2>Why accelerated data do not extrapolate cleanly</h2>
+    <p>Arrhenius extrapolation assumes a single dominant reaction with a constant activation energy in a homogeneous system. A lyophilised peptide is none of those things. It is a porous solid in which moisture, pH of the residual buffer, oxygen in the headspace and the physical state of the cake all change with temperature. Near the collapse temperature the cake can lose structure, and the degradation rate can change abruptly rather than smoothly. A formulation that is stable for six months at 40 °C may still fail at 25 °C over two years — or the reverse.</p>
+    <p>This is why accelerated data are used to justify a proposed shelf life together with real-time data, not instead of it. A supplier who offers only “40 °C for three months, therefore 24 months at room temperature” has done an arithmetic exercise, not a stability study.</p>
+
+    <h2>Assays that belong at every timepoint</h2>
+    <p>A stability protocol is only as good as its panel. Purity by HPLC alone will miss the changes that matter most in a solid:</p>
+    <ul>
+      <li><strong>Appearance and cake integrity</strong> — shrinkage, collapse, cracking or melt-back.</li>
+      <li><strong>Water content by Karl Fischer</strong> — the single most predictive number for a lyophilised solid, and the one most often omitted.</li>
+      <li><strong>HPLC purity and impurity profile</strong> — reported as individual impurities, not only area percent, because a rising front-running peak and a rising late-running peak mean different things.</li>
+      <li><strong>Identity by mass spectrometry</strong> — confirms the main peak is still the intended species after storage.</li>
+      <li><strong>Peptide content</strong> — distinguishes loss of peptide from gain of water or counter-ion.</li>
+      <li><strong>pH and reconstitution time</strong> — practical markers of chemical and physical change.</li>
+      <li><strong>Microbial limits, endotoxin and sterility</strong> — where those attributes are claimed, they belong in the study too, on the same lots.</li>
+    </ul>
+    <p>The analytical method must be stability-indicating: it has to resolve degradants from the parent peak. A method that co-elutes an oxidised species with the main peak will report a flat purity trend while the material is changing, which is the analytical version of watching the wrong dial. The limits of area-percent purity are covered in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</p>
+
+    <h2>What a study design should state</h2>
+    <ol>
+      <li><strong>Lots.</strong> At least two, ideally three, from different batches — a single lot measures one batch, not a process.</li>
+      <li><strong>Container closure.</strong> The vial, stopper and crimp used in the study must be the ones shipped; moisture ingress through a rubber stopper is a real pathway.</li>
+      <li><strong>Orientation and headspace.</strong> Relevant mainly for liquids, but worth stating.</li>
+      <li><strong>Timepoints.</strong> Baseline, then a schedule that brackets the claimed shelf life; a 24-month claim with a 3- and 6-month point only is an extrapolation, not a dataset.</li>
+      <li><strong>Methods and acceptance criteria.</strong> Fixed in advance, with the specification limits the data are judged against.</li>
+      <li><strong>Trend, not pass/fail.</strong> A result that is still inside specification but falling steadily is a warning, and the slope is the useful part.</li>
+      <li><strong>Photostability</strong> where the material is light-sensitive, following ICH Q1B if a formal claim is being made.</li>
+    </ol>
+
+    <h2>Solution stability is a separate study</h2>
+    <p>Solid-state shelf life says nothing about a reconstituted solution. Once the peptide is in water or buffer, hydrolysis, deamidation, oxidation and aggregation all proceed at rates that depend on pH, buffer, concentration, headspace oxygen and temperature. A supplier's “24 months” figure does not transfer to the vial on your bench after reconstitution.</p>
+    <p>If solution stability matters for your work — and for any multi-day experiment it does — establish it for your own buffer and concentration, or ask the supplier for data on a matched matrix. “Use within 30 days” without a stated matrix and temperature is a convention, not a finding. Handling practice for solutions is in <a href="/knowledge/peptide-reconstitution-guide/">reconstitution</a> and <a href="/knowledge/peptide-storage-handling/">storage and handling</a>.</p>
+
+    <h2>Red flags in a stability claim</h2>
+    <ul>
+      <li>A shelf life with no storage condition attached.</li>
+      <li>Accelerated data presented as real-time data, or a single accelerated point extrapolated to years.</li>
+      <li>No water content in the panel, or water content reported only at baseline.</li>
+      <li>Purity reported as area percent only, with no impurity profile.</li>
+      <li>A study on a different formulation, fill or container from the one quoted.</li>
+      <li>No lot numbers, so the data cannot be tied to the material being sold.</li>
+      <li>“Stable for 24 months” on a page that also says “store at room temperature” for a product shipped with an ice pack — the storage instruction and the study condition have to agree.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This article describes study design and documentation; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw practice</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization explained</a> — cake defects and residual moisture</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — controlling drift between batches</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — why area percent is not mass percent</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — what each assay proves</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-stability-studies/" />
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide sequence and molecular weight';
+const description = 'One-letter codes, residue mass arithmetic, terminal modifications and why a catalogue molecular weight may not match your own calculation.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-sequence-notation/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Sequence notation'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A catalogue line such as “C<sub>187</sub>H<sub>291</sub>N<sub>45</sub>O<sub>59</sub>, MW 4113.58” contains three separate claims: a sequence, a formula and a mass. They are arithmetically linked, which means a buyer can check them with a residue table and a calculator — and most never do.</p>
+
+    <h2>What the one-letter string encodes</h2>
+    <p>Peptide sequences are written as a string of single letters, one per amino acid residue, running from the N-terminus (the free amino group) to the C-terminus (the free carboxyl group). The twenty standard residues use the first letter of their name where it is unambiguous, and something else where it is not:</p>
+    <table>
+      <thead><tr><th>Letter</th><th>Residue</th><th>Letter</th><th>Residue</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Alanine</td><td>M</td><td>Methionine</td></tr>
+        <tr><td>R</td><td>Arginine</td><td>F</td><td>Phenylalanine</td></tr>
+        <tr><td>N</td><td>Asparagine</td><td>P</td><td>Proline</td></tr>
+        <tr><td>D</td><td>Aspartic acid</td><td>S</td><td>Serine</td></tr>
+        <tr><td>C</td><td>Cysteine</td><td>T</td><td>Threonine</td></tr>
+        <tr><td>Q</td><td>Glutamine</td><td>W</td><td>Tryptophan</td></tr>
+        <tr><td>E</td><td>Glutamic acid</td><td>Y</td><td>Tyrosine</td></tr>
+        <tr><td>G</td><td>Glycine</td><td>V</td><td>Valine</td></tr>
+        <tr><td>H</td><td>Histidine</td><td>K</td><td>Lysine</td></tr>
+        <tr><td>I</td><td>Isoleucine</td><td>L</td><td>Leucine</td></tr>
+      </tbody>
+    </table>
+    <p>The string is directional. <span style="font-family:ui-monospace,monospace;">AGS</span> (Ala-Gly-Ser) and <span style="font-family:ui-monospace,monospace;">SGA</span> (Ser-Gly-Ala) have the same composition and the same mass, but they are different molecules with different properties. This is not a pedantic distinction: a supplier that reverses the string has made the wrong peptide, and a mass check will never reveal it.</p>
+    <p>The string also leaves things out. By convention it assumes all-L stereochemistry, a free acid C-terminus unless stated, no N-terminal blocking group, and no disulfide pairing. Those assumptions are exactly where catalogue errors hide, so a specification should state them explicitly rather than rely on convention.</p>
+
+    <h2>Residue mass, not amino acid mass</h2>
+    <p>A peptide bond forms by losing water. The repeating unit in a chain is therefore an amino acid minus H<sub>2</sub>O — the <em>residue</em> mass — and the finished molecule is the sum of the residue masses plus one water molecule for the free acid at the C-terminus:</p>
+    <p style="font-family:ui-monospace,monospace;font-size:0.95em;">M(free acid) = Σ residue masses + 18.01056<br />M(C-terminal amide) = Σ residue masses + 17.02655</p>
+    <p>The amide form is one dalton lighter than the free acid because an –OH is replaced by –NH<sub>2</sub>. Many synthetic peptides are made as C-terminal amides, so the same sequence can legitimately have two different masses depending on how it was cleaved from the resin.</p>
+
+    <h2>A worked example you can reproduce</h2>
+    <p>Take Ala-Gly-Ser with a free acid C-terminus. Using monoisotopic residue masses:</p>
+    <ul>
+      <li>Ala: 71.03711</li>
+      <li>Gly: 57.02146</li>
+      <li>Ser: 87.03203</li>
+    </ul>
+    <p style="font-family:ui-monospace,monospace;font-size:0.95em;">71.03711 + 57.02146 + 87.03203 = 215.09060<br />215.09060 + 18.01056 = 233.10116 Da<br />[M+H]<sup>+</sup> = 233.10116 + 1.00728 = 234.10844 m/z</p>
+    <p>As a C-terminal amide the neutral mass is 232.11714 Da. As the N-terminally acetylated free acid it is 275.11173 Da, because acetylation adds C<sub>2</sub>H<sub>2</sub>O (42.01057). Three plausible products, one sequence string. If a certificate gives a mass without saying which of these it refers to, the number is not yet a specification.</p>
+
+    <h2>Modifications change the mass by a fixed amount</h2>
+    <table>
+      <thead><tr><th>Modification</th><th>Mass change (Da)</th><th>Where it appears</th></tr></thead>
+      <tbody>
+        <tr><td>N-terminal acetyl</td><td>+42.0106</td><td>Stability against aminopeptidases; common in analogues</td></tr>
+        <tr><td>C-terminal amide</td><td>−0.9840</td><td>Cleavage as the amide rather than the acid</td></tr>
+        <tr><td>Methionine oxidation</td><td>+15.9949</td><td>Handling and storage; a degradation marker</td></tr>
+        <tr><td>Deamidation (Asn → Asp)</td><td>+0.9840</td><td>Ageing in solution; often the first sign of drift</td></tr>
+        <tr><td>Disulfide bond</td><td>−2.0157</td><td>Two cysteines oxidised to one bridge</td></tr>
+        <tr><td>Phosphorylation (Ser/Thr/Tyr)</td><td>+79.9663</td><td>Deliberate modification; also a possible impurity</td></tr>
+        <tr><td>N-terminal pyroglutamate</td><td>−17.0265 (Gln) / −18.0106 (Glu)</td><td>Cyclisation of an N-terminal Gln or Glu</td></tr>
+      </tbody>
+    </table>
+    <p>Two residues are genuinely indistinguishable by mass: isoleucine and leucine both have a residue mass of 113.08406, and no single-stage mass measurement can tell them apart. Glutamine and lysine are close but not identical — 128.05858 versus 128.09496, a difference of 0.0364 Da — so only high-resolution instruments resolve them. A sequence that contains I/L or Q/K is therefore one that intact-mass testing cannot fully confirm; that is a limitation of the method, not a defect in the peptide.</p>
+
+    <h2>Why your sum may not match the catalogue</h2>
+    <ul>
+      <li><strong>Average versus monoisotopic mass.</strong> The two conventions diverge as the molecule grows. A certificate should say which one it reports; a mismatch of a few tenths of a dalton at 4 kDa is usually this, not an error.</li>
+      <li><strong>Counter-ion.</strong> The peptide is a salt. Acetate and trifluoroacetate add mass that is not part of the peptide chain, and the amount depends on the number of basic residues and the salt form. This is covered in <a href="/knowledge/peptide-counter-ion-forms/">acetate vs TFA</a>.</li>
+      <li><strong>Water content.</strong> A lyophilised powder holds residual moisture, measured by Karl Fischer. Five percent water means five percent of the weighed mass is not peptide, and none of it appears in the molecular weight.</li>
+      <li><strong>A missed modification.</strong> If the catalogue mass is 42 Da above your sum, the material is probably N-terminally acetylated; 16 Da above, suspect oxidation. These are not rounding differences.</li>
+      <li><strong>A truncated sequence.</strong> A deletion of one residue changes the mass by that residue's mass. Short fragments are common impurities, and they are visible in the chromatogram and the spectrum if the data package includes them.</li>
+    </ul>
+
+    <h2>What to put in an RFQ</h2>
+    <ol>
+      <li>The sequence in one-letter code, N to C, with every non-standard feature written out: terminal acetyl or amide, disulfide pairs by residue number, and any other modification.</li>
+      <li>Your calculated monoisotopic mass, with the convention stated, so the supplier can confirm or correct it before quoting.</li>
+      <li>The counter-ion form you want, and whether the quoted fill is net peptide or gross powder weight.</li>
+      <li>A lot-specific COA with HPLC purity, MS identity and water content, linked to the same lot number.</li>
+      <li>For sequences containing I/L or Q/K, ask whether MS/MS or another sequencing method is available if identity is critical.</li>
+    </ol>
+    <p>A supplier who can answer these before the order is a different supplier from one who answers after it. The pattern is the same one described in the <a href="/knowledge/china-peptide-supplier-checklist/">supplier checklist</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes sequence notation and mass arithmetic; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity checks</a> — what a mass match does and does not prove</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — salt form, mass and peptide content</li>
+      <li><a href="/knowledge/peptide-synthesis-spps-explained/">Peptide synthesis explained</a> — where sequence errors and truncations come from</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying purity before you buy</a> — the buyer's sequence</li>
+      <li><a href="/glossary/">Glossary</a> — sequence, residue, monoisotopic mass and related terms</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-sequence-notation/" />
+</BaseLayout>
