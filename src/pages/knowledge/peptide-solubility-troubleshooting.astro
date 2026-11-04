@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide solubility troubleshooting';
+const description = 'Why a lyophilized peptide will not dissolve, what cloudiness and gel formation usually mean, and the order to change variables in without damaging the material.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-solubility-troubleshooting/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Solubility troubleshooting'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Most insoluble-peptide problems are one of five things: the wrong solvent, the wrong pH, too high a concentration, an aggregated lot, or a cake that was never fully wetted. The order in which you test those decides whether you recover the vial or destroy it.</p>
+
+    <h2>Start with the certificate, not the bottle</h2>
+    <p>Before changing anything, read what the batch was released against. A COA that states the counter-ion form, the peptide content and the recommended solvent tells you what the material is; a vial with no such information is a variable you are about to discover empirically. Two details matter most: whether the peptide is a TFA or acetate salt — TFA salts are more acidic in solution and can shift solubility — and whether residual organic solvent from purification is reported, because a peptide that still contains traces of acetonitrile or DMF behaves differently from a well-dried batch.</p>
+
+    <h2>The five failure modes</h2>
+    <table>
+      <thead><tr><th>What you see</th><th>Most likely cause</th><th>First move</th></tr></thead>
+      <tbody>
+        <tr><td>Powder floats, liquid sits clear above it</td><td>Cake not wetted; static or a hydrophobic film</td><td>Add solvent down the wall, stand 10–30 min, swirl gently</td></tr>
+        <tr><td>Hazy or opalescent solution</td><td>Undissolved particles or aggregation</td><td>Inspect against light; do not filter yet, note the appearance</td></tr>
+        <tr><td>Gel or stringy mass</td><td>Concentration too high for that peptide</td><td>Dilute before doing anything else</td></tr>
+        <tr><td>Clears at low pH, clouds at neutral</td><td>pH-dependent solubility, near the isoelectric point</td><td>Buffer at a pH away from the pI, not water</td></tr>
+        <tr><td>Never clears, even dilute</td><td>Aggregated or degraded lot; or genuinely hydrophobic sequence</td><td>Add a small fraction of organic solvent; if still failing, treat as a batch question</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Change one variable at a time</h2>
+    <p>The instinct is to add everything at once — a little acetonitrile, a little acid, some heat. That produces a dissolved vial and no knowledge. Instead, work in this order, and record what you did between each step:</p>
+    <ol>
+      <li><strong>Time and technique.</strong> Many lyophilized cakes need 20–30 minutes of standing, not vigorous mixing. Vortexing a poorly soluble peptide creates foam and can seed aggregation.</li>
+      <li><strong>Concentration.</strong> Dilute tenfold. If it clears, solubility was the limit and the original target concentration was unrealistic for that material.</li>
+      <li><strong>Solvent composition.</strong> Add acetonitrile or DMSO in 5% steps up to a practical ceiling. Note the final composition, because it now constrains every downstream assay.</li>
+      <li><strong>pH.</strong> Move away from the calculated isoelectric point. A buffer at pH 4 and one at pH 8 are different experiments, not a gradient of the same one.</li>
+      <li><strong>Gentle warming.</strong> Up to about 30–37 °C for short periods. Above that you are trading solubility for degradation, and the trade is usually bad.</li>
+    </ol>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li><strong>Do not sonicate by reflex.</strong> Cavitation heats and shears; for a peptide that is already aggregating it makes the problem harder to characterise.</li>
+      <li><strong>Do not filter to “fix” cloudiness.</strong> A 0.22 µm filter removes the evidence and a variable fraction of your material. If you must filter, weigh the filter before and after, or assay the filtrate.</li>
+      <li><strong>Do not heat to dissolve and then assay at room temperature.</strong> You may have dissolved a degraded mixture.</li>
+      <li><strong>Do not assume the next vial will behave the same.</strong> Solubility that changes between lots is a lot-consistency signal — see <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</li>
+    </ul>
+
+    <h2>When it is the material, not your technique</h2>
+    <p>If a peptide that dissolved cleanly in a previous lot now fails at the same concentration, same solvent and same technique, the difference is in the material. The usual causes are a different salt form, higher residual moisture, incomplete drying after purification, or aggregation during storage or transit. The way to establish that is documentation, not more solvent: request the COA for the new lot, compare the salt form, water content and Appearance fields with the previous one, and ask for the chromatogram. A purity figure alone will not explain a solubility change.</p>
+
+    <h2>Recording the result</h2>
+    <p>Write down the lot, the solvent composition including percentages, the final pH, the concentration, the temperature, the time to dissolve, and the appearance before and after. That record is what lets you reproduce the preparation, and it is what a supplier needs in order to answer a batch question without guessing. If you are preparing a stock and need the concentration arithmetic, the <a href="/tools/reconstitution-calculator/">reconstitution calculator</a> handles the unit conversions and purity correction.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes laboratory technique; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and technique</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — what degrades a lyophilized cake</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — why the salt changes solution behaviour</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — when a solubility change is a batch signal</li>
+      <li><a href="/tools/reconstitution-calculator/">Reconstitution calculator</a> — concentration, molarity and dilution</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-solubility-troubleshooting/" />
+</BaseLayout>

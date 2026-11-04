@@ -10,6 +10,7 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-moq-and-pricing-tiers', title:'Peptide MOQ and pricing tiers explained', desc:'Why unit price changes with volume, packaging and documentation.', cluster:'Sourcing' },
   { slug:'peptide-synthesis-spps-explained', title:'Peptide synthesis (SPPS) explained for buyers', desc:'What solid-phase synthesis means for purity, yield and cost.', cluster:'Manufacturing' },
   { slug:'peptide-reconstitution-guide', title:'Peptide reconstitution: laboratory practice', desc:'Solvent choice, concentration math, handling and storage of solutions.', cluster:'Handling' },
+  { slug:'peptide-solubility-troubleshooting', title:'Peptide solubility troubleshooting', desc:'Cloudiness, gels and cakes that will not wet — a diagnostic order that does not destroy the vial.', cluster:'Handling' },
   { slug:'shipping-peptides-customs-guide', title:'Shipping peptides from China — customs & documentation', desc:'Documents, classification, cold chain and the delays that actually happen.', cluster:'Compliance & shipping' },
   { slug:'peptide-coa-red-flags', title:'Peptide COA red flags — 8 signs of a recycled certificate', desc:'Batch linkage, chromatograms, methods and the patterns that reveal a template.', cluster:'Quality & testing' },
   { slug:'bulk-peptide-sourcing-risks', title:'Bulk peptide sourcing risks buyers underestimate', desc:'Supplier concentration, lot drift, customs exposure and payment risk.', cluster:'Sourcing' },
