@@ -10,6 +10,7 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-moq-and-pricing-tiers', title:'Peptide MOQ and pricing tiers explained', desc:'Why unit price changes with volume, packaging and documentation.', cluster:'Sourcing' },
   { slug:'peptide-synthesis-spps-explained', title:'Peptide synthesis (SPPS) explained for buyers', desc:'What solid-phase synthesis means for purity, yield and cost.', cluster:'Manufacturing' },
   { slug:'peptide-lyophilization-explained', title:'Lyophilization: what the cake tells you', desc:'The three stages of freeze-drying, residual moisture, cake defects and the process questions to ask.', cluster:'Manufacturing' },
+  { slug:'peptide-mass-spec-identity', title:'Peptide identity by mass spectrometry', desc:'Monoisotopic vs average mass, adducts, resolution limits — and why a mass match is not a sequence.', cluster:'Quality & testing' },
   { slug:'reading-peptide-hplc-chromatograms', title:'How to read a peptide HPLC chromatogram', desc:'Peak shape, integration choices and why area percent is not mass percent.', cluster:'Quality & testing' },
   { slug:'peptide-reconstitution-guide', title:'Peptide reconstitution: laboratory practice', desc:'Solvent choice, concentration math, handling and storage of solutions.', cluster:'Handling' },
   { slug:'peptide-solubility-troubleshooting', title:'Peptide solubility troubleshooting', desc:'Cloudiness, gels and cakes that will not wet — a diagnostic order that does not destroy the vial.', cluster:'Handling' },

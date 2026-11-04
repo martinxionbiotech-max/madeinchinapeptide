@@ -18,6 +18,7 @@
 - /knowledge/peptide-solubility-troubleshooting/ — why a peptide will not dissolve, and the diagnostic order
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
+- /knowledge/peptide-mass-spec-identity/ — monoisotopic vs average mass, adducts and ppm error in MS identity checks
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /compliance/research-use-only/ — permitted and prohibited uses

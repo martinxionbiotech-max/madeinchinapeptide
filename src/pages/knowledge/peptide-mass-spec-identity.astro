@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide identity by mass spectrometry';
+const description = 'What ESI and MALDI-TOF spectra prove about a peptide: mass conventions, adducts, resolution limits and why a mass match is not a sequence.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-mass-spec-identity/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Mass spec identity'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Most certificates carry one line for mass spectrometry: “MW: 4116.8, conforms”. That line is doing less work than buyers assume. A mass match can rule out a wrong compound; it cannot tell you the sequence is right, and the number itself depends on which mass the lab decided to report.</p>
+
+    <h2>What the instrument measures</h2>
+    <p>A mass spectrometer ionises the sample, separates ions by mass-to-charge ratio (<em>m/z</em>), and counts them. The output is not a molecular weight. It is a set of <em>m/z</em> values with intensities, and turning those into a mass requires knowing the charge state of each peak.</p>
+    <p>Two ionisation methods dominate peptide work, and they fail in different ways:</p>
+    <table>
+      <thead><tr><th></th><th>ESI</th><th>MALDI-TOF</th></tr></thead>
+      <tbody>
+        <tr><td>Ion charge</td><td>Multiple — a 4 kDa peptide typically appears as a series of 3+ to 6+ ions</td><td>Almost always singly charged [M+H]<sup>+</sup></td></tr>
+        <tr><td>Sample tolerance</td><td>Sensitive to salts and detergents; usually run after LC separation</td><td>Tolerant of salts and buffer, mixed with a matrix</td></tr>
+        <tr><td>Typical strength</td><td>Coupling to HPLC, so the mass belongs to the peak that was just quantified</td><td>Fast, simple, good for a single intact-mass check</td></tr>
+        <tr><td>Typical weakness</td><td>Adducts and charge-state deconvolution errors</td><td>Matrix interference at low mass; poor for mixtures</td></tr>
+      </tbody>
+    </table>
+    <p>For a multi-charged ESI series, adjacent peaks differ by one proton (1.0073 <em>m/z</em> divided by charge), which is how software assigns charge states and calculates the neutral mass. When the series is weak, noisy, or contaminated by adducts, deconvolution can land on a plausible but wrong mass. That is why the raw spectrum — not only the deconvoluted result — belongs in the data package.</p>
+
+    <h2>Monoisotopic or average? The number on the COA is a choice</h2>
+    <p>Every element has several isotopes. Two conventions follow:</p>
+    <ul>
+      <li><strong>Monoisotopic mass</strong> uses the single most abundant isotope of each element (¹²C, ¹H, ¹⁴N, ¹⁶O, ³²S). It corresponds to the first peak of the isotope envelope and is the convention for small molecules and for theoretical peptide masses.</li>
+      <li><strong>Average mass</strong> uses natural-abundance averages (C = 12.011 and so on). It corresponds roughly to the centre of the envelope, which is what a low-resolution instrument reports as a single broad hump.</li>
+    </ul>
+    <p>The two diverge as molecules get larger, because the chance that a molecule contains at least one heavy isotope approaches certainty. For a peptide in the 3–4 kDa range the gap is on the order of a dalton; by 10 kDa it is several daltons. A certificate that states “MW 4116.8” without saying which convention, and a lab claiming 0.02 Da accuracy, cannot both be read the same way. Ask which mass is theoretical, which is observed, and what the stated error is in both daltons and ppm.</p>
+
+    <h2>The arithmetic you can check yourself</h2>
+    <p>A peptide mass is the sum of residue masses plus one water molecule for the free acid (or minus water for a C-terminal amide). Residue masses are the free amino acid minus H₂O. Using Gly (residue 57.02146) and water (18.01056):</p>
+    <p style="font-family:ui-monospace,monospace;font-size:0.95em;">Gly-Gly-Gly: 3 × 57.02146 + 18.01056 = 189.07494 Da<br />[M+H]<sup>+</sup> = 189.07494 + 1.00728 = 190.0822 m/z</p>
+    <p>This is worth doing once with a calculator and a published residue table, because it tells you two things. First, whether the mass on the certificate is consistent with the sequence the supplier printed. Second, whether the reported error is even arithmetically plausible: at 4 kDa, 10 ppm is 0.04 Da and 100 ppm is 0.4 Da, so a “0.01 Da” agreement on a 4 kDa peptide implies an accuracy few routine service labs claim.</p>
+
+    <h2>Peaks that are not impurities</h2>
+    <p>Raw spectra are full of satellite peaks that have nothing to do with synthesis quality. Reading them as impurities — or ignoring them when they hide a real one — is the most common mistake on both sides of the table.</p>
+    <table>
+      <thead><tr><th>Peak offset from [M+H]<sup>+</sup></th><th>Assignment</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>+21.98</td><td>Sodium adduct [M+Na]<sup>+</sup></td><td>Sodium replaces a proton; common with glassware, buffers and poor desalting</td></tr>
+        <tr><td>+38.96</td><td>Potassium adduct [M+K]<sup>+</sup></td><td>Same mechanism; often appears beside the sodium peak</td></tr>
+        <tr><td>+113.99</td><td>TFA adduct</td><td>Expected when the peptide was purified or handled in trifluoroacetic acid; relevant to the salt-form discussion</td></tr>
+        <tr><td>+15.99</td><td>Methionine or tryptophan oxidation</td><td>A real modification, not an artefact — it is degradation, and it should also appear as a later-eluting HPLC peak</td></tr>
+        <tr><td>+0.98</td><td>Deamidation (Asn → Asp)</td><td>Storage- and pH-driven; often the first sign a lot is ageing</td></tr>
+        <tr><td>−2.02 per bond</td><td>Disulfide formation</td><td>Two hydrogens lost per disulfide; a fully oxidised peptide is lighter than the reduced form</td></tr>
+      </tbody>
+    </table>
+    <p>Adducts say something about sample preparation, not about synthesis. Oxidation and deamidation say something real. The distinction matters when a supplier explains away a 16 Da satellite as “matrix” — methionine oxidation is a chemical fact about the vial, and it should be quantified on the chromatogram, not waved off.</p>
+
+    <h2>What a mass match does and does not prove</h2>
+    <ul>
+      <li><strong>It proves composition, approximately.</strong> A species of the expected mass is present. It does not prove that species is the majority component — intensity in MS is not abundance, because ionisation efficiency varies with sequence and with co-eluting material.</li>
+      <li><strong>It does not prove sequence.</strong> Two peptides with the same amino-acid composition but a different order are isobaric. So are many sequence variants and positional isomers. Distinguishing them requires MS/MS fragmentation, Edman degradation, or both.</li>
+      <li><strong>It does not prove stereochemistry.</strong> D- and L-residues have identical mass. Epimerisation is invisible to a single-stage MS experiment.</li>
+      <li><strong>It does not prove purity.</strong> A 70% pure sample can give a clean-looking mass spectrum if the impurities ionise poorly. Purity comes from the chromatogram, as set out in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</li>
+      <li><strong>It does not prove the batch.</strong> Unless the spectrum is linked to a lot number and to the same injection set as the HPLC, it may belong to a different batch — the pattern described in <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>.</li>
+    </ul>
+
+    <h2>A report worth accepting</h2>
+    <ol>
+      <li>Lot number on the spectrum and on the HPLC trace, matching the certificate.</li>
+      <li>Ionisation method and instrument type, plus sample preparation (desalted or not, reduced or not).</li>
+      <li>The raw spectrum with <em>m/z</em> axis and labelled charge states — not a screenshot of a single peak with the rest cropped.</li>
+      <li>Expected (theoretical) mass, observed mass, the convention used for each, and the error in Da and ppm.</li>
+      <li>Adduct and modification peaks annotated, so the reader can tell a sodium adduct from an impurity.</li>
+      <li>For disulfide-containing peptides, a statement of whether the sample was reduced and alkylated — otherwise the measured mass is ambiguous by 2 Da per bridge.</li>
+      <li>Where identity is critical, an MS/MS or peptide-mapping result, because intact mass alone cannot establish sequence.</li>
+    </ol>
+    <p>MS and HPLC are complementary and neither substitutes for the other: the chromatogram answers “how much of the sample is the target”, the spectrum answers “is the target the thing we think it is”. Neither answers “is it sterile” or “is it pyrogen-free” — those are separate tests, covered in <a href="/knowledge/peptide-endotoxin-bioburden/">endotoxin and bioburden</a> and summarised on the <a href="/quality/testing-methods/">testing methods</a> page.</p>
+
+    <h2>Questions that get a useful answer</h2>
+    <p>“Is the mass correct?” invites a yes. These do not:</p>
+    <ul>
+      <li>Which mass is on the COA — monoisotopic or average — and what was the theoretical value for this sequence?</li>
+      <li>Can you send the raw spectrum for this lot, with charge states labelled?</li>
+      <li>Was the sample reduced before analysis? If not, how do you account for disulfide pairing?</li>
+      <li>What is the mass error in ppm, and on which instrument was it measured?</li>
+      <li>Does the MS trace come from the same injection set as the HPLC purity figure?</li>
+    </ul>
+    <p>Suppliers who run their own QC answer from the batch record within a day. Resellers forward the questions and return either a generic spectrum or a number without units. The response pattern is the same one described in the <a href="/knowledge/china-peptide-supplier-checklist/">supplier checklist</a>, and it is more predictive than any single analytical figure.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical technique; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — what HPLC, MS and Karl Fischer each prove</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — purity, peak shape and integration</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying purity before you buy</a> — the buyer's sequence</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — when the document itself is the problem</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — salt form, mass and peptide content</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-mass-spec-identity/" />
+</BaseLayout>
