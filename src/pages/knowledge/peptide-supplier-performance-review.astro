@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Supplier performance reviews for peptides';
+const description = 'A practical scorecard for peptide suppliers: which metrics predict trouble, how to collect them without extra work, and what to do with the result.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-performance-review/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Supplier reviews'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Supplier quality drifts quietly. A contact changes, a purification column is replaced, a drying step is shortened, and the certificates keep arriving on time. By the time a lot fails, the relationship is usually several years old and nobody has looked at the pattern. A performance review is the routine that makes the pattern visible before it becomes a failed batch.</p>
+
+    <h2>Why a review, rather than a feeling</h2>
+    <p>Most buyers carry an impression of each supplier: “reliable”, “cheap but slow”, “good on documents”. Impressions are built from the most recent interaction and the most memorable problem, which is exactly the wrong weighting. A simple scorecard replaces the impression with a record, and it does something else as well: it tells the supplier what will be measured. Most suppliers improve on the metrics their customers actually track.</p>
+    <p>The review is not an audit. An audit examines capability; a review examines performance over time. The two are complementary, and the audit method is covered in <a href="/knowledge/remote-peptide-supplier-audit/">remote supplier audit</a>.</p>
+
+    <h2>The metrics that matter</h2>
+    <table>
+      <thead><tr><th>Metric</th><th>Definition</th><th>Why it predicts trouble</th></tr></thead>
+      <tbody>
+        <tr><td>On-time, in-full (OTIF)</td><td>Order received complete, on or before the confirmed date</td><td>Chronic lateness forces expedited freight, short-dated stock and rushed release testing</td></tr>
+        <tr><td>Documentation completeness</td><td>COA, packing list, SDS, origin and any agreed annex present and consistent at delivery</td><td>Missing documents are the leading cause of customs delay and release delay</td></tr>
+        <tr><td>COA accuracy</td><td>Supplier result agrees with your receipt or third-party result within the method's uncertainty</td><td>The single most important quality signal; a certificate that does not match the material is a process problem</td></tr>
+        <tr><td>Deviation and OOS rate</td><td>Lots with an out-of-specification result, a deviation, or a re-test, divided by lots received</td><td>A rising rate is an early warning of process drift or capacity strain</td></tr>
+        <tr><td>Change notification</td><td>Advance notice of a change in site, process, method or packaging</td><td>Unannounced change is how a stable supplier becomes an unstable one</td></tr>
+        <tr><td>Response time</td><td>Time to answer a technical question or a complaint, in working days</td><td>Slow response during a problem is more expensive than slow response during a quote</td></tr>
+        <tr><td>Complaint closure</td><td>Time from complaint to a documented root cause and corrective action</td><td>Replacement without investigation means the cause is still in the process</td></tr>
+        <tr><td>Lead-time variance</td><td>Spread of actual lead times around the quoted lead time</td><td>Variance, not the average, is what safety stock must cover</td></tr>
+        <tr><td>Price stability</td><td>Change in unit price at constant specification and volume</td><td>Unexplained price moves can signal a change of source or a squeeze on quality</td></tr>
+      </tbody>
+    </table>
+    <p>Nine metrics is already more than most buyers track. If you start with three, choose OTIF, COA accuracy and change notification: they cover delivery, quality and the most common way a good supplier goes bad.</p>
+
+    <h2>Collecting the data without a system</h2>
+    <p>A scorecard fails when it requires a new database. The data should fall out of the purchase record you already keep:</p>
+    <ul>
+      <li><strong>One row per purchase order</strong> in a spreadsheet: supplier, product, lot, quantity, promised date, received date, documents complete (yes/no), receipt result, complaint reference.</li>
+      <li><strong>One row per complaint</strong>: date opened, description, supplier response date, root cause, corrective action, date closed.</li>
+      <li><strong>A simple definition sheet</strong> so that “on time” and “complete” mean the same thing every time. An order received a day late because the carrier missed a flight is still late; an order received early but short is not in full.</li>
+    </ul>
+    <p>The value comes from consistency, not sophistication. A hand-maintained sheet with twelve months of entries is more useful than a dashboard with two months of clean data.</p>
+
+    <h2>Scoring without false precision</h2>
+    <p>A 1–5 scale per metric, weighted by what matters to your work, is enough. Two cautions:</p>
+    <ul>
+      <li><strong>Do not average away a serious failure.</strong> A supplier with excellent OTIF and one confirmed certificate mismatch is not “80% good”; the mismatch is a stop-and-investigate event, not a data point to be smoothed.</li>
+      <li><strong>Do not over-weight price.</strong> A scorecard that rewards the cheapest quote will select for the supplier least able to invest in documentation and testing.</li>
+    </ul>
+    <p>A workable weighting for research material is quality and documentation at about half the total, delivery at a third, and commercial factors at the remainder. The exact numbers matter less than applying them consistently and reviewing the trend rather than a single quarter.</p>
+
+    <h2>What the trend says</h2>
+    <table>
+      <thead><tr><th>Pattern</th><th>Likely cause</th><th>Response</th></tr></thead>
+      <tbody>
+        <tr><td>Stable scores, stable price</td><td>Controlled process</td><td>Maintain; periodic blind check</td></tr>
+        <tr><td>OTIF falling, quality stable</td><td>Capacity strain or order-book growth</td><td>Discuss capacity and lead-time commitments; increase buffer stock</td></tr>
+        <tr><td>COA accuracy falling</td><td>Method drift, lax release, or a changed source</td><td>Request raw data and a investigation; test the next lots independently</td></tr>
+        <tr><td>Change notifications increasing</td><td>Process improvement or supplier instability</td><td>Ask what changed and why; require bridging data before accepting</td></tr>
+        <tr><td>Complaints not closing</td><td>No root-cause capability</td><td>Escalate; consider a second source</td></tr>
+        <tr><td>Price falling sharply</td><td>Cheaper raw material, changed synthesis, or a different site</td><td>Ask for the basis of the change; verify with testing, not with assurance</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Running the review</h2>
+    <ol>
+      <li><strong>Quarterly, light:</strong> update the sheet, look at the trend, and raise one specific issue with the supplier. This keeps the record alive without turning every quarter into an audit.</li>
+      <li><strong>Annually, formal:</strong> share the scorecard, review the year's deviations and complaints, confirm the site and process have not changed, and agree improvement actions with owners and dates.</li>
+      <li><strong>After a serious failure:</strong> review immediately, not at the next cycle. The purpose is to decide whether the supplier remains qualified, and what evidence would restore that status.</li>
+    </ol>
+    <p>The meeting should produce minutes with actions, not a rating alone. A score of 3.8 out of 5 changes nothing; “two COA mismatches in Q3, root cause due 30 days, next lot tested independently” changes something.</p>
+
+    <h2>What to do with a poor result</h2>
+    <ul>
+      <li><strong>Improve:</strong> a specific, time-bound corrective action with evidence — not “please improve quality”.</li>
+      <li><strong>Contain:</strong> increase receipt testing, add a retain, and hold affected stock until the investigation closes.</li>
+      <li><strong>Diversify:</strong> qualify a second source before the current one fails completely. The bridging work is described in <a href="/knowledge/second-peptide-supplier-qualification/">qualifying a second supplier</a>.</li>
+      <li><strong>Disqualify:</strong> a confirmed certificate mismatch that is not investigated, a refusal to provide raw data, or a change of site without notice are reasons to stop, not to negotiate.</li>
+    </ul>
+
+    <h2>What not to measure</h2>
+    <p>Some metrics create the behaviour they claim to detect. “Number of complaints” punishes the buyer who reports problems; “average response time” rewards quick non-answers; “price per gram” ignores peptide content and documentation. Measure the outcome you actually need — material that matches its certificate, arrives when promised, with the documents required — and keep the rest as context.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes supplier management practice; it makes no claim about the performance of any specific supplier and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">China peptide supplier checklist</a> — the initial evaluation these metrics continue</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — the analytical trend behind the score</li>
+      <li><a href="/knowledge/second-peptide-supplier-qualification/">Qualifying a second supplier</a> — what to do when the score falls</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — the receipt testing that feeds COA accuracy</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Procurement contract terms</a> — change control and complaint clauses</li>
+      <li><a href="/knowledge/peptide-inventory-and-retest-dates/">Inventory and retest dates</a> — planning around lead-time variance</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-supplier-performance-review/" />
+</BaseLayout>

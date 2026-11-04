@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Cross-contamination in peptide plants';
+const description = 'How multi-product peptide plants carry material between lots and products, what changeover and cleaning verification can show, and what to ask.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-cross-contamination/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Cross-contamination'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Most peptide factories make more than one product, and many make dozens on the same equipment. That is normal and not automatically a problem. The problem is the assumption that “same line” means “same cleanliness” — a claim that has to be demonstrated lot by lot, not inferred from a certificate.</p>
+
+    <h2>Three different failures</h2>
+    <p>The words are often used interchangeably, which makes the corrective action unclear:</p>
+    <table>
+      <thead><tr><th>Failure</th><th>What happened</th><th>Typical evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Mix-up</td><td>A different product or lot was packed, labelled or shipped as the ordered one</td><td>Wrong label, wrong vial, identity test mismatch</td></tr>
+        <tr><td>Cross-contamination</td><td>Material from another product is physically present in this lot</td><td>An extra peak or mass not attributable to the molecule; foreign morphology</td></tr>
+        <tr><td>Carryover</td><td>Residue from a previous batch enters the next one through shared equipment</td><td>Trace signal that falls with successive batches; cleaning records</td></tr>
+      </tbody>
+    </table>
+    <p>They have different controls. Mix-up is prevented by line clearance and labelling; cross-contamination by containment and cleaning; carryover by validated changeover. A supplier who answers all three with “we follow GMP” has not answered any of them.</p>
+
+    <h2>Where material travels</h2>
+    <p>In peptide production the shared surfaces are numerous, and several are easy to overlook because they are not the reactor:</p>
+    <ul>
+      <li><strong>Reaction and cleavage vessels.</strong> The most obvious shared surface; also the easiest to clean and verify.</li>
+      <li><strong>Filtration and transfer lines.</strong> Tubing, valves, sight glasses and pump heads retain liquid and are hard to swab.</li>
+      <li><strong>Purification columns.</strong> A column used for several products can carry previous material in the bed, frits or dead volume. Resin reuse is a change-control question in its own right.</li>
+      <li><strong>Lyophiliser shelves and trays.</strong> Dried powder is light, electrostatic and easily airborne during unloading.</li>
+      <li><strong>Milling, sieving and blending.</strong> Dry operations generate dust that settles on surfaces outside the immediate equipment.</li>
+      <li><strong>Filling and capping.</strong> Product contact parts, bowls, augers and the surrounding bench.</li>
+      <li><strong>HVAC and room surfaces.</strong> Airborne powder can migrate; cleaning of walls, floors and ceilings is part of changeover, not housekeeping.</li>
+      <li><strong>People and shared tools.</strong> Gloves, scoops, spatulas, balances and notebooks move between areas more freely than material does.</li>
+    </ul>
+    <p>For a lyophilised product, the dry stages deserve more attention than the solution stages. A spill of solution is visible and local; a puff of powder during tray unloading is neither.</p>
+
+    <h2>What cleaning verification can show</h2>
+    <p>“Cleaned” is an observation; “verified clean” is a measurement with a stated method and limit. The useful distinction is between three levels:</p>
+    <ol>
+      <li><strong>Visually clean.</strong> No residue visible under defined lighting. Necessary, cheap, and blind to the amounts that matter for a potent peptide.</li>
+      <li><strong>Specific marker.</strong> A known worst-case compound from the previous product measured by a specific method — HPLC, LC-MS or a validated UV assay — on a swab or rinse sample.</li>
+      <li><strong>Non-specific total.</strong> TOC or conductivity of the final rinse, which detects general residue but cannot tell you which product it came from.</li>
+    </ol>
+    <p>The three are complementary. Visual inspection catches gross failure; the specific marker proves the previous product is below the limit; the non-specific total catches residues the marker method does not see. A cleaning validation that reports only “visually clean” has not measured carryover.</p>
+    <p>Two details decide whether the result means anything. First, the <strong>recovery</strong> from the swab or rinse must be established — a method that recovers 30% of the residue and applies a 100% assumption understates the contamination. Second, the <strong>acceptance limit</strong> must be justified for the product and the route of exposure. For research material there is no universal health-based limit to borrow; the limit has to be agreed in the specification or contract, and it should be stated in the same units as the result.</p>
+
+    <h2>Changeover is a procedure, not a wipe</h2>
+    <p>A changeover between products typically includes line clearance, dismantling, cleaning, drying, inspection and re-assembly, with a record at each step. The questions that reveal whether the procedure is real:</p>
+    <ul>
+      <li>Is the changeover procedure product-pair specific, or one generic SOP for every combination?</li>
+      <li>Which product is treated as the worst case, and why?</li>
+      <li>Are dedicated parts used for any product, and which ones?</li>
+      <li>How is drying verified before the next batch? Residual water can carry residue and support microbial growth.</li>
+      <li>Who signs the line-clearance record, and can the record be linked to the batch that follows?</li>
+      <li>What happens after a spill, a filter burst or a deviation — is the line re-cleaned and re-verified?</li>
+    </ul>
+
+    <h2>What the certificate cannot tell you</h2>
+    <p>A COA reports the result for the lot in front of you. It does not report what else was in the facility, what ran before it, or whether the cleaning was verified. Those facts live in the batch record and the changeover record, which is why a documentation request is part of supplier qualification rather than an optional extra.</p>
+    <p>Analytically, low-level cross-contamination is hard to see. An HPLC method optimised for the main peak may not retain or resolve a contaminant from a different peptide; a mass spec method may not be run at all. A clean chromatogram is therefore compatible with a small amount of another product. The absence of evidence is not evidence of absence, and the supplier's changeover record is the evidence that fills the gap.</p>
+
+    <h2>Practical questions before sharing a line</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Which products run on this line, and in what sequence?</td><td>Reveals the worst-case neighbour and the cleaning challenge</td></tr>
+        <tr><td>Is the line dedicated, campaign-based or fully multi-product?</td><td>Determines how often changeover evidence should exist</td></tr>
+        <tr><td>What was the last product before my lot?</td><td>Identifies the contaminant you would need to look for</td></tr>
+        <tr><td>Can I see the changeover record for my batch?</td><td>Turns a claim into a document</td></tr>
+        <tr><td>How is cleaning verified — visual, marker, TOC or all three?</td><td>Distinguishes a wipe from a validated procedure</td></tr>
+        <tr><td>What is the acceptance limit and who set it?</td><td>A result without a limit cannot be judged</td></tr>
+        <tr><td>Are columns and resin shared or dedicated?</td><td>Shared beds are a less obvious carryover route</td></tr>
+        <tr><td>What happens to the first lot after a campaign change?</td><td>First-lot testing is a common risk control</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Red flags</h2>
+    <ul>
+      <li>“We only make this product” contradicted by the catalogue or the site tour.</li>
+      <li>Cleaning records that are identical across products and dates.</li>
+      <li>No stated acceptance limit, or a limit expressed only as “pass/fail”.</li>
+      <li>A refusal to name the previous product on the line.</li>
+      <li>Shared columns with no resin-life or carryover data.</li>
+      <li>Changeover records that cannot be linked to the batch record.</li>
+    </ul>
+    <p>None of these proves contamination. Each one means the supplier cannot demonstrate control, which for a buyer is the same practical problem.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes facility and changeover practice; it makes no claim about the cleanliness of any specific supplier or product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — how to examine changeover without visiting</li>
+      <li><a href="/knowledge/peptide-supplier-site-audit-questionnaire/">Site audit questionnaire</a> — printable questions for the walk-through</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — the analytical trace of a process problem</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — what belongs to the molecule and what does not</li>
+      <li><a href="/knowledge/peptide-batch-documentation-package/">Batch documentation package</a> — where changeover records sit</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing a cleaning limit into the agreement</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-cross-contamination/" />
+</BaseLayout>

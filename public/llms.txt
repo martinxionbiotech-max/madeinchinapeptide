@@ -59,6 +59,9 @@
 - /knowledge/peptide-extractables-leachables/ — container and closure extractables, leachables, silicone oil and what a supplier can document
 - /knowledge/peptide-cargo-insurance/ — Incoterm risk, cargo clauses, temperature exclusions and claim documentation
 - /knowledge/peptide-lab-safety/ — powder dust, static, sensitisation, spills, sharps and chemical waste
+- /knowledge/peptide-supplier-performance-review/ — OTIF, COA accuracy, change notification and supplier scorecards
+- /knowledge/peptide-subvisible-particles/ — light obscuration versus membrane microscopy, particle sources and interpretation
+- /knowledge/peptide-cross-contamination/ — carryover, changeover and cleaning verification in shared peptide plants
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide

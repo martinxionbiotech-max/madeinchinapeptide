@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Subvisible particles in peptide solutions';
+const description = 'Light obscuration versus membrane microscopy, where particles come from, and what a particle count can and cannot tell you about a peptide.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-subvisible-particles/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Subvisible particles'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A solution can be visibly clear and still contain thousands of particles below the resolution of the eye. For a research peptide, those particles matter for three practical reasons: they scatter light in an assay, they carry material that is no longer in solution, and they are the first sign that a formulation or a container is not behaving. The count is easy to obtain and easy to over-read.</p>
+
+    <h2>Visible and subvisible are different questions</h2>
+    <p>Visible inspection answers “can I see anything wrong?”. Subvisible counting answers “how many particles of what size are present?”. The boundary is conventionally drawn at about 100 µm for visible particles, with subvisible methods covering roughly the 1–100 µm range. Neither question answers the other.</p>
+    <table>
+      <thead><tr><th>Observation</th><th>Typical method</th><th>What it detects</th><th>What it misses</th></tr></thead>
+      <tbody>
+        <tr><td>Visible particles</td><td>Inspection against black and white backgrounds</td><td>Fibres, glass, large aggregates, foreign matter</td><td>Everything below visual resolution; low counts</td></tr>
+        <tr><td>Subvisible particles, light obscuration</td><td>Laser diode, liquid flow, light blockage</td><td>Counts by size channel in a measured volume</td><td>Transparent or refractive-index-matched particles; morphology</td></tr>
+        <tr><td>Subvisible particles, membrane microscopy</td><td>Filtration onto a membrane, microscopic counting</td><td>Counts plus shape and colour; can identify foreign matter</td><td>Particles below the filter rating or lost in preparation; operator time</td></tr>
+      </tbody>
+    </table>
+    <p>The two subvisible methods do not always agree, and the disagreement is informative rather than a reason to pick the friendlier number. Light obscuration is fast and gives a size distribution; membrane microscopy is slower and tells you what the particles look like. A result that is high by one method and low by the other usually means the particles are translucent, irregular, or affected by the sample preparation.</p>
+
+    <h2>Where particles come from</h2>
+    <p>For a lyophilised research peptide, the plausible sources are limited enough to investigate in order:</p>
+    <ul>
+      <li><strong>Incomplete dissolution.</strong> Undissolved peptide or a gelled skin of material is the most common cause in a freshly prepared solution. It is a preparation problem, not necessarily a product problem.</li>
+      <li><strong>Aggregation.</strong> Insoluble aggregates form a particle population that can grow with time, concentration, temperature and interfaces. The chemistry is covered in <a href="/knowledge/peptide-aggregation-self-assembly/">aggregation and self-assembly</a>.</li>
+      <li><strong>Buffer precipitation.</strong> A salt that was soluble at one pH or temperature can precipitate on dilution, cooling or freeze-thaw. Phosphate and calcium-containing systems are common offenders.</li>
+      <li><strong>Filter shedding.</strong> A filter can release fibres or particles, particularly if it is run dry, over-pressured or incompatible with the solvent. See <a href="/knowledge/peptide-solution-filtration/">solution filtration</a>.</li>
+      <li><strong>Container and closure.</strong> Glass flakes, silicone oil droplets, rubber fragments and coating particles can all appear as counts. Silicone oil is counted by light obscuration and is not a peptide aggregate.</li>
+      <li><strong>Water and labware.</strong> Dust, lint, biofilm and residue from glassware contribute a background that is easy to mistake for sample-derived particles.</li>
+      <li><strong>The freeze-drying cycle.</strong> A collapsed or melted cake can trap particles and produce a product that never fully dissolves. Cake defects are described in <a href="/knowledge/peptide-lyophilization-explained/">lyophilization explained</a>.</li>
+    </ul>
+    <p>The order matters. Before interpreting a count, confirm that the solution was prepared the same way each time, that the vial and the diluent were not the source, and that the instrument blank is clean. A particle result without a preparation record is not a result.</p>
+
+    <h2>What the numbers mean — and do not</h2>
+    <p>Particle counts are reported by size channel, usually ≥2 µm, ≥5 µm, ≥10 µm and ≥25 µm, with the exact channels set by the method. Three cautions apply to every count:</p>
+    <ul>
+      <li><strong>Counts are not mass.</strong> A million 2 µm particles can represent less material than a single visible fibre. A high count does not tell you how much peptide is out of solution.</li>
+      <li><strong>Counts are not purity.</strong> A chromatographic purity result and a particle count describe different things. A 99% pure peptide can aggregate; a 90% pure peptide can be particle-free.</li>
+      <li><strong>A single result is a snapshot.</strong> Particles settle, dissolve, and form over time. The sampling point — immediately after dissolution, after standing, after filtration — changes the answer.</li>
+    </ul>
+    <p>For a research product there is usually no compendial limit to apply, because the material is not an injectable drug. That does not make the count meaningless. It means the acceptance criterion has to come from your own use: an assay that tolerates particles, a cell system that does not, or a specification agreed with the supplier. Borrowing a pharmacopoeial limit without the corresponding method and sample volume produces a number that looks authoritative and is not comparable.</p>
+
+    <h2>Reading a supplier's particle result</h2>
+    <table>
+      <thead><tr><th>Reported</th><th>What it supports</th><th>What to ask next</th></tr></thead>
+      <tbody>
+        <tr><td>“Particulate matter: complies”</td><td>Nothing without the method and limit</td><td>Method, instrument, sample volume, channels, limit source</td></tr>
+        <tr><td>Counts by channel, one replicate</td><td>A snapshot with no estimate of variability</td><td>Number of replicates and the blank count</td></tr>
+        <tr><td>Counts by channel, method named</td><td>A comparable result if your method matches</td><td>Sample preparation, dilution, degassing, settle time</td></tr>
+        <tr><td>Microscopy with morphology described</td><td>Evidence of what the particles are</td><td>Images, filter type, magnification, analyst</td></tr>
+        <tr><td>“No particles observed”</td><td>An inspection, not a count</td><td>Whether subvisible methods were run at all</td></tr>
+      </tbody>
+    </table>
+    <p>The most useful question is not “what is the count” but “what was the blank, and how many replicates”. A count of 50 particles/mL means little if the blank is 40. A count of zero means little if the method's limit of detection was never established.</p>
+
+    <h2>Method traps worth knowing</h2>
+    <ul>
+      <li><strong>Air bubbles.</strong> Bubbles are counted as particles by light obscuration. Degassing and gentle handling are part of the method, not optional polish.</li>
+      <li><strong>Silicone oil.</strong> Droplets from a coated stopper or syringe can dominate the count. They are not protein aggregates, and microscopy distinguishes them.</li>
+      <li><strong>Sampling volume.</strong> A small sample volume increases the statistical uncertainty. Counting 1 mL and counting 10 mL are not the same measurement.</li>
+      <li><strong>Sedimentation.</strong> Large particles fall out of suspension before the sample is drawn. Mixing gently and consistently is part of the procedure.</li>
+      <li><strong>Filter artefacts.</strong> Membrane microscopy can add fibres from the filter or the environment. A procedural blank on the same membrane is the control.</li>
+      <li><strong>Dilution.</strong> Diluting a sample to fit the instrument changes the particle concentration and can dissolve or create particles. Report the dilution and validate it.</li>
+    </ul>
+
+    <h2>A practical sequence</h2>
+    <ol>
+      <li><strong>Inspect visibly first.</strong> Record colour, clarity and any visible particle against both backgrounds.</li>
+      <li><strong>Prepare identically.</strong> Same diluent, same volume, same mixing, same settle time. Write the procedure down before the first sample.</li>
+      <li><strong>Run a blank.</strong> Diluent handled in the same container and syringe. If the blank is not clean, fix that before measuring the sample.</li>
+      <li><strong>Count in replicate.</strong> At least two, ideally three, and report the spread rather than the mean alone.</li>
+      <li><strong>Confirm with microscopy.</strong> If the count is high or the particles are unexpected, look at them. Morphology separates peptide aggregate from fibre, glass and oil.</li>
+      <li><strong>Repeat after standing.</strong> A count that rises over hours indicates ongoing aggregation or precipitation; a count that falls indicates settling.</li>
+    </ol>
+
+    <div class="ruo">For laboratory research use only. This article describes particle measurement practice; it makes no claim about the particle content of any specific product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-appearance-inspection/">Appearance and visual inspection</a> — the visible half of the same question</li>
+      <li><a href="/knowledge/peptide-aggregate-analytics/">Aggregate analytics</a> — SEC, DLS and AUC alongside particle counting</li>
+      <li><a href="/knowledge/peptide-solution-filtration/">Solution filtration</a> — filter choice, shedding and adsorption</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization explained</a> — cake defects that produce insoluble material</li>
+      <li><a href="/knowledge/peptide-extractables-leachables/">Extractables and leachables</a> — container-derived particles and oil</li>
+      <li><a href="/knowledge/peptide-buffer-selection/">Buffer selection</a> — precipitation and pH effects</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-subvisible-particles/" />
+</BaseLayout>
