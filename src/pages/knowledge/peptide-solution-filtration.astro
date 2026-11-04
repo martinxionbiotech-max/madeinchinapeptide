@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Filtering peptide solutions';
+const description = 'Membrane choice, adsorption loss, pore size and integrity testing — what a filter removes, what it adds, and when filtering does more harm than good.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-solution-filtration/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Filtering solutions'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Filtration is the most routine step in preparing a peptide solution and one of the easiest to get quietly wrong. The same membrane that removes particles can also remove the peptide, shed extractables into it, or create a sterility claim the filter was never qualified to support. The variables are few, but they interact.</p>
+
+    <h2>Four different jobs</h2>
+    <p>“Filter it” can mean four unrelated things, and a filter chosen for one may be wrong for another:</p>
+    <table>
+      <thead><tr><th>Purpose</th><th>Typical pore size</th><th>What it does not do</th></tr></thead>
+      <tbody>
+        <tr><td>Remove visible particles and haze</td><td>0.45 µm or larger</td><td>Does not sterilise, does not remove dissolved impurities</td></tr>
+        <tr><td>Sterilise a solution</td><td>0.22 µm</td><td>Does not remove endotoxin, viruses or mycoplasma</td></tr>
+        <tr><td>Reduce bioburden before storage</td><td>0.22 µm</td><td>Does not make the solution sterile if the receiving vessel is not sterile</td></tr>
+        <tr><td>Remove aggregates</td><td>Depends on aggregate size</td><td>Does not remove monomers that will re-aggregate; may remove product</td></tr>
+      </tbody>
+    </table>
+    <p>The distinction between sterilising and depyrogenating is the one most often lost. A 0.22 µm membrane retains bacteria; it does not retain endotoxin, which is a molecule of a few tens of kilodaltons and passes through. Removing pyrogen requires adsorption, ultrafiltration or dry-heat depyrogenation of glassware — not a syringe filter. This is covered in <a href="/knowledge/peptide-endotoxin-bioburden/">endotoxin and bioburden</a>.</p>
+
+    <h2>Membrane chemistry</h2>
+    <p>Membranes differ in what they bind and what they leach. For peptide work the relevant comparison is:</p>
+    <table>
+      <thead><tr><th>Membrane</th><th>Aqueous compatibility</th><th>Organic compatibility</th><th>Binding tendency</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>PES (polyethersulfone)</td><td>Good</td><td>Moderate</td><td>Low</td><td>Common low-binding choice for aqueous protein and peptide solutions</td></tr>
+        <tr><td>PVDF</td><td>Good</td><td>Good</td><td>Moderate</td><td>Widely used for HPLC solvent and sample preparation; can bind hydrophobic peptides</td></tr>
+        <tr><td>Nylon</td><td>Good</td><td>Good</td><td>Higher</td><td>Binds peptides and proteins noticeably; also adsorbs some small molecules</td></tr>
+        <tr><td>Cellulose acetate</td><td>Good</td><td>Poor</td><td>Low to moderate</td><td>Low protein binding, limited solvent range</td></tr>
+        <tr><td>PTFE</td><td>Poor unless pre-wet</td><td>Excellent</td><td>Low</td><td>For organic phases; hydrophobic and needs alcohol pre-wetting for aqueous use</td></tr>
+        <tr><td>Regenerated cellulose</td><td>Good</td><td>Moderate</td><td>Low</td><td>Low binding, good for aqueous buffers</td></tr>
+      </tbody>
+    </table>
+    <p>Housing material matters too. Some syringe filter housings are not resistant to pure acetonitrile, DMSO or dichloromethane; the membrane may survive while the housing softens or leaches. Check the manufacturer's solvent compatibility chart for the exact device, not just the membrane family.</p>
+
+    <h2>Adsorption: the loss you do not see</h2>
+    <p>A filter is a high-surface-area material, and peptides adsorb to surfaces. At milligram-per-millilitre concentrations the loss may be a fraction of a percent; at micrograms per millilitre it can be a large part of the sample. The first millilitres passing through a new filter carry most of the loss, because binding sites are still available.</p>
+    <p>Practical mitigations, in order:</p>
+    <ul>
+      <li><strong>Pre-rinse.</strong> Pass a small volume of the same buffer — or of the sample itself, if volume allows — and discard it. This saturates binding sites before the collected fraction.</li>
+      <li><strong>Choose low-binding membranes.</strong> PES or regenerated cellulose for aqueous work; avoid nylon for dilute peptide solutions unless tested.</li>
+      <li><strong>Minimise contact.</strong> Use the smallest filter and the shortest path that does the job; a large filter for a 1 mL sample is unnecessary surface area.</li>
+      <li><strong>Recover the hold-up volume.</strong> Syringe filters retain liquid in the housing and membrane. Account for the dead volume, or push it through with air if the procedure allows.</li>
+      <li><strong>Measure before and after.</strong> A280 or A214 before and after filtration on a dilute sample will tell you whether loss is material, rather than assuming it is not.</li>
+    </ul>
+    <p>At very low concentrations, the right answer is often not to filter at all: centrifuge at low speed and take the supernatant, which avoids a high-surface-area contact step. The wider problem of surface loss is covered in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a>.</p>
+
+    <h2>Pore size and the sterility claim</h2>
+    <p>0.22 µm is the conventional sterilising grade for aqueous solutions, and 0.45 µm is a clarification grade. Two qualifications matter:</p>
+    <ul>
+      <li><strong>Mycoplasma.</strong> If a solution must be mycoplasma-free, 0.22 µm is not the accepted barrier; 0.1 µm filtration is used for that claim. A 0.22 µm filter removes bacteria, not mycoplasma.</li>
+      <li><strong>Virus.</strong> Neither pore size removes viruses. A sterile-filtered solution is not virus-free, and no filter-based claim should suggest otherwise.</li>
+    </ul>
+    <p>Filter ratings are also nominal. A “0.22 µm” membrane has a pore-size distribution, and retention depends on the challenge organism, the load and the pressure. That is why sterilising filtration is validated with a bacterial challenge and an integrity test rather than by the number on the package.</p>
+
+    <h2>Integrity testing and aseptic practice</h2>
+    <p>A sterilising filter is only a sterilising filter if it is intact. The bubble-point or pressure-hold test performed after filtration is the evidence; without it, the sterility claim rests on the package label. In a laboratory setting:</p>
+    <ol>
+      <li>Work in a laminar-flow hood or a clean bench, with sterile tubing and a sterile receiving vessel.</li>
+      <li>Pre-wet and pre-rinse the filter as the procedure requires.</li>
+      <li>Filter at a pressure the device is rated for; excessive pressure can breach the membrane or force particles through.</li>
+      <li>Perform the integrity test after filtration, and record the result.</li>
+      <li>Label the filtrate with date, filter lot, pore size and volume filtered.</li>
+    </ol>
+    <p>Filtering into a non-sterile tube defeats the purpose. So does reusing a filter across sessions, or storing a wet filter for later use.</p>
+
+    <h2>Throughput and pressure</h2>
+    <p>A filter has a capacity, and exceeding it shows up as rising back-pressure, slow flow or a burst. For peptide solutions the load is usually low, but three factors reduce throughput: viscosity (high concentration, co-solvents), particle load (undissolved cake, precipitates) and membrane fouling by aggregates.</p>
+    <p>If a solution blocks a 0.22 µm filter quickly, do not push harder. Clarify through a larger pore size first, or centrifuge, then filter the supernatant. A prefilter stack — a glass-fibre or larger-pore layer above the sterilising membrane — is the standard answer for particle-heavy solutions. Forcing a blocked filter is how membranes fail and how particles reach the filtrate.</p>
+
+    <h2>When not to filter</h2>
+    <ul>
+      <li><strong>The solution is already clear and the volume is small.</strong> The loss and the extractables risk may exceed the benefit.</li>
+      <li><strong>The peptide is aggregating.</strong> Filtration removes the visible aggregate and leaves the monomer, which can re-aggregate; it treats the symptom and hides the trend. See <a href="/knowledge/peptide-aggregation-self-assembly/">aggregation and self-assembly</a>.</li>
+      <li><strong>The solvent attacks the housing.</strong> DMSO, DMF and pure acetonitrile require a compatible device; otherwise the filter becomes a contamination source.</li>
+      <li><strong>The experiment needs the particle.</strong> Some assays deliberately include undissolved material or a suspension; filtering changes the sample.</li>
+      <li><strong>Sterility is the goal but the receiving vessel is open.</strong> Fix the aseptic chain first; the filter cannot compensate.</li>
+    </ul>
+
+    <h2>What to record</h2>
+    <p>Filtration is a sample-preparation step that can change the result, so it belongs in the record:</p>
+    <ul>
+      <li>Membrane material, pore size, diameter and manufacturer/lot.</li>
+      <li>Volume filtered and volume recovered, including the discard from pre-rinse.</li>
+      <li>Pressure or vacuum used, and whether flow was normal.</li>
+      <li>Integrity test result, if a sterilising claim is made.</li>
+      <li>Any visible change — colour, turbidity, precipitate on the membrane.</li>
+    </ul>
+    <p>If a result later looks low, the first question is often whether the peptide stayed on the filter. A record that names the membrane and the volume makes that question answerable.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes laboratory filtration practice; it makes no claim about any specific product, filter or sterile status, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-adsorption-labware/">Adsorption to labware</a> — the broader surface-loss problem</li>
+      <li><a href="/knowledge/peptide-endotoxin-bioburden/">Endotoxin and bioburden</a> — why filtration does not remove pyrogens</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — where filtration sits in the workflow</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — what to do before filtering a cloudy solution</li>
+      <li><a href="/knowledge/peptides-in-cell-culture-assays/">Peptides in cell-culture assays</a> — filtration losses in biological systems</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — when filtering hides the real problem</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-solution-filtration/" />
+</BaseLayout>

@@ -52,4 +52,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-batch-documentation-package', title:'The peptide batch documentation package', desc:'What a complete lot file contains beyond the COA — raw data, batch records, methods, statements and shipping documents — and what each one proves.', cluster:'Sourcing' },
   { slug:'peptide-weighing-practice', title:'Weighing small peptide quantities', desc:'Balance minimum weight, static, moisture uptake and transfer loss — why a sub-milligram peptide weight is not a simple measurement.', cluster:'Handling' },
   { slug:'peptide-disulfide-bonds', title:'Disulfide bonds in synthetic peptides', desc:'How disulfides form, why scrambled connectivity survives purification, and what alkylation and non-reducing HPLC can prove about a batch.', cluster:'Manufacturing' },
+  { slug:'peptide-solution-filtration', title:'Filtering peptide solutions', desc:'Membrane choice, adsorption loss, pore size and integrity testing — what a filter removes, what it adds, and when not to filter.', cluster:'Handling' },
 ];
