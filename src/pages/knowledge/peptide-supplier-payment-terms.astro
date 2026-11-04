@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide supplier payment terms';
+const description = 'Deposits, balance payments, letters of credit and escrow — how each shifts risk, and the verification steps that stop a bank-detail change from becoming a loss.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-payment-terms/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Supplier payment terms'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Price negotiation gets the attention; payment structure decides who carries the risk while the goods are still in someone else's building. A deposit paid to a company you have not verified is an unsecured loan. The instruments below are ordinary trade finance — what matters is matching the instrument to the amount at stake, and treating bank details as a change-controlled document rather than a line in an email.</p>
+
+    <h2>First, separate what you are paying for</h2>
+    <p>A quotation that mixes product, freight and testing into one number makes every later dispute ambiguous. Ask for the components separately:</p>
+    <ul>
+      <li><strong>Material</strong> — price per vial or per gram, at the stated purity and fill.</li>
+      <li><strong>Documentation</strong> — whether a lot-specific COA, chromatogram and MS are included, or charged as an extra.</li>
+      <li><strong>Third-party testing</strong> — if you require an independent laboratory, who commissions it and who pays.</li>
+      <li><strong>Packaging</strong> — vials, secondary barrier, cold-chain shipper, desiccant.</li>
+      <li><strong>Freight and insurance</strong> — and the Incoterm that says where your risk starts. That allocation is covered in <a href="/knowledge/peptide-procurement-contract-terms/">contract terms</a>.</li>
+      <li><strong>Bank charges</strong> — correspondent and receiving fees are frequently deducted from the amount received, so a “full payment” can arrive short.</li>
+    </ul>
+    <p>Write the components into the proforma invoice. A supplier who will not itemise is usually a supplier who will also not accept a milestone tied to documents.</p>
+
+    <h2>The instruments, and what each one actually protects</h2>
+    <table>
+      <thead><tr><th>Instrument</th><th>Protects the buyer by</th><th>Cost and friction</th><th>Fits</th></tr></thead>
+      <tbody>
+        <tr><td>Full advance by bank transfer</td><td>Nothing — you rely entirely on the supplier's performance</td><td>Lowest fees, fastest dispatch</td><td>Only small first orders from a supplier you have already audited, or sample quantities</td></tr>
+        <tr><td>Deposit plus balance before shipment</td><td>Limits exposure to the deposit until the goods exist</td><td>Two transfers, two sets of fees</td><td>The common structure for bulk orders; its value depends entirely on the conditions attached to the balance</td></tr>
+        <tr><td>Letter of credit at sight</td><td>Payment only against compliant documents, with a bank checking them</td><td>Issuance fee, strict document discipline, discrepancy fees</td><td>Larger orders, or a first order where neither side will move</td></tr>
+        <tr><td>Escrow or platform-held payment</td><td>Funds released on agreed milestones</td><td>Platform fee; limited to suppliers using that platform</td><td>Small and mid-size orders where the platform is credible</td></tr>
+        <tr><td>Documentary collection (D/P)</td><td>Documents released against payment</td><td>Bank handling; goods can still arrive before documents</td><td>Established relationships where an L/C is disproportionate</td></tr>
+      </tbody>
+    </table>
+    <p>Two structural points are worth more than any instrument choice. First, the balance should be released against <em>documents and evidence</em>, not against a promise that shipment is imminent: a lot-specific COA, photographs of the labelled vials with the lot number legible, a packing list, and the booking reference. Second, the deposit should be small enough that losing it would be annoying rather than damaging — if it is not, the order is too large for the current level of trust.</p>
+
+    <h2>Making the balance payment mean something</h2>
+    <p>“70% before shipment” is standard in the market and, as usually written, protects the supplier almost as much as full advance: the goods are made, the buyer pays, and only then does the buyer learn whether the lot matches. Attach conditions instead:</p>
+    <ol>
+      <li>Balance due within a stated number of days <em>after</em> receipt and review of the pre-shipment document pack.</li>
+      <li>The pack includes the COA for the actual lot, a chromatogram with method visible, and photographs of the vials with lot and fill legible.</li>
+      <li>For orders above a threshold you set, a sample is drawn and sent to a laboratory you nominated, at your cost, before the balance is released.</li>
+      <li>If the pre-shipment result falls outside the specification, you may cancel and recover the deposit, or accept at a renegotiated price — say which, in writing, before paying.</li>
+    </ol>
+    <p>A supplier who refuses all four is telling you that the balance is financing their production, not settling a completed order. That may still be acceptable — but price it as credit risk, and keep the order small.</p>
+
+    <h2>Bank details are a change-controlled document</h2>
+    <p>The single most expensive failure in this trade is not a bad batch. It is a payment sent to the wrong account after an email that looked exactly like the supplier's. The pattern is consistent: a message from a near-identical domain, a story about an audit or a frozen account, an urgent deadline, and new beneficiary details. By the time the real supplier asks where the money is, it has been withdrawn.</p>
+    <p>Treat beneficiary data as you would a specification — fixed at contract, changed only by a signed amendment, verified out of band.</p>
+    <ul>
+      <li><strong>Verify on the contract, not on the invoice.</strong> The beneficiary name must match the contracting entity. A payment to an individual, or to a company in a third country with no explanation, is a stop signal.</li>
+      <li><strong>Call a number you already hold.</strong> Not the number in the email that announced the change. Use the contact from the signed contract or a previous verified call, and speak to a person you have dealt with.</li>
+      <li><strong>Require a signed amendment</strong> for any bank-detail change, on letterhead, with a named signatory — and confirm it by the independent call above. No exceptions, including “the finance manager is travelling”.</li>
+      <li><strong>Split approval internally.</strong> Whoever negotiates the order should not be the only person who can release the payment.</li>
+      <li><strong>Send a small test transfer first</strong> on a new beneficiary, and confirm receipt before the balance.</li>
+      <li><strong>Check the domain, not the display name.</strong> Look at the full address: a hyphen, a doubled letter or a different top-level domain is enough.</li>
+    </ul>
+    <p>Suppliers who are themselves targets of this fraud will have a written policy — “we never change bank details by email” — and will not be offended when you ask. Those who are irritated by the question are either unfamiliar with the risk or not the party you think you are dealing with.</p>
+
+    <h2>Currency, fees and what actually arrives</h2>
+    <ul>
+      <li><strong>Agree the settlement currency and who bears charges.</strong> “OUR” means the sender pays all fees; “SHA” splits them; the default on many transfers is that the receiving bank deducts, so the supplier receives less than invoiced and may claim a shortfall.</li>
+      <li><strong>Fix the exchange basis if you are quoted in one currency and pay in another.</strong> Otherwise a rate move between order and payment becomes an argument about the balance.</li>
+      <li><strong>Reconcile against the proforma, not the PO.</strong> Quantities, unit prices and the Incoterm should be identical across PO, proforma invoice, commercial invoice and packing list; a mismatch is a customs delay waiting to happen.</li>
+      <li><strong>Keep the bank receipt.</strong> It is the only proof of payment that a bank will accept in a dispute, and it carries the reference you will need for reconciliation.</li>
+    </ul>
+
+    <h2>Red flags in the payment conversation</h2>
+    <ul>
+      <li>Bank details differ from those on a previous order, with an explanation that arrives by email only.</li>
+      <li>The beneficiary is a person or an unrelated trading name, not the entity that signed the contract.</li>
+      <li>Pressure to pay before documents exist, framed as a discount that expires today.</li>
+      <li>Refusal to put the deposit-refund condition in writing, while agreeing to it verbally.</li>
+      <li>A proforma invoice that cannot be itemised, or that changes amount between versions without explanation.</li>
+      <li>Requests to move the conversation to a personal messaging account for “faster” payment coordination.</li>
+    </ul>
+
+    <h2>What to write into the purchase order</h2>
+    <p>Five lines prevent most of the arguments: the payment schedule with dates or triggers; the documents that release the balance; the refund condition if pre-shipment testing fails; the bank beneficiary exactly as verified; and the statement that bank-detail changes require a signed amendment confirmed by callback. This sits alongside, not instead of, the specification and acceptance clauses — the field list for those is in <a href="/knowledge/peptide-specification-annex/">the specification annex</a>.</p>
+    <p>None of this replaces due diligence on the counterparty. Payment structure manages the risk you cannot remove; it does not make an unverified supplier safe. The screening sequence is in the <a href="/knowledge/china-peptide-supplier-checklist/">supplier checklist</a>, and the evidence to request before a first payment is in the <a href="/knowledge/remote-peptide-supplier-audit/">remote audit guide</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes commercial practice for procurement; it is not legal, financial or sanctions advice, and it makes no claim about any specific supplier.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Procurement contract terms</a> — acceptance, change control and claims</li>
+      <li><a href="/knowledge/how-to-buy-research-peptides-from-china/">How to buy peptides from China</a> — the full order sequence</li>
+      <li><a href="/knowledge/bulk-peptide-sourcing-risks/">Bulk sourcing risks</a> — concentration, drift and customs exposure</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Supplier checklist</a> — the 12-point screen before any payment</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — the limits that make a rejection arguable</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — what to test when the goods arrive</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-supplier-payment-terms/" />
+</BaseLayout>
