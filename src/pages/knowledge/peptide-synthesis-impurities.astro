@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide impurities from synthesis';
+const description = 'Truncated sequences, epimers and isoaspartate: which synthesis impurities shift mass, which are invisible to HPLC, and what a certificate can honestly claim.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-synthesis-impurities/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Synthesis impurities'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“98% pure” is a statement about one detector at one wavelength. The other two percent is a mixture, and its composition is decided long before the vial reaches you — by coupling efficiency, by protecting-group chemistry and by how well the purification column separated things that behave almost identically.</p>
+
+    <h2>Where the impurities come from</h2>
+    <p>Solid-phase synthesis builds a chain one residue at a time. Every step is incomplete to some degree, and every incomplete step leaves a trace:</p>
+    <ul>
+      <li><strong>Coupling.</strong> If an activated amino acid fails to attach, the chain either stops there or continues after capping — producing a deletion sequence missing one residue.</li>
+      <li><strong>Deprotection.</strong> Incomplete removal of the temporary N-terminal protecting group creates a chain that cannot accept the next residue, which becomes a truncated sequence.</li>
+      <li><strong>Side-chain protection.</strong> Groups that survive the final cleavage remain covalently attached, adding mass that no sequence calculator predicts.</li>
+      <li><strong>Base and acid exposure.</strong> The repeated piperidine and TFA steps are exactly the conditions that racemise certain residues and rearrange aspartate neighbours.</li>
+      <li><strong>Purification.</strong> Preparative HPLC removes what it can resolve. Anything that co-elutes with the product is pooled with it and shipped.</li>
+    </ul>
+    <p>None of this is a defect specific to one supplier. It is the physics of a multi-step chemical process, and the honest question is not whether impurities exist but which ones, at what level, and whether the method used to measure them could have seen them.</p>
+
+    <h2>Two families: mass-shifted and mass-silent</h2>
+    <p>The single most useful distinction when reading an impurity profile is whether a given impurity changes the molecular mass. Mass spectrometry finds the first family reliably and is completely blind to the second.</p>
+    <table>
+      <thead><tr><th>Impurity</th><th>Origin</th><th>Mass effect</th></tr></thead>
+      <tbody>
+        <tr><td>Deletion / truncation</td><td>Failed coupling or deprotection</td><td>− residue mass (e.g. −57.02 for a missing Gly)</td></tr>
+        <tr><td>Oxidation</td><td>Met, Trp, His exposed to air or peroxide</td><td>+15.99 per oxygen</td></tr>
+        <tr><td>Deamidation</td><td>Asn/Gln, especially in slightly basic conditions</td><td>+0.98</td></tr>
+        <tr><td>Pyroglutamate</td><td>N-terminal Gln cyclisation</td><td>−17.03</td></tr>
+        <tr><td>Residual protecting group</td><td>Incomplete side-chain deprotection</td><td>+ the group's mass, often large</td></tr>
+        <tr><td>Diastereomer (epimer)</td><td>Racemisation during coupling or deprotection</td><td>0 — same mass</td></tr>
+        <tr><td>Isoaspartate</td><td>Aspartimide intermediate, then hydrolysis</td><td>0 — same mass</td></tr>
+        <tr><td>Disulfide isomer</td><td>Misfolded cysteine pairing</td><td>0 — same mass</td></tr>
+        <tr><td>Non-covalent aggregate</td><td>Self-association in solution</td><td>0 per monomer; observed as a separate peak or tail</td></tr>
+      </tbody>
+    </table>
+    <p>The bottom half of that table is the part buyers underestimate. A certificate can state a correct mass, a clean HPLC trace and 98% purity while the 2% consists largely of molecules that are the same mass as the product and differ only in three-dimensional arrangement. No intact-mass measurement will ever distinguish them, and a single reverse-phase method may not either.</p>
+
+    <h2>Why area percent under-reports the problem</h2>
+    <p>Purity is normally the main peak's area divided by the total peak area at a chosen wavelength, usually 214 or 220 nm. Four things follow from that definition:</p>
+    <ol>
+      <li><strong>It is blind to anything that does not absorb.</strong> Counter-ions, water, residual solvent and many protecting-group fragments contribute mass but no peak. A 98% area purity can sit alongside a much lower peptide content — see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</li>
+      <li><strong>It assumes equal response.</strong> Two peptides at the same concentration do not necessarily give the same area, because the number and environment of peptide bonds differ. Area percent approximates mass percent; it is not the same quantity.</li>
+      <li><strong>It depends on the integration threshold.</strong> A method that disregards peaks below 0.05% is not lying, but it is not counting them either. The stated total impurity figure is only comparable between certificates if the threshold and wavelength match.</li>
+      <li><strong>It cannot see co-elution.</strong> If an epimer elutes inside the main peak, it is counted as product. The chromatogram looks clean because the method, not the material, made it look clean.</li>
+    </ol>
+    <p>This is why two suppliers can both report 98% and ship materially different products. The number is real in both cases; it is just answering a narrower question than buyers assume — the same point made from the chromatography side in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a peptide HPLC chromatogram</a>.</p>
+
+    <h2>What each method can and cannot resolve</h2>
+    <table>
+      <thead><tr><th>Method</th><th>Resolves</th><th>Blind to</th></tr></thead>
+      <tbody>
+        <tr><td>RP-HPLC-UV, single gradient</td><td>Hydrophobicity differences; most mass-shifted impurities</td><td>Isobaric species that co-elute; non-UV-absorbing material</td></tr>
+        <tr><td>Orthogonal HPLC (different pH or column chemistry)</td><td>Some co-eluting pairs, because selectivity changes</td><td>True isomers with identical behaviour in both systems</td></tr>
+        <tr><td>ESI-MS of the intact peptide</td><td>Mass-shifted impurities, if chromatography separates them first</td><td>Everything with the same mass</td></tr>
+        <tr><td>LC-MS/MS peptide mapping after digestion</td><td>Sequence-level defects, including some isoaspartate localisation</td><td>Requires method development; rarely on a routine COA</td></tr>
+        <tr><td>Chiral amino-acid analysis</td><td>D-residue content, after hydrolysis</td><td>Which position racemised</td></tr>
+        <tr><td>NMR</td><td>Structural questions, isomer ratios in favourable cases</td><td>Trace levels; not a routine release test</td></tr>
+      </tbody>
+    </table>
+    <p>For most buyers the practical consequence is modest: research material is judged on the panel the supplier runs, and a second orthogonal method is a special request. The consequence for <em>interpretation</em> is larger. A “single peak” chromatogram is evidence of chromatographic homogeneity under one set of conditions. It is not evidence of chemical homogeneity, and it should not be described as such in your own documentation.</p>
+
+    <h2>What an impurity statement should contain</h2>
+    <ul>
+      <li><strong>Total impurities</strong> as area percent, with the wavelength and integration threshold.</li>
+      <li><strong>Largest single unspecified impurity</strong>, with a limit. This is the field that stops a batch passing on the strength of many small peaks.</li>
+      <li><strong>Named specified impurities</strong> where they are known and relevant — oxidation products for a Met-containing peptide, for instance.</li>
+      <li><strong>Method identity</strong>: column chemistry, gradient, detection. Without it, no comparison across lots or suppliers is possible.</li>
+      <li><strong>Whether the main peak was checked for co-elution</strong> by any orthogonal means, even if the answer is “no”.</li>
+    </ul>
+    <p>A certificate that reports only “purity: 98.2%” has given you one number where a profile was needed. That is not necessarily a sign of a bad batch; it is a sign that the document was written for a catalogue rather than for a quality decision — see <a href="/quality/coa/">reading a COA</a>.</p>
+
+    <h2>The impurity fingerprint as a process signature</h2>
+    <p>Impurity profiles are more reproducible than purity numbers. Two lots from the same process tend to share the same minor peaks in roughly the same ratios; a lot from a different synthesis route, a different column or a different purification scale often shows a different pattern even when the headline purity matches. That makes the profile useful in a way the percentage is not: it is a cheap check that the material came from the process you qualified.</p>
+    <p>Practically, overlay the chromatograms rather than comparing the numbers. Look for peaks that appear, disappear or change relative size. A new peak at 0.3% is worth a question; a purity that moved from 98.4% to 98.1% may be noise. Trend logic of this kind only works if you keep the raw traces, which belongs with the same discipline as <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a> and <a href="/knowledge/peptide-sampling-and-batch-release/">retain sampling</a>.</p>
+
+    <h2>Questions for the supplier</h2>
+    <ul>
+      <li>Which impurities are specified by name for this product, and what are their individual limits?</li>
+      <li>What is the limit for any single unspecified impurity, and what integration threshold applies?</li>
+      <li>Is the reported purity area percent or mass percent, and at which wavelength?</li>
+      <li>Has the main peak been examined for co-eluting isomers by any second method?</li>
+      <li>Can you provide the full chromatogram with the impurity peaks labelled, not only the main-peak percentage?</li>
+      <li>For a peptide containing Cys, Met or an Asp-Gly motif, which of the isomer and oxidation risks are tested, and how?</li>
+    </ul>
+    <p>These questions are answerable by any supplier who runs a real release panel. A supplier who cannot answer them is not necessarily shipping bad material — but you have no way to tell, and that is the actual risk being priced.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes synthetic chemistry and analytical practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-degradation-pathways/">Degradation pathways</a> — what happens to the molecule after manufacture</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — peak shape and integration in practice</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spec identity</a> — what an intact mass can and cannot prove</li>
+      <li><a href="/knowledge/peptide-synthesis-spps-explained/">SPPS explained</a> — the process that generates these impurities</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing impurity limits that are testable</li>
+      <li><a href="/quality/coa/">Reading a COA</a> — the document side of the same evidence</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-synthesis-impurities/" />
+</BaseLayout>
