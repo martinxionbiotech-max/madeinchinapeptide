@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Weighing small peptide quantities';
+const description = 'Balance minimum weight, static, moisture uptake and transfer loss — why a sub-milligram peptide weight is not a simple measurement.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-weighing-practice/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Weighing peptides'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A balance reading is not a quantity of peptide. Between the display and the amount that actually goes into solution sit four separate errors: the balance's own repeatability at low load, electrostatic charge on a dry powder, water taken up while the vial is open, and material left behind in the weighing container. Each is small. Together they can exceed the tolerance of a deliberate experiment.</p>
+
+    <h2>What the display does and does not tell you</h2>
+    <p>Readability is the smallest step the display shows — 0.1 mg, 0.01 mg. Repeatability is how much the reading varies when the same load is weighed repeatedly under the same conditions. The second number is the one that matters, and at low loads it is usually several display steps. A balance that reads to 0.01 mg does not thereby resolve 0.01 mg of peptide.</p>
+    <p>Two practical consequences:</p>
+    <ul>
+      <li><strong>Minimum sample weight.</strong> A defensible minimum is derived from the measured repeatability at the working load, not from the display. A common approach is to weigh a check load ten times, take the standard deviation, and set the minimum at a multiple of it — the multiple being whatever your procedure can defend. If the standard deviation at 10 mg is 0.01 mg, a 10× criterion puts the minimum at 0.1 mg; anything below that is a reading, not a measurement.</li>
+      <li><strong>Working range.</strong> Verify the balance where you actually weigh. A check weight of 100 g proves the top of the range, not the 5 mg you care about.</li>
+    </ul>
+    <p>Before each weighing session: level the balance, close doors, zero with the empty container in place, and confirm with a check weight near the working range. Record the balance identifier and the check result. If the check drifts beyond the procedure's tolerance, the balance is out of service for that session — not “close enough”.</p>
+
+    <h2>Static: the error that moves</h2>
+    <p>Lyophilized peptides are dry, low-density powders, and dry powders in dry air on plastic surfaces carry charge. The symptoms are recognisable: the reading climbs or falls after the powder is placed, powder jumps to the draft shield or clings to the boat, and the same sample weighs differently twice in a row.</p>
+    <p>What helps, in order of effort:</p>
+    <ul>
+      <li>Use a grounded metal boat or a metal weighing pan instead of plastic, and avoid transferring powder between plastic containers.</li>
+      <li>Let the closed vessel stand in the balance chamber for a minute before reading, so charge can dissipate.</li>
+      <li>Use an ionising bar or anti-static device if the lab has one; a very light mist of the room is not a controlled solution.</li>
+      <li>Do not touch the powder or the inside of the boat with gloves — gloves are a charge source and a contamination source.</li>
+    </ul>
+    <p>Static is also the reason “weigh, then scrape the powder out of the boat” loses material: part of the loss is charge-driven adhesion, not careless technique. Weighing by difference accounts for it without needing to eliminate it.</p>
+
+    <h2>Moisture uptake while the vial is open</h2>
+    <p>A lyophilized cake is hygroscopic. Every second the vial is open in laboratory air, water moves into the powder, and the balance registers it as peptide. In a humid room the effect is visible within a minute on a 0.01 mg balance.</p>
+    <p>The routine that limits it:</p>
+    <ol>
+      <li>Equilibrate the sealed vial to room temperature before opening — cold glass condenses water.</li>
+      <li>Prepare the boat, the solvent and the labels first, so weighing is the only step left.</li>
+      <li>Open, dispense, close. Do not weigh, answer a question, and weigh again.</li>
+      <li>Work from a desiccator or a sealed bag with minimal headspace when aliquotting a batch into several portions.</li>
+      <li>Record the room temperature and relative humidity if the procedure is sensitive; a result obtained at 20% RH and one at 60% RH are not the same measurement.</li>
+    </ol>
+    <p>Water content measured by Karl Fischer is the reference method; loss on drying measures volatile material and is not the same thing. What a certificate can and cannot tell you about residual moisture is covered in <a href="/knowledge/peptide-lyophilization-explained/">lyophilization and residual moisture</a>.</p>
+
+    <h2>Transfer loss and weighing by difference</h2>
+    <p>Powder sticks to boats, spatulas and vial walls. The amount is not negligible relative to a 1 mg target, and it is not constant: it depends on the surface, the charge and the particle size.</p>
+    <p>Weighing by difference removes most of the ambiguity:</p>
+    <ol>
+      <li>Weigh the closed source vial with its label and cap: <em>m</em><sub>1</sub>.</li>
+      <li>Dispense into the destination vessel.</li>
+      <li>Close and reweigh the source vial: <em>m</em><sub>2</sub>.</li>
+      <li>The mass transferred is <em>m</em><sub>1</sub> − <em>m</em><sub>2</sub>, regardless of what stayed on the spatula.</li>
+    </ol>
+    <p>Do the same when the destination is a volumetric flask: weigh flask plus powder, then subtract the empty flask. This is more reliable than trusting a nominal “2 mg” fill weight, which is a fill target and not an assay — the difference between fill weight and peptide mass is the subject of <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</p>
+
+    <h2>When the target is below the minimum weight</h2>
+    <p>Do not weigh 0.2 mg on a balance whose minimum is 1 mg and hope. Three workable options:</p>
+    <table>
+      <thead><tr><th>Approach</th><th>How it works</th><th>Trade-off</th></tr></thead>
+      <tbody>
+        <tr><td>Weigh larger, split by solution</td><td>Weigh 5–10 mg accurately, dissolve in a known volume, then take an aliquot that delivers the target mass</td><td>Needs a solvent that is compatible with the assay and a dilution step that is itself accurate</td></tr>
+        <tr><td>Serial dilution from a stock</td><td>Prepare a stock at a concentration the balance can support, then dilute by volume</td><td>Error compounds at each step; note the number of steps in the record</td></tr>
+        <tr><td>Use a pre-weighed, certified portion</td><td>Buy a product supplied as a defined portion with its own mass record</td><td>Cost and availability; still verify the label and lot</td></tr>
+      </tbody>
+    </table>
+    <p>Whichever route you take, the concentration that enters the experiment should be computed from the mass actually transferred, the purity basis and the final volume — not from the label. A worked example: 5.0 mg transferred, 95% purity on an as-is basis, dissolved to 10.00 mL gives 0.475 mg/mL on a peptide basis, before any water or counter-ion correction. The arithmetic is simple; the mistake is skipping it. The tools for the volume and dilution side are in the <a href="/tools/reconstitution-calculator/">reconstitution calculator</a> and the <a href="/tools/hplc-dilution-calculator/">HPLC dilution calculator</a>.</p>
+
+    <h2>Containers and surfaces</h2>
+    <p>Low-binding tubes and glass are not interchangeable, and neither are they magic. Glass is generally the better choice for a stock solution because it is clean, rigid and can be rinsed; polypropylene is convenient but binds hydrophobic peptides and generates static. Whatever the container, the first rinse of the flask or tube with a small portion of the solvent reduces the residue left on the wall.</p>
+    <p>For dilute solutions the dominant loss is often adsorption rather than weighing error, which is why the handling notes in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a> matter more than the fourth decimal place on the balance.</p>
+
+    <h2>Recording the weighing</h2>
+    <p>A mass in a notebook with no context cannot be reconstructed. Record at least:</p>
+    <ul>
+      <li>Balance identifier, last calibration date and the check-weight result for the session.</li>
+      <li>Date, time, room temperature and relative humidity.</li>
+      <li>Container type and identifier, and whether the mass was by difference.</li>
+      <li>The raw readings, including the tare, before any rounding.</li>
+      <li>The purity and water basis used to convert mass to peptide content, with the source of those figures.</li>
+      <li>The final volume and the calculated concentration, with units written out.</li>
+    </ul>
+    <p>Round only at the end, and round to the precision the balance and the procedure support. Reporting 1.2345 mg from a 0.01 mg balance is a claim about a measurement that was not made.</p>
+
+    <h2>Common errors, ranked by damage</h2>
+    <ol>
+      <li><strong>Using fill weight as peptide mass.</strong> A 5 mg vial is not 5 mg of peptide; it is 5 mg of material, of which some fraction is counter-ion, water and impurities.</li>
+      <li><strong>Weighing below the balance's minimum.</strong> The result looks precise and is not.</li>
+      <li><strong>Leaving the vial open.</strong> Moisture uptake is fast, silent and always in one direction.</li>
+      <li><strong>Ignoring static.</strong> The reading drifts, and the operator “waits for it to settle” on a number that is moving for a reason.</li>
+      <li><strong>Weighing into a plastic boat and transferring.</strong> Loss is unmeasured unless you weigh by difference.</li>
+      <li><strong>Computing concentration from the label.</strong> The label is a target; the weighing is the datum.</li>
+    </ol>
+
+    <div class="ruo">For laboratory research use only. This article describes weighing practice; it makes no claim about any specific product, balance or certificate, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content</a> — why the mass on the balance is not the mass of peptide</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Lyophilization</a> — residual moisture, cake form and what the certificate reports</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice, concentration and solution storage</li>
+      <li><a href="/knowledge/peptide-adsorption-labware/">Adsorption to labware</a> — loss after the powder is in solution</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring concentration</a> — verifying what you prepared</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-weighing-practice/" />
+</BaseLayout>
