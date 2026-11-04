@@ -49,4 +49,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-hplc-method-design', title:'Designing an HPLC method for peptides', desc:'Column chemistry, ion pairing, gradient shape, injection solvent and system suitability — the choices that decide whether a peptide method separates anything.', cluster:'Quality & testing' },
   { slug:'peptide-supplier-corporate-due-diligence', title:'Supplier corporate due diligence', desc:'Verifying the company behind a peptide COA: registration records, export rights, entity matching and the capacity claims that do not survive arithmetic.', cluster:'Sourcing' },
   { slug:'peptide-elemental-impurities', title:'Elemental impurities in peptides', desc:'Where metals enter peptide synthesis, what ICH Q3D element classes mean for a research-grade product, and how ICP-MS results should be reported.', cluster:'Quality & testing' },
+  { slug:'peptide-batch-documentation-package', title:'The peptide batch documentation package', desc:'What a complete lot file contains beyond the COA — raw data, batch records, methods, statements and shipping documents — and what each one proves.', cluster:'Sourcing' },
 ];

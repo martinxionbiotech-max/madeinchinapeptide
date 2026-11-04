@@ -28,6 +28,7 @@
 - /knowledge/peptide-reference-standards/ — reference vs working standards, purity assignment and uncertainty
 - /knowledge/peptide-hplc-method-design/ — column chemistry, ion pairing, gradient shape and system suitability
 - /knowledge/peptide-elemental-impurities/ — metal sources in synthesis, ICH Q3D classes and ICP-MS reporting
+- /knowledge/peptide-batch-documentation-package/ — the lot file beyond the COA: raw data, batch records and statements
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
 - /knowledge/peptide-ms-ms-sequence-confirmation/ — b/y ion sequencing, coverage maps, and what MS/MS cannot resolve

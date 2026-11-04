@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'The peptide batch documentation package';
+const description = 'What a complete lot file should contain beyond the COA — raw data, batch records, methods, statements and shipping documents — and what each one proves.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-batch-documentation-package/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Batch documentation'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A certificate of analysis is one page. A batch file is the evidence behind it. Buyers often negotiate hard over the COA and then accept a shipment with no chromatogram, no batch record summary and no statement of who made the material — which leaves them holding a result they cannot reconstruct and a supplier they cannot cross-check.</p>
+
+    <h2>What a COA is, and what it is not</h2>
+    <p>A lot-specific COA states the tests performed, the methods, the specification limits and the results, and it identifies the batch. That is a summary. It is not the raw data, it is not the batch record, and it is not proof that the methods were suitable. The distinction matters when a result is disputed or when a regulator, customer or auditor asks how a number was produced.</p>
+    <p>The certificate should at minimum carry: product name and sequence or catalogue identifier, lot number, manufacture and test dates, tests with methods and limits, results, the basis of the purity and content figures, the name and address of the issuer, and a signature or authorised stamp. Anything less is a specification sheet with results attached.</p>
+
+    <h2>The layers of a batch file</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Documents</th><th>What it establishes</th></tr></thead>
+      <tbody>
+        <tr><td>Release summary</td><td>COA, specification, method summaries</td><td>What was tested against what limits, and the outcome</td></tr>
+        <tr><td>Raw analytical data</td><td>HPLC chromatograms with method parameters, MS spectra, KF, GC, ICP-MS reports</td><td>That a measurement exists behind each number, and how it was run</td></tr>
+        <tr><td>Manufacturing record</td><td>Batch record summary, scale, yield, deviations, reprocessing notes</td><td>How the lot was made and whether anything unusual happened</td></tr>
+        <tr><td>Control documents</td><td>In-process checks, cleaning records, equipment calibration status</td><td>Whether the process was in control at the time</td></tr>
+        <tr><td>Statements</td><td>RUO statement, origin/manufacturer declaration, TSE/BSE statement where relevant, SDS</td><td>The intended use and the material's provenance</td></tr>
+        <tr><td>Shipping set</td><td>Commercial invoice, packing list, air waybill, certificate of origin, MSDS</td><td>That the shipment matches the order and can clear customs</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The raw data question</h2>
+    <p>Ask for the chromatogram, not only the area percentage. The chromatogram shows the baseline, the peak shape, the integration marks and the impurity peaks that were included or excluded. A purity figure without the trace is a conclusion without its evidence, and the difference between 98% and 96% often lives in those details — as set out in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</p>
+    <p>For mass spectrometry, ask for the spectrum and the reported mass, not just “MS: conforms”. The useful details are the observed mass, the expected mass, the charge states and the mass error. A spectrum also shows whether the main signal is the expected species or a mixture. What a mass match can and cannot prove is covered in <a href="/knowledge/peptide-mass-spec-identity/">mass spectrometry identity checks</a>.</p>
+    <p>Not every supplier will release full raw data for every order. That is a commercial position, not a scientific one, and it should be negotiated before the order rather than discovered after a failure. A middle ground is a data package for the first lot, or for any lot that fails incoming testing.</p>
+
+    <h2>The batch record summary</h2>
+    <p>You do not need the full manufacturing record to ask three questions: what scale was this lot made at, was it made in one campaign or blended from several, and were there any deviations or reprocessing steps. The answers explain a surprising amount of lot-to-lot variation.</p>
+    <ul>
+      <li><strong>Scale.</strong> A 10 g lot and a 1 kg lot are different processes, even on the same route.</li>
+      <li><strong>Campaign and blending.</strong> A lot assembled from several synthesis batches is not wrong, but its homogeneity and traceability need to be described.</li>
+      <li><strong>Deviations and reprocessing.</strong> A repurified or re-lyophilised lot may meet specification and still behave differently in your application.</li>
+      <li><strong>Yield.</strong> An implausibly high yield for a difficult sequence is a question, not a selling point.</li>
+    </ul>
+    <p>These are the same signals that drive <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>, and they are much easier to interpret when the batch record summary arrives with the first shipment rather than after the third.</p>
+
+    <h2>Statements that are easy to forget</h2>
+    <p><strong>Intended use.</strong> A research-use-only statement should appear on the COA, the label and the website, and it should be consistent. A supplier that advertises human use on one page and RUO on the certificate is telling you that the documents are marketing, not control.</p>
+    <p><strong>Manufacturer and origin.</strong> The document set should name the manufacturing site, not only the seller. If a trading company is the contracting party, ask for a declaration of the manufacturing entity and its address. This is the documentary side of the entity matching described in <a href="/knowledge/peptide-supplier-corporate-due-diligence/">corporate due diligence</a>.</p>
+    <p><strong>TSE/BSE and animal-derived materials.</strong> Synthetic peptides do not use animal-derived raw materials in the backbone, but auxiliary materials, filters, media and release reagents can raise the question. A short statement that no animal-derived material is used, or a list of any that are, is cheap to provide and useful to have on file.</p>
+    <p><strong>SDS.</strong> A safety data sheet is a shipping and laboratory-safety document, not a quality document. It should match the product form and concentration; a generic SDS for “peptide” is a hint that the paperwork is templated.</p>
+
+    <h2>The shipping set must match the batch set</h2>
+    <p>Customs documents and quality documents describe the same physical shipment and should agree on product name, quantity, lot number and parties. Discrepancies between the invoice, packing list, label and COA are a common reason a shipment is held, and they are also the first thing a customer or auditor notices. The documentary requirements for import are covered in <a href="/knowledge/shipping-peptides-customs-guide/">shipping and customs</a>; the point here is consistency across the whole set.</p>
+
+    <h2>A practical request list</h2>
+    <ol>
+      <li>Lot-specific COA with methods, limits, results and basis.</li>
+      <li>HPLC chromatogram with method parameters for the lot.</li>
+      <li>Mass spectrum with observed and expected mass.</li>
+      <li>Water content result and method.</li>
+      <li>Residual solvent and elemental impurity reports, if those limits are in the specification.</li>
+      <li>Batch record summary: scale, campaign, deviations, yield.</li>
+      <li>Manufacturer name and site address, plus a declaration if the seller is not the manufacturer.</li>
+      <li>RUO statement and SDS.</li>
+      <li>Certificate of origin and the commercial shipping set.</li>
+      <li>Retain sample policy and retest date, if offered.</li>
+    </ol>
+    <p>Ask for the list once, as part of supplier qualification, and then require the lot-specific subset with every shipment. A supplier that can produce the full package for a first order is showing you how it will behave when something goes wrong.</p>
+
+    <h2>Red flags in the paperwork</h2>
+    <ul>
+      <li>A COA with no lot number, or a lot number that does not match the label.</li>
+      <li>Results presented as “typical” rather than lot-specific.</li>
+      <li>Methods named only as “HPLC” or “MS”, with no conditions.</li>
+      <li>A purity figure with no basis (as-is, anhydrous or peptide content).</li>
+      <li>No chromatogram available under any circumstances, including after a failed incoming test.</li>
+      <li>The issuer on the COA, the invoice and the bank beneficiary are different entities with no explanation.</li>
+      <li>A certificate of analysis dated before the batch was manufactured, or after the shipment arrived.</li>
+      <li>A certificate with a scope or product name broader than the material shipped.</li>
+    </ul>
+    <p>None of these proves a bad lot. Each one means the document set cannot answer the question it exists to answer, and the time to fix that is before payment.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes documentation practice; it makes no claim about any specific supplier, product or certificate, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/quality/coa/">Reading a peptide COA</a> — the fields that make a certificate useful</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — the limits the documents are measured against</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — what to test when the shipment arrives</li>
+      <li><a href="/knowledge/peptide-supplier-corporate-due-diligence/">Corporate due diligence</a> — matching the entities across the document set</li>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Shipping and customs</a> — the commercial documents that travel with the goods</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-batch-documentation-package/" />
+</BaseLayout>
