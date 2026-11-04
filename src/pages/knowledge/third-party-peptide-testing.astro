@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Using a third-party laboratory';
+const description = 'Commissioning independent peptide testing: accreditation scope, briefing the lab, sample logistics and how to read the report you get back.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/third-party-peptide-testing/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Third-party testing'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">An independent result is the only evidence in a peptide purchase that the supplier did not produce. It is also easy to waste: the wrong laboratory, an unstated method, or a sample that never represented the lot will produce a number that looks authoritative and settles nothing. The useful question is not “which lab is accredited” but “what exactly will this report prove”.</p>
+
+    <h2>When independent testing earns its cost</h2>
+    <ul>
+      <li><strong>Qualifying a new supplier.</strong> A result from a laboratory you chose, on a sample you drew, is the baseline against which later lots are compared.</li>
+      <li><strong>Disputed results.</strong> When your receipt test and the supplier's certificate disagree, a third laboratory with a written scope is the arbitration route — agreed before it is needed, not after.</li>
+      <li><strong>A test you cannot run in-house.</strong> ICP-MS for elemental impurities, headspace GC for residual solvents, MS/MS for sequence coverage and peptide mapping are the usual gaps.</li>
+      <li><strong>A quality file that requires independence.</strong> Some customers and auditors will accept an in-house result; others will not.</li>
+      <li><strong>Periodic verification.</strong> Even a trusted supplier is worth a blind check at intervals, because the point of a check is that it is not expected.</li>
+    </ul>
+    <p>Testing does not replace the sampling plan. A perfect analysis of an unrepresentative sample is still the wrong answer; the sampling logic is in <a href="/knowledge/peptide-sampling-and-batch-release/">sampling and batch release</a>.</p>
+
+    <h2>What accreditation does and does not mean</h2>
+    <p>The relevant standard for analytical laboratories is ISO/IEC 17025. Accreditation means an independent body has assessed the laboratory's competence for a defined scope: specific tests, on specific matrices, using specific methods. It does not mean:</p>
+    <ul>
+      <li>that every service the laboratory advertises is inside that scope;</li>
+      <li>that a method outside the scope is invalid — only that its competence has not been independently assessed;</li>
+      <li>that the sampling was representative;</li>
+      <li>that the interpretation in the report is correct.</li>
+    </ul>
+    <p>The practical check is the scope document, not the logo. Look for the test name, the technique and the matrix. A laboratory accredited for “purity of synthetic peptides by RP-HPLC” is not thereby accredited for elemental impurities by ICP-MS, and a report that carries the logo for an out-of-scope test is a common source of false confidence. If a test is subcontracted, the report should say so and name the laboratory that performed it.</p>
+
+    <h2>Briefing the laboratory</h2>
+    <p>A laboratory can only answer the question it is asked. A useful brief includes:</p>
+    <table>
+      <thead><tr><th>Item</th><th>Why it changes the result</th></tr></thead>
+      <tbody>
+        <tr><td>Sequence, including terminal modifications</td><td>Sets the expected mass, the fragments to look for and the solubility behaviour</td></tr>
+        <tr><td>Counter-ion form</td><td>Changes the expected mass and the interpretation of “purity” and “content”</td></tr>
+        <tr><td>The question</td><td>Identity, purity, quantity, residual solvent, elemental impurities or sequence — one report rarely answers all well</td></tr>
+        <tr><td>Method preference, if you have one</td><td>A method transfer is more work than a catalogue method but produces a comparable result</td></tr>
+        <tr><td>Expected purity range</td><td>Lets the laboratory choose injection load and linear range rather than guessing</td></tr>
+        <tr><td>Sample amount available</td><td>Determines whether the panel can include repeats and a retain</td></tr>
+        <tr><td>Storage and shipping conditions</td><td>Affects the result if the sample is temperature-sensitive</td></tr>
+      </tbody>
+    </table>
+    <p>“Please test purity” is not a brief. A laboratory that receives it will run its default method, report an area percentage, and be technically correct while answering a different question from the one you had.</p>
+
+    <h2>Sample logistics</h2>
+    <ul>
+      <li><strong>Send enough.</strong> At minimum, enough for the full panel in duplicate plus a retain. A single aliquot means a confirmatory retest requires a new sample and a new chain of custody.</li>
+      <li><strong>Keep the original container where possible.</strong> Transferring powder introduces a handling step and loses the batch linkage unless the transfer is documented.</li>
+      <li><strong>Document the chain.</strong> Who drew the sample, from which vial and lot, when, how it was stored, and who received it. A result without that record is hard to defend later.</li>
+      <li><strong>Use blind codes for comparisons.</strong> When comparing two suppliers, label samples with codes and keep the key separate; a laboratory that knows the brand is a laboratory with an expectation.</li>
+      <li><strong>Declare the contents accurately on shipping documents.</strong> Misdescribing a research chemical to move it faster is a customs problem, not a shortcut; see <a href="/knowledge/shipping-peptides-customs-guide/">shipping and customs</a>.</li>
+    </ul>
+
+    <h2>Reading the report</h2>
+    <p>The result line is the least informative part. The fields that decide whether the number means anything:</p>
+    <ul>
+      <li><strong>Method and conditions.</strong> Column, dimensions and particle size, mobile phase, gradient, flow, temperature, detection wavelength, injection volume.</li>
+      <li><strong>Standard.</strong> What was used to calibrate, and whether it was a certified reference material, an in-house standard or an external standard.</li>
+      <li><strong>Integration and threshold.</strong> Area percentage depends on what was integrated; a report that does not state the threshold cannot be compared with another laboratory's figure.</li>
+      <li><strong>System suitability.</strong> Resolution, tailing, repeatability and blank runs. Without these, the chromatogram is an image, not evidence of a working method.</li>
+      <li><strong>Limit of detection and quantification.</strong> “Not detected” means nothing without the limit.</li>
+      <li><strong>Raw data.</strong> The chromatogram file and the mass spectrum, not only a picture. A PDF screenshot cannot be re-integrated or checked.</li>
+      <li><strong>Uncertainty.</strong> Where a quantitative result is reported, the uncertainty matters as much as the value when it is compared with a limit.</li>
+    </ul>
+    <p>These are the same fields that make a supplier's certificate readable, and the checks are set out in <a href="/knowledge/how-to-verify-peptide-purity/">verifying peptide purity</a> and <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>. The difference is that a third-party report can be questioned directly, because you commissioned it.</p>
+
+    <h2>Triangulation, not averaging</h2>
+    <p>When the third-party result differs from the supplier's certificate, the useful move is not to average the two numbers. It is to find out why they differ:</p>
+    <ol>
+      <li><strong>Different methods.</strong> Two HPLC methods with different gradients can legitimately report different area percentages for the same lot.</li>
+      <li><strong>Different basis.</strong> As-is, anhydrous, peptide basis and salt-free basis are four different numbers; a report that does not state the basis cannot be compared.</li>
+      <li><strong>Different sample handling.</strong> A sample that took up water in transit will report higher water and lower peptide content.</li>
+      <li><strong>Different integration.</strong> Threshold and peak-width settings change the small-peak total.</li>
+      <li><strong>A real disagreement.</strong> If method, basis and handling are matched and the results still differ, that is a finding worth escalating.</li>
+    </ol>
+    <p>The last case is the one the exercise exists for. The first four are the reason many apparent disagreements dissolve once the methods are compared.</p>
+
+    <h2>What a third party cannot tell you</h2>
+    <ul>
+      <li><strong>Whether the sample represented the lot.</strong> That is a sampling question, and it is decided before the sample leaves your hands.</li>
+      <li><strong>Whether the sequence is the one you intended.</strong> A mass match and even a sequence coverage result confirm what the material is, not what you meant to order; the limits are covered in <a href="/knowledge/peptide-ms-ms-sequence-confirmation/">MS/MS sequence confirmation</a>.</li>
+      <li><strong>Whether the supplier can repeat it.</strong> One lot is one lot; consistency needs a trend, as described in <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</li>
+      <li><strong>Whether the process is controlled.</strong> That is an audit question, not an analytical one.</li>
+    </ul>
+
+    <h2>Questions to ask a laboratory before commissioning</h2>
+    <ol>
+      <li>Is this specific test within your accredited scope, and can you send the scope document?</li>
+      <li>Which method will you run, and can you send the method summary before I ship?</li>
+      <li>Do you report the chromatogram and mass spectrum files, or images only?</li>
+      <li>What is the sample amount you need for the panel in duplicate, plus a retain?</li>
+      <li>How do you handle a sample that does not dissolve under the method conditions?</li>
+      <li>Will any part of the work be subcontracted, and will the report say so?</li>
+      <li>What is the turnaround, and what happens if the result is out of specification?</li>
+      <li>Can you run a blind-coded sample and report only the code?</li>
+    </ol>
+    <p>The answers separate a laboratory that will produce evidence from one that will produce a document. Cost and turnaround vary with method and replicate count, so they are worth quoting per project rather than assuming a standard rate.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes independent analytical testing practice; it makes no claim about any specific laboratory, product or result and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-qualification-sample/">Ordering a qualification sample</a> — how to size and code samples before testing</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — making the sample represent the lot</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — what a purity result can establish</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — the same checks applied to a supplier's certificate</li>
+      <li><a href="/knowledge/analytical-method-validation/">Analytical method validation</a> — why a method's history matters</li>
+      <li><a href="/knowledge/peptide-batch-documentation-package/">The batch documentation package</a> — raw data and records beyond the summary</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/third-party-peptide-testing/" />
+</BaseLayout>
