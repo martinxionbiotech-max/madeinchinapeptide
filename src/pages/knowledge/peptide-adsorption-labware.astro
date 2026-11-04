@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide adsorption to labware';
+const description = 'Why dilute peptide solutions lose concentration in tubes, filters and cuvettes — how to recognise adsorption, and which handling changes actually reduce it.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-adsorption-labware/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Adsorption to labware'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A peptide that dissolves cleanly can still arrive at the assay weaker than the balance said it would be. Nothing precipitated, nothing degraded — the material simply left the solution and sat on the surfaces it touched. This guide covers where that happens, how to tell it apart from other losses, and which countermeasures are worth the effort.</p>
+
+    <h2>A surface phenomenon, not a chemical one</h2>
+    <p>Peptides are amphiphilic: they carry charged and polar residues alongside hydrophobic side chains, and they are small enough to diffuse quickly to any interface. At a plastic or glass wall, hydrophobic side chains can associate with the surface while charged groups remain in water. The result is a layer of adsorbed peptide that is invisible in the vial and absent from your measurement.</p>
+    <p>Two mechanisms dominate, and they call for different responses:</p>
+    <ul>
+      <li><strong>Hydrophobic association.</strong> Favoured by Trp, Phe, Leu, Ile, Val and by any exposed hydrophobic face. Worse on polystyrene and on untreated glass, better on polypropylene and low-binding surfaces.</li>
+      <li><strong>Electrostatic attraction.</strong> A positively charged peptide (Arg, Lys, His) binds to negatively charged glass or oxidised plastic; a negatively charged peptide binds to surfaces treated to be cationic. pH moves the peptide's net charge and therefore the strength of the interaction.</li>
+    </ul>
+    <p>Both are surface-area effects. A 1.5 mL tube holding 100 µL has a much larger surface-to-volume ratio than the same tube holding 1 mL, which is why small aliquots lose a larger fraction of material than the same total volume kept together.</p>
+
+    <h2>What makes the loss worse</h2>
+    <table>
+      <thead><tr><th>Variable</th><th>Effect</th><th>Practical note</th></tr></thead>
+      <tbody>
+        <tr><td>Low concentration</td><td>Larger fraction of the peptide is near a surface</td><td>Losses matter most in the µg/mL range, not at mg/mL</td></tr>
+        <tr><td>Hydrophobic sequence</td><td>Stronger driving force for the interface</td><td>Expect more loss with aromatic and aliphatic content</td></tr>
+        <tr><td>High surface-to-volume</td><td>More available interface per unit volume</td><td>Small aliquots, long thin tubes, repeated transfers</td></tr>
+        <tr><td>Filtration</td><td>Membrane binds peptide as it passes</td><td>Worst for hydrophobic peptides and small volumes</td></tr>
+        <tr><td>Agitation and foaming</td><td>Creates fresh air–liquid interface</td><td>Vortexing and pipetting up and down both contribute</td></tr>
+        <tr><td>Time and temperature</td><td>More opportunity to reach equilibrium</td><td>A loss that grows over hours points at adsorption</td></tr>
+      </tbody>
+    </table>
+    <p>Air–liquid interfaces deserve separate mention. A peptide can accumulate at the foam layer and then dry on the wall above the liquid line, which is one reason a vigorously shaken dilute solution can measure lower afterwards without any visible change.</p>
+
+    <h2>How to recognise it</h2>
+    <p>Adsorption is a diagnosis of exclusion. Before concluding that a surface is responsible, the more common explanations should be ruled out: incomplete dissolution, aggregation, and a measurement that was never quantitative in the first place.</p>
+    <ol>
+      <li><strong>Check the mass balance.</strong> Measure concentration immediately after preparation and again after a defined handling step. A drop that tracks with the number of transfers, or with time in a particular container, is consistent with adsorption.</li>
+      <li><strong>Compare container types.</strong> Split the same solution into a low-binding tube and a standard tube, hold both under the same conditions, and measure both. A difference between containers is direct evidence.</li>
+      <li><strong>Test the filter separately.</strong> Filter one aliquot and pass another through a different membrane; if the two differ, the membrane is part of the answer. If both drop equally, the loss is upstream.</li>
+      <li><strong>Look for the material.</strong> Adsorbed peptide is usually too little to see. Visible film or cloudiness means a different problem — undissolved material or aggregation, covered in <a href="/knowledge/peptide-solubility-troubleshooting/">solubility troubleshooting</a> and <a href="/knowledge/peptide-aggregation-self-assembly/">aggregation and self-assembly</a>.</li>
+    </ol>
+    <p>The measurement itself has to be good enough to detect the effect. A method with 6% uncertainty cannot resolve a 4% loss; the error budget for concentration assays is set out in <a href="/knowledge/peptide-concentration-measurement/">measuring peptide concentration</a>.</p>
+
+    <h2>Countermeasures, in order of practicality</h2>
+    <h3>1. Reduce the surface you expose</h3>
+    <p>Fewer transfers, larger working volumes, one container per experiment. This costs nothing and usually removes more loss than any additive.</p>
+
+    <h3>2. Choose the container deliberately</h3>
+    <p>Low-binding polypropylene tubes are the default for dilute work. Plain polystyrene is a poor choice for hydrophobic peptides. Glass adsorbs by both mechanisms and is better reserved for concentrated stocks or for cuvettes, where the path length matters and the exposure time is short.</p>
+
+    <h3>3. Avoid filtration when you can centrifuge</h3>
+    <p>Centrifugation pellets undissolved material without presenting the peptide with a membrane surface. Where filtration is unavoidable, pre-rinse the membrane with buffer, discard the rinse, and use the smallest membrane that will pass the volume. Which membrane material is compatible with your solvent is a separate question from how much it binds.</p>
+
+    <h3>4. Handle without foaming</h3>
+    <p>Pipette against the wall rather than into the liquid, avoid vortexing dilute solutions, and do not shake a tube to mix. Gentle inversion is enough for a solution that is already dissolved.</p>
+
+    <h3>5. Consider a carrier — with the trade-off stated</h3>
+    <p>Adding a carrier protein or a small amount of surfactant reduces adsorption by competing for the surface. It also changes what you are measuring: a carrier protein interferes with A280, BCA and amino-acid analysis, and surfactant can suppress ion signals in mass spectrometry. For a bioassay the carrier may be acceptable; for a quantitative analytical measurement it usually is not. Decide which question you are answering before adding anything.</p>
+    <p>Passivating a surface — for example by rinsing with a carrier solution and then discarding it — can help without putting the carrier in the final sample, but it adds a step and a variable of its own.</p>
+
+    <h2>What adsorption is often blamed for, wrongly</h2>
+    <ul>
+      <li><strong>“The supplier underfilled the vial.”</strong> Possible, but a fill-weight check and a net-content calculation come first, as described in <a href="/knowledge/peptide-net-content-and-cost/">net content and cost per mg</a>.</li>
+      <li><strong>“The peptide degraded.”</strong> Degradation usually shows up as new peaks on HPLC, not only as a lower recovery. Chemical routes are covered in <a href="/knowledge/peptide-degradation-pathways/">degradation pathways</a>.</li>
+      <li><strong>“It did not dissolve.”</strong> A clear solution can still be under-concentrated. Appearance is not a concentration measurement.</li>
+      <li><strong>“The assay is wrong.”</strong> Sometimes it is. Both possibilities should be tested, not assumed.</li>
+    </ul>
+
+    <h2>What this means for a specification</h2>
+    <p>Adsorption is a property of the user's handling, not of the lot, so it does not belong in a release specification. It does belong in the handling instructions, and it is a fair question to ask a supplier: at what concentration and in what container was the material tested for appearance and reconstitution? A supplier who reports “clear, colourless solution at 10 mg/mL” has said nothing about behaviour at 10 µg/mL.</p>
+    <p>Packaging choices that reduce handling — one vial per experiment, appropriate headspace, a container that can be entered repeatedly without repeated transfers — are covered in <a href="/knowledge/peptide-packaging-configurations/">packaging configurations</a>. The general storage rules for solutions are in <a href="/knowledge/peptide-storage-handling/">storage and handling</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes handling phenomena; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring peptide concentration</a> — establishing the number you are comparing</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the problem is dissolution, not the surface</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — loss of soluble material by another route</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution guide</a> — preparation practice that limits handling</li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a> — containers, headspace and secondary barriers</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-adsorption-labware/" />
+</BaseLayout>

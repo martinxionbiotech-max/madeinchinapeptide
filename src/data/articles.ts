@@ -28,6 +28,7 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-stability-studies', title:'Peptide stability studies explained', desc:'Real-time vs accelerated data, the assay panel at each timepoint, and why a COA is not a shelf-life study.', cluster:'Quality & testing' },
   { slug:'peptide-degradation-pathways', title:'Peptide degradation pathways', desc:'Hydrolysis, oxidation, deamidation and isomerisation — which residues fail first, and what a certificate can actually show.', cluster:'Quality & testing' },
   { slug:'peptide-residual-solvents', title:'Residual solvents in peptides', desc:'Where acetonitrile, DMF and TFA residues come from, how headspace GC measures them, and what a COA should state.', cluster:'Quality & testing' },
+  { slug:'peptide-adsorption-labware', title:'Peptide adsorption to labware', desc:'Why dilute peptide solutions lose concentration in tubes, filters and cuvettes — and which handling changes reduce it.', cluster:'Handling' },
   { slug:'peptide-concentration-measurement', title:'Measuring peptide concentration', desc:'A280, A214, colorimetric assays and amino-acid analysis — what each measures and where the error comes from.', cluster:'Quality & testing' },
   { slug:'peptide-net-content-and-cost', title:'Net peptide content and cost per mg', desc:'Fill weight is not peptide mass — how counter-ions, water and purity change the arithmetic, and how to normalise quotations.', cluster:'Quality & testing' },
 ];
