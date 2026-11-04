@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'How to read a peptide HPLC chromatogram';
+const description = 'Peak shape, integration choices and the difference between area percent and mass — what a peptide chromatogram shows, and what it hides.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/reading-peptide-hplc-chromatograms/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Reading chromatograms'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A certificate says “purity 98.6%”. The chromatogram behind that number is where the real information sits: how the sample was run, how the peaks were integrated, and whether the figure describes the peptide or only the part of the sample that happened to absorb ultraviolet light.</p>
+
+    <h2>What the instrument actually records</h2>
+    <p>Reverse-phase HPLC passes the sample through a non-polar column — usually C18 — with a gradient of water and an organic solvent, typically acetonitrile. Peptides bind to the column and elute as the organic fraction rises, roughly in order of hydrophobicity. A detector measures absorbance in the flow cell and plots it against time.</p>
+    <p>Two settings dominate what you see. The <strong>wavelength</strong> is usually 214 nm, close to the peptide-bond absorbance maximum, which detects almost any peptide regardless of sequence; 254 or 280 nm picks up aromatic residues instead and is far less sensitive for peptides without them. The <strong>gradient</strong> — starting and ending organic percentage, slope and run time — determines resolution. A shallow gradient separates closely related impurities; a steep one produces a fast, clean-looking run that may merge them.</p>
+    <p>This is why a retention time is not an identity. The same peptide run on a different column, at a different temperature, with a different gradient delay volume, can shift by a minute or more. Identity comes from mass spectrometry, co-injection with a reference standard, or both — see <a href="/knowledge/how-to-verify-peptide-purity/">verifying purity</a>.</p>
+
+    <h2>Reading the axes before the peaks</h2>
+    <ul>
+      <li><strong>Time (minutes).</strong> Note the run length and where the gradient ends. A 10-minute run and a 40-minute run are not comparable purity statements.</li>
+      <li><strong>Absorbance (mAU).</strong> The y-axis scale tells you whether a “small” impurity is small in absolute terms. A chromatogram scaled to the main peak can make a 2% shoulder look like a trace.</li>
+      <li><strong>Solvent front.</strong> The first disturbance, near the void volume, is unretained material — salts, solvent, very polar contaminants. Peaks there are not peptide purity data and should not be integrated as product.</li>
+      <li><strong>Gradient trace.</strong> Many reports overlay the %B line. Without it, you cannot tell whether a late peak eluted during the wash or after the gradient returned to start.</li>
+    </ul>
+
+    <h2>Peak shape is diagnostic</h2>
+    <table>
+      <thead><tr><th>Observation</th><th>Common cause</th><th>What it means for the result</th></tr></thead>
+      <tbody>
+        <tr><td>Fronting (left-leaning peak)</td><td>Column overload — too much mass injected</td><td>Retention shifts and resolution drops; the reported area may be distorted</td></tr>
+        <tr><td>Tailing (right-leaning peak)</td><td>Secondary interactions with residual silanols; basic residues</td><td>Common and often acceptable, but heavy tailing can swallow a late-eluting impurity</td></tr>
+        <tr><td>Shoulder on the main peak</td><td>Co-eluting impurity, often a deletion or oxidation product</td><td>The single largest source of overstated purity — a shoulder integrated into the main peak disappears from the number</td></tr>
+        <tr><td>Split peak</td><td>Column void at the head, or two species with similar hydrophobicity</td><td>Requires a second method or MS to distinguish artefact from impurity</td></tr>
+        <tr><td>Baseline drift upward</td><td>UV-absorbing organic modifier at low wavelength</td><td>Normal in gradient runs; a drifting baseline makes small-peak integration arbitrary</td></tr>
+        <tr><td>Ghost peaks</td><td>Carryover from the previous injection, or mobile-phase contamination</td><td>Can be mistaken for impurities — or mask them</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Integration is a decision, not a measurement</h2>
+    <p>The software does not find peaks; an operator sets parameters that decide what counts. Every one of the following can move a purity figure by a percentage point or more, without anything changing in the vial:</p>
+    <ul>
+      <li><strong>Peak threshold and minimum area.</strong> Raise the threshold and small impurities stop being integrated.</li>
+      <li><strong>Baseline placement.</strong> Drawing the baseline above a shoulder excludes it; drawing it below includes it.</li>
+      <li><strong>Manual integration.</strong> Legitimate for a bad baseline, opaque when it is the only version you are shown.</li>
+      <li><strong>Smoothing.</strong> Reduces noise and also reduces small peak heights.</li>
+      <li><strong>Excluding the solvent front or “system peaks”.</strong> Sometimes correct, sometimes a way to remove inconvenient early-eluting material.</li>
+    </ul>
+    <p>A credible report therefore includes the integration table — retention time, area, area%, height and width for each peak — not just a picture and a headline number. If the table lists only the main peak, the other peaks were either absent or excluded; you cannot tell which.</p>
+
+    <h2>Area percent is not mass percent</h2>
+    <p>Purity by area assumes every component absorbs equally at the detection wavelength. They do not. An impurity rich in aromatic residues can absorb more than the parent peptide and be overestimated; a non-absorbing one is underestimated or invisible. Water, counter-ions and residual solvents do not absorb at 214 nm at all, so they never appear in the calculation.</p>
+    <p>That is why a vial can be “98.5% pure” and still contain well under 98.5% peptide by mass. The missing fraction is water, salt and excipient — measured by Karl Fischer and by assay or amino-acid analysis, not by HPLC. The relationship is set out in <a href="/quality/testing-methods/">testing methods</a>, and the arithmetic of salt forms in <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a>.</p>
+
+    <h2>What a complete chromatogram package contains</h2>
+    <ol>
+      <li>The plotted trace at a stated wavelength, with both axes labelled and the full run shown — not a zoom on the main peak.</li>
+      <li>Column type and dimensions, mobile phase composition, gradient table, flow rate, column temperature and injection volume.</li>
+      <li>The integration table with every integrated peak, including area%.</li>
+      <li>The same method run on a reference standard, so retention time can be compared.</li>
+      <li>A mass-spectrum confirmation in the same package, ideally with the expected and observed mass stated.</li>
+    </ol>
+    <p>Without items 2 and 3, two suppliers' “98%” figures cannot be compared, because they may not be measuring the same thing. A supplier who can produce the method file is running a controlled assay; one who sends a screenshot with no axes usually is not.</p>
+
+    <h2>Using the chromatogram in a supplier conversation</h2>
+    <p>Ask one question that separates the two cases: <em>“Can you send the integration table and the gradient method for this batch?”</em> A supplier with in-house analytical control answers from the batch record. A reseller forwards the question and returns either a cropped image or nothing. That response is more informative than any purity claim.</p>
+    <p>When comparing lots over time, keep the chromatograms. A new impurity peak, a shift in retention time or a change in peak shape between batches is an early warning that something in the process moved — even when the headline purity is unchanged. That is the practical link between chromatograms and <a href="/knowledge/peptide-lot-consistency/">lot-to-lot consistency</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical technique; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — what HPLC, MS and Karl Fischer each prove</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying purity before you buy</a> — the buyer's sequence</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — when the document itself is the problem</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — why area% and mass% diverge</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — reading chromatograms across batches</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/reading-peptide-hplc-chromatograms/" />
+</BaseLayout>

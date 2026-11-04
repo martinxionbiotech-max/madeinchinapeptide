@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Lyophilization of peptides: what the cake tells you';
+const description = 'How freeze-drying works, why residual moisture and cake appearance matter, and which lyophilization details a buyer should ask for on a COA.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-lyophilization-explained/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Lyophilization'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Almost every research peptide is sold as a “lyophilized powder”. That phrase describes a process, not a grade. Understanding the three stages of freeze-drying explains why two vials of the same peptide can look different, dissolve differently and age differently — and which questions to ask when one of them does.</p>
+
+    <h2>Why peptides are freeze-dried at all</h2>
+    <p>Peptides are unstable in water. Hydrolysis, deamidation and aggregation all proceed faster in solution, and shipping a liquid means shipping weight, breakage risk and a cold chain that has to hold for the entire journey. Removing the water arrests most of those reactions and leaves a solid that can be stored and shipped far more cheaply.</p>
+    <p>The catch is that drying by heat would denature or degrade the peptide. Lyophilization avoids heat by removing water as vapour from a frozen solid: the ice sublimes directly to vapour without passing through a liquid phase. The result is a porous cake that redissolves quickly because the structure left behind by the ice has a very large surface area.</p>
+
+    <h2>The three stages</h2>
+    <h3>1. Freezing</h3>
+    <p>The solution is cooled until it is fully solid. What matters here is not only the final temperature but the <em>rate</em>: slow freezing grows large ice crystals and leaves large pores, which dry faster but can damage the peptide; fast freezing produces small crystals, a finer cake and slower drying. The formulation also determines whether the frozen concentrate becomes a glass or a eutectic mixture, and that sets the temperature limit for the next stage.</p>
+
+    <h3>2. Primary drying (sublimation)</h3>
+    <p>Pressure is reduced and a small amount of heat is applied. The ice sublimes, and the water vapour is captured on a condenser held colder than the product. The product temperature must stay below its collapse temperature — the point at which the frozen structure softens and the cake loses its shape. In practice this is the longest stage, often the majority of the cycle, and it is where a badly designed cycle produces a shrunken, gummy or collapsed cake.</p>
+
+    <h3>3. Secondary drying (desorption)</h3>
+    <p>Once the ice is gone, water that is bound to the peptide and the excipients remains. Secondary drying raises the product temperature modestly under vacuum to drive that bound water off. Stopping too early leaves a cake that looks acceptable but carries too much moisture, and moisture is the single most useful predictor of how the lot will age.</p>
+    <p>The vials are then stoppered — usually under vacuum or after backfilling with nitrogen — and crimped. That step is part of the process, not an afterthought: a stopper that is not fully seated, or a crimp that does not compress it, breaks container closure integrity without any visible change to the powder.</p>
+
+    <h2>What goes into the formulation</h2>
+    <table>
+      <thead><tr><th>Component</th><th>Role</th><th>What it means for the buyer</th></tr></thead>
+      <tbody>
+        <tr><td>Bulking agent (e.g. mannitol)</td><td>Gives the cake mechanical structure</td><td>Adds mass; contributes to fill weight but not to peptide content</td></tr>
+        <tr><td>Lyoprotectant (e.g. sucrose, trehalose)</td><td>Stabilises the peptide in the frozen and dried state</td><td>Explains why “pure peptide” may still contain excipient</td></tr>
+        <tr><td>Buffer (e.g. histidine, phosphate)</td><td>Holds pH during freezing and reconstitution</td><td>Appears in the formulation, not usually as a separate spec</td></tr>
+        <tr><td>Surfactant (e.g. polysorbate)</td><td>Reduces interfacial aggregation</td><td>Can interfere with some assays at high concentration</td></tr>
+        <tr><td>Water for injection</td><td>The solvent that is removed</td><td>Its quality is a regulatory input, not a selling point</td></tr>
+      </tbody>
+    </table>
+    <p>A COA that reports 98% purity but does not state peptide content is telling you about the peptide peak, not about how much peptide is in the vial. The difference is made up of counter-ions, water and excipients — see <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a> and <a href="/quality/testing-methods/">testing methods</a>.</p>
+
+    <h2>Reading the cake</h2>
+    <p>Cake appearance is a cheap, non-destructive check that is underused. A well-formed cake is uniform, sits at the bottom of the vial, and shows no meltback or shrinkage. The usual abnormalities and their meaning:</p>
+    <ul>
+      <li><strong>Collapse or meltback.</strong> Product exceeded its collapse temperature during primary drying, or the cycle was too short. The lot may still pass purity, but the cake is denser and slower to dissolve, and the thermal history is undocumented.</li>
+      <li><strong>Shrinkage or a ring of dried material on the wall.</strong> Often incomplete drying or a fill/cycle mismatch. Treat it as a moisture question and ask for the Karl Fischer result.</li>
+      <li><strong>Cracks or a powdery surface.</strong> Can be normal for some formulations, but a change from previous lots is worth a question.</li>
+      <li><strong>Melted or rubbery appearance on arrival.</strong> The vial has been warm. Lyophilized material tolerates short ambient exposure, but a cake that has visibly collapsed has been through a real excursion — see <a href="/knowledge/peptide-cold-chain-logistics/">cold chain</a>.</li>
+      <li><strong>Liquid in the vial.</strong> Either it was never lyophilized or the container closure failed. Do not use it; photograph it and raise it with the supplier.</li>
+    </ul>
+
+    <h2>Residual moisture is the number to ask for</h2>
+    <p>Water left in a “dry” cake acts as a plasticiser and a reaction medium. It lowers the glass transition temperature, encourages deamidation and aggregation, and makes the powder sticky and hard to weigh. Karl Fischer titration — coulometric for low levels — is the standard method, and the result belongs on the COA with the method stated.</p>
+    <p>Acceptance limits are product-specific: a robust small peptide and a lyophilized protein do not share a specification. What you can insist on is that the limit is <em>stated</em>, that the result is reported per lot, and that the method is named. A COA with a moisture field reading “complies” and no number is not a measurement.</p>
+
+    <h2>Lyophilization is not sterilisation</h2>
+    <p>Freeze-drying removes water; it does not reliably kill microorganisms. Sterile lyophilized products are made by filtering the solution before filling and then filling and stoppering under aseptic conditions, with container closure integrity tested afterwards. A non-sterile bulk powder and a sterile vial can look identical through the glass.</p>
+    <p>This matters for how you read a supplier's claims. “Lyophilized” says nothing about bioburden or endotoxin. If those attributes matter for your work, they must appear as separate tests with results — see <a href="/knowledge/peptide-endotoxin-bioburden/">endotoxin and bioburden</a>.</p>
+
+    <h2>Why the same peptide looks different between suppliers</h2>
+    <p>Two suppliers can ship the same sequence, at the same stated purity, and produce visibly different vials. The usual reasons are formulation (with or without a bulking agent), fill mass (10 mg of peptide in a 3 mL vial versus 10 mg in a 10 mL vial), counter-ion form, and cycle design. None of these is necessarily a defect; all of them change how you weigh, dissolve and store the material.</p>
+    <p>When comparing quotes, compare the fill mass <em>and</em> the peptide content, not the vial label alone. A 10 mg vial at 80% peptide content contains 8 mg of peptide; a 10 mg vial at 95% contains 9.5 mg. At bulk scale that difference is the whole margin.</p>
+
+    <h2>What to ask a supplier</h2>
+    <ol>
+      <li>Is the residual moisture measured per lot by Karl Fischer, and what is the limit?</li>
+      <li>What is the formulation — bulking agent, lyoprotectant, buffer — and is it disclosed on the COA?</li>
+      <li>Is the vial stoppered under vacuum or nitrogen-backfilled? Is that recorded?</li>
+      <li>What is the fill mass and the measured peptide content, as distinct figures?</li>
+      <li>Has the container closure been integrity-tested, and by which method?</li>
+      <li>If the cake appearance differs from the previous lot, what changed in the cycle?</li>
+    </ol>
+    <p>These are process questions, and a supplier who runs a real lyophilization line can answer them from batch records. A trading company reselling someone else's vials usually cannot — which is itself the answer. The <a href="/knowledge/china-peptide-supplier-checklist/">supplier checklist</a> puts these questions in a broader qualification sequence.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes manufacturing and analytical practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-synthesis-spps-explained/">Peptide synthesis (SPPS)</a> — what happens before the lyophilizer</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — protecting the cake after arrival</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Cold chain and logistics</a> — what transit does to a lyophilized lot</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — why salt form changes mass and pH</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer and peptide content</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-lyophilization-explained/" />
+</BaseLayout>

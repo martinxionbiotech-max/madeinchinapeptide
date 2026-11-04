@@ -9,6 +9,8 @@ export const articles: ArticleMeta[] = [
   { slug:'how-to-buy-research-peptides-from-china', title:'How to buy research peptides from China', desc:'Qualification, sampling, payment and shipping — the practical sequence.', cluster:'Sourcing' },
   { slug:'peptide-moq-and-pricing-tiers', title:'Peptide MOQ and pricing tiers explained', desc:'Why unit price changes with volume, packaging and documentation.', cluster:'Sourcing' },
   { slug:'peptide-synthesis-spps-explained', title:'Peptide synthesis (SPPS) explained for buyers', desc:'What solid-phase synthesis means for purity, yield and cost.', cluster:'Manufacturing' },
+  { slug:'peptide-lyophilization-explained', title:'Lyophilization: what the cake tells you', desc:'The three stages of freeze-drying, residual moisture, cake defects and the process questions to ask.', cluster:'Manufacturing' },
+  { slug:'reading-peptide-hplc-chromatograms', title:'How to read a peptide HPLC chromatogram', desc:'Peak shape, integration choices and why area percent is not mass percent.', cluster:'Quality & testing' },
   { slug:'peptide-reconstitution-guide', title:'Peptide reconstitution: laboratory practice', desc:'Solvent choice, concentration math, handling and storage of solutions.', cluster:'Handling' },
   { slug:'peptide-solubility-troubleshooting', title:'Peptide solubility troubleshooting', desc:'Cloudiness, gels and cakes that will not wet — a diagnostic order that does not destroy the vial.', cluster:'Handling' },
   { slug:'shipping-peptides-customs-guide', title:'Shipping peptides from China — customs & documentation', desc:'Documents, classification, cold chain and the delays that actually happen.', cluster:'Compliance & shipping' },

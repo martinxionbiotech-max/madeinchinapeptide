@@ -8,13 +8,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p class="lead muted">Each analytical method answers a different question. Confusing them is how bad batches pass "QC".</p>
 
     <h2>Reverse-phase HPLC — how much of the main thing is there?</h2>
-    <p>RP-HPLC separates components by hydrophobicity. For peptides, purity is usually reported as the area percentage of the main peak at a defined wavelength. It answers: <em>what fraction of the UV-absorbing material is the target peak?</em> It does not, by itself, prove identity, and it can overstate purity if the compound has low UV absorbance or if impurities co-elute.</p>
+    <p>RP-HPLC separates components by hydrophobicity. For peptides, purity is usually reported as the area percentage of the main peak at a defined wavelength. It answers: <em>what fraction of the UV-absorbing material is the target peak?</em> It does not, by itself, prove identity, and it can overstate purity if the compound has low UV absorbance or if impurities co-elute. The chromatogram behind the number carries the rest of the story — peak shape, integration and the units that were excluded — which is covered in <a href="/knowledge/reading-peptide-hplc-chromatograms/">how to read a peptide chromatogram</a>.</p>
 
     <h2>Mass spectrometry — is it the right molecule?</h2>
     <p>ESI-MS or MALDI-TOF measures the mass-to-charge ratio of ions. It answers: <em>does the material contain a species with the expected molecular mass?</em> It is the identity check. It does not measure purity, and a match at the expected mass does not exclude isomers or modified variants with the same nominal mass.</p>
 
     <h2>Karl Fischer — how much water is in the powder?</h2>
-    <p>Residual moisture affects stability, weighing accuracy and apparent purity. A lyophilized powder with high moisture can degrade faster and weigh inaccurately. The method answers: <em>what is the water content?</em></p>
+    <p>Residual moisture affects stability, weighing accuracy and apparent purity. A lyophilized powder with high moisture can degrade faster and weigh inaccurately. The method answers: <em>what is the water content?</em> It measures a process outcome as much as a product attribute — a high result usually traces back to the freeze-drying cycle, which is why the number belongs next to the <a href="/knowledge/peptide-lyophilization-explained/">lyophilization record</a> rather than on its own.</p>
 
     <h2>Peptide content (assay) — how much is peptide vs counter-ion/salt?</h2>
     <p>Net peptide content differs from HPLC purity: a sample can be 98% pure by HPLC and still contain a significant fraction of counter-ions, water or excipients. For quantitative work, ask for assay or net-peptide content, not just purity.</p>
