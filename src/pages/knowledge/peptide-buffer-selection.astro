@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Choosing a buffer for peptide solutions';
+const description = 'pH relative to pI, buffer pKa, UV and MS compatibility, ionic strength and co-solvent — a decision order for solvents that do not fight the peptide.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-buffer-selection/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Buffer selection'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Water is a solvent, not a buffer. Most peptide handling problems that look like “bad material” are actually a pH, an ionic strength or a detection interference chosen before the vial was opened.</p>
+
+    <h2>Start with the charge the peptide will carry</h2>
+    <p>A peptide's behaviour in solution is dominated by its net charge, and net charge is a function of pH. The ionisable groups are the N-terminus, the C-terminus and the side chains of Asp, Glu, His, Cys, Tyr, Lys and Arg. Their approximate pKa values in a peptide context:</p>
+    <table>
+      <thead><tr><th>Group</th><th>Approximate pKa</th><th>Charge when deprotonated</th></tr></thead>
+      <tbody>
+        <tr><td>C-terminus (COOH)</td><td>3.5</td><td>−1</td></tr>
+        <tr><td>Asp (D)</td><td>3.9</td><td>−1</td></tr>
+        <tr><td>Glu (E)</td><td>4.3</td><td>−1</td></tr>
+        <tr><td>His (H)</td><td>6.0</td><td>0</td></tr>
+        <tr><td>N-terminus (NH₂)</td><td>8.0–9.0</td><td>0</td></tr>
+        <tr><td>Cys (C)</td><td>8.3</td><td>−1</td></tr>
+        <tr><td>Tyr (Y)</td><td>10.1</td><td>−1</td></tr>
+        <tr><td>Lys (K)</td><td>10.5</td><td>0</td></tr>
+        <tr><td>Arg (R)</td><td>12.5</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p>These are approximations that shift with neighbouring residues, ionic strength and terminal modifications. They are good enough to predict the direction of behaviour, not good enough to calculate an exact pI without a proper charge model. What matters practically:</p>
+    <ul>
+      <li><strong>At a pH near the pI</strong>, the peptide carries little net charge. Repulsion between molecules is weak, and hydrophobic attraction wins — the usual recipe for aggregation and low solubility.</li>
+      <li><strong>At least one pH unit away from the pI</strong>, the peptide carries a useful net charge and dissolves more readily.</li>
+      <li><strong>Far from the pI is not automatically better.</strong> Extreme pH accelerates hydrolysis (acid) and deamidation (base), and can change the ionisation of a residue that matters for structure.</li>
+    </ul>
+
+    <h2>Then choose a buffer whose pKa is near the target pH</h2>
+    <p>A buffer works within roughly one pH unit of its pKa. Outside that window its capacity collapses and small additions of acid or base move the pH a long way.</p>
+    <table>
+      <thead><tr><th>Buffer</th><th>pKa (25 °C)</th><th>Useful pH</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Citrate</td><td>3.1 / 4.8 / 6.4</td><td>3–6.5</td><td>Three equilibria; chelates metal ions</td></tr>
+        <tr><td>Acetate</td><td>4.76</td><td>4.0–5.5</td><td>Volatile enough for some MS work; weak UV absorbance</td></tr>
+        <tr><td>MES</td><td>6.10</td><td>5.5–6.7</td><td>Good's buffer; low metal binding</td></tr>
+        <tr><td>Phosphate</td><td>7.20</td><td>6.2–8.2</td><td>No UV absorbance; non-volatile; complexes Ca²⁺ and Mg²⁺</td></tr>
+        <tr><td>MOPS</td><td>7.20</td><td>6.5–7.9</td><td>Good's buffer; low UV</td></tr>
+        <tr><td>HEPES</td><td>7.55</td><td>6.8–8.2</td><td>Good's buffer; can participate in radical chemistry</td></tr>
+        <tr><td>Tris</td><td>8.06</td><td>7.0–9.0</td><td>Strong temperature dependence; primary amine</td></tr>
+        <tr><td>Borate</td><td>9.24</td><td>8.5–10</td><td>Can complex cis-diols; not for MS</td></tr>
+        <tr><td>Carbonate</td><td>10.33</td><td>9.5–11</td><td>Equilibrates with CO₂; pH drifts in open vessels</td></tr>
+      </tbody>
+    </table>
+    <p>Two temperature effects are worth knowing. Tris pKa falls by about 0.028 units per °C, so a buffer adjusted to pH 8.0 at 25 °C reads roughly 7.7 at 4 °C and 8.3 at 37 °C. Phosphate moves by only about 0.003 per °C. If a method specifies a pH, it should specify the temperature at which it was measured.</p>
+
+    <h2>Detectability is part of buffer choice</h2>
+    <p>The buffer has to be compatible with how you will measure the peptide, and this constraint is often forgotten until the assay gives nonsense.</p>
+    <ul>
+      <li><strong>A280 measurement.</strong> Phosphate, acetate and MES are effectively transparent at 280 nm. Imidazole absorbs strongly and will dominate a protein assay; Tris and HEPES are usually tolerable but not zero. A buffer blank is mandatory, not optional.</li>
+      <li><strong>Low-wavelength UV (214 nm).</strong> Many buffers absorb here, which is one reason peptide HPLC uses volatile trifluoroacetic acid and acetonitrile rather than a physiological buffer.</li>
+      <li><strong>Mass spectrometry.</strong> Phosphate, Tris and borate are non-volatile: they suppress ionisation and deposit on the source. Ammonium acetate or ammonium formate at low concentration, with formic acid, is the usual choice.</li>
+      <li><strong>Colorimetric assays.</strong> BCA is incompatible with reducing agents and with chelators; phosphate and Tris can interfere at high concentration. Bradford is sensitive to detergents. Check the assay's own compatibility table rather than assuming.</li>
+    </ul>
+    <p>The measurement side of this is covered in <a href="/knowledge/peptide-concentration-measurement/">measuring peptide concentration</a>, and the MS-specific constraints in <a href="/knowledge/peptide-mass-spec-identity/">mass spectrometry identity</a>.</p>
+
+    <h2>Ionic strength: two opposing effects</h2>
+    <p>Salt screens electrostatic interactions. That cuts both ways:</p>
+    <ul>
+      <li><strong>It reduces adsorption</strong> to glass and plastic by shielding the charges that bind the peptide to a surface. A little salt often improves recovery of a basic peptide from a tube.</li>
+      <li><strong>It increases hydrophobic interaction</strong> by reducing charge repulsion between molecules — the salting-out effect. At high ionic strength, a hydrophobic peptide aggregates.</li>
+    </ul>
+    <p>There is no universal optimum. For a first trial, a modest buffer concentration (10–50 mM) with no added salt is a reasonable start; add salt only if adsorption is demonstrated, and reduce it if aggregation appears. For ion-exchange work the rules are different again, because conductivity is the control variable rather than an afterthought.</p>
+
+    <h2>Co-solvents extend the range, with limits</h2>
+    <p>Acetonitrile, methanol, ethanol, DMSO and small amounts of acetic acid are common additions for peptides that will not dissolve in buffer alone. Practical constraints:</p>
+    <ul>
+      <li><strong>Keep the organic fraction as low as the experiment allows.</strong> Cell-based work usually tolerates only a few percent; analytical work may tolerate more.</li>
+      <li><strong>Match the sample solvent to the mobile phase</strong> in HPLC. A strong injection solvent distorts early peaks and can precipitate the peptide at the column inlet.</li>
+      <li><strong>DMSO is not inert.</strong> It is hygroscopic, can carry peroxides, and can alter oxidation chemistry. Use a fresh, sealed grade and record the lot.</li>
+      <li><strong>Ethers are peroxide sources.</strong> THF and dioxane should be tested or stabilised; peroxides oxidise Met and Trp residues.</li>
+      <li><strong>Add the organic phase to the aqueous phase, not the reverse</strong>, and add it slowly. The local concentration spike on the other order can precipitate material that would otherwise dissolve.</li>
+    </ul>
+
+    <h2>Metal ions and chelators</h2>
+    <p>Trace metals catalyse oxidation of methionine, cysteine and tryptophan, and histidine-rich peptides chelate them. Two consequences:</p>
+    <ul>
+      <li><strong>Avoid metal contact</strong> where possible: stainless steel needles and frits, and impure salts, are the usual sources.</li>
+      <li><strong>EDTA is a tool with a cost.</strong> It suppresses metal-catalysed oxidation but also strips metals from enzymes in a biological assay and interferes with some colorimetric chemistries. Use it deliberately, at the lowest effective concentration, and record it.</li>
+    </ul>
+
+    <h2>A decision order that avoids most mistakes</h2>
+    <ol>
+      <li><strong>Estimate the pI</strong> from the sequence, and note the residues that dominate the charge.</li>
+      <li><strong>Set the target pH</strong> at least one unit away from the pI, while staying in a range where the peptide is chemically stable — often mildly acidic to neutral for hydrolysis- and deamidation-prone sequences.</li>
+      <li><strong>Pick a buffer with a pKa within one unit</strong> of that pH, and check its temperature coefficient if the working temperature is far from ambient.</li>
+      <li><strong>Check detection compatibility</strong> — UV, MS, colorimetric — before committing.</li>
+      <li><strong>Start simple:</strong> 10–50 mM buffer, no salt, no co-solvent. Add one component at a time, and record what changed.</li>
+      <li><strong>Measure solubility at the working concentration</strong>, not at a convenient one. A peptide that dissolves at 1 mg/mL may not at 10.</li>
+      <li><strong>Record the final recipe</strong> — buffer species, concentration, pH and the temperature at which it was measured, plus any co-solvent. A recipe without a pH temperature is incomplete.</li>
+    </ol>
+    <p>When the peptide still will not dissolve, the diagnostic order in <a href="/knowledge/peptide-solubility-troubleshooting/">solubility troubleshooting</a> is the next step; when it dissolves but the assay drifts, the causes are more often adsorption or aggregation than the buffer itself.</p>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li><strong>Do not adjust pH with strong acid or base into an unbuffered solution</strong> and call it buffered. The pH will move as soon as the solution meets air or a surface.</li>
+      <li><strong>Do not use a buffer because it is the one in the cupboard.</strong> Compatibility with the readout is part of the method.</li>
+      <li><strong>Do not filter a precipitate and assume the remaining solution is at the nominal concentration.</strong> It is at the solubility limit, which may be far lower. Measure it.</li>
+      <li><strong>Do not change buffer and pH at the same time</strong> when troubleshooting. One variable at a time is the only way to learn which one mattered.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This article describes buffer chemistry for in-vitro work; it makes no claim about any specific compound, gives no dosing guidance, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and stock preparation</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the powder will not dissolve</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring concentration</a> — A280, A214 and colorimetric interferences</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Aggregation and self-assembly</a> — when pH and ionic strength tip the balance</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity</a> — volatile versus non-volatile buffers</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — what happens to a solution over time</li>
+      <li><a href="/glossary/">Glossary</a> — pI, kosmotropic and related terms</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-buffer-selection/" />
+</BaseLayout>

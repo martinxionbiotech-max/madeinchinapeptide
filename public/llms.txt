@@ -34,6 +34,7 @@
 - /knowledge/peptide-aggregate-analytics/ — SEC, DLS, AUC and FTIR: what each aggregate method measures
 - /knowledge/custom-peptide-synthesis-order/ — custom sequence orders: fields, difficulty drivers, scale basis
 - /knowledge/analytical-method-validation/ — validation parameters, peptide-specific pitfalls and the questions to ask of a certificate
+- /knowledge/peptide-buffer-selection/ — pH versus pI, buffer pKa, detection compatibility and co-solvent constraints
 - /knowledge/peptide-inventory-and-retest-dates/ — safety stock, retest dates, quarantine and FIFO
 - /knowledge/peptide-synthesis-impurities/ — synthesis-derived impurities, mass-shifted vs mass-silent, impurity statement fields
 - /knowledge/peptides-in-cell-culture-assays/ — adsorption, serum binding, vehicle and readout interference in in-vitro work

@@ -40,4 +40,5 @@ export const articles: ArticleMeta[] = [
   { slug:'custom-peptide-synthesis-order', title:'Ordering a custom peptide: what to specify', desc:'The field list behind a comparable quote, the sequence features that drive difficulty, and the scale ambiguity that starts experiments wrong.', cluster:'Sourcing' },
   { slug:'peptide-inventory-and-retest-dates', title:'Peptide inventory planning and retest dates', desc:'Lead-time variance, safety stock arithmetic, retest versus expiry, and a quarantine routine that survives a busy lab.', cluster:'Sourcing' },
   { slug:'analytical-method-validation', title:'Analytical method validation for peptides', desc:'Specificity, linearity, accuracy, precision and robustness — what each parameter proves for a peptide method, and where the standard playbook falls short.', cluster:'Quality & testing' },
+  { slug:'peptide-buffer-selection', title:'Choosing a buffer for peptide solutions', desc:'pH versus pI, buffer pKa, UV and MS compatibility, ionic strength and co-solvent — a decision order for solvents that do not fight the peptide.', cluster:'Handling' },
 ];
