@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide lab safety and spill response';
+const description = 'Handling peptide powder safely: dust and static, sensitisation, glove choice, spill cleanup, sharps and chemical waste segregation.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-lab-safety/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Lab safety'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Peptides are not usually acutely toxic, which is exactly why handling precautions get skipped. The realistic risks are ordinary laboratory risks: fine powder becoming airborne during weighing, static dispersing it across the bench, repeated low-level exposure sensitising a person, needles from reconstitution, and waste poured down a sink because “it is just a peptide”. None of these requires a specialist facility to control; all of them require a routine.</p>
+
+    <h2>Before the first vial is opened</h2>
+    <ul>
+      <li><strong>Read the safety data sheet</strong> for the specific product. Peptides differ; a salt form, a residual solvent or a preservative changes the hazard profile.</li>
+      <li><strong>Know the scale.</strong> A few milligrams in a vial is a different handling problem from a gram of powder in a bag.</li>
+      <li><strong>Check the local rules</strong> for chemical waste, sharps and fume-hood use. They vary by institution and jurisdiction, and they govern what you may do, not this article.</li>
+      <li><strong>Have a spill kit within reach</strong> — absorbent pads, a sealable bag, a damp cloth, gloves and a waste container.</li>
+    </ul>
+
+    <h2>Weighing powder without making an aerosol</h2>
+    <p>The main exposure route for a solid peptide is inhalation of fine particles, followed by skin contact. Static makes it worse: a charged powder can jump, cling to the spatula, or disperse when the vial is opened.</p>
+    <ol>
+      <li>Weigh in a balance enclosure or a fume hood if the material is a fine powder or the quantity is more than a few milligrams.</li>
+      <li>Let the vial equilibrate to room temperature before opening, and open it slowly to avoid a pressure puff.</li>
+      <li>Use a spatula and a weighing boat appropriate to the amount; do not tap or flick the vial to move powder.</li>
+      <li>Avoid compressed air, dry sweeping and vigorous pipetting of powder. These are the fastest ways to put material into the air.</li>
+      <li>Wear a lab coat, nitrile gloves and eye protection. For fine powders, a particulate mask may be indicated by the SDS or the risk assessment.</li>
+      <li>Clean the balance and the bench after weighing, using a damp wipe rather than a dry cloth.</li>
+    </ol>
+
+    <h2>Gloves, skin and sensitisation</h2>
+    <p>Nitrile gloves are the usual default, but no glove is a guarantee. Check compatibility with the solvents in use — DMSO and acetonitrile permeate some gloves quickly — and change gloves after handling powder or solvent, not at the end of the day.</p>
+    <p>Repeated exposure to a foreign peptide can sensitise a person. The presentation is not dramatic: itching, a rash, rhinitis or irritation that appears after handling and resolves away from the bench. It is worth reporting, because continued exposure can make the response worse. A history of allergy or asthma is a reason for more careful containment, not a reason to exclude someone from the work.</p>
+
+    <h2>Spills</h2>
+    <table>
+      <thead><tr><th>Spill</th><th>First action</th><th>Cleanup</th></tr></thead>
+      <tbody>
+        <tr><td>Dry powder on the bench</td><td>Stop work; avoid drafts and compressed air</td><td>Dampen paper towels and wipe from the outside in; place in a sealed bag as chemical waste; wipe again with solvent if the SDS requires</td></tr>
+        <tr><td>Powder on skin</td><td>Brush off gently without spreading; do not rub</td><td>Wash with soap and water; check for irritation; report if it persists</td></tr>
+        <tr><td>Solution on the bench</td><td>Contain the spread with absorbent pads</td><td>Absorb, clean the area with the appropriate solvent, and dispose as chemical waste</td></tr>
+        <tr><td>Large or unknown spill</td><td>Evacuate the immediate area and alert others</td><td>Follow the institutional spill procedure; do not attempt cleanup without the right equipment</td></tr>
+      </tbody>
+    </table>
+    <p>Do not use a dry broom on a powder spill, and do not use a household vacuum unless it is rated for the material — both aerosolise the material and spread the contamination. If the spill involves a volatile solvent, ventilate and remove ignition sources before cleaning.</p>
+
+    <h2>Eyes and skin contact</h2>
+    <p>For eye contact, flush with water for at least 15 minutes, hold the eyelid open, remove contact lenses if present and easy to do, and seek medical attention. For skin contact, remove contaminated clothing and wash thoroughly. Bring the SDS to the medical assessment; “a peptide” is not enough information for a clinician.</p>
+
+    <h2>Sharps and reconstitution</h2>
+    <p>Reconstitution is the step that produces sharps. Needles, syringes and broken glass belong in a sharps container, never in a waste bag, and never recapped by hand. If a needle is used to vent a vial, use a filter needle or a venting device where the procedure allows, and dispose of it immediately after use.</p>
+
+    <h2>Chemical waste</h2>
+    <p>“Research use only” describes the intended use of the product, not a disposal route. Peptide waste is chemical waste unless it is also biologically contaminated, in which case the institutional biohazard procedure applies first.</p>
+    <ul>
+      <li><strong>Segregate by stream:</strong> aqueous, organic, halogenated, solid chemical and sharps. Do not mix streams to save a container.</li>
+      <li><strong>Do not drain-dispose</strong> solutions, even dilute ones, unless the local rules explicitly permit it for that substance and concentration.</li>
+      <li><strong>Label containers</strong> with contents, estimated concentration, date and initials. An unlabelled container is a problem for whoever has to dispose of it.</li>
+      <li><strong>Do not autoclave chemical waste</strong> as a substitute for chemical disposal; heat can volatilise or react with the material.</li>
+      <li><strong>Keep unused powder separate</strong> from used solution; the disposal route and the hazard may differ.</li>
+    </ul>
+
+    <h2>Storage and access</h2>
+    <ul>
+      <li>Store according to the label, in a labelled container, segregated from food, drink and animal feed.</li>
+      <li>Keep the SDS accessible — not only on a shared drive that nobody can open during an incident.</li>
+      <li>Restrict access to people who have been trained on the material and the spill procedure.</li>
+      <li>Record incidents, including near misses, so that a repeated pattern becomes visible.</li>
+    </ul>
+
+    <h2>What this article is not</h2>
+    <p>It is not a substitute for the SDS, the institutional risk assessment or local regulation, and it does not classify any specific peptide as hazardous or non-hazardous. Those documents are product- and jurisdiction-specific. The purpose here is the routine that prevents the common incidents: aerosolised powder, a dry sweep, a needle recapped by hand, and a bottle poured down the sink because the label said “research”.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes general laboratory practice; it is not medical, safety or regulatory advice, and it does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-weighing-practice/">Weighing small peptide quantities</a> — static, balance choice and transfer loss</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — the technique that produces sharps</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and access</li>
+      <li><a href="/knowledge/peptide-solution-filtration/">Filtering solutions</a> — syringe filters and pressure safety</li>
+      <li><a href="/knowledge/peptide-dmso-stocks/">DMSO stock solutions</a> — solvent compatibility with gloves and plastics</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-lab-safety/" />
+</BaseLayout>

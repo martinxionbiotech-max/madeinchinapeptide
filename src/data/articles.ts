@@ -61,4 +61,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-customs-hold', title:'Customs holds on peptide shipments', desc:'Why customs detains peptide shipments, what to send in the first 48 hours, and how to choose between release, return and reship.', cluster:'Compliance & shipping' },
   { slug:'peptide-extractables-leachables', title:'Packaging extractables and leachables', desc:'What container and closure materials release into a peptide, how extractables differ from leachables, and what a supplier can document.', cluster:'Quality & testing' },
   { slug:'peptide-cargo-insurance', title:'Cargo insurance for peptide shipments', desc:'Who insures under each Incoterm, what cargo clauses cover, why temperature damage is usually excluded, and how a claim is documented.', cluster:'Compliance & shipping' },
+  { slug:'peptide-lab-safety', title:'Peptide lab safety and spill response', desc:'Handling peptide powder safely: dust and static, sensitisation, glove choice, spill cleanup, sharps and chemical waste segregation.', cluster:'Handling' },
 ];
