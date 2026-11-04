@@ -14,6 +14,7 @@
 - /knowledge/ — sourcing and quality guides
 - /knowledge/glp-1-research-peptides-compared/ — semaglutide vs tirzepatide vs retatrutide, analytical comparison
 - /knowledge/peptide-counter-ion-forms/ — acetate vs TFA salt forms and peptide content
+- /knowledge/peptide-endotoxin-bioburden/ — endotoxin vs bioburden, LAL methods, what to request
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /compliance/research-use-only/ — permitted and prohibited uses

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Endotoxin and bioburden in research peptides';
+const description = 'What endotoxin and bioburden testing actually measure, why a sterile filter does not remove pyrogens, and what to ask for when your assay is cell-based.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-endotoxin-bioburden/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Endotoxin & bioburden'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Purity by HPLC says nothing about what else is in the vial. For cell-based work, two numbers that never appear on most research-grade certificates matter more than the third decimal of purity: endotoxin and bioburden.</p>
+
+    <h2>Two different questions</h2>
+    <p><strong>Bioburden</strong> is a count: how many viable microorganisms are present, usually expressed as colony-forming units per gram or per millilitre. <strong>Endotoxin</strong> is a chemical measurement: lipopolysaccharide from the outer membrane of gram-negative bacteria, quantified against a reference standard in endotoxin units. A vial can be sterile and still be pyrogenic, because autoclaving and sterile filtration kill bacteria without destroying the lipopolysaccharide they leave behind.</p>
+    <p>That distinction is the whole reason both tests exist. Sterility is a pass/fail statement about growth; bioburden is a number about how much growth potential was there; endotoxin is a number about the residue of organisms that are already dead.</p>
+
+    <h2>Why a cell-based assay cares</h2>
+    <p>Endotoxin binds the TLR4 receptor complex and triggers NF-κB signalling in a wide range of mammalian cells. At concentrations far below anything visible, it can produce cytokine release, morphological change or proliferation that has nothing to do with the peptide being studied. If your readout moves and the peptide is the only variable you changed, endotoxin is one of the first alternative explanations to eliminate — particularly with material from a supplier who never tested for it.</p>
+    <p>This is not a claim that any particular product is contaminated. It is a statement about experimental design: a variable you did not measure is a variable you cannot rule out.</p>
+
+    <h2>How endotoxin is measured</h2>
+    <table>
+      <thead><tr><th>Method</th><th>Principle</th><th>Practical note</th></tr></thead>
+      <tbody>
+        <tr><td>Gel-clot LAL</td><td>Limulus amoebocyte lysate coagulates in the presence of endotoxin</td><td>Limit test; result is pass/fail against a labelled sensitivity</td></tr>
+        <tr><td>Turbidimetric LAL</td><td>Increase in turbidity over time is proportional to endotoxin</td><td>Quantitative; needs a standard curve on the day</td></tr>
+        <tr><td>Chromogenic LAL</td><td>Colour development from an activated enzyme cascade</td><td>Quantitative; sensitive to colour and turbidity in the sample</td></tr>
+        <tr><td>Recombinant factor C</td><td>Recombinant enzyme cascade, no animal-derived lysate</td><td>Increasingly used; check the certificate names the method</td></tr>
+      </tbody>
+    </table>
+    <p>All of these are affected by the sample itself. Peptides can inhibit or enhance the cascade, which is why a competent lab runs an inhibition/enhancement control with the actual matrix rather than spiking a blank. A certificate that reports an endotoxin value without stating spike recovery has not shown that the number is valid for that material.</p>
+
+    <h2>Where contamination comes from</h2>
+    <ul>
+      <li><strong>Water.</strong> Purified water systems are the classic source; endotoxin is a biofilm problem, not a filter problem.</li>
+      <li><strong>Buffers and salts.</strong> Raw materials carry their own bioburden, and some are difficult to depyrogenate.</li>
+      <li><strong>Resin and equipment.</strong> Solid-phase synthesis resin, reaction vessels and transfer lines are reused; cleaning validation is what keeps them from accumulating residue.</li>
+      <li><strong>Handling.</strong> Every opening of a vial in a non-controlled environment adds organisms and particles.</li>
+      <li><strong>Lyophilisation.</strong> The freeze-drier is a shared vacuum system; a leak or a poor cycle can carry contamination across batches.</li>
+    </ul>
+
+    <h2>What filtration does and does not do</h2>
+    <p>A 0.22 µm filter removes bacteria, and is the standard way to sterilise a solution. It does not remove endotoxin: lipopolysaccharide aggregates are far smaller than the pore size and pass straight through. Removing endotoxin needs a different mechanism — ultrafiltration with a nominal cutoff in the low molecular weight range, affinity media, or destruction by heat. Dry heat at 250 °C for a validated hold time is the standard depyrogenation route for glassware; it is obviously not applicable to a peptide.</p>
+    <p>The practical consequence: if a solution becomes contaminated before filtration, filtering it produces a sterile solution that is still pyrogenic. Sterility and pyrogen freedom are separate controls, and one does not substitute for the other.</p>
+
+    <h2>What to ask a supplier</h2>
+    <ol>
+      <li><strong>Is endotoxin tested at all?</strong> On research-grade material the honest answer is often no. That is useful information, not a red flag on its own.</li>
+      <li><strong>Which method, and what is the limit?</strong> “LAL” is not a method; gel-clot, turbidimetric, chromogenic and rFC give different information.</li>
+      <li><strong>Was an inhibition/enhancement control run?</strong> Ask for the recovery figure with the result.</li>
+      <li><strong>Is bioburden tested, and by what method?</strong> Membrane filtration and plate count answer different questions, and the sampling plan matters as much as the method.</li>
+      <li><strong>Is the limit set by your specification or inherited from a template?</strong> Limits are use-dependent. A limit that appears on every product from a supplier, at the same value, was probably copied rather than derived.</li>
+      <li><strong>Can you supply the raw data?</strong> A number in a table is a claim; a worksheet with standards, controls and calculation is evidence.</li>
+    </ol>
+
+    <h2>Setting your own limit</h2>
+    <p>There is no universal acceptable endotoxin level for research peptides, and any page that quotes one number for all products is simplifying past the point of usefulness. The limit follows from what you are doing: what volume of stock enters the well, how sensitive your cells are to LPS, and what your negative control can tolerate. Derive it from your own assay, write it into the specification annex, and require the certificate to report against that limit. If you have no basis for a limit yet, ask for a measured value and treat it as characterisation rather than release testing.</p>
+
+    <h2>Documentation checklist</h2>
+    <ul>
+      <li>Method named, with the standard or kit identified.</li>
+      <li>Result with units (EU/mg or EU/mL) and the limit it is compared against.</li>
+      <li>Spike recovery for the actual sample matrix.</li>
+      <li>Bioburden count with method, sampling mass and incubation conditions.</li>
+      <li>Batch number linking the result to the material you received — see <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> for the failure modes.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical practice and documentation; it makes no claim about any specific product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer and content assay</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">How to verify peptide purity</a> — what each test proves</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — recycled certificates and missing controls</li>
+      <li><a href="/quality/">Quality framework</a> — how a batch is released</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-endotoxin-bioburden/" />
+</BaseLayout>
