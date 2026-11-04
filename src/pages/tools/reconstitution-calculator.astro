@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const title = 'Peptide reconstitution calculator: mg/mL, molarity and dilution';
+const description = 'Free laboratory calculator for lyophilized peptides: convert vial mass and diluent volume into mg/mL, µg/µL and µM, with purity correction and a C1V1 dilution step.';
+const faqs = [
+  {
+    q: 'How do I calculate peptide concentration in mg/mL?',
+    a: 'Divide the mass of peptide in the vial, in milligrams, by the volume of solvent added, in millilitres. A 5 mg vial dissolved in 2 mL gives 2.5 mg/mL. If the certificate states a purity or peptide content below 100%, multiply the fill mass by that fraction first.',
+  },
+  {
+    q: 'Is mg/mL the same as µg/µL?',
+    a: 'Yes. 1 mg/mL equals 1 µg/µL, because 1 mg is 1000 µg and 1 mL is 1000 µL. The two units cancel to the same ratio, which makes them a useful cross-check on a calculation.',
+  },
+  {
+    q: 'How do I convert mg/mL to molarity?',
+    a: 'Divide the concentration in g/L by the molecular weight in g/mol. Because 1 mg/mL equals 1 g/L, a 4.9 mg/mL solution of a peptide with MW 1419.53 g/mol is 4.9 ÷ 1419.53 = 0.00345 mol/L, or 3.45 mM (3452 µM). Use the salt-form molecular weight if the certificate reports one.',
+  },
+  {
+    q: 'Why is the concentration lower than mass divided by volume?',
+    a: 'Two reasons. The vial fill is powder, not pure peptide: counter-ions, residual water and synthesis impurities make up part of the mass, which is what purity and peptide-content values describe. Second, the dry powder occupies volume, so adding 2 mL of solvent to a cake gives slightly less than 2 mL of solution. The first effect is usually far larger.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/tools/reconstitution-calculator/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'Reconstitution calculator'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Laboratory arithmetic for preparing a stock solution from a lyophilized vial: concentration, molarity, aliquot count and a single dilution step. It calculates; it does not recommend a dose or a protocol.</p>
+
+    <div class="calc" id="calc-concentration">
+      <h2>1. Vial to stock solution</h2>
+      <div class="calc-grid">
+        <label for="vial-mass">Vial fill (mg)</label>
+        <input id="vial-mass" type="number" inputmode="decimal" min="0" step="any" value="5" />
+
+        <label for="purity">Purity or peptide content (%)</label>
+        <input id="purity" type="number" inputmode="decimal" min="1" max="100" step="any" value="100" />
+        <p class="calc-hint">Use the assayed value from your COA. Leave at 100 to ignore purity.</p>
+
+        <label for="diluent">Diluent added (mL)</label>
+        <input id="diluent" type="number" inputmode="decimal" min="0" step="any" value="2" />
+
+        <label for="mw">Molecular weight (g/mol, optional)</label>
+        <input id="mw" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 1419.53" />
+        <p class="calc-hint">Needed only for molarity. Use the salt-form value if the COA gives one.</p>
+
+        <label for="aliquot">Aliquot volume (mL, optional)</label>
+        <input id="aliquot" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 0.5" />
+      </div>
+
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Peptide mass in vial:</strong> <span id="out-mass">—</span></p>
+        <p><strong>Concentration:</strong> <span id="out-conc">—</span></p>
+        <p><strong>Molarity:</strong> <span id="out-molar">—</span></p>
+        <p><strong>Aliquots:</strong> <span id="out-aliquot">—</span></p>
+        <p class="calc-hint" id="out-note">Enter a fill mass and a diluent volume.</p>
+      </div>
+    </div>
+
+    <div class="calc" id="calc-dilution">
+      <h2>2. Dilute the stock</h2>
+      <div class="calc-grid">
+        <label for="stock-c">Stock concentration (mg/mL)</label>
+        <input id="stock-c" type="number" inputmode="decimal" min="0" step="any" value="2.5" />
+
+        <label for="target-c">Target concentration (mg/mL)</label>
+        <input id="target-c" type="number" inputmode="decimal" min="0" step="any" value="0.5" />
+
+        <label for="final-v">Final volume (mL)</label>
+        <input id="final-v" type="number" inputmode="decimal" min="0" step="any" value="1" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Stock to take:</strong> <span id="out-stock">—</span></p>
+        <p><strong>Diluent to add:</strong> <span id="out-diluent">—</span></p>
+        <p class="calc-hint">C1V1 = C2V2. Add the stock to part of the diluent, then make up to the final volume.</p>
+      </div>
+    </div>
+
+    <h2>Reference table: nominal mg/mL by fill and diluent</h2>
+    <p>The table below ignores purity and powder displacement, so it is a starting point rather than a certificate. For a real batch, use the assayed peptide content in the calculator above.</p>
+    <table>
+      <thead><tr><th>Vial fill</th><th>1 mL</th><th>2 mL</th><th>3 mL</th><th>5 mL</th></tr></thead>
+      <tbody>
+        <tr><td>2 mg</td><td>2.00</td><td>1.00</td><td>0.67</td><td>0.40</td></tr>
+        <tr><td>5 mg</td><td>5.00</td><td>2.50</td><td>1.67</td><td>1.00</td></tr>
+        <tr><td>10 mg</td><td>10.0</td><td>5.00</td><td>3.33</td><td>2.00</td></tr>
+        <tr><td>20 mg</td><td>20.0</td><td>10.0</td><td>6.67</td><td>4.00</td></tr>
+        <tr><td>30 mg</td><td>30.0</td><td>15.0</td><td>10.0</td><td>6.00</td></tr>
+        <tr><td>60 mg</td><td>60.0</td><td>30.0</td><td>20.0</td><td>12.0</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Worked example</h2>
+    <p>A 10 mg vial with 98% HPLC purity, dissolved in 2.0 mL of water, contains 9.8 mg of peptide and gives 4.9 mg/mL — the same as 4.9 µg/µL. If the certificate gives MW 1419.53 g/mol for the salt, the molarity is 4.9 ÷ 1419.53 = 0.00345 mol/L, or 3.45 mM (3452 µM). To make 1.0 mL of a 0.5 mg/mL working solution from that stock, take 0.5 ÷ 4.9 × 1.0 = 0.102 mL (102 µL) of stock and bring it to 1.0 mL with diluent.</p>
+
+    <h2>Where the arithmetic stops being accurate</h2>
+    <ul>
+      <li><strong>Fill mass is not peptide mass.</strong> Counter-ions, water and related substances are part of the weighed powder. A 10 mg fill of a TFA salt can contain under 8.5 mg of peptide; see <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a>.</li>
+      <li><strong>Purity is method-dependent.</strong> HPLC area percentage at 214 nm is not the same as peptide content by nitrogen determination or amino-acid analysis. Use the number that matches the question you are asking, and say which one you used in your notes.</li>
+      <li><strong>Powder displaces volume.</strong> Adding 2.00 mL to a lyophilized cake gives slightly less than 2.00 mL of solution. For work where the concentration matters, dissolve and then make up to volume in a volumetric flask rather than trusting the nominal volume.</li>
+      <li><strong>Losses on transfer.</strong> Filter sterilisation, vial walls and pipette dead volume each remove material. A 0.22 µm filter can retain a visible fraction of a hydrophobic peptide; check recovery if the assay is quantitative.</li>
+      <li><strong>Temperature.</strong> Solution volume changes with temperature, and cold solutions are denser. Equilibrate to the temperature at which the method was validated before you trust the last digit.</li>
+    </ul>
+
+    <h2>Recording the preparation</h2>
+    <p>Write down the lot number, fill mass, assayed purity with its method, diluent and its grade, actual volume added, final concentration, date, and operator. If two people repeat the calculation and get different numbers, the input was ambiguous — usually because “10 mg” was read as peptide mass when it was fill mass. That single ambiguity accounts for most concentration errors we see in incoming QC queries.</p>
+
+    <div class="ruo">For laboratory research use only. This calculator performs arithmetic on values you supply; it does not provide dosing, administration or clinical guidance, and its output is not a certificate of analysis.</div>
+
+    <h2>Frequently asked</h2>
+    {faqs.map((f) => (
+      <details>
+        <summary><strong>{f.q}</strong></summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and technique</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — why fill mass overstates peptide mass</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — what happens to a solution over time</li>
+      <li><a href="/quality/coa/">How to read a COA</a> — where the purity and content numbers come from</li>
+      <li><a href="/products/">Research peptide catalogue</a> — vial sizes and documentation</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <script is:inline>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const val = (id) => {
+        const n = parseFloat($(id).value);
+        return Number.isFinite(n) && n > 0 ? n : null;
+      };
+      const trim = (n, d) => {
+        if (!Number.isFinite(n)) return '—';
+        const s = n.toFixed(d);
+        return d > 0 ? s.replace(/\.?0+$/, '') || '0' : s;
+      };
+
+      function concentration() {
+        const mass = val('vial-mass');
+        const purity = Math.min(100, Math.max(1, val('purity') || 100));
+        const vol = val('diluent');
+        const mw = val('mw');
+        const aliquot = val('aliquot');
+
+        if (!mass || !vol) {
+          $('out-mass').textContent = '—';
+          $('out-conc').textContent = '—';
+          $('out-molar').textContent = '—';
+          $('out-aliquot').textContent = '—';
+          $('out-note').textContent = 'Enter a fill mass and a diluent volume.';
+          $('stock-c').value = '';
+          return;
+        }
+
+        const peptide = mass * (purity / 100);
+        const conc = peptide / vol;
+
+        $('out-mass').textContent = trim(peptide, 3) + ' mg';
+        $('out-conc').textContent = trim(conc, 4) + ' mg/mL (' + trim(conc, 4) + ' µg/µL)';
+        $('out-molar').textContent = mw
+          ? trim((conc / mw) * 1e6, 0) + ' µM (' + trim(conc / mw, 6) + ' mol/L)'
+          : 'add a molecular weight to calculate';
+        $('out-aliquot').textContent = aliquot
+          ? Math.floor(vol / aliquot) + ' × ' + trim(aliquot, 3) + ' mL from ' + trim(vol, 3) + ' mL'
+          : 'add an aliquot volume to count';
+        $('out-note').textContent =
+          'Nominal arithmetic on the values entered. Powder displacement and transfer losses are not modelled.';
+        $('stock-c').value = conc.toFixed(4);
+        dilution();
+      }
+
+      function dilution() {
+        const stock = val('stock-c');
+        const target = val('target-c');
+        const finalV = val('final-v');
+
+        if (!stock || !target || !finalV) {
+          $('out-stock').textContent = '—';
+          $('out-diluent').textContent = '—';
+          return;
+        }
+
+        const v1 = (target * finalV) / stock;
+        $('out-stock').textContent = trim(v1 * 1000, 1) + ' µL';
+        $('out-diluent').textContent = trim(finalV - v1, 3) + ' mL';
+        $('out-stock').style.color = target > stock ? '#b3261e' : '';
+        $('out-diluent').style.color = target > stock ? '#b3261e' : '';
+        if (target > stock) {
+          $('out-diluent').textContent = 'target is more concentrated than the stock';
+        }
+      }
+
+      ['vial-mass', 'purity', 'diluent', 'mw', 'aliquot'].forEach((id) =>
+        $(id).addEventListener('input', concentration)
+      );
+      ['stock-c', 'target-c', 'final-v'].forEach((id) =>
+        $(id).addEventListener('input', () => {
+          // keep the stock field under manual control once the user edits it
+          dilution();
+        })
+      );
+
+      concentration();
+    })();
+  </script>
+</BaseLayout>

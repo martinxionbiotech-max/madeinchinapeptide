@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const title = 'Laboratory tools for peptide handling';
+const description = 'Calculators and reference tables for laboratory work with lyophilized peptides: concentration, molarity, dilution and aliquot planning.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/tools/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Tools'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Small, transparent calculators for the arithmetic that surrounds peptide handling. Each one shows its formula, works only on the numbers you enter, and stores nothing.</p>
+
+    <div class="grid grid-2" style="margin-top:26px;">
+      <div class="card">
+        <h3><a href="/tools/reconstitution-calculator/">Reconstitution calculator</a></h3>
+        <p>Vial fill and diluent volume to mg/mL, µg/µL and µM — with purity correction, aliquot count and a C1V1 dilution step.</p>
+      </div>
+    </div>
+
+    <h2>What these tools do, and what they do not</h2>
+    <p>Every calculation here is arithmetic on values you supply: mass, volume, purity and molecular weight. The tools do not model a protocol, do not suggest how much material to use in an experiment, and do not substitute for a validated laboratory method or a certificate of analysis. Where a result depends on an assumption — that the fill is pure peptide, that added solvent equals final volume — the page states the assumption next to the number.</p>
+
+    <h2>Why the inputs matter more than the calculator</h2>
+    <p>Most concentration errors we see in incoming QC questions are not arithmetic errors. They come from reading a nominal fill as peptide mass, from a purity figure quoted without its method, or from a certificate whose molecular weight refers to the salt while the weighing refers to the fill. A calculator cannot detect any of those; the <a href="/quality/coa/">COA reading guide</a> and the article on <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a> can.</p>
+
+    <h2>Method notes</h2>
+    <ul>
+      <li><strong>Concentration:</strong> mg/mL = peptide mass (mg) ÷ final volume (mL). 1 mg/mL equals 1 µg/µL.</li>
+      <li><strong>Purity correction:</strong> peptide mass = fill mass × assayed purity or peptide content ÷ 100.</li>
+      <li><strong>Molarity:</strong> mol/L = concentration in g/L ÷ molecular weight in g/mol; 1 mg/mL equals 1 g/L.</li>
+      <li><strong>Dilution:</strong> C1V1 = C2V2, solved for the stock volume.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. Nothing on this page is medical, veterinary or dosing guidance.</div>
+
+    <h2>Related reading</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and technique</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — solution stability and freeze–thaw</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — where purity and content values come from</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+</BaseLayout>
