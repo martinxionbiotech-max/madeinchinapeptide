@@ -24,6 +24,9 @@
 - /knowledge/second-peptide-supplier-qualification/ — dual sourcing, parallel qualification lots and change control
 - /knowledge/peptide-qualification-sample/ — sample sizing, blind coding, test panel and comparison before a bulk order
 - /knowledge/peptide-supplier-payment-terms/ — deposits, balance payments, L/C and escrow risk, bank-detail fraud checks
+- /knowledge/peptide-supplier-corporate-due-diligence/ — business registration, export rights, entity matching and capacity arithmetic
+- /knowledge/peptide-reference-standards/ — reference vs working standards, purity assignment and uncertainty
+- /knowledge/peptide-hplc-method-design/ — column chemistry, ion pairing, gradient shape and system suitability
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
 - /knowledge/peptide-ms-ms-sequence-confirmation/ — b/y ion sequencing, coverage maps, and what MS/MS cannot resolve

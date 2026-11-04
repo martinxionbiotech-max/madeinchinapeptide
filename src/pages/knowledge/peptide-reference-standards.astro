@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide reference standards';
+const description = 'How a peptide standard is characterised, how its purity and content are assigned, and what to document before using it to calibrate an assay.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-reference-standards/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Reference standards'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A standard is the anchor of every quantitative result in the laboratory. If its assigned value is wrong, every purity, content and recovery figure calibrated against it inherits that error — quietly, and usually without anyone noticing. Yet many laboratories treat the vial that came with a catalogue peptide as a standard without ever asking what its value is, how it was assigned, and how uncertain that assignment is.</p>
+
+    <h2>Three different objects</h2>
+    <p>The word “standard” covers three things that are not interchangeable:</p>
+    <ul>
+      <li><strong>A reference standard.</strong> A lot characterised by an independent, documented programme, with an assigned value and a stated uncertainty, used to calibrate working standards or to settle disputes.</li>
+      <li><strong>A working standard.</strong> A lot qualified in-house against a reference standard or by an abbreviated characterisation, used for routine system suitability and calibration. It is the vial on the bench.</li>
+      <li><strong>A catalogue lot.</strong> The material you bought. Its certificate describes that lot; it does not make the lot a standard. A COA reports results against a specification, while a standard is assigned a value with an uncertainty.</li>
+    </ul>
+    <p>Confusing the third with the first is the most common error in peptide analytics. A certificate that says “purity 98.4% by HPLC” tells you what one method saw under one set of conditions. It does not tell you the mass fraction of peptide in the vial, and it carries no uncertainty statement.</p>
+
+    <h2>What has to be assigned</h2>
+    <p>A usable peptide standard needs four values, not one:</p>
+    <table>
+      <thead><tr><th>Attribute</th><th>Typical method</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>Intact mass plus fragmentation (MS/MS) or sequence-specific evidence</td><td>Confirms the standard is the molecule you think it is, including terminal groups and modifications</td></tr>
+        <tr><td>Purity</td><td>Orthogonal separation — typically HPLC at two selectivity points, sometimes CE</td><td>Establishes the share of the main species; one method alone cannot see co-eluting impurities</td></tr>
+        <tr><td>Content</td><td>qNMR against an internal standard, or amino-acid analysis with a defined basis</td><td>Converts “pure” into “this many milligrams of peptide per vial”</td></tr>
+        <tr><td>Counter-ion and water</td><td>Ion chromatography, Karl Fischer, residual solvents by GC</td><td>Explains the gap between fill weight and peptide mass, and is required for a mass-balance assignment</td></tr>
+      </tbody>
+    </table>
+    <p>The assigned purity should state its basis: as-is, anhydrous, or peptide base. Those three numbers can differ by several percentage points for the same material. A standard whose certificate does not say which basis was used cannot be used to calibrate anything without a guess.</p>
+
+    <h2>Two ways to assign purity, and what each assumes</h2>
+    <p><strong>Mass balance</strong> starts from 100% and subtracts everything that is not the target: water, counter-ion, residual solvents, and the sum of specified and unspecified impurities. It is transparent and can be built from routine tests, but it is only as good as the subtraction. An impurity that does not elute, does not absorb at the detection wavelength, or is not extracted by the sample preparation is simply not counted — and the assigned purity comes out too high.</p>
+    <p><strong>qNMR</strong> compares an integral of a resolved peptide signal with an integral of a known amount of internal standard. It is structure-specific rather than separation-dependent, so it can see material that HPLC misses. Its assumptions are different: the analyte must be soluble, at least one signal must be resolvable and assignable, and the internal standard must be pure and stable. qNMR also needs a relaxation delay long enough for full recovery between scans, or the integrals are biased.</p>
+    <p>The two approaches disagree for informative reasons. A large gap between a mass-balance value and a qNMR value usually means an unaccounted impurity, a water or counter-ion error, or a qNMR integration problem. That gap is a finding, not a nuisance to be averaged away.</p>
+
+    <h2>Uncertainty is part of the value</h2>
+    <p>An assigned value without an uncertainty is incomplete. A standard labelled “98.0%” and one labelled “98.0% ± 0.8% (k=2)” are different tools: the second tells you how much of a difference between two laboratories is real. The uncertainty budget usually combines the purity method, the content method, water, counter-ion, and homogeneity between aliquots.</p>
+    <p>Do not manufacture precision by writing more digits. If the assignment supports one decimal place, report one. A value of 97.94% implies a level of certainty that a three-method characterisation rarely delivers.</p>
+
+    <h2>A qualification protocol you can defend</h2>
+    <ol>
+      <li><strong>Define the use first.</strong> A standard for identity confirmation, for purity calibration and for content assay have different requirements. Decide which before characterising.</li>
+      <li><strong>Characterise identity</strong> by intact mass and, for anything beyond a short catalogue peptide, fragmentation. Record the observed mass, the expected mass and the mass error in ppm.</li>
+      <li><strong>Run two orthogonal purity methods</strong> with different selectivity — for example a C18 gradient at low pH and a C8 or different-pH run. Report both, not the better one.</li>
+      <li><strong>Assign content</strong> by qNMR or AAA, and state the basis. If using AAA, state which residues were used and whether they are stable to hydrolysis.</li>
+      <li><strong>Measure water, counter-ion and residual solvents</strong> so the mass balance closes, and record the closing error.</li>
+      <li><strong>Assess homogeneity</strong> by testing aliquots from the top, middle and bottom of the batch, or from separate vials if the standard is vialled.</li>
+      <li><strong>Write the certificate</strong> with value, uncertainty, basis, methods, storage condition, date of assignment and re-assay date.</li>
+    </ol>
+    <p>Steps 1 to 7 are also the checklist to request when a supplier offers “a standard” as part of a method-transfer package. If the package contains only a COA and a purity percentage, it contains a catalogue lot, not a standard.</p>
+
+    <h2>Making a working standard</h2>
+    <p>Most laboratories do not need to characterise every vial. The practical route is to qualify one lot properly, then prepare working standards from it:</p>
+    <ul>
+      <li>Weigh aliquots under controlled humidity; peptides are hygroscopic and a vial left open gains mass that becomes false content.</li>
+      <li>Record the balance, the weighing vessel, the date and the operator. A working standard without a weighing record cannot be reconstructed.</li>
+      <li>Store aliquots in tightly closed, labelled vials at the condition established for the material, and minimise freeze–thaw cycles of solutions.</li>
+      <li>Qualify each new working standard against the reference by system suitability and, where content matters, by an independent content assay — not by assuming the same value.</li>
+      <li>Set a re-assay interval based on stability data, and track it. An expired working standard is an unquantified bias in every run that uses it.</li>
+    </ul>
+    <p>Solution standards deserve separate attention. Adsorption to container walls, aggregation and slow degradation all change concentration after preparation, which is why the handling notes in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a> and <a href="/knowledge/peptide-buffer-selection/">buffer selection</a> apply to standards as much as to samples.</p>
+
+    <h2>Where standards are actually used</h2>
+    <p>A standard supports three jobs, and each has a different failure mode:</p>
+    <table>
+      <thead><tr><th>Use</th><th>What it controls</th><th>Typical failure</th></tr></thead>
+      <tbody>
+        <tr><td>System suitability</td><td>Column performance, resolution and repeatability on the day</td><td>Passing suitability on a column that has lost resolution for the actual sample</td></tr>
+        <tr><td>Calibration</td><td>Converts peak area into concentration</td><td>Assuming the standard is 100% pure, so every result is biased high by the impurity fraction</td></tr>
+        <tr><td>Relative response factors</td><td>Corrects impurity areas for differing UV response</td><td>Using a main-component factor for impurities with different chromophores</td></tr>
+      </tbody>
+    </table>
+    <p>For purity work, the standard's role is often misunderstood. Area percentage does not need a standard at all; it needs a well-behaved separation. A standard becomes essential when you report mass fraction, content, or a validated limit — the cases where the number has to be traceable to a known quantity.</p>
+
+    <h2>Documentation that makes a value traceable</h2>
+    <p>Keep, per standard: a unique identifier, the source lot, the characterisation report, the assigned value and uncertainty, the basis, the storage condition, the date of first use, the re-assay date, and the record of every working standard derived from it. The chain should let a reviewer in two years reconstruct how a reported number was produced.</p>
+    <p>This is the same documentary discipline described in <a href="/knowledge/analytical-method-validation/">method validation</a> and in the <a href="/knowledge/peptide-specification-annex/">specification annex</a>. A method can be validated and still produce untraceable results if the standard behind it is undocumented.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical practice; it makes no claim about any specific product, supplier or certification, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — what a purity figure does and does not mean</li>
+      <li><a href="/knowledge/analytical-method-validation/">Analytical method validation</a> — the parameters a method needs before release use</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring peptide concentration</a> — A280, colorimetric assays and their assumptions</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content and cost</a> — fill weight, water and counter-ion corrections</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity checks</a> — mass, adducts and ppm error</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-reference-standards/" />
+</BaseLayout>

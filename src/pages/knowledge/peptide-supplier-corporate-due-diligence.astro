@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Supplier corporate due diligence';
+const description = 'Verifying the company behind a peptide COA: registration records, export rights, entity matching and the capacity claims that do not survive arithmetic.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-corporate-due-diligence/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Corporate due diligence'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A supplier audit asks whether the quality system can make the product. Corporate due diligence asks a different question: who is legally responsible, can they export, and is the entity that signs the contract the same entity that makes the material? Buyers often do the first and skip the second, then discover at the bank or at customs that the company on the certificate is not the company they paid.</p>
+
+    <h2>Three entities that are often confused</h2>
+    <p>In peptide supply chains, at least three organisations can appear in one order:</p>
+    <ul>
+      <li><strong>The contracting entity</strong> — the company named on the purchase order and the invoice, and the one you would pursue in a dispute.</li>
+      <li><strong>The manufacturing entity</strong> — the site that actually runs synthesis, purification and lyophilisation.</li>
+      <li><strong>The trading entity</strong> — an intermediary that buys from the manufacturer and sells to you, sometimes under its own certificate template.</li>
+    </ul>
+    <p>All three can be legitimate. The problem is ambiguity: a quotation from a trading company, a COA on a manufacturer's letterhead, an invoice from a third name and a bank account in a fourth. Each hand-off is a place where responsibility becomes unclear. Write down which entity plays which role before paying anything, and make the contract say it.</p>
+
+    <h2>Read the business licence, not the brochure</h2>
+    <p>The business licence (营业执照) is the primary public record. Useful fields:</p>
+    <table>
+      <thead><tr><th>Field</th><th>What it tells you</th><th>What it does not</th></tr></thead>
+      <tbody>
+        <tr><td>Unified social credit code</td><td>A stable identifier for the legal entity</td><td>Whether the company is any good</td></tr>
+        <tr><td>Registered address</td><td>Where the entity is registered</td><td>Where production happens</td></tr>
+        <tr><td>Business scope</td><td>Whether manufacturing or trading is within the registered activities</td><td>Whether the relevant line is actively operated</td></tr>
+        <tr><td>Registered capital</td><td>A subscribed figure, not proof of paid-in funds</td><td>Solvency or capability</td></tr>
+        <tr><td>Establishment date</td><td>How long the entity has existed</td><td>How long the people behind it have worked in the field</td></tr>
+        <tr><td>Legal representative</td><td>The person with statutory authority</td><td>Who actually runs operations</td></tr>
+      </tbody>
+    </table>
+    <p>Check the scope specifically. A company whose registered activities cover “chemical product sales” but not manufacture may be a trader; that is not disqualifying, but it changes what you are buying and which questions you should ask. A company that claims to manufacture but whose scope has no production activity at all deserves a direct question.</p>
+
+    <h2>Public records worth checking</h2>
+    <p>China's National Enterprise Credit Information Publicity System publishes registration status, administrative penalties, the abnormal operations list and the serious失信 list. A supplier that appears on the abnormal operations list — commonly for failing to file an annual report or for an address that cannot be contacted — is not automatically fraudulent, but the entry should be explained and resolved before a first order.</p>
+    <p>Look for patterns rather than single events: frequent changes of legal representative or address, a cluster of companies at one small address, a registration only a few months old combined with claims of a decade of production, or a scope that changed immediately before the quotation. Each is cheap to check and each is hard to explain innocently.</p>
+
+    <h2>Export rights and customs registration</h2>
+    <p>Manufacturing a product and being allowed to export it are separate permissions. Ask for the customs registration record and the customs code of the entity that will be the exporter of record on the shipment. The name on the export declaration should match the seller you contracted with, or the difference should be explained in writing.</p>
+    <p>This matters at the destination end as well. If the commercial invoice, packing list, certificate of origin and air waybill carry inconsistent company names, the shipment can stall in customs while the broker asks questions that the supplier is slow to answer. The documentary side of shipping is covered in <a href="/knowledge/shipping-peptides-customs-guide/">shipping and customs</a>; the point here is that entity consistency starts with the seller's registration, not with the freight forwarder.</p>
+
+    <h2>Match the money to the entity</h2>
+    <p>The beneficiary name on the bank account must match the contracting entity. A request to pay a different company, a personal account, or an account in Hong Kong “for tax reasons” is a change of counterparty, not a convenience. If there is a legitimate group structure, ask for the relationship in writing and a board-level authorisation for the receiving entity.</p>
+    <p>The same rule applies to certificates and invoices: the letterhead, the stamp, the invoice issuer and the bank beneficiary should form one consistent chain. Any break in that chain is where a dispute will be argued. Payment instruments and the verification of bank-detail changes are set out in <a href="/knowledge/peptide-supplier-payment-terms/">supplier payment terms</a>.</p>
+
+    <h2>Test the capacity claim with arithmetic</h2>
+    <p>“Several tons per month” is a claim that can be sanity-checked without visiting. Ask for the number and volume of reactors, the typical batch size, the number of lyophilisers and their shelf area, and the shift pattern. Then check whether the claimed output is plausible for that equipment and that product mix.</p>
+    <p>A simple check: a batch occupies a reactor for a synthesis cycle and a lyophiliser for a drying cycle. If the stated monthly output requires more drying cycles than the stated equipment can run in a month, either the equipment list or the output figure is wrong. You do not need the supplier's process details to notice that the two numbers cannot both be true.</p>
+    <p>Capacity claims also tend to ignore changeover. A site making several products shares reactors, filtration skids and drying capacity; the output for your product is not the site's total output. Ask what fraction of capacity is currently committed, and to what kind of product.</p>
+
+    <h2>Verify certificates at the issuer</h2>
+    <p>A certificate image is a document, not a verification. Quality-management certificates carry an issuing body, a certificate number and a validity period, and most issuing bodies provide a public lookup. Check the number, the scope, the site address and the validity dates against the document you were sent.</p>
+    <p>Scope matters more than the logo. A certificate covering “sales of chemical products” does not cover manufacturing, and a certificate for one site does not cover another. For analytical results, check whether the laboratory that issued the report is accredited for the specific test, and for what matrix. The difference between an accredited and a non-accredited result is not the paper quality; it is whether anyone independent has checked the laboratory's competence for that method.</p>
+
+    <h2>Trade references and the questions they answer</h2>
+    <p>Ask for two or three references in your region or your segment, and ask them specific questions: did the lot meet the specification, how did the supplier respond to a discrepancy, was the documentation complete on arrival, and would they order again. A reference that will only confirm “they are a good supplier” has told you nothing.</p>
+    <p>Treat references as one input among several. A supplier can choose friendly references; the useful signal is whether they can produce any at all, and whether the reference's business resembles yours.</p>
+
+    <h2>Red flags that justify stopping</h2>
+    <ul>
+      <li>The COA letterhead, invoice issuer and bank beneficiary are three different companies with no documented relationship.</li>
+      <li>The supplier refuses to name the manufacturing site, or names a site that does not appear in any registration record.</li>
+      <li>The business scope covers trading only, but the quotation claims factory-direct manufacturing with no explanation of the manufacturing entity.</li>
+      <li>The company was registered recently, yet claims years of batch history and customer audits.</li>
+      <li>The registered address is a residential unit, a virtual office, or shared by an implausible number of companies.</li>
+      <li>Payment is requested to a personal account or to an entity outside the contract.</li>
+      <li>The supplier cannot provide a customs registration for the exporter of record.</li>
+      <li>Certificates cannot be verified at the issuing body, or the scope does not cover the claimed activity.</li>
+    </ul>
+    <p>None of these is proof of fraud on its own. Together they describe a counterparty whose story does not close, and the cost of resolving that before payment is trivial compared with resolving it after a shipment fails.</p>
+
+    <h2>What due diligence cannot do</h2>
+    <p>Corporate checks establish legal identity, permissions and consistency. They do not establish that the quality system works, that the analytical methods are suitable, or that the material meets your specification. Those are the subjects of the <a href="/knowledge/remote-peptide-supplier-audit/">remote audit</a>, the <a href="/knowledge/peptide-supplier-site-audit-questionnaire/">site-audit questionnaire</a> and incoming testing described in <a href="/knowledge/peptide-sampling-and-batch-release/">sampling and batch release</a>.</p>
+    <p>Use the layers together: corporate checks tell you who you are dealing with, the audit tells you how they work, the sample and incoming tests tell you what they shipped. Skipping the first layer makes the other two harder to interpret, because you do not know whose system you audited or whose material you tested.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes procurement due diligence; it makes no claim about any specific company, product or certification, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">China peptide supplier checklist</a> — the screening sequence before an order</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — documents, video walkthrough and scoring</li>
+      <li><a href="/knowledge/peptide-supplier-site-audit-questionnaire/">40-question site-audit questionnaire</a> — printable evidence checklist</li>
+      <li><a href="/knowledge/peptide-supplier-payment-terms/">Supplier payment terms</a> — deposits, L/C, escrow and bank-detail checks</li>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Shipping and customs</a> — documents and import requirements</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-supplier-corporate-due-diligence/" />
+</BaseLayout>

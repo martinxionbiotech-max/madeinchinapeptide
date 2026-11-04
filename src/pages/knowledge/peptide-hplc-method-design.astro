@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Designing an HPLC method for peptides';
+const description = 'Column chemistry, ion pairing, gradient shape, injection solvent and system suitability — the choices that decide whether a peptide method separates anything.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-hplc-method-design/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'HPLC method design'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Most peptide separations are run on a C18 column with a water–acetonitrile gradient and 0.1% trifluoroacetic acid, and most of them work well enough to report a number. The differences appear when a method has to resolve a deletion sequence from the target, when a method is transferred to another laboratory, or when a result is disputed. Those differences come from a small set of design choices that are worth making deliberately.</p>
+
+    <h2>Start from the question the method must answer</h2>
+    <p>A method built to confirm identity needs a sharp main peak and a mass spectrometer on the other end. A method built to quantify a related impurity needs resolution between that impurity and the main peak, and a demonstrated limit of quantification. A method built to compare lots needs repeatability across months, which is mostly a question of column and mobile-phase consistency.</p>
+    <p>These are not the same method. Writing the purpose down first prevents the common outcome where one gradient is asked to do all three jobs and does none of them defensibly.</p>
+
+    <h2>The column</h2>
+    <p>For peptides of roughly 5 to 50 residues, the standard starting point is a C18 column with 300 Å pores, 3 to 5 µm particles, and dimensions matched to the detector:</p>
+    <ul>
+      <li><strong>Pore size.</strong> Peptides larger than a few residues need pores wide enough to access the bonded phase. A 100 Å column can give sharp peaks for small molecules and poor recovery or distorted peaks for larger peptides.</li>
+      <li><strong>Chemistry.</strong> C18 gives the broadest applicability; C8 and phenyl phases offer different selectivity for hydrophobic or aromatic sequences. Changing chemistry is the cheapest way to gain orthogonality when one method cannot resolve an impurity.</li>
+      <li><strong>End-capping.</strong> Residual silanols interact with basic residues and produce tailing that worsens at higher pH. A well end-capped column, used at low pH, reduces that interaction.</li>
+      <li><strong>Dimensions.</strong> A 4.6 mm column suits UV detection and higher load; a 2.1 mm column suits MS and conserves solvent. Keep the length-to-particle ratio in mind when transferring: it governs the plate count at a given flow.</li>
+      <li><strong>Batch variability.</strong> Columns from different lots are not identical. For long-running comparability work, reserve a batch of columns or record the lot and requalify when it changes.</li>
+    </ul>
+
+    <h2>Mobile phase and ion pairing</h2>
+    <p>Peptides carry ionisable groups, so retention depends on both hydrophobicity and charge. Trifluoroacetic acid at 0.1% (v/v) does two jobs: it lowers the pH enough to protonate acidic groups and suppress silanol ionisation, and the trifluoroacetate anion pairs with basic residues to make them more hydrophobic and better retained. The usual result is sharper peaks and more predictable retention than a plain water–acetonitrile gradient.</p>
+    <table>
+      <thead><tr><th>Additive</th><th>Typical level</th><th>Effect and trade-off</th></tr></thead>
+      <tbody>
+        <tr><td>Trifluoroacetic acid</td><td>0.05–0.1% v/v</td><td>Strong ion pairing, good peak shape, low pH. Suppresses MS signal and is not volatile enough for the cleanest MS background.</td></tr>
+        <tr><td>Formic acid</td><td>0.1% v/v</td><td>MS-friendly, weaker pairing. Basic peptides may tail or elute earlier; resolution of closely related sequences can drop.</td></tr>
+        <tr><td>Ammonium formate or acetate</td><td>5–20 mM, pH 3–6</td><td>Buffered and volatile; useful when pH control matters. Retention shifts with pH, so fix it.</td></tr>
+        <tr><td>Phosphate</td><td>10–50 mM</td><td>Good UV transparency and buffering, but non-volatile and incompatible with MS.</td></tr>
+      </tbody>
+    </table>
+    <p>Do not change the acid casually between development and routine use. A method developed in 0.1% TFA and run in 0.1% formic acid is a different method with different selectivity, and the difference is largest for the basic peptides where resolution matters most.</p>
+
+    <h2>Gradient shape</h2>
+    <p>A linear gradient from 5% to 95% organic over 20 to 30 minutes is a reasonable screen, but it is rarely the final method. Three parameters do most of the work:</p>
+    <ul>
+      <li><strong>Slope.</strong> A shallower gradient across the elution window increases resolution but lengthens the run and broadens peaks. Once the target and its nearest impurity are identified, narrow the gradient to the window that contains them.</li>
+      <li><strong>Organic limits.</strong> Starting too high loses early-eluting hydrophilic impurities; ending too low leaves hydrophobic material on the column to appear in the next injection as carryover or a ghost peak.</li>
+      <li><strong>Re-equilibration.</strong> Allow enough flushing to return the column to starting conditions — commonly five to ten column volumes. Insufficient re-equilibration shifts retention in the first injections of a sequence and produces the classic “first injection is different” pattern.</li>
+    </ul>
+    <p>Dwell volume matters when a method is transferred between instruments. A gradient programmed at the pump arrives at the column later on a system with larger tubing and mixer volume. If the receiving instrument's dwell differs materially, the gradient should be adjusted or the transfer verified against a standard.</p>
+
+    <h2>Injection solvent and load</h2>
+    <p>The sample solvent is part of the method. Dissolving a peptide in pure organic or in a strong solvent causes the front of the injection to elute as a distorted or split peak, because the sample is carried into a mobile phase that is much weaker than its own solvent. Dissolve in the starting mobile phase, or in the weakest solvent that still gives complete solution, and record which was used.</p>
+    <p>Load affects both resolution and peak shape. Overloading shows as fronting, loss of resolution and, eventually, a plateau. Underloading makes trace impurities invisible. Establish a load that keeps the main peak within the linear range of the detector and still shows the impurities you care about — then keep it constant, because area percentage changes with load when the response is not linear.</p>
+
+    <h2>Temperature</h2>
+    <p>Column temperature changes selectivity and backpressure. A 5 °C drift can move a critical pair of peaks past each other. Set a temperature, record it, and control it; ambient temperature is not a method parameter anyone can reproduce across seasons. For peptides, 30 to 40 °C is common, but the right value is the one that gives the best resolution for the pair you need to separate.</p>
+
+    <h2>Detection</h2>
+    <p>The peptide bond absorbs in the far UV, which is why 214 nm is the default for peptides without aromatic residues. Tryptophan and tyrosine allow detection at 280 nm, which is more selective and less prone to mobile-phase background, but far less sensitive for sequences that lack them.</p>
+    <p>Diode-array detection is useful for checking peak purity, but its conclusion is limited: it compares spectra, and two co-eluting compounds with similar spectra look pure. A “peak purity passed” statement is not proof that the peak contains one species, a point developed in <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</p>
+
+    <h2>System suitability before samples</h2>
+    <p>Run suitability injections before the sample sequence and define what passing means in the method, not after seeing the result. A practical set:</p>
+    <table>
+      <thead><tr><th>Check</th><th>What it catches</th></tr></thead>
+      <tbody>
+        <tr><td>Resolution between a defined critical pair</td><td>Column ageing, mobile-phase error, temperature drift</td></tr>
+        <tr><td>Peak tailing factor for the main peak</td><td>Secondary interactions, extra-column effects, column damage</td></tr>
+        <tr><td>Repeatability of five or six injections</td><td>Injection precision, detector stability, equilibration</td></tr>
+        <tr><td>Blank injection and carryover check</td><td>Ghost peaks, contaminated mobile phase, insufficient wash</td></tr>
+        <tr><td>Retention time window for the main peak</td><td>Solvent composition error, pH error, column batch change</td></tr>
+      </tbody>
+    </table>
+    <p>The acceptance values should come from development data on a qualified system, not from a generic table copied into the method. A tailing limit of 2.0 that the method never meets is worse than a limit of 2.5 that it meets every day, because the first teaches analysts to ignore suitability.</p>
+
+    <h2>Carryover and ghost peaks</h2>
+    <p>Hydrophobic peptides stick to columns and to the injector. A wash step at high organic after the gradient, and a needle wash that matches the sample solvent, usually solve carryover. Ghost peaks that appear only in blank gradients point to mobile-phase impurities, contaminated water, or a previous sample eluting late; they are a method problem, not a sample problem, and they will otherwise be integrated as impurities.</p>
+
+    <h2>Transferring the method</h2>
+    <p>When a method moves between laboratories, the parts that must stay fixed are the column chemistry and dimensions, the mobile-phase composition and pH, the gradient in column volumes rather than minutes where possible, and the detection wavelength. The parts that may need adjustment are flow rate (scaled to column diameter), injection volume (scaled to column volume), and the gradient program (corrected for dwell volume). Verify the transfer with the same standard on both systems and compare retention, resolution and tailing — not just the reported purity.</p>
+    <p>Validation of the transferred method is a separate exercise; the parameters and their peptide-specific pitfalls are set out in <a href="/knowledge/analytical-method-validation/">method validation</a>. A standard to verify the transfer against is described in <a href="/knowledge/peptide-reference-standards/">reference standards</a>.</p>
+
+    <h2>The one-page method description</h2>
+    <p>Whatever the final conditions, write them down completely enough that another analyst can reproduce the run without asking: column make, chemistry, dimensions, particle size and lot; mobile phases with exact additive concentration and pH; gradient table with flow and temperature; injection volume and sample solvent; wavelength and bandwidth; run time and re-equilibration; suitability criteria. A method that exists only as a gradient table in an email is not transferable, and its results are not comparable across time.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes chromatographic method design; it makes no claim about any specific product, supplier or validated method, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading HPLC chromatograms</a> — peak shape, integration and area% limits</li>
+      <li><a href="/knowledge/analytical-method-validation/">Analytical method validation</a> — specificity, linearity, accuracy and robustness</li>
+      <li><a href="/knowledge/peptide-reference-standards/">Peptide reference standards</a> — qualifying the standard a method is calibrated against</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — what the method is trying to resolve</li>
+      <li><a href="/tools/hplc-dilution-calculator/">HPLC dilution calculator</a> — stock to working concentration and injection mass</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-hplc-method-design/" />
+</BaseLayout>
