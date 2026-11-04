@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide supplier audit: 40 questions';
+const description = 'A printable 40-question site-audit checklist for peptide manufacturers, grouped by quality, production, documentation and traceability, with scoring guidance.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-site-audit-questionnaire/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Site-audit questionnaire'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A questionnaire is not a conversation. Written questions get written answers, the same answers can be compared across suppliers, and a vague reply stays on the record. What follows is a 40-item set to send before a site visit — or to carry into one — grouped so that each block can be answered by the person who actually owns that function.</p>
+
+    <h2>How to use it</h2>
+    <ol>
+      <li><strong>Send it two weeks ahead, as a file.</strong> Ask for the completed document plus the referenced records. A supplier who returns answers without evidence has answered half the question.</li>
+      <li><strong>Route each block to its owner.</strong> Quality questions to QC, production questions to the synthesis lead, documentation to QA, traceability to whoever controls the batch record. If one person answers all four blocks, you have learned that one person holds the knowledge — a risk in itself.</li>
+      <li><strong>Require a record reference, not a yes.</strong> Every “yes” should point to a document number, a logbook page or a lot number. An answer that cannot be located later is an answer you cannot rely on.</li>
+      <li><strong>Score identically across candidates.</strong> Use the 0/1/2 scheme below and score before you compare suppliers, not after.</li>
+      <li><strong>Leave space for the follow-up.</strong> The most valuable output is usually three questions the answers raised, not the score.</li>
+    </ol>
+    <p>This is the counterpart to the <a href="/knowledge/remote-peptide-supplier-audit/">remote audit method</a>: that page covers how to run a video walkthrough and weight the result, this one is the document you send. The <a href="/knowledge/china-peptide-supplier-checklist/">12-point supplier checklist</a> is the screening stage that comes before either.</p>
+
+    <h2>Block A — Quality and analytical control (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Question</th><th>What a usable answer contains</th></tr></thead>
+      <tbody>
+        <tr><td class="num">A1</td><td>Which release tests do you perform in-house, which are subcontracted, and on which instrument (make, model, internal ID) is each performed?</td><td>A test-by-test split, with instrument IDs that match the equipment list</td></tr>
+        <tr><td class="num">A2</td><td>For the product I am buying, what is the full HPLC method: column dimensions and particle size, mobile phase, gradient table, wavelength, flow, injection volume and run time?</td><td>A method summary detailed enough to be repeated elsewhere; a chromatogram with the method visible</td></tr>
+        <tr><td class="num">A3</td><td>How is purity calculated — area percent at which wavelength — and do you correct for response factors, water content or counter-ion mass?</td><td>A stated basis, and consistency between the COA number and that basis</td></tr>
+        <tr><td class="num">A4</td><td>What is your water-content specification and method (Karl Fischer, loss on drying), and what was the last lot's actual result?</td><td>Specification, method, and a lot-linked value rather than a range</td></tr>
+        <tr><td class="num">A5</td><td>How do you control residual TFA, acetate and residual solvents, and what limits are written into the specification?</td><td>Named method (e.g. headspace GC), named limits, and whether limits are per product or generic</td></tr>
+        <tr><td class="num">A6</td><td>How is the reference standard prepared and qualified, and how is its assigned purity justified?</td><td>A commercial standard with a certificate, or an in-house lot with a documented value assignment</td></tr>
+        <tr><td class="num">A7</td><td>Describe your OOS procedure: who opens an investigation, how long it may run, and who can release a lot while it is open.</td><td>Named roles, a time limit, and a statement that the lot is blocked</td></tr>
+        <tr><td class="num">A8</td><td>How often are balances, pH meters and HPLC systems calibrated, by whom, and where are the certificates kept?</td><td>An interval, an internal or external provider, and a retrievable record</td></tr>
+        <tr><td class="num">A9</td><td>Do you test bioburden and endotoxin on the finished powder? If so, by which method, at what frequency, and what are the limits?</td><td>A method (e.g. LAL), a frequency per lot or per campaign, and stated limits — or an honest “not tested”</td></tr>
+        <tr><td class="num">A10</td><td>How many lots did you reject or rework at release in the last 12 months, and what were the reasons?</td><td>A number and categories; “zero” from a multi-product site is itself an answer</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Block B — Production and process (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Question</th><th>What a usable answer contains</th></tr></thead>
+      <tbody>
+        <tr><td class="num">B1</td><td>At what scale is this product synthesised — resin type, loading and batch size in mmol — and which reactor is used?</td><td>Numbers that reconcile with the equipment capacity and the quoted batch size</td></tr>
+        <tr><td class="num">B2</td><td>Which coupling chemistry and deprotection scheme do you use, and how do you monitor completeness of each coupling?</td><td>A named chemistry plus a monitoring method (e.g. Kaiser or chloranil test), not “standard SPPS”</td></tr>
+        <tr><td class="num">B3</td><td>How many residues are double-coupled by default, and what result triggers a repeat coupling?</td><td>A rule and a test result threshold, not a fixed habit</td></tr>
+        <tr><td class="num">B4</td><td>What cleavage cocktail is used for this sequence, at what temperature and for how long, and how is the crude quenched and isolated?</td><td>Composition, temperature, time, and the work-up sequence</td></tr>
+        <tr><td class="num">B5</td><td>Which purification steps follow cleavage — column, gradient, fraction criterion — and how are fractions pooled?</td><td>A pooling criterion (e.g. centre-cut above a purity threshold), not just “HPLC purified”</td></tr>
+        <tr><td class="num">B6</td><td>What is your typical overall yield from crude to finished powder for a sequence of this length, and where are the largest losses?</td><td>A range tied to sequence class, with the loss points named</td></tr>
+        <tr><td class="num">B7</td><td>What lyophilisation cycle is used — shelf temperature steps, vacuum, duration — and how was it developed for this product?</td><td>Cycle structure and a development rationale (e.g. collapse temperature), not a generic programme</td></tr>
+        <tr><td class="num">B8</td><td>How is the reactor cleaned between products, and how do you verify no carryover of the previous sequence?</td><td>A cleaning procedure plus a verification step (rinse analysis, blank run)</td></tr>
+        <tr><td class="num">B9</td><td>How many reactors and lyophilisers do you operate, what is current utilisation, and what lead time does that imply?</td><td>Counts, utilisation, and a lead time consistent with both</td></tr>
+        <tr><td class="num">B10</td><td>Which steps for this product could be subcontracted, and which are subcontracted today?</td><td>Step-level answer: synthesis, purification, filling, lyophilisation, testing</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Block C — Documentation and quality system (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Question</th><th>What a usable answer contains</th></tr></thead>
+      <tbody>
+        <tr><td class="num">C1</td><td>Can you provide the batch record for a lot I nominate, redacted as needed, showing synthesis, purification and QC dates and the operators?</td><td>A record whose dates bracket the COA release date and whose lot number matches</td></tr>
+        <tr><td class="num">C2</td><td>Does your COA carry lot number, manufacturing date, release date and the specification version it was tested against?</td><td>All four fields present; a specification version that can be requested</td></tr>
+        <tr><td class="num">C3</td><td>Who signs the COA, what is their role, and is the signatory independent of production?</td><td>A named function (e.g. QC manager) separate from the synthesis team</td></tr>
+        <tr><td class="num">C4</td><td>How long do you retain batch records, chromatograms and raw data, and what happens to them if the site moves?</td><td>A stated retention period and a continuity answer</td></tr>
+        <tr><td class="num">C5</td><td>Are raw HPLC and MS data files retained, and can they be exported in the instrument's native format on request?</td><td>Retention plus exportability — a PDF printout is not raw data</td></tr>
+        <tr><td class="num">C6</td><td>What does your change-control procedure require before a method, supplier or process change, and how are affected customers notified?</td><td>A trigger list, an approval step, and a notification clause</td></tr>
+        <tr><td class="num">C7</td><td>How many deviations and CAPAs are open now, and what is the oldest?</td><td>Counts and an age; a system with none open has either no volume or no reporting</td></tr>
+        <tr><td class="num">C8</td><td>Do you issue a specification sheet separate from the COA, and is it version-controlled?</td><td>A separate document with a version number and a revision history</td></tr>
+        <tr><td class="num">C9</td><td>What is your policy on customer audits and confidentiality — will you sign an NDA before sharing records?</td><td>A clear yes or no, with the agreement route named</td></tr>
+        <tr><td class="num">C10</td><td>Which certifications do you hold, and precisely what scope does each cover?</td><td>Certificate number, issuing body, scope statement — and an explicit list of what is <em>not</em> certified</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Block D — Traceability, samples and post-sale (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Question</th><th>What a usable answer contains</th></tr></thead>
+      <tbody>
+        <tr><td class="num">D1</td><td>Can you trace a finished vial back to the resin lot, amino-acid lots, solvent lots and the synthesis run?</td><td>A worked example using a lot number you supply</td></tr>
+        <tr><td class="num">D2</td><td>How is material identified at each transfer point, which label fields are used, and who transcribes them?</td><td>Field list, and a named role responsible for the transcription</td></tr>
+        <tr><td class="num">D3</td><td>How are retention samples held — how many per lot, what quantity, at what temperature, for how long?</td><td>Counts, quantity, condition, duration; ideally the shelf itself</td></tr>
+        <tr><td class="num">D4</td><td>If I retest this lot in twelve months and obtain a lower purity, what is your position and what data would you supply?</td><td>A policy answer plus the data they would release</td></tr>
+        <tr><td class="num">D5</td><td>What is your lot-numbering scheme, and can a reworked lot keep its original number?</td><td>A scheme, and a rule that rework gets a new or suffixed number</td></tr>
+        <tr><td class="num">D6</td><td>How do you handle overage and top-up — is material from a previous lot ever filled into a new lot?</td><td>An explicit no, or a documented blending rule with traceability</td></tr>
+        <tr><td class="num">D7</td><td>Can you provide the dispatch record for a lot — date, carrier, tracking, and any temperature logger data?</td><td>A record, not a promise; logger data if cold chain was claimed</td></tr>
+        <tr><td class="num">D8</td><td>Which subcontractors touch this product, and how are their lots linked into your batch record?</td><td>Named steps and the linkage field in the record</td></tr>
+        <tr><td class="num">D9</td><td>What happens to a rejected or returned lot — where is it held, and how is destruction documented?</td><td>A quarantine location and a destruction record</td></tr>
+        <tr><td class="num">D10</td><td>If a customer's third-party result disagrees with your COA, what is the sequence of actions and who owns the response?</td><td>A sequence with an owner and a timeline, plus a retest policy</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Scoring the answers</h2>
+    <p>Score each item 0, 1 or 2. The scale deliberately rewards evidence over confidence.</p>
+    <table>
+      <thead><tr><th>Score</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>No answer, a deflection, or a general assurance with no instance (“we follow strict QC”)</td></tr>
+        <tr><td><strong>1</strong></td><td>A specific answer without a record reference, or a record that cannot be produced on request</td></tr>
+        <tr><td><strong>2</strong></td><td>A specific answer plus a document, lot number or logbook page that can be checked</td></tr>
+      </tbody>
+    </table>
+    <p>Maximum 80. As a working guide: below 40 the supplier is not yet auditable and a trial order is premature; 40–60 is typical for a competent trading operation with outsourced analysis, and the gaps tell you what to write into the specification; above 60 with no 0s in Block C or D indicates a site that keeps records for its own process rather than for customers. Do not average away a single 0 in C10 — an unevidenced certification claim is a different kind of problem from an incomplete answer.</p>
+    <p>Score by block as well as in total. A supplier can be strong on production and weak on traceability, and the block pattern is more actionable than the sum: weak Block D means your receipts will be hard to verify, whatever the certificate says.</p>
+
+    <h2>Questions that consistently produce evasions</h2>
+    <ul>
+      <li><strong>A10 and C7</strong> — rejection and deviation counts. A site that reports none is either very new or not recording. Ask what the last non-conformance was, not whether one exists.</li>
+      <li><strong>B6</strong> — yield. A refusal is normal; a number identical to the theoretical yield is not.</li>
+      <li><strong>C5</strong> — raw data. Many suppliers can produce a chromatogram image but not the acquisition file. That distinction predicts how a dispute will go.</li>
+      <li><strong>D6</strong> — top-up from a previous lot. The answer is often “only within specification”; ask for the blending record.</li>
+      <li><strong>C10</strong> — certification scope. “ISO 9001” says nothing about the peptide; ask for the scope statement and the certificate number, and check the issuing body's register yourself.</li>
+    </ul>
+
+    <h2>What this questionnaire cannot do</h2>
+    <p>It cannot confirm that the answers describe today's process rather than last year's, that the batch record shown is the one for your lot, or that housekeeping and behaviour match the documents. Those require a visit, and a visit is worth more when the questionnaire has already been answered — you spend the day on the three items that did not add up instead of on an introduction. How to plan that day is in the <a href="/knowledge/remote-peptide-supplier-audit/">remote audit guide</a>; how to turn the answers into enforceable requirements is in <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a>.</p>
+    <p>One practical note: keep the completed questionnaire with the supplier file and date it. When a supplier changes a method or a site eighteen months later, the old answers are the baseline against which the change-control notification can be judged.</p>
+
+    <div class="ruo">For laboratory research use only. This questionnaire is a procurement tool; it makes no claim about any specific supplier, and nothing here supports administration of any compound to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — the document list, walkthrough and scoring rubric for a visit you cannot make</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">China peptide supplier checklist</a> — the 12-point screening framework</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — converting findings into testable limits</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Contract terms</a> — audit rights and change control in the agreement</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — what a certificate should and should not contain</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Sampling and batch release</a> — what to do with the first delivery</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-supplier-site-audit-questionnaire/" />
+</BaseLayout>
+
+<style is:global>
+  @media print {
+    .site-header, .footer, .breadcrumb, .ruo { display: none !important; }
+    .wrap-narrow { max-width: none; padding: 0; }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 13pt; page-break-after: avoid; }
+    table.audit { page-break-inside: auto; font-size: 9pt; }
+    table.audit tr { page-break-inside: avoid; }
+    table.audit th { background: none; border-bottom: 1pt solid #000; }
+    table.audit td, table.audit th { border-color: #999; }
+    a { color: #000; text-decoration: none; }
+  }
+  table.audit td.num, table.audit th.num { width: 44px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+</style>

@@ -19,6 +19,7 @@
 - /knowledge/peptide-aggregation-self-assembly/ — aggregation vs sequence-directed self-assembly, detection and prevention
 - /knowledge/peptide-packaging-configurations/ — vial vs bulk pack, headspace, desiccants and RFQ packaging fields
 - /knowledge/peptide-specification-annex/ — the field list that makes a peptide limit testable, and the common omissions
+- /knowledge/peptide-supplier-site-audit-questionnaire/ — printable 40-question site-audit checklist by quality/production/documentation/traceability
 - /knowledge/remote-peptide-supplier-audit/ — document request list, video walkthrough script and a scoring rubric
 - /knowledge/second-peptide-supplier-qualification/ — dual sourcing, parallel qualification lots and change control
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
