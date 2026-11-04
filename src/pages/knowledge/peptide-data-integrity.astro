@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Data integrity in peptide QC records';
+const description = 'What raw data, audit trails and integration settings reveal about a peptide certificate, and the records a buyer should ask for.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-data-integrity/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Data integrity'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A certificate of analysis is a summary written by the seller. The evidence behind it — instrument files, integration settings, sample weights, audit trails — is what makes the summary checkable. Most buyers never ask for it, which is precisely why asking changes the conversation.</p>
+
+    <h2>Why a buyer should care</h2>
+    <p>Data integrity is usually discussed as a regulatory topic for drug manufacturers. For a research peptide buyer it has a narrower, practical meaning: can the result on the certificate be traced back to a measurement that was made on this lot, and can an independent person reconstruct it? If the answer is no, the certificate is a statement of confidence rather than a record of evidence.</p>
+    <p>This is not an accusation of fraud. The common failures are ordinary: a template filled from the previous lot, a chromatogram saved as an image, a reintegration that was not documented, a mass spectrum reported without the raw file. Each is a gap in traceability, and each is fixable.</p>
+
+    <h2>The principles, without the jargon</h2>
+    <table>
+      <thead><tr><th>Principle</th><th>What it means on a peptide record</th></tr></thead>
+      <tbody>
+        <tr><td>Attributable</td><td>The analyst and the reviewer are named, with dates and signatures; shared logins are not attribution</td></tr>
+        <tr><td>Legible</td><td>The record can be read without asking the author what an abbreviation meant</td></tr>
+        <tr><td>Contemporaneous</td><td>Recorded when the work was done, not reconstructed at shipment</td></tr>
+        <tr><td>Original</td><td>The raw instrument file or a true copy, not only a processed report</td></tr>
+        <tr><td>Accurate</td><td>Values match the raw data, including dilutions, weights and unit conversions</td></tr>
+        <tr><td>Complete</td><td>Failed injections, repeats, deviations and excluded data are visible, not deleted</td></tr>
+        <tr><td>Consistent</td><td>The same lot number, method and result appear across COA, batch record and label</td></tr>
+        <tr><td>Enduring and available</td><td>The record survives and can be produced on request within an agreed period</td></tr>
+      </tbody>
+    </table>
+    <p>The list is long, but three items carry most of the weight in a purchase decision: original data, complete data, and attributable review.</p>
+
+    <h2>Where peptide records commonly break</h2>
+    <ul>
+      <li><strong>Area percent without integration detail.</strong> Purity by HPLC depends on how peaks were integrated. A chromatogram image with a percentage but no integration method, threshold or manual edits cannot be recalculated.</li>
+      <li><strong>Mass spectrum as a picture.</strong> An annotated spectrum shows the intended mass; the raw file shows whether the peak was real, what else was in the sample and how the deconvolution was done.</li>
+      <li><strong>No sample weight or dilution trail.</strong> A concentration or content result that cannot be traced to a weighed amount and a dilution scheme is not reconstructable.</li>
+      <li><strong>Template values.</strong> The same appearance phrase, the same water result to one decimal, or a COA whose values are suspiciously round across lots suggests the template is doing the work.</li>
+      <li><strong>Missing system suitability.</strong> Without the injection that demonstrates the method was working, the sample result has no context.</li>
+      <li><strong>Deleted or excluded injections.</strong> Repeats are legitimate; repeats that vanish from the sequence table are not.</li>
+      <li><strong>Shared accounts or disabled audit trails.</strong> If everyone signs as “lab”, the record cannot show who did what.</li>
+      <li><strong>Dates that do not line up.</strong> Testing before sampling, review before acquisition, or a certificate dated before the batch record.</li>
+    </ul>
+
+    <h2>What to ask for</h2>
+    <p>A request that is specific is more likely to be answered than “send raw data”. For a lot you are qualifying, ask for:</p>
+    <ol>
+      <li>The <strong>instrument raw file</strong> for the chromatogram and, if run, the mass spectrum — not only the PDF report.</li>
+      <li>The <strong>acquisition and processing methods</strong>, including integration parameters and any manual integration events.</li>
+      <li>The <strong>sequence table</strong>: standards, blanks, system suitability, samples and repeats, in the order run.</li>
+      <li>The <strong>sample weight, dilution scheme and standard lot</strong> used for the calculation.</li>
+      <li>The <strong>audit trail</strong> or equivalent record of changes, if the system produces one.</li>
+      <li>The <strong>analyst and reviewer</strong> names, with dates.</li>
+      <li>The <strong>batch record summary</strong> linking the lot number to the material tested.</li>
+    </ol>
+    <p>Not every supplier will have all seven. The pattern of what is available, and how quickly it is produced, is itself the assessment. A supplier who can send a raw file and a sequence table within a day is operating a system; one who can only send a new PDF is operating a template.</p>
+
+    <h2>Reading an audit trail</h2>
+    <p>An audit trail is a log of actions: who logged in, what was acquired, what was reprocessed, which peaks were manually adjusted, what was deleted. Three patterns are worth understanding:</p>
+    <ul>
+      <li><strong>Reprocessing is normal.</strong> Changing an integration parameter and reprocessing the same raw data is standard practice, provided the original remains and the change is recorded.</li>
+      <li><strong>Manual integration is normal in moderation.</strong> A baseline adjustment on a tailing peak is routine. A series of manual edits that turns a shoulder into a single peak is a question.</li>
+      <li><strong>Deletion is the line.</strong> Removing an injection or a result without a documented reason is not reprocessing; it is loss of the record.</li>
+    </ul>
+    <p>You do not need the instrument software to read these patterns. A change log with timestamps, user names and before/after values is enough to see whether the record was controlled.</p>
+
+    <h2>Paper, PDF and electronic records</h2>
+    <p>A paper printout can be a valid record if it is complete, signed and contemporaneous. A PDF can be a true copy or a re-typed summary; the format alone does not tell you which. The useful questions are about completeness and linkage, not about paper versus electronic:</p>
+    <ul>
+      <li>Does the printout include the method, the sequence and the system suitability, or only the result?</li>
+      <li>Is the file name or record ID traceable to the lot?</li>
+      <li>Can the supplier produce the underlying file if asked?</li>
+      <li>Is there a second-person review, and is it dated after the analysis?</li>
+    </ul>
+    <p>For a small supplier without a laboratory information system, a signed paper record with the raw file attached is perfectly adequate. The absence of software is not the problem; the absence of linkage is.</p>
+
+    <h2>What this cannot prove</h2>
+    <p>Even a complete record does not prove that the file belongs to the lot you received. A determined seller can present a consistent package for different material. Data integrity reduces the chance of ordinary error and makes fabrication harder; it does not replace an independent check. That is the role of a third-party sample, sent blind and tested by a laboratory you chose. The two controls are complementary: records tell you what the supplier did, and independent testing tells you what the material is.</p>
+
+    <h2>Writing it into the agreement</h2>
+    <p>Three clauses make the request routine rather than a favour:</p>
+    <ul>
+      <li><strong>Records retention:</strong> batch and analytical records kept for an agreed period, and produced on request.</li>
+      <li><strong>Raw data access:</strong> instrument files and processing methods available for any lot, within an agreed time.</li>
+      <li><strong>Notification:</strong> the buyer is told of any OOS result, deviation, reprocessing or change affecting the lot.</li>
+    </ul>
+    <p>These belong with the other technical terms in the <a href="/knowledge/peptide-specification-annex/">specification annex</a> and the <a href="/knowledge/peptide-procurement-contract-terms/">procurement contract</a>, not in a separate quality side-letter that nobody reads at renewal.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes record-keeping practice; it makes no claim about the records of any specific supplier and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-batch-documentation-package/">Batch documentation package</a> — the six layers a lot should come with</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — template values and missing fields</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading an HPLC chromatogram</a> — what integration does to area percent</li>
+      <li><a href="/knowledge/peptide-ms-ms-sequence-confirmation/">MS/MS sequence confirmation</a> — what a spectrum can and cannot show</li>
+      <li><a href="/knowledge/third-party-peptide-testing/">Third-party testing</a> — the independent check on the record</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — examining records without a visit</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-data-integrity/" />
+</BaseLayout>

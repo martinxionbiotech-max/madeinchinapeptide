@@ -64,5 +64,6 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-lab-safety', title:'Peptide lab safety and spill response', desc:'Handling peptide powder safely: dust and static, sensitisation, glove choice, spill cleanup, sharps and chemical waste segregation.', cluster:'Handling' },
   { slug:'peptide-supplier-performance-review', title:'Supplier performance reviews for peptides', desc:'A practical scorecard for peptide suppliers: metrics that predict trouble, low-effort data collection and what to do with the result.', cluster:'Sourcing' },
   { slug:'peptide-subvisible-particles', title:'Subvisible particles in peptide solutions', desc:'Light obscuration versus membrane microscopy, where particles come from, and what a particle count can and cannot tell you.', cluster:'Quality & testing' },
-  { slug:'peptide-cross-contamination', title:'Cross-contamination in shared peptide facilities', desc:'How multi-product plants carry material between lots, what changeover and cleaning verification can show, and what to ask.', cluster:'Quality & testing' },
+  { slug:'peptide-cross-contamination', title:'Cross-contamination in peptide plants', desc:'How multi-product plants carry material between lots, what changeover and cleaning verification can show, and what to ask.', cluster:'Quality & testing' },
+  { slug:'peptide-data-integrity', title:'Data integrity in peptide QC records', desc:'What raw data, audit trails and integration settings reveal about a peptide certificate, and the records a buyer should ask for.', cluster:'Quality & testing' },
 ];

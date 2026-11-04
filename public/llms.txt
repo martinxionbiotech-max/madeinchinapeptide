@@ -62,6 +62,7 @@
 - /knowledge/peptide-supplier-performance-review/ — OTIF, COA accuracy, change notification and supplier scorecards
 - /knowledge/peptide-subvisible-particles/ — light obscuration versus membrane microscopy, particle sources and interpretation
 - /knowledge/peptide-cross-contamination/ — carryover, changeover and cleaning verification in shared peptide plants
+- /knowledge/peptide-data-integrity/ — raw data, audit trails and integration records behind a peptide COA
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide
