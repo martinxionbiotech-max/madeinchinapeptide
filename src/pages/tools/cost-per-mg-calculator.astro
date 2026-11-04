@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const title = 'Cost per mg peptide calculator';
+const description = 'Compare peptide quotations on cost per milligram of peptide: convert fill weight, peptide content and purity into a like-for-like price.';
+const faqs = [
+  {
+    q: 'Why is cost per vial not a fair comparison?',
+    a: 'Two vials can carry the same label and different amounts of peptide. A 10 mg fill of a TFA salt with 5% water might contain about 8.2 mg of peptide, while a 10 mg fill of an acetate salt might contain about 8.8 mg. If the purity also differs, the gap widens. Cost per milligram of peptide puts both offers on the same basis before you compare price.',
+  },
+  {
+    q: 'Should I multiply by both peptide content and purity?',
+    a: 'It is a conservative approximation. Peptide content counts all peptide material, including impurity peptides; purity excludes them. Multiplying the two adjusts for both effects and can slightly understate the target peptide mass. That direction of error is preferable when you are budgeting, but state the assumption in your notes.',
+  },
+  {
+    q: 'What if the supplier does not state peptide content?',
+    a: 'Ask for it, with the method used. If it is not available, you can enter an assumed value to see the range, but treat the result as an estimate and record the assumption. A quotation with no peptide content cannot be ranked against one that has it.',
+  },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/tools/cost-per-mg-calculator/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'Cost per mg calculator'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Three quotations, three different fill weights and salt forms. This converts each one to cost per milligram of target peptide, using the numbers on the certificate rather than the number on the label. It calculates; it does not recommend a supplier, a dose or a protocol.</p>
+
+    <div class="calc" id="calc-offers">
+      <h2>Compare up to three offers</h2>
+      <p class="calc-hint" style="grid-column:auto;margin:0 0 10px;">Defaults are illustrative, not real quotations. Replace them with your own numbers.</p>
+
+      <h3 style="font-size:1rem;margin:14px 0 6px;">Offer A</h3>
+      <div class="calc-grid">
+        <label for="a-price">Price per vial (USD)</label>
+        <input id="a-price" type="number" inputmode="decimal" min="0" step="any" value="58" />
+
+        <label for="a-fill">Fill weight (mg)</label>
+        <input id="a-fill" type="number" inputmode="decimal" min="0" step="any" value="5" />
+
+        <label for="a-content">Peptide content (%)</label>
+        <input id="a-content" type="number" inputmode="decimal" min="1" max="100" step="any" value="80" />
+
+        <label for="a-purity">Purity (%)</label>
+        <input id="a-purity" type="number" inputmode="decimal" min="1" max="100" step="any" value="95" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Peptide in vial:</strong> <span id="a-out-mass">—</span></p>
+        <p><strong>Cost per mg peptide:</strong> <span id="a-out-cost">—</span></p>
+        <p><strong>Cost per mg powder:</strong> <span id="a-out-powder">—</span></p>
+      </div>
+
+      <h3 style="font-size:1rem;margin:20px 0 6px;">Offer B</h3>
+      <div class="calc-grid">
+        <label for="b-price">Price per vial (USD)</label>
+        <input id="b-price" type="number" inputmode="decimal" min="0" step="any" value="95" />
+
+        <label for="b-fill">Fill weight (mg)</label>
+        <input id="b-fill" type="number" inputmode="decimal" min="0" step="any" value="10" />
+
+        <label for="b-content">Peptide content (%)</label>
+        <input id="b-content" type="number" inputmode="decimal" min="1" max="100" step="any" value="72" />
+
+        <label for="b-purity">Purity (%)</label>
+        <input id="b-purity" type="number" inputmode="decimal" min="1" max="100" step="any" value="98" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Peptide in vial:</strong> <span id="b-out-mass">—</span></p>
+        <p><strong>Cost per mg peptide:</strong> <span id="b-out-cost">—</span></p>
+        <p><strong>Cost per mg powder:</strong> <span id="b-out-powder">—</span></p>
+      </div>
+
+      <h3 style="font-size:1rem;margin:20px 0 6px;">Offer C (optional)</h3>
+      <div class="calc-grid">
+        <label for="c-price">Price per vial (USD)</label>
+        <input id="c-price" type="number" inputmode="decimal" min="0" step="any" placeholder="optional" />
+
+        <label for="c-fill">Fill weight (mg)</label>
+        <input id="c-fill" type="number" inputmode="decimal" min="0" step="any" placeholder="optional" />
+
+        <label for="c-content">Peptide content (%)</label>
+        <input id="c-content" type="number" inputmode="decimal" min="1" max="100" step="any" placeholder="optional" />
+
+        <label for="c-purity">Purity (%)</label>
+        <input id="c-purity" type="number" inputmode="decimal" min="1" max="100" step="any" placeholder="optional" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Peptide in vial:</strong> <span id="c-out-mass">—</span></p>
+        <p><strong>Cost per mg peptide:</strong> <span id="c-out-cost">—</span></p>
+        <p><strong>Cost per mg powder:</strong> <span id="c-out-powder">—</span></p>
+      </div>
+
+      <div class="calc-out" aria-live="polite">
+        <p class="calc-hint" id="summary" style="grid-column:auto;">Enter a price, a fill weight, a peptide content and a purity for at least one offer.</p>
+      </div>
+    </div>
+
+    <h2>The formula</h2>
+    <p><strong>Peptide mass (mg) = fill weight × peptide content ÷ 100 × purity ÷ 100</strong></p>
+    <p><strong>Cost per mg peptide = price ÷ peptide mass</strong></p>
+    <p>Worked with the defaults for Offer A: 5 mg × 0.80 × 0.95 = 3.80 mg of target peptide; $58 ÷ 3.80 = $15.26 per mg. Offer B: 10 mg × 0.72 × 0.98 = 7.06 mg; $95 ÷ 7.06 = $13.46 per mg. Per vial, A looks cheaper in absolute terms; per milligram of peptide it is not.</p>
+
+    <h2>What the calculator does not know</h2>
+    <ul>
+      <li><strong>Freight, duty and clearance.</strong> Landed cost is not unit cost. Add them before you decide.</li>
+      <li><strong>Your own re-testing.</strong> Incoming HPLC or identity testing has a cost per lot, and it is higher for a supplier you have not qualified.</li>
+      <li><strong>Overfill and release ranges.</strong> Fill weights are targets. Ask for the release range; a consistent overfill can make one supplier's effective price lower than the nominal one.</li>
+      <li><strong>Documentation depth.</strong> A quotation with a batch-specific chromatogram and mass spectrum is not the same product as one with a template COA, even at the same price per mg.</li>
+      <li><strong>Risk of a failed lot.</strong> The cheapest offer is the most expensive one if it fails your incoming test and the replacement ships in three weeks.</li>
+    </ul>
+
+    <h2>Where to find the inputs</h2>
+    <p>Fill weight is on the label and the quotation. Peptide content and purity come from the batch certificate, and the method behind each number matters as much as the number: see <a href="/quality/coa/">how to read a COA</a> and <a href="/quality/testing-methods/">testing methods</a>. If the certificate states only one purity figure and no content, the honest answer is that the cost per mg is a range, not a point.</p>
+    <p>The counter-ion is the largest single reason two identical-looking fills differ. A heavier salt carries less peptide per milligram of powder — the arithmetic is worked in <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a> and in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content and cost per mg</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This calculator performs arithmetic on values you supply; it is not a quotation, a certificate of analysis, or medical, veterinary or dosing guidance.</div>
+
+    <h2>Frequently asked</h2>
+    {faqs.map((f) => (
+      <details>
+        <summary><strong>{f.q}</strong></summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net peptide content and cost per mg</a> — the reasoning behind the formula</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Counter-ion forms</a> — acetate vs TFA and what it does to mass</li>
+      <li><a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ and pricing tiers</a> — why unit price moves with volume</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — when the inputs cannot be trusted</li>
+      <li><a href="/tools/">All tools</a></li>
+      <li><a href="/products/">Research peptide catalogue</a> — 33 documented SKUs</li>
+    </ul>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <script is:inline>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const num = (id) => {
+        const n = parseFloat($(id).value);
+        return Number.isFinite(n) && n > 0 ? n : null;
+      };
+      const pct = (id) => {
+        const n = num(id);
+        return n === null ? null : Math.min(100, n);
+      };
+      const money = (n) => '$' + n.toFixed(2);
+
+      function readOffer(key) {
+        const price = num(key + '-price');
+        const fill = num(key + '-fill');
+        const content = pct(key + '-content');
+        const purity = pct(key + '-purity');
+        if (!price || !fill || !content || !purity) return null;
+        const peptide = fill * (content / 100) * (purity / 100);
+        return {
+          key,
+          peptide,
+          perMg: price / peptide,
+          perMgPowder: price / fill,
+        };
+      }
+
+      function update() {
+        const offers = ['a', 'b', 'c'].map(readOffer).filter(Boolean);
+        ['a', 'b', 'c'].forEach((key) => {
+          const o = offers.find((x) => x.key === key);
+          const el = $(key + '-out-cost');
+          el.style.fontWeight = '';
+          if (o) {
+            $(key + '-out-mass').textContent = o.peptide.toFixed(2) + ' mg';
+            $(key + '-out-cost').textContent = money(o.perMg);
+            $(key + '-out-powder').textContent = money(o.perMgPowder);
+          } else {
+            $(key + '-out-mass').textContent = '—';
+            $(key + '-out-cost').textContent = '—';
+            $(key + '-out-powder').textContent = '—';
+          }
+        });
+
+        if (!offers.length) {
+          $('summary').textContent = 'Enter a price, a fill weight, a peptide content and a purity for at least one offer.';
+          return;
+        }
+
+        const sorted = [...offers].sort((x, y) => x.perMg - y.perMg);
+        const best = sorted[0];
+        const label = best.key.toUpperCase();
+        let text = 'Lowest cost per mg of peptide: Offer ' + label + ' at ' + money(best.perMg) + '.';
+        if (sorted.length > 1) {
+          const gap = ((sorted[sorted.length - 1].perMg / best.perMg - 1) * 100).toFixed(1);
+          text += ' The highest is ' + gap + '% more per mg of peptide.';
+        }
+        if (offers.some((o) => o.key === 'a' || o.key === 'b' || o.key === 'c')) {
+          text += ' Assumes the stated purity and content are accurate and measured by comparable methods.';
+        }
+        $('summary').textContent = text;
+        const bestEl = $(best.key + '-out-cost');
+        bestEl.style.fontWeight = '700';
+      }
+
+      ['a', 'b', 'c'].forEach((key) =>
+        ['price', 'fill', 'content', 'purity'].forEach((field) =>
+          $(key + '-' + field).addEventListener('input', update)
+        )
+      );
+
+      update();
+    })();
+  </script>
+</BaseLayout>
