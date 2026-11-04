@@ -42,4 +42,5 @@ export const articles: ArticleMeta[] = [
   { slug:'analytical-method-validation', title:'Analytical method validation for peptides', desc:'Specificity, linearity, accuracy, precision and robustness — what each parameter proves for a peptide method, and where the standard playbook falls short.', cluster:'Quality & testing' },
   { slug:'peptide-buffer-selection', title:'Choosing a buffer for peptide solutions', desc:'pH versus pI, buffer pKa, UV and MS compatibility, ionic strength and co-solvent — a decision order for solvents that do not fight the peptide.', cluster:'Handling' },
   { slug:'peptide-supplier-site-audit-questionnaire', title:'A 40-question supplier site-audit questionnaire', desc:'A printable audit checklist grouped by quality, production, documentation and traceability — with evidence requirements and a 0/1/2 scoring scheme.', cluster:'Sourcing' },
+  { slug:'peptide-ms-ms-sequence-confirmation', title:'Peptide sequence confirmation by MS/MS', desc:'What b/y ion ladders and coverage prove about a synthetic sequence — and the isomers, modifications and disulfide connectivity they cannot resolve.', cluster:'Quality & testing' },
 ];

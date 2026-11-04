@@ -24,6 +24,7 @@
 - /knowledge/second-peptide-supplier-qualification/ — dual sourcing, parallel qualification lots and change control
 - /knowledge/peptide-lyophilization-explained/ — freeze-drying stages, residual moisture, cake defects and process questions
 - /knowledge/reading-peptide-hplc-chromatograms/ — peak shape, integration choices, area% vs mass%
+- /knowledge/peptide-ms-ms-sequence-confirmation/ — b/y ion sequencing, coverage maps, and what MS/MS cannot resolve
 - /knowledge/peptide-mass-spec-identity/ — monoisotopic vs average mass, adducts and ppm error in MS identity checks
 - /knowledge/peptide-sequence-notation/ — one-letter codes, residue mass arithmetic, terminal modifications and checking a catalogue MW
 - /knowledge/peptide-stability-studies/ — real-time vs accelerated stability data, assay panel and stability-claim red flags

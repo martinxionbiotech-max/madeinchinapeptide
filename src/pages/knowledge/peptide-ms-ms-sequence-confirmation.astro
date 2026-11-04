@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptide sequence confirmation by MS/MS';
+const description = 'How tandem mass spectrometry confirms a peptide sequence, what b/y ion coverage proves, and the isomers, modifications and connectivity it cannot resolve.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-ms-ms-sequence-confirmation/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'MS/MS sequence confirmation'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">An intact mass tells you the molecule weighs what the sequence predicts. It does not tell you the molecule <em>is</em> that sequence. Two different arrangements of the same residues can weigh the same to four decimal places, and a synthesis error that deletes one residue while adding another of similar mass leaves the number untouched. Tandem mass spectrometry is the test that looks inside the molecule — and it has its own blind spots.</p>
+
+    <h2>Why an intact mass is not identity</h2>
+    <p>For a synthetic peptide you already know the intended sequence, so the question is not “what is this” but “is this the intended molecule”. Three failure modes survive an intact-mass check:</p>
+    <ul>
+      <li><strong>Isobaric substitution.</strong> Leucine and isoleucine are constitutional isomers with identical residue mass (113.08406). A sequence with Leu where Ile was specified passes every mass check.</li>
+      <li><strong>Compensating errors.</strong> A deletion of one residue and insertion of another with a similar mass can land within the tolerance of a low-resolution measurement — and even within a few ppm at high resolution, depending on the pair.</li>
+      <li><strong>Rearrangement.</strong> Sequence scrambling during fragmentation is an artefact of the measurement, but head-to-tail cyclisation or chain migration during synthesis is not; the mass stays right while the connectivity changes.</li>
+    </ul>
+    <p>The intact-mass side of this problem — charge states, adducts, monoisotopic versus average — is covered in <a href="/knowledge/peptide-mass-spec-identity/">peptide identity by mass spectrometry</a>. This page assumes the mass already agrees and asks what else can be shown.</p>
+
+    <h2>What fragmentation gives you</h2>
+    <p>In tandem MS, the intact ion is selected, fragmented along the backbone, and the fragments are measured. For peptides, the useful series are the ones that break the amide bond:</p>
+    <table>
+      <thead><tr><th>Ion series</th><th>Contains</th><th>Mass relationship</th></tr></thead>
+      <tbody>
+        <tr><td><strong>b</strong></td><td>N-terminal fragment</td><td>Sum of residue masses in the fragment + one proton</td></tr>
+        <tr><td><strong>y</strong></td><td>C-terminal fragment</td><td>Sum of residue masses + H₂O + one proton</td></tr>
+        <tr><td><strong>a</strong></td><td>N-terminal, loses CO</td><td>b − 27.995</td></tr>
+        <tr><td><strong>immonium</strong></td><td>Single residue side chain</td><td>Low <em>m/z</em>; reports composition, not position</td></tr>
+      </tbody>
+    </table>
+    <p>The logic is a ladder. If you observe a b ion that ends at residue 3 and a y ion that starts at residue 4, the bond between them is placed. A full set of consecutive b or y ions reads the sequence from one end; a gap leaves that stretch unconfirmed, however good the rest of the spectrum looks.</p>
+
+    <h2>The arithmetic, on a three-residue peptide</h2>
+    <p>Take Ala-Gly-Ser, using residue masses Ala 71.03711, Gly 57.02146, Ser 87.03203, water 18.01056 and a proton at 1.00728. Singly charged fragment masses:</p>
+    <table>
+      <thead><tr><th>Ion</th><th>Composition</th><th>Calculation</th><th>m/z</th></tr></thead>
+      <tbody>
+        <tr><td>b₁</td><td>Ala</td><td>71.03711 + 1.00728</td><td>72.044</td></tr>
+        <tr><td>b₂</td><td>Ala-Gly</td><td>71.03711 + 57.02146 + 1.00728</td><td>129.066</td></tr>
+        <tr><td>y₁</td><td>Ser</td><td>87.03203 + 18.01056 + 1.00728</td><td>106.050</td></tr>
+        <tr><td>y₂</td><td>Gly-Ser</td><td>57.02146 + 87.03203 + 18.01056 + 1.00728</td><td>163.071</td></tr>
+      </tbody>
+    </table>
+    <p>Run this calculation against a real report and you learn quickly whether the annotation is real. A peak labelled b₂ at 129.066 that is actually 129.102 (lysine) is not a rounding difference; it is a different residue. At the low-<em>m/z</em> end, where many candidates crowd together, a single unlabelled peak can be matched to almost anything — which is why coverage, not the presence of “sequence ions”, is the meaningful number.</p>
+
+    <h2>Coverage is the claim to interrogate</h2>
+    <p>Sequence coverage is the fraction of backbone bonds with at least one observed cleavage on each side of the bond, or more simply the fraction of residues bracketed by observed fragments. Reports state it as a percentage, and the percentage hides the distribution.</p>
+    <ul>
+      <li><strong>Terminal coverage is easy.</strong> The first two or three residues on either end usually fragment well, so a report can show 70% coverage made almost entirely of termini with a hole in the middle.</li>
+      <li><strong>Proline breaks ladders.</strong> The N–C bond on the C-terminal side of proline fragments preferentially, producing strong y ions and weak b ions at that point; a proline-rich stretch often leaves one-sided coverage.</li>
+      <li><strong>Hydrophobic stretches cluster.</strong> Poor ionisation of long hydrophobic segments can leave a gap that coincides with exactly the region where a deletion would hide.</li>
+      <li><strong>Doubly charged fragments fill gaps.</strong> A report that only annotated singly charged ions may understate coverage; one that annotated everything without charge-state assignment may overstate it.</li>
+    </ul>
+    <p>Ask for the coverage map — residues confirmed, residues unconfirmed — rather than the summary figure. “98% coverage” with two adjacent unconfirmed residues in the middle is a different claim from 98% spread evenly.</p>
+
+    <h2>What tandem MS cannot tell you</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Can MS/MS answer it?</th><th>What would</th></tr></thead>
+      <tbody>
+        <tr><td>Leu versus Ile at a given position</td><td>No — isobaric, and side chains do not fragment usefully in CID</td><td>Retention-time comparison with standards, or chemical derivatisation; often simply not determined</td></tr>
+        <tr><td>D- versus L-amino acid</td><td>No — enantiomers are indistinguishable by mass</td><td>Chiral analysis after hydrolysis, or enzymatic digestion with stereospecific enzymes</td></tr>
+        <tr><td>Asn versus Asp / isoAsp</td><td>Partly — deamidation is +0.984 Da, but Asp and isoAsp are isobaric</td><td>Diagnostic isoAsp fragment ions, or enzymatic release and separation</td></tr>
+        <tr><td>Disulfide connectivity</td><td>Only with a dedicated experiment</td><td>Non-reducing digestion plus disulfide mapping; a standard reduced-and-alkylated run destroys the information</td></tr>
+        <tr><td>How much peptide is present</td><td>No — response is not content</td><td>HPLC against a standard, amino-acid analysis, nitrogen determination</td></tr>
+        <tr><td>Whether the lot is pure</td><td>No — MS/MS selects one precursor</td><td>HPLC area%, impurity profiling</td></tr>
+      </tbody>
+    </table>
+    <p>The disulfide row deserves emphasis. Many service reports reduce and alkylate the sample before analysis, because free thiols complicate the spectrum. That step is correct for sequencing and fatal for connectivity: once the disulfides are broken, the spectrum can no longer say which cysteine was bonded to which. If a supplier claims disulfide mapping, ask whether the digest was non-reducing.</p>
+
+    <h2>De novo, targeted, or database search</h2>
+    <p>Three workflows produce three different kinds of evidence, and buyers often receive the weakest one presented as the strongest:</p>
+    <ol>
+      <li><strong>Database search</strong> matches spectra against known sequences. For a synthetic peptide that is not in a database, a “no match” result means nothing, and a match to a homologous protein means even less.</li>
+      <li><strong>De novo sequencing</strong> derives a sequence from the spectrum without a template. It is powerful and error-prone at exactly the places that matter — isobars, gaps, low-abundance ions.</li>
+      <li><strong>Targeted confirmation</strong> compares observed fragments with those predicted from the intended sequence. For a known synthetic product this is the right test: it can state which residues are supported and which are not, and it fails loudly when the expected ion is absent.</li>
+    </ol>
+    <p>For a catalogue peptide, ask for targeted confirmation against the declared sequence. A de novo result that “matches” is a weaker statement than a targeted report that lists the expected ions and their errors.</p>
+
+    <h2>A report worth accepting</h2>
+    <ul>
+      <li>Instrument type and fragmentation method (CID, HCD or ETD), with collision energy or a stated range.</li>
+      <li>Precursor <em>m/z</em>, charge state and the intact mass it deconvolutes to, with ppm error.</li>
+      <li>An annotated spectrum: each labelled ion with its observed and theoretical <em>m/z</em> and the difference, not a bare peak list.</li>
+      <li>A coverage map or table: residue positions supported, positions not supported, and why.</li>
+      <li>The sample preparation route — reduced/alkylated or not, enzyme used, any derivatisation.</li>
+      <li>A conclusion limited to what the data show. “Consistent with the intended sequence, residues 1–4 and 12–18 confirmed” is honest; “sequence confirmed” over a 60% coverage map is not.</li>
+    </ul>
+
+    <h2>What to put in the enquiry</h2>
+    <p>These questions separate a laboratory that runs tandem MS routinely from one that forwards an intact-mass spectrum with a sequence printed underneath:</p>
+    <ul>
+      <li>“Was this lot analysed by MS/MS, or by intact mass only? Please send the annotated spectrum, not the summary.”</li>
+      <li>“What is the sequence coverage, and which residues are not covered?”</li>
+      <li>“Was the sample reduced and alkylated before digestion? If disulfide mapping is claimed, was a non-reducing digest run?”</li>
+      <li>“How are Leu/Ile positions reported — as ambiguous, or as the intended assignment?”</li>
+      <li>“Is the search targeted to the declared sequence, or a database match?”</li>
+    </ul>
+    <p>Expect the last two to be answered with a caveat. That is fine: an honest limitation is more useful than a confident overclaim. What you are testing is whether the supplier understands the difference between identity, purity and quantity — the same distinction that runs through <a href="/knowledge/peptide-synthesis-impurities/">synthesis impurities</a> and <a href="/knowledge/reading-peptide-hplc-chromatograms/">chromatogram interpretation</a>.</p>
+    <p>For most buyers the practical conclusion is modest: intact mass plus HPLC is adequate for routine catalogue material, and tandem MS is worth paying for on custom sequences, on any lot where a sequence error would invalidate months of work, and on the first lot from a new supplier. It is a targeted check, not a routine release test — and no certificate substitutes for the specification that says which check applies to which lot. That field list is in <a href="/knowledge/peptide-specification-annex/">the specification annex</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical interpretation; it makes no claim about any specific product, supplier or certificate, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Peptide identity by mass spectrometry</a> — intact mass, charge states, adducts and ppm error</li>
+      <li><a href="/knowledge/peptide-sequence-notation/">Sequence notation and molecular weight</a> — the residue arithmetic behind the predicted ions</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading HPLC chromatograms</a> — purity, which MS does not measure</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — what a sequence error looks like in the impurity profile</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing identity tests into a testable requirement</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — the full analytical panel</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-ms-ms-sequence-confirmation/" />
+</BaseLayout>
