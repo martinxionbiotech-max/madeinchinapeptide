@@ -1,6 +1,7 @@
 export interface ArticleMeta { slug: string; title: string; desc: string; cluster: string; }
 export const articles: ArticleMeta[] = [
   { slug:'glp-1-research-peptides-compared', title:'Semaglutide vs tirzepatide vs retatrutide', desc:'Sequence, receptor profile, molecular weight and analytical burden — side by side.', cluster:'Compound background' },
+  { slug:'peptide-counter-ion-forms', title:'Acetate vs TFA: peptide counter-ion forms', desc:'Why the salt form changes mass, peptide content, pH and assay behaviour.', cluster:'Quality & testing' },
   { slug:'how-to-verify-peptide-purity', title:'How to verify peptide purity before you buy', desc:'HPLC, MS and the COA details that separate evidence from marketing.', cluster:'Quality & testing' },
   { slug:'peptide-storage-handling', title:'Storage and handling of lyophilized peptides', desc:'Temperature, moisture, freeze–thaw and why your vial degrades.', cluster:'Handling' },
   { slug:'china-peptide-supplier-checklist', title:'China peptide supplier checklist', desc:'A 12-point framework for evaluating a Chinese peptide supplier.', cluster:'Sourcing' },

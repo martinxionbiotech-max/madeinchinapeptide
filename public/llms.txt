@@ -13,6 +13,7 @@
 - /factory/ — process chain and traceability framework
 - /knowledge/ — sourcing and quality guides
 - /knowledge/glp-1-research-peptides-compared/ — semaglutide vs tirzepatide vs retatrutide, analytical comparison
+- /knowledge/peptide-counter-ion-forms/ — acetate vs TFA salt forms and peptide content
 - /compliance/research-use-only/ — permitted and prohibited uses
 - /compliance/shipping-customs/ — shipping, documentation, restricted destinations
 - /contact/ — RFQ

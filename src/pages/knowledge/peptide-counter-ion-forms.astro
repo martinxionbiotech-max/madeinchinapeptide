@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Acetate vs TFA: peptide counter-ion forms explained';
+const description = 'Why the same peptide arrives as different salts, how the counter-ion changes mass and peptide content, and what to specify on a purchase order.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-counter-ion-forms/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Counter-ion forms'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Two vials labelled “BPC-157 5mg” can contain measurably different amounts of peptide. The difference is often the counter-ion — the acid left behind when the peptide is isolated as a salt.</p>
+
+    <h2>Why a peptide is a salt, not a neutral molecule</h2>
+    <p>Solid-phase synthesis ends with cleavage from the resin in strong acid, almost always trifluoroacetic acid. Purification by reversed-phase HPLC then runs in water/acetonitrile with TFA as the ion-pairing agent. When the purified fractions are frozen and dried, the peptide is left as a trifluoroacetate salt: the basic residues carry a positive charge and TFA provides the counter-ions.</p>
+    <p>Some suppliers stop there and ship the TFA salt. Others run an ion-exchange step to convert the material to acetate, which is the more common form for laboratory work. Both are legitimate; what matters is that the form is stated and that the specification matches it.</p>
+
+    <h2>What the counter-ion changes</h2>
+    <table>
+      <thead><tr><th>Property</th><th>Effect of the salt form</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Molecular weight</td><td>Each TFA counter-ion adds about 114.02 Da; each acetate about 60.05 Da</td><td>The mass you measure by MS and the mass on the COA must refer to the same species</td></tr>
+        <tr><td>Peptide content</td><td>A 10 mg fill of a heavy salt contains less free peptide than the same fill of a light salt</td><td>Weighing “10 mg” does not give 10 mg of peptide</td></tr>
+        <tr><td>Solution pH</td><td>Residual TFA lowers the pH of the reconstituted solution</td><td>Assay buffers and pH-sensitive work can shift</td></tr>
+        <tr><td>Assay behaviour</td><td>TFA is not inert in cell-based systems at higher concentrations</td><td>An assay can be affected by the counter-ion rather than the peptide</td></tr>
+        <tr><td>Hygroscopicity</td><td>Salt form and residual moisture affect how quickly the powder takes up water</td><td>Weighing accuracy and stability during handling</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Doing the arithmetic</h2>
+    <p>Take a peptide with a free-base molecular weight of 1000.0 g/mol, supplied as a di-TFA salt. The salt mass is 1000.0 + (2 × 114.02) = 1228.04 g/mol, so 10 mg of powder contains 10 × (1000.0 / 1228.04) = 8.14 mg of free peptide. The same peptide as a di-acetate salt has a mass of 1000.0 + (2 × 60.05) = 1120.1 g/mol, and 10 mg of that powder contains 8.93 mg of free peptide.</p>
+    <p>That is roughly a 10% difference in the amount of peptide in the vial — enough to matter when you are preparing a stock solution to a target concentration, and enough to make two quotations incomparable if you only look at the nominal fill.</p>
+
+    <h2>What a COA should state</h2>
+    <ul>
+      <li><strong>The salt form</strong> explicitly — “as acetate”, “as trifluoroacetate”, or the sodium form where relevant.</li>
+      <li><strong>The molecular weight basis</strong> — free base or salt — so the MS result can be interpreted.</li>
+      <li><strong>Peptide content</strong> by a stated method (typically nitrogen determination or amino acid analysis), not only net weight.</li>
+      <li><strong>Residual TFA</strong> where the material is a TFA salt or where the buyer sets a limit; the tested value should come with the method.</li>
+      <li><strong>Water content</strong> by Karl Fischer, because it dilutes peptide content in the same way the counter-ion does.</li>
+    </ul>
+
+    <h2>Specification clauses worth adding</h2>
+    <p>Name the form in the specification annex, not just in the product title. Require that the batch COA state the form and the peptide content, and require a maximum for residual TFA if your work is sensitive to it. If you are switching suppliers and the new material is a different salt, treat it as a new material: solubility, pH and assay behaviour may all shift, and a method transfer is a revalidation, not a formality.</p>
+
+    <h2>Practical notes</h2>
+    <ul>
+      <li>Ask for the form before you compare price per vial; the cheapest offer is often the heaviest salt.</li>
+      <li>For cell-based work, acetate is generally the easier starting point; confirm with your own assay rather than assuming.</li>
+      <li>Record the form in your internal inventory — two forms of the same peptide are not interchangeable stock.</li>
+      <li>If a certificate states a molecular weight that matches neither the free base nor a plausible salt, ask which species was measured.</li>
+    </ul>
+
+    <div class="ruo">Research use only. This article describes analytical and handling practice; it makes no claim about any specific compound and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">How to verify peptide purity</a> — what HPLC and MS each prove</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — spotting a recycled certificate</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — solvent choice and concentration math</li>
+      <li><a href="/quality/coa/">How to read a COA</a> — the fields that matter</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-counter-ion-forms/" />
+</BaseLayout>
