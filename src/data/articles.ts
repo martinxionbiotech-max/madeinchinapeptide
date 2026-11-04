@@ -55,4 +55,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-solution-filtration', title:'Filtering peptide solutions', desc:'Membrane choice, adsorption loss, pore size and integrity testing — what a filter removes, what it adds, and when not to filter.', cluster:'Handling' },
   { slug:'peptide-photostability', title:'Light exposure and peptide stability', desc:'Which residues absorb light, what photo-oxidation produces, and what packaging and a photostability study can actually prove.', cluster:'Handling' },
   { slug:'peptide-water-content', title:'Measuring water content by Karl Fischer', desc:'Coulometric versus volumetric KF, oven methods, sampling hygroscopic powder and why loss on drying is not water content.', cluster:'Quality & testing' },
+  { slug:'peptide-dmso-stocks', title:'DMSO stock solutions for peptides', desc:'Dissolving, storing and diluting peptide stocks in DMSO — solvent properties, dilution shock, freeze–thaw and vehicle controls.', cluster:'Handling' },
 ];

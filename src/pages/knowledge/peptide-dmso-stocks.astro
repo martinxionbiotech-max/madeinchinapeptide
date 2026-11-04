@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'DMSO stock solutions for peptides';
+const description = 'Dissolving, storing and diluting peptide stocks in DMSO — solvent properties, dilution shock, freeze–thaw and assay vehicle controls.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-dmso-stocks/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'DMSO stocks'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">DMSO is the default solvent for peptides that will not dissolve in water, and it is treated as if it were inert. It is not: it freezes at 18.5 °C, absorbs water from air, attacks some plastics, absorbs below about 268 nm, and can carry peroxides. None of those properties is a reason to avoid it, but each one changes how a stock should be made, stored and diluted.</p>
+
+    <h2>Why DMSO, and when it is the wrong choice</h2>
+    <p>DMSO dissolves many hydrophobic and amphipathic peptides that aqueous buffers will not, and it is miscible with water, which makes it a practical bridge into aqueous assays. It is also a strong hydrogen-bond acceptor and a penetrant, so it changes the behaviour of the system it is added to — a fact that shows up in assay vehicle controls.</p>
+    <p>It is the wrong choice when the peptide is adequately soluble in aqueous buffer, when the assay cannot tolerate any organic solvent, or when the readout is sensitive to DMSO itself. For a first attempt, buffer is easier to interpret; DMSO is for the material that resists it. The aqueous decision order is covered in <a href="/knowledge/peptide-buffer-selection/">choosing a buffer</a>, and the general reconstitution workflow in <a href="/knowledge/peptide-reconstitution-guide/">reconstitution practice</a>.</p>
+
+    <h2>Properties that matter at the bench</h2>
+    <table>
+      <thead><tr><th>Property</th><th>Value or behaviour</th><th>Practical consequence</th></tr></thead>
+      <tbody>
+        <tr><td>Melting point</td><td>~18.5 °C</td><td>It is solid in a fridge and in a −20 °C freezer; thaw completely and mix before use</td></tr>
+        <tr><td>Density</td><td>~1.10 g/mL</td><td>Weighing by volume is not weighing by mass; 1 mL is about 1.1 g</td></tr>
+        <tr><td>Viscosity</td><td>Higher than water</td><td>Pipetting is slow and inaccurate when cold; equilibrate to room temperature</td></tr>
+        <tr><td>Hygroscopicity</td><td>Readily takes up atmospheric water</td><td>An open bottle becomes a DMSO–water mixture; water content changes solubility and concentration</td></tr>
+        <tr><td>UV cutoff</td><td>~268 nm</td><td>A280 is usable; A214 is not, because the solvent absorbs strongly</td></tr>
+        <tr><td>Plastic compatibility</td><td>Attacks polystyrene and some polycarbonates; compatible with glass, PP, PE and PTFE</td><td>Use glass, PP or PTFE; do not store stocks in polystyrene tubes or cuvettes</td></tr>
+        <tr><td>Peroxide content</td><td>Can accumulate on storage</td><td>Trace peroxides are oxidants; specify or test peroxide level for oxidation-sensitive peptides</td></tr>
+      </tbody>
+    </table>
+    <p>The plastic point is not theoretical. A DMSO stock left in a polystyrene tube can soften or craze the tube, and the resulting extractables end up in the sample. Amber glass or PP is the safer default, and it also solves the light problem described in <a href="/knowledge/peptide-photostability/">light exposure and peptide stability</a>.</p>
+
+    <h2>Making the stock</h2>
+    <ol>
+      <li><strong>Equilibrate the DMSO bottle and the peptide vial to room temperature.</strong> Cold DMSO is viscous and cold glass condenses water.</li>
+      <li><strong>Weigh the peptide, not the solvent.</strong> A stock concentration calculated from powder mass is a powder-basis concentration. If the peptide content is 80%, the solution is 20% weaker than the label arithmetic suggests; see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</li>
+      <li><strong>Add DMSO gradually and mix gently.</strong> Let it wet the cake, then swirl or roll. Brief sonication is acceptable if it does not warm the solution; prolonged sonication and heating are not.</li>
+      <li><strong>Inspect before use.</strong> A clear solution at the target concentration is the goal. Undissolved particles, a gel or a haze mean the concentration is too high or the solvent is wrong.</li>
+      <li><strong>Record the actual volume and the basis.</strong> “10 mM” is ambiguous unless the peptide content and the salt form are known.</li>
+    </ol>
+    <p>Concentration limits are peptide-specific. A short hydrophobic peptide may reach tens of millimolar; a longer or aggregation-prone sequence may gel at a few millimolar. Start dilute, and do not assume that a published stock concentration transfers to a different sequence.</p>
+
+    <h2>Diluting into aqueous buffer</h2>
+    <p>The common failure is dilution shock. A peptide dissolved in pure DMSO is in a solvent with a very different polarity and hydrogen-bonding environment from water; adding that stock to buffer in one shot can exceed the local solubility limit before mixing, and the peptide precipitates as a fine haze that may not redissolve.</p>
+    <ul>
+      <li><strong>Add the stock slowly, with mixing.</strong> A pipette stream directed into a vortexing buffer is better than a bolus dropped into still liquid.</li>
+      <li><strong>Keep the final DMSO concentration low and consistent.</strong> For most cell work the working limit is a fraction of a percent to about one percent; the exact tolerance is assay- and cell-specific and should be established, not assumed.</li>
+      <li><strong>Match the vehicle in controls.</strong> Controls need the same final DMSO concentration, added the same way. A vehicle mismatch is a common source of apparent compound effects.</li>
+      <li><strong>Watch for adsorption.</strong> At low peptide concentrations, the loss to tube and plate surfaces can be larger than the effect being measured; the mechanisms are covered in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a>.</li>
+    </ul>
+    <p>If a stock must be diluted into a mostly aqueous system at a higher organic fraction than the assay allows, a two-step dilution through an intermediate solvent composition is usually more reliable than a single large jump.</p>
+
+    <h2>Storage and freeze–thaw</h2>
+    <p>DMSO stocks are usually stored frozen as single-use aliquots. Three details make the difference between a stable stock and a drifting one:</p>
+    <ul>
+      <li><strong>Aliquot before freezing.</strong> A stock that is thawed and refrozen repeatedly takes up water each time the tube is opened, and the concentration changes by evaporation and by condensation.</li>
+      <li><strong>Thaw on ice or at room temperature, and mix thoroughly.</strong> DMSO that has been frozen is not homogeneous on thawing; concentration gradients form, and a sample taken before mixing may be wrong.</li>
+      <li><strong>Store in glass or PP, sealed, protected from light.</strong> Label with peptide, lot, concentration basis, solvent, date and initials.</li>
+    </ul>
+    <p>A −20 °C freezer is adequate for most DMSO stocks; −80 °C is used when the peptide is known to be unstable in solution or when the stock will be held for a long time. The choice should be deliberate rather than inherited from a previous project.</p>
+
+    <h2>Measuring concentration in DMSO</h2>
+    <p>A280 works in DMSO if the peptide contains Trp or Tyr, but the extinction coefficient and the wavelength of maximum absorption can shift with solvent, so a coefficient determined in water is an approximation. A214 does not work at all, because DMSO absorbs strongly in that region.</p>
+    <p>For quantitative work, the defensible options are: weigh the peptide and correct for peptide content, or dilute an aliquot into aqueous buffer and measure there — provided the peptide does not precipitate on dilution. Measuring the diluted sample and assuming the dilution is exact ignores both the volumetric error and any loss to the cuvette. The broader comparison of concentration methods is in <a href="/knowledge/peptide-concentration-measurement/">measuring peptide concentration</a>.</p>
+
+    <h2>DMSO in the assay</h2>
+    <p>DMSO is not a passive vehicle. It affects membrane fluidity, can alter differentiation and proliferation readouts, and at higher fractions is directly cytotoxic. It also increases the solubility of some assay dyes and can change readout background. Two controls make the interpretation honest:</p>
+    <ul>
+      <li><strong>A vehicle-only control at the same final DMSO concentration</strong>, processed identically, including the same number of dilution steps.</li>
+      <li><strong>A solvent-tolerance check</strong> across the concentrations used, so that an effect seen at the top concentration can be attributed to the peptide rather than to the solvent.</li>
+    </ul>
+    <p>When the assay is a cell-based one, the additional variables — serum binding, plate adsorption, evaporation — are set out in <a href="/knowledge/peptides-in-cell-culture-assays/">peptides in cell-culture assays</a>.</p>
+
+    <h2>Six rules that prevent most problems</h2>
+    <ol>
+      <li>Use anhydrous DMSO from a small bottle, and keep it sealed; water uptake is continuous.</li>
+      <li>Store stocks in glass or PP, never polystyrene.</li>
+      <li>Aliquot before freezing, and never refreeze a working aliquot.</li>
+      <li>Thaw completely and mix before taking a sample.</li>
+      <li>Dilute slowly into stirred buffer, and keep the final DMSO fraction constant across samples and controls.</li>
+      <li>Record the concentration basis — powder mass, peptide content, salt form — not just the molarity.</li>
+    </ol>
+
+    <div class="ruo">For laboratory research use only. This article describes laboratory solvent practice; it makes no claim about any specific product's solubility and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — the aqueous workflow and its arithmetic</li>
+      <li><a href="/knowledge/peptide-buffer-selection/">Choosing a buffer</a> — pH, pI and co-solvent decisions</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — what to do when the stock will not dissolve</li>
+      <li><a href="/knowledge/peptide-adsorption-labware/">Adsorption to labware</a> — loss at low concentrations</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring peptide concentration</a> — A280, A214 and assay choices</li>
+      <li><a href="/knowledge/peptides-in-cell-culture-assays/">Peptides in cell-culture assays</a> — vehicle and readout effects</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-dmso-stocks/" />
+</BaseLayout>
