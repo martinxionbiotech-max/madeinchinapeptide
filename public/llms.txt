@@ -21,6 +21,7 @@
 - /knowledge/peptide-mass-spec-identity/ — monoisotopic vs average mass, adducts and ppm error in MS identity checks
 - /knowledge/peptide-sequence-notation/ — one-letter codes, residue mass arithmetic, terminal modifications and checking a catalogue MW
 - /knowledge/peptide-stability-studies/ — real-time vs accelerated stability data, assay panel and stability-claim red flags
+- /knowledge/peptide-net-content-and-cost/ — fill weight vs peptide mass, salt and water correction, cost per mg
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /compliance/research-use-only/ — permitted and prohibited uses

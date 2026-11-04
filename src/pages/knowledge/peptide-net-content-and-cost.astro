@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Net peptide content: what 10 mg means';
+const h1 = 'Net peptide content: what a 10 mg vial actually contains';
+const description = 'Fill weight is not peptide mass. How counter-ions, water and purity change net peptide content, and how to compare quotes on cost per mg of peptide.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-net-content-and-cost/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Net peptide content'}]} />
+    <h1>{h1}</h1>
+    <p class="lead muted">A vial labelled 10 mg rarely contains 10 mg of peptide. It contains 10 mg of powder, and part of that powder is counter-ion, water and residual salts. The gap is usually small enough to ignore in a qualitative experiment and large enough to ruin a quantitative one — and it is the single most common reason two quotations for the “same” peptide are not comparable.</p>
+
+    <h2>Three numbers behind one label</h2>
+    <p>Buyers routinely treat these as interchangeable. They are not:</p>
+    <table>
+      <thead><tr><th>Number</th><th>What it measures</th><th>Typical method</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fill weight</strong></td><td>Total powder mass in the vial, including everything that is not peptide</td><td>Gravimetric, during filling</td></tr>
+        <tr><td><strong>Purity</strong></td><td>Share of the UV-absorbing peak area that is the target sequence</td><td>RP-HPLC, usually 214 nm</td></tr>
+        <tr><td><strong>Net peptide content</strong></td><td>Mass fraction of the powder that is peptide, regardless of sequence</td><td>Amino-acid analysis, nitrogen determination or mass balance</td></tr>
+      </tbody>
+    </table>
+    <p>Purity answers “how much of the peptide is the right peptide”. Peptide content answers “how much of the powder is peptide at all”. A lot can be 98% pure by HPLC and still be 75% peptide by mass, because the remaining 25% is acetate, water and inorganic residue that never appears in the chromatogram. The distinction is set out from the certificate side in <a href="/quality/testing-methods/">testing methods</a> and from the salt side in <a href="/knowledge/peptide-counter-ion-forms/">counter-ion forms</a>.</p>
+
+    <h2>Why the powder is never 100% peptide</h2>
+    <ul>
+      <li><strong>Counter-ion.</strong> Every basic residue that is protonated carries an anion. Acetate and TFA are the usual choices, and TFA is the heavier of the two. The fraction depends on how many basic residues the sequence has and on how completely the salt was formed — not every site is necessarily paired.</li>
+      <li><strong>Water.</strong> Lyophilised powder is hygroscopic. Karl Fischer water content is commonly specified at ≤5–8% for research material; a vial that has been open to humid air can be worse.</li>
+      <li><strong>Residual salts and solvents.</strong> Buffer components from purification, and traces of the solvents used in the process, add mass that is not peptide.</li>
+      <li><strong>Peptide impurities.</strong> Deletion sequences, truncations and oxidised species are peptides too. They count toward peptide content by nitrogen or amino-acid analysis even though they are not the target.</li>
+    </ul>
+    <p>A useful arithmetic check: for a hypothetical 3,000 Da peptide with four basic residues, full pairing with acetate adds 4 × 59.04 = 236.2 Da, so the counter-ion is 236.2 ÷ 3,236.2 ≈ 7.3% of the salt mass. With TFA (4 × 114.02 = 456.1 Da) the same sites carry 456.1 ÷ 3,456.1 ≈ 13.2%. Add 5% water and the peptide content falls to roughly 88% for the acetate and 82% for the TFA salt. Same sequence, same fill weight, about six percentage points of peptide difference.</p>
+    <p>Those figures are arithmetic on stated assumptions, not a specification for any product. The real substitution depends on the sequence, the pH at which the salt was formed and the drying step.</p>
+
+    <h2>How net peptide content is actually measured</h2>
+    <p>Three methods appear on certificates, and they do not give identical numbers:</p>
+    <ul>
+      <li><strong>Amino-acid analysis (AAA).</strong> The sample is hydrolysed to free amino acids, which are separated and quantified; the residues are summed back to peptide mass. It counts peptide material broadly, so impurity peptides are included. Trp and Cys need separate handling because they are partly destroyed by hydrolysis, and a report that does not say how they were handled is incomplete.</li>
+      <li><strong>Nitrogen determination (Kjeldahl or Dumas).</strong> Total nitrogen is converted to peptide mass using an assumed nitrogen fraction. Acetate and TFA contain no nitrogen, so the counter-ion is effectively excluded — which is what you want — but nitrogen from residual buffer salts or ammonium will inflate the result.</li>
+      <li><strong>Mass balance.</strong> Water by Karl Fischer plus counter-ion by ion chromatography plus residual solvents are subtracted from 100%. It is only as good as the assays it subtracts.</li>
+    </ul>
+    <p>UV absorbance at 280 nm is not a general substitute: it needs Trp or Tyr in the sequence and a known extinction coefficient. For a peptide without aromatic residues it measures nothing useful at that wavelength.</p>
+
+    <h2>Doing the arithmetic on a quotation</h2>
+    <p>To compare offers on a like-for-like basis, convert each to cost per milligram of target peptide:</p>
+    <p><strong>cost per mg = price ÷ (fill weight × peptide content ÷ 100 × purity ÷ 100)</strong></p>
+    <p>The table below is illustrative only — invented prices and contents, chosen to show how the ranking moves:</p>
+    <table>
+      <thead><tr><th>Offer</th><th>Fill</th><th>Content</th><th>Purity</th><th>Target peptide</th><th>Price</th><th>Cost / mg peptide</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>5 mg</td><td>80%</td><td>95%</td><td>3.80 mg</td><td>$58</td><td>$15.26</td></tr>
+        <tr><td>B</td><td>10 mg</td><td>72%</td><td>98%</td><td>7.06 mg</td><td>$95</td><td>$13.46</td></tr>
+        <tr><td>C</td><td>10 mg</td><td>not stated</td><td>99%</td><td>5.94–8.42 mg</td><td>$82</td><td>$9.74–$13.80</td></tr>
+      </tbody>
+    </table>
+    <p>Offer C looks cheapest per vial and is the only one you cannot rank, because its peptide content is missing. At 60% content it lands at $13.80 per mg; at 85% it lands at $9.74. The spread is wider than the difference between A and B. That is the practical argument for requiring peptide content in the quotation rather than after the order.</p>
+    <p>One caveat on the formula: purity and content overlap. An impurity peptide is counted by content and excluded by purity, so multiplying both can understate the true peptide mass slightly. It is a conservative estimate, and it is the right direction to err in when you are budgeting.</p>
+
+    <h2>Where the gap actually matters</h2>
+    <ul>
+      <li><strong>Quantitative assays and standards.</strong> A 20% content error becomes a 20% concentration error in every standard curve built from that weighing.</li>
+      <li><strong>Stoichiometry in coupling chemistry.</strong> Labelling and conjugation reactions are molar, and the molar amount depends on peptide mass, not powder mass.</li>
+      <li><strong>Cell-based work.</strong> Nominal concentrations are computed from the mass you believe you dissolved. If the belief is wrong, the concentration is wrong.</li>
+      <li><strong>Reconstitution records.</strong> The <a href="/tools/reconstitution-calculator/">reconstitution calculator</a> applies a purity or content correction for exactly this reason; leaving the field at 100% assumes the powder is pure peptide.</li>
+    </ul>
+    <p>For qualitative work — a quick solubility check, a trial conjugation — the difference is often tolerable. For anything you will report as a number, it is not.</p>
+
+    <h2>What to put in the RFQ</h2>
+    <ol>
+      <li><strong>The fill basis.</strong> Say “10 mg net peptide” or “10 mg gross powder” explicitly. Suppliers will quote either, and the price difference is real.</li>
+      <li><strong>The salt form and counter-ion,</strong> with a maximum for residual TFA if your work is sensitive to it.</li>
+      <li><strong>Water content</strong> by Karl Fischer, with a limit, not just a result.</li>
+      <li><strong>Peptide content</strong> and the method used to obtain it.</li>
+      <li><strong>Purity method detail</strong> — column, gradient, wavelength — so two certificates can be compared. See <a href="/knowledge/reading-peptide-hplc-chromatograms/">reading a chromatogram</a>.</li>
+      <li><strong>Overfill tolerance.</strong> Fill weights are targets with a range; ask what the release range is.</li>
+      <li><strong>Price basis</strong> — per vial, per gram of powder, or per gram of peptide.</li>
+    </ol>
+
+    <h2>Red flags on a quotation</h2>
+    <ul>
+      <li>“Peptide content: 100%” on a lyophilised salt. It is not physically plausible with a counter-ion and any moisture at all.</li>
+      <li>A bulk price per gram with no statement of whether the gram is powder or peptide.</li>
+      <li>Purity quoted to two decimals with no chromatogram attached — precision is not accuracy. See <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a>.</li>
+      <li>Comparisons across different fill sizes without normalising, which is the same mistake as comparing <a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ tiers</a> by unit price alone.</li>
+    </ul>
+
+    <div class="ruo">Research use only. Not for human or veterinary use. Nothing here is a dosing or clinical statement.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Acetate vs TFA counter-ion forms</a> — salt mass, pH and what to specify</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — what each assay on a COA actually measures</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — HPLC, MS and certificate checks</li>
+      <li><a href="/tools/reconstitution-calculator/">Reconstitution calculator</a> — concentration with a content correction</li>
+      <li><a href="/products/">Research peptide catalogue</a> — 33 documented SKUs</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={"Net peptide content: what a 10 mg vial contains"} description={"Fill weight is not peptide mass. How counter-ions, water and purity change net peptide content, and how to compare quotes on cost per mg of peptide."} path={"/knowledge/peptide-net-content-and-cost/"} />
+</BaseLayout>

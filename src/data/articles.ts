@@ -22,4 +22,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-lot-consistency', title:'Lot-to-lot consistency in peptide supply', desc:'Why two batches of the same peptide differ, and how to control the drift.', cluster:'Quality & testing' },
   { slug:'peptide-sequence-notation', title:'Peptide sequence and molecular weight', desc:'One-letter codes, residue mass arithmetic, terminal modifications and why a catalogue MW may not match your sum.', cluster:'Compound background' },
   { slug:'peptide-stability-studies', title:'Peptide stability studies explained', desc:'Real-time vs accelerated data, the assay panel at each timepoint, and why a COA is not a shelf-life study.', cluster:'Quality & testing' },
+  { slug:'peptide-net-content-and-cost', title:'Net peptide content and cost per mg', desc:'Fill weight is not peptide mass — how counter-ions, water and purity change the arithmetic, and how to normalise quotations.', cluster:'Quality & testing' },
 ];
