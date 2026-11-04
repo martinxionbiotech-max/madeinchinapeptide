@@ -53,4 +53,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-weighing-practice', title:'Weighing small peptide quantities', desc:'Balance minimum weight, static, moisture uptake and transfer loss — why a sub-milligram peptide weight is not a simple measurement.', cluster:'Handling' },
   { slug:'peptide-disulfide-bonds', title:'Disulfide bonds in synthetic peptides', desc:'How disulfides form, why scrambled connectivity survives purification, and what alkylation and non-reducing HPLC can prove about a batch.', cluster:'Manufacturing' },
   { slug:'peptide-solution-filtration', title:'Filtering peptide solutions', desc:'Membrane choice, adsorption loss, pore size and integrity testing — what a filter removes, what it adds, and when not to filter.', cluster:'Handling' },
+  { slug:'peptide-photostability', title:'Light exposure and peptide stability', desc:'Which residues absorb light, what photo-oxidation produces, and what packaging and a photostability study can actually prove.', cluster:'Handling' },
 ];

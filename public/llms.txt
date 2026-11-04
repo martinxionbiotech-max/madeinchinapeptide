@@ -50,6 +50,7 @@
 - /knowledge/peptide-inventory-and-retest-dates/ — safety stock, retest dates, quarantine and FIFO
 - /knowledge/peptide-synthesis-impurities/ — synthesis-derived impurities, mass-shifted vs mass-silent, impurity statement fields
 - /knowledge/peptides-in-cell-culture-assays/ — adsorption, serum binding, vehicle and readout interference in in-vitro work
+- /knowledge/peptide-photostability/ — light-sensitive residues, photo-oxidation products, packaging and photostability study limits
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide

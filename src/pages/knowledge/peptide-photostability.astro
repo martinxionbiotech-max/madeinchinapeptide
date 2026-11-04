@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Light exposure and peptide stability';
+const description = 'Which residues absorb light, what photo-oxidation produces, how container and lamp type change the risk, and what a photostability study can prove.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-photostability/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Light and stability'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“Store protected from light” appears on almost every peptide label and is acted on in almost no laboratory. Light is an energy input that can break bonds, generate reactive oxygen species and change a peptide without changing its molecular weight. The relevant questions are which residues are at risk, how much light actually reaches the material, and what evidence exists that protection works.</p>
+
+    <h2>Which part of a peptide absorbs light</h2>
+    <p>Most peptide bonds absorb strongly only below about 220 nm, which is why far-UV detection works but is also why ordinary room light does not excite the backbone. The chromophores that matter in the near-UV and visible range are the side chains:</p>
+    <table>
+      <thead><tr><th>Residue</th><th>Approximate λ<sub>max</sub></th><th>Molar absorptivity (order of magnitude)</th><th>Main photochemical risk</th></tr></thead>
+      <tbody>
+        <tr><td>Tryptophan</td><td>~280 nm</td><td>5,500 M⁻¹cm⁻¹</td><td>Indole ring oxidation and ring opening; radical formation; the most photoreactive common residue</td></tr>
+        <tr><td>Tyrosine</td><td>~275 nm</td><td>1,490 M⁻¹cm⁻¹</td><td>Phenolic oxidation; oxidative coupling of two tyrosines to dityrosine</td></tr>
+        <tr><td>Phenylalanine</td><td>~257 nm</td><td>~200 M⁻¹cm⁻¹</td><td>Weak absorption; generally a minor contributor</td></tr>
+        <tr><td>Cystine (disulfide)</td><td>~250 nm</td><td>Weak</td><td>Photolysis of the S–S bond; disulfide exchange in the presence of radicals</td></tr>
+        <tr><td>Methionine, cysteine, histidine</td><td>No strong near-UV band</td><td>—</td><td>Oxidation sensitised by another chromophore or by trace metals</td></tr>
+      </tbody>
+    </table>
+    <p>Molar absorptivity values are approximate and solvent-dependent; they are quoted here to show the relative scale, not as constants to calculate with. The practical consequence is that a peptide with no Trp, Tyr or Cys is far less likely to be directly damaged by light than one that contains them — but “far less likely” is not “immune”, because sensitised oxidation can still reach methionine and histidine.</p>
+
+    <h2>Two mechanisms, one outcome</h2>
+    <p><strong>Direct photolysis.</strong> The residue absorbs a photon, reaches an excited state and undergoes chemistry from there. For tryptophan this can mean photoionisation, ring oxidation, or cleavage of the indole ring; for cystine it can mean homolysis of the disulfide. The products are often a mixture, and many retain a mass close to the parent.</p>
+    <p><strong>Sensitised photo-oxidation.</strong> A different molecule absorbs the light, transfers energy to oxygen, and generates singlet oxygen or radicals that then attack the peptide. Riboflavin, flavin cofactors, porphyrins, some dyes and trace transition metals are effective sensitisers at very low concentration. This is why a peptide that is stable alone in buffer can degrade quickly in a medium that contains a coloured component — cell-culture medium with phenol red and riboflavin is the common example.</p>
+    <p>The mass shifts are the part a certificate can sometimes reveal:</p>
+    <table>
+      <thead><tr><th>Change</th><th>Approximate mass shift</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Single oxidation (Met, Trp, His, Cys)</td><td>+15.995 Da</td><td>The most common photodegradation product; also formed by oxygen without light</td></tr>
+        <tr><td>Two oxidations on one residue</td><td>+31.990 Da</td><td>e.g. sulfinic acid from cysteine; Trp can take more</td></tr>
+        <tr><td>Dityrosine cross-link</td><td>−4.031 Da relative to two tyrosines</td><td>Two Tyr residues (2 × 163.063 = 326.126 Da) lose four hydrogens: 326.126 − 4.031 = 322.095 Da</td></tr>
+        <tr><td>Ring-opened Trp products</td><td>Variable</td><td>Often a family of products rather than one; may not resolve on a generic gradient</td></tr>
+      </tbody>
+    </table>
+    <p>The dityrosine arithmetic is worth checking once by hand, because it shows why a cross-link can be mistaken for a small modification: the dimer is not the sum of the two residues, and its mass does not fall where a simple oxidation search would look.</p>
+
+    <h2>How much light is actually reaching the vial</h2>
+    <p>Light exposure is a function of source, distance, duration and the container. The differences are large enough that a qualitative “we keep it in the dark” is not a specification:</p>
+    <table>
+      <thead><tr><th>Condition</th><th>What reaches the product</th><th>Practical comment</th></tr></thead>
+      <tbody>
+        <tr><td>Sealed amber vial in a closed drawer</td><td>Effectively none</td><td>The reference condition for long storage</td></tr>
+        <tr><td>Amber vial on an open bench under ceiling fluorescent light</td><td>Some visible light; UV largely filtered by the glass</td><td>Acceptable for short handling; not a storage condition</td></tr>
+        <tr><td>Clear vial on a bench</td><td>Visible and near-UV, depending on the tube</td><td>Soda-lime glass cuts off below roughly 300–320 nm; quartz does not</td></tr>
+        <tr><td>Near a window with direct sun</td><td>Visible, UVA and some UVB</td><td>Ordinary window glass blocks UVB but transmits much of UVA</td></tr>
+        <tr><td>Under a germicidal 254 nm lamp</td><td>Short-wave UV at high energy</td><td>Do not place vials or open solutions under one</td></tr>
+        <tr><td>In a UV transilluminator or gel documentation cabinet</td><td>Intense near-UV</td><td>A common accidental exposure in molecular-biology labs</td></tr>
+      </tbody>
+    </table>
+    <p>Amber glass is not a neutral density filter; it attenuates strongly in the blue and UV and transmits most of the orange-red. It reduces, but does not eliminate, photochemical risk. Aluminium foil or an opaque secondary pouch is the more complete answer, at the cost of being unable to see the contents.</p>
+
+    <h2>Powder, solution, and the state that matters</h2>
+    <p>Photodegradation is usually faster in solution than in a dry solid, for the same reason most chemistry is: mobility. In a lyophilised cake the peptide is immobilised and the local oxygen and water are limited, so exposure over a working day is rarely the dominant risk. In solution, the peptide is mobile, dissolved oxygen is present, and a sensitising component may be present as well.</p>
+    <p>That difference should shape handling more than storage advice does:</p>
+    <ul>
+      <li><strong>Weighing and transferring powder.</strong> Work quickly, but do not treat minutes of bench light as a crisis. Moisture uptake is the larger risk in the same operation.</li>
+      <li><strong>Reconstituted stock.</strong> Keep it in an amber tube or wrapped in foil, and do not leave it on the bench between uses. A clear tube in a rack under bench light for an afternoon is a real exposure.</li>
+      <li><strong>Autosampler trays.</strong> A long HPLC sequence can hold a sample at room temperature under tray lighting for many hours. If the method is stability-indicating and the sample is light-sensitive, a cooled and dark tray is part of the method, not a convenience.</li>
+      <li><strong>Cell-culture work.</strong> Medium containing riboflavin and phenol red is a sensitiser system; exposure during handling and incubation lighting adds to the peptide's own sensitivity. This is covered further in <a href="/knowledge/peptides-in-cell-culture-assays/">peptides in cell-culture assays</a>.</li>
+    </ul>
+
+    <h2>How a photostability study is actually run</h2>
+    <p>The standard framework is ICH Q1B, which describes two options. Option 1 uses two light sources — a cool-white fluorescent source for visible light and a near-UV source — with target exposures of at least 1.2 million lux hours visible and 200 W·h/m² in the near-UV. Option 2 uses a single source, typically a xenon lamp, chosen to give a comparable spectral distribution. In both cases the study includes a dark control, and the chamber temperature is controlled because lamps heat the sample.</p>
+    <p>Three details are usually lost when the study is summarised:</p>
+    <ul>
+      <li><strong>What was exposed.</strong> Drug substance in a vial, drug product in its market container, and a solution in a cuvette are three different experiments. Only the second answers the question “does the packaged product survive light?”</li>
+      <li><strong>Whether the container is the variable.</strong> A study that shows degradation in clear glass and none in amber glass tells you the packaging is doing the work. A study that shows no degradation in either tells you the molecule is not the issue.</li>
+      <li><strong>Whether the method can see the products.</strong> Photodegradation often produces low-level, closely eluting species. A study run on a generic fast gradient can report “no significant change” while the products sit under the main peak. Method specificity, ideally demonstrated with a forced photodegradation sample, is what makes the negative result meaningful.</li>
+    </ul>
+    <p>A photostability study is a study design question in the same family as the ones covered in <a href="/knowledge/peptide-stability-studies/">stability studies explained</a>; the difference is the stressor, not the logic.</p>
+
+    <h2>What a supplier can and cannot tell you</h2>
+    <p>“Store protected from light” is a handling instruction, not evidence. It is compatible with a product that has never been tested and with one that has a full ICH Q1B package. The questions that separate the two:</p>
+    <ol>
+      <li>Has a photostability study been run on this peptide, and was it on the powder or the reconstituted solution?</li>
+      <li>Which container was exposed — the supplied vial, or a laboratory container?</li>
+      <li>What were the measured exposures, and was a dark control included?</li>
+      <li>Which analytical method was used, and was it shown to resolve photodegradation products?</li>
+      <li>What changed — assay, purity, colour, or nothing — and what was the acceptance criterion?</li>
+    </ol>
+    <p>Most research-grade suppliers will answer “no study” to the first question. That is a legitimate answer for research material, and it should lead to handling precautions rather than to a claim. What is not legitimate is presenting packaging language as if it were data.</p>
+
+    <h2>Practical protection</h2>
+    <ul>
+      <li>Store sealed vials in the dark: a closed drawer or a cupboard, not a windowsill and not a glass-fronted cabinet in sunlight.</li>
+      <li>Keep working solutions in amber tubes or foil-wrapped tubes; label them so the wrapping does not become the reason they are lost.</li>
+      <li>Turn off or shade unnecessary bench lighting during manipulation of solutions; work near the back of the bench rather than under a direct lamp.</li>
+      <li>Never place peptides under a germicidal UV lamp, a transilluminator or a gel-doc cabinet.</li>
+      <li>For long HPLC runs, use a cooled autosampler tray and, if the method is sensitive, a tray that is dark.</li>
+      <li>Do not use UV exposure as a substitute for contamination control on vials or surfaces that contact the peptide.</li>
+    </ul>
+    <p>These measures cost nothing and are consistently under-applied. The failure mode is quiet: no visible change, no obvious odour, just a purity figure that has drifted and a chromatogram with a slightly different shape. A laboratory that already tracks water content and lot trends has the data to notice it; one that only reads the number on the label does not.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes photochemical mechanisms and laboratory handling practice; it makes no claim about the light sensitivity of any specific product and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-degradation-pathways/">Degradation pathways</a> — oxidation, hydrolysis and the reactions light accelerates</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — temperature, moisture and freeze–thaw</li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a> — amber glass, foil pouches and secondary barriers</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Stability studies explained</a> — how a stress study is designed and read</li>
+      <li><a href="/knowledge/peptides-in-cell-culture-assays/">Peptides in cell-culture assays</a> — medium components that sensitise photo-oxidation</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution practice</a> — handling solutions after they are made</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-photostability/" />
+</BaseLayout>
