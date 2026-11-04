@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const title = 'HPLC dilution and injection calculator';
+const description = 'Convert a stock solution to a working concentration, check the mass injected on column, and plan a serial dilution series with the arithmetic shown.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/tools/hplc-dilution-calculator/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'HPLC dilution calculator'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Three calculations that decide whether an injection is informative: how much stock goes into the flask, how much peptide reaches the column, and what the dilution series actually contains. Arithmetic only — no protocol, no method recommendation.</p>
+
+    <div class="calc" id="calc-dilution">
+      <h2>1. Stock to working concentration</h2>
+      <p class="calc-hint" style="grid-column:auto;margin:0 0 10px;">Defaults are illustrative. Replace them with your own values; nothing is stored.</p>
+      <div class="calc-grid">
+        <label for="d-stock">Stock concentration (mg/mL)</label>
+        <input id="d-stock" type="number" inputmode="decimal" min="0" step="any" value="2" />
+
+        <label for="d-work">Target concentration (µg/mL)</label>
+        <input id="d-work" type="number" inputmode="decimal" min="0" step="any" value="100" />
+
+        <label for="d-final">Final volume (mL)</label>
+        <input id="d-final" type="number" inputmode="decimal" min="0" step="any" value="10" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Dilution factor:</strong> <span id="d-factor">—</span></p>
+        <p><strong>Stock to pipette:</strong> <span id="d-stockvol">—</span></p>
+        <p><strong>Diluent to add:</strong> <span id="d-dilvol">—</span></p>
+        <p class="calc-hint" id="d-warn" style="grid-column:auto;margin:6px 0 0;"></p>
+      </div>
+    </div>
+
+    <div class="calc" id="calc-injection" style="margin-top:22px;">
+      <h2>2. Mass injected on column</h2>
+      <div class="calc-grid">
+        <label for="i-conc">Injection concentration (µg/mL)</label>
+        <input id="i-conc" type="number" inputmode="decimal" min="0" step="any" value="100" />
+
+        <label for="i-vol">Injection volume (µL)</label>
+        <input id="i-vol" type="number" inputmode="decimal" min="0" step="any" value="10" />
+
+        <label for="i-mw">Molecular weight (g/mol, optional)</label>
+        <input id="i-mw" type="number" inputmode="decimal" min="0" step="any" placeholder="optional" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Mass on column:</strong> <span id="i-mass">—</span></p>
+        <p><strong>Amount in moles:</strong> <span id="i-mol">—</span></p>
+        <p class="calc-hint" id="i-warn" style="grid-column:auto;margin:6px 0 0;"></p>
+      </div>
+    </div>
+
+    <div class="calc" id="calc-series" style="margin-top:22px;">
+      <h2>3. Serial dilution series</h2>
+      <div class="calc-grid">
+        <label for="s-top">Top concentration (µg/mL)</label>
+        <input id="s-top" type="number" inputmode="decimal" min="0" step="any" value="1000" />
+
+        <label for="s-factor">Dilution factor (fold)</label>
+        <input id="s-factor" type="number" inputmode="decimal" min="1" step="any" value="2" />
+
+        <label for="s-points">Number of points</label>
+        <input id="s-points" type="number" inputmode="numeric" min="2" max="12" step="1" value="6" />
+
+        <label for="s-volume">Volume per tube (mL)</label>
+        <input id="s-volume" type="number" inputmode="decimal" min="0" step="any" value="1" />
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p><strong>Transfer volume per step:</strong> <span id="s-transfer">—</span></p>
+        <p><strong>Concentrations:</strong> <span id="s-list">—</span></p>
+        <p class="calc-hint" id="s-warn" style="grid-column:auto;margin:6px 0 0;"></p>
+      </div>
+    </div>
+
+    <h2>The arithmetic</h2>
+    <ul>
+      <li><strong>Dilution:</strong> C₁V₁ = C₂V₂, so stock volume = (target concentration × final volume) ÷ stock concentration. Diluent volume = final volume − stock volume.</li>
+      <li><strong>Injection mass:</strong> concentration in µg/mL equals ng/µL, so mass on column (ng) = concentration (µg/mL) × injection volume (µL).</li>
+      <li><strong>Moles:</strong> pmol = ng × 1000 ÷ molecular weight in g/mol.</li>
+      <li><strong>Serial dilution:</strong> each tube is the previous concentration divided by the dilution factor; with a fixed volume per tube, the volume transferred at each step is tube volume ÷ dilution factor.</li>
+    </ul>
+    <p>Worked with the defaults: 2 mg/mL = 2000 µg/mL; 100 × 10 ÷ 2000 gives 0.5 mL (500 µL) of stock in a 10 mL flask, a 20-fold dilution. At 100 µg/mL and a 10 µL injection, 1,000 ng reaches the column. A 1,000 µg/mL top standard diluted 2-fold over six points gives 1000, 500, 250, 125, 62.5 and 31.25 µg/mL, transferring 0.5 mL into 0.5 mL of diluent at each step.</p>
+
+    <h2>What the calculator does not know</h2>
+    <ul>
+      <li><strong>Whether the stock concentration is real.</strong> A nominal concentration computed from fill weight ignores peptide content, counter-ion and water. The inputs must come from a measured or corrected value — see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</li>
+      <li><strong>Column capacity and void volume.</strong> 1,000 ng on a 2.1 mm column is a very different load from 1,000 ng on a 4.6 mm column. The number is a mass, not a suitability judgement.</li>
+      <li><strong>Sample solvent strength.</strong> Injecting in a solvent stronger than the mobile phase distorts early peaks regardless of how accurately the dilution was made.</li>
+      <li><strong>Adsorption losses.</strong> At low concentrations, a meaningful fraction of peptide can bind to the flask, the vial or the needle — see <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a>.</li>
+      <li><strong>Detector linearity.</strong> The top standard must sit inside the validated range of the method, not merely inside the detector's nominal maximum.</li>
+      <li><strong>Volumetric glassware accuracy.</strong> A 10 mL flask and a 100 µL pipette have tolerances; at low volumes they dominate the error budget.</li>
+    </ul>
+
+    <h2>Practical notes on making the dilution</h2>
+    <ul>
+      <li>Bring the stock and the diluent to the same temperature before pipetting; thermal expansion of a small volume is not negligible relative to a 100 µL transfer.</li>
+      <li>Rinse the pipette tip with the stock before transferring, especially for a solution containing organic solvent.</li>
+      <li>Add the stock into the diluent, not the reverse, and mix by inversion rather than vortexing if the peptide is prone to aggregation.</li>
+      <li>Prepare the working solution fresh where the method allows it; a dilute solution has more surface area per unit mass and less stability than the stock.</li>
+      <li>Record the actual values — stock lot, measured concentration, pipette volumes, diluent composition — so that a later result can be reconstructed.</li>
+    </ul>
+
+    <div class="ruo">For laboratory research use only. This calculator performs arithmetic on values you supply; it is not a validated method, a certificate of analysis, or medical, veterinary or dosing guidance.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading an HPLC chromatogram</a> — peak shape, integration and area percent</li>
+      <li><a href="/knowledge/analytical-method-validation/">Method validation</a> — why the range and LOQ matter before the injection</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring concentration</a> — verifying the stock before diluting it</li>
+      <li><a href="/knowledge/peptide-adsorption-labware/">Adsorption to labware</a> — the low-concentration loss</li>
+      <li><a href="/tools/reconstitution-calculator/">Reconstitution calculator</a> — vial to stock solution</li>
+      <li><a href="/tools/">All tools</a></li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const num = (id) => {
+        const n = parseFloat($(id).value);
+        return Number.isFinite(n) && n > 0 ? n : null;
+      };
+      const fmt = (n, d) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: 0 });
+
+      function volume(ml) {
+        if (ml >= 1) return fmt(ml, 3) + ' mL';
+        return fmt(ml * 1000, 1) + ' µL';
+      }
+
+      function updateDilution() {
+        const stock = num('d-stock');
+        const work = num('d-work');
+        const final = num('d-final');
+        if (!stock || !work || !final) {
+          $('d-factor').textContent = '—';
+          $('d-stockvol').textContent = '—';
+          $('d-dilvol').textContent = '—';
+          $('d-warn').textContent = 'Enter a stock concentration, a target concentration and a final volume.';
+          return;
+        }
+        const stockUg = stock * 1000;
+        const factor = stockUg / work;
+        const vStock = work * final / stockUg;
+        const vDil = final - vStock;
+        $('d-factor').textContent = fmt(factor, 1) + '-fold';
+        $('d-stockvol').textContent = volume(vStock);
+        $('d-dilvol').textContent = volume(vDil);
+        if (factor < 2) {
+          $('d-warn').textContent = 'The dilution is less than 2-fold; pipetting error will be a large share of the total error. Consider a two-step dilution.';
+        } else if (vStock < 0.01) {
+          $('d-warn').textContent = 'The stock volume is below 10 µL, where pipette tolerance dominates. A serial dilution is more accurate.';
+        } else {
+          $('d-warn').textContent = '';
+        }
+      }
+
+      function updateInjection() {
+        const conc = num('i-conc');
+        const vol = num('i-vol');
+        const mw = num('i-mw');
+        if (!conc || !vol) {
+          $('i-mass').textContent = '—';
+          $('i-mol').textContent = '—';
+          $('i-warn').textContent = 'Enter an injection concentration and an injection volume.';
+          return;
+        }
+        const ng = conc * vol;
+        $('i-mass').textContent = fmt(ng, 2) + ' ng';
+        if (mw) {
+          const pmol = ng * 1000 / mw;
+          $('i-mol').textContent = fmt(pmol, 2) + ' pmol';
+          $('i-warn').textContent = '';
+        } else {
+          $('i-mol').textContent = 'enter a molecular weight';
+          $('i-warn').textContent = '';
+        }
+      }
+
+      function updateSeries() {
+        const top = num('s-top');
+        const factor = num('s-factor');
+        const points = Math.round(num('s-points') || 0);
+        const vol = num('s-volume');
+        if (!top || !factor || !points || !vol) {
+          $('s-transfer').textContent = '—';
+          $('s-list').textContent = '—';
+          $('s-warn').textContent = 'Enter a top concentration, a dilution factor, a point count and a tube volume.';
+          return;
+        }
+        const f = Math.max(1.01, factor);
+        const n = Math.min(12, Math.max(2, points));
+        const transfer = vol / f;
+        const values = [];
+        for (let i = 0; i < n; i += 1) values.push(top / Math.pow(f, i));
+        $('s-transfer').textContent = volume(transfer);
+        $('s-list').textContent = values.map((v) => fmt(v, 3)).join(' · ') + ' µg/mL';
+        if (transfer >= vol) {
+          $('s-warn').textContent = 'The transfer volume is not smaller than the tube volume; check the dilution factor.';
+        } else if (transfer < 0.01) {
+          $('s-warn').textContent = 'The transfer volume is below 10 µL, where pipette tolerance dominates. Use a larger tube volume or a smaller dilution factor.';
+        } else {
+          $('s-warn').textContent = '';
+        }
+      }
+
+      ['d-stock', 'd-work', 'd-final'].forEach((id) => $(id).addEventListener('input', updateDilution));
+      ['i-conc', 'i-vol', 'i-mw'].forEach((id) => $(id).addEventListener('input', updateInjection));
+      ['s-top', 's-factor', 's-points', 's-volume'].forEach((id) => $(id).addEventListener('input', updateSeries));
+
+      updateDilution();
+      updateInjection();
+      updateSeries();
+    })();
+  </script>
+</BaseLayout>

@@ -41,6 +41,7 @@
 - /tools/ — laboratory calculators
 - /tools/reconstitution-calculator/ — mg/mL, molarity, dilution and aliquot math for lyophilized vials
 - /tools/cost-per-mg-calculator/ — normalise quotations to cost per mg of peptide
+- /tools/hplc-dilution-calculator/ — stock-to-working dilution, mass on column and serial dilution series
 - /compliance/research-use-only/ — permitted and prohibited uses
 - /compliance/shipping-customs/ — shipping, documentation, restricted destinations
 - /contact/ — RFQ
