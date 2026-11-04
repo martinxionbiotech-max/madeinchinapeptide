@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Analytical method validation for peptides';
+const description = 'Specificity, linearity, accuracy, precision, LOD and robustness — what each parameter proves, and how the peptide case differs from a small-molecule method.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/analytical-method-validation/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Method validation'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A method that produces a number is not the same as a method whose number means something. Validation is the evidence that separates the two — and for peptides, several of the standard parameters behave in ways a small-molecule protocol does not anticipate.</p>
+
+    <h2>What validation is for</h2>
+    <p>A validated method has documented evidence that it measures what it claims, within stated limits, reproducibly, in the hands of the laboratory that will run it. That last clause matters: validation is site-specific. A method transferred from a contract lab without a transfer study is a method that has never been run where it will be used.</p>
+    <p>The parameters below follow the structure used in ICH Q2 and in most pharmacopoeial general chapters. The names are standard; the acceptance criteria are not, because they depend on the purpose. A purity method for a 98% product and an impurity method for a 0.1% limit need different criteria from the same instrument.</p>
+
+    <h2>The parameters, and what each one actually establishes</h2>
+    <table>
+      <thead><tr><th>Parameter</th><th>Question it answers</th><th>Peptide-specific wrinkle</th></tr></thead>
+      <tbody>
+        <tr><td>Specificity / selectivity</td><td>Does the method respond to the analyte and not to everything else?</td><td>Degradation products can be chromatographically close; a photodiode array scan helps but does not prove resolution of co-eluting species</td></tr>
+        <tr><td>Linearity</td><td>Is response proportional to concentration across the range?</td><td>Peptides adsorb to surfaces at low concentration; the low end may curve downward</td></tr>
+        <tr><td>Range</td><td>Over what concentrations is the method validated?</td><td>Purity methods need a range around the main component and a separate, lower range for impurities</td></tr>
+        <tr><td>Accuracy</td><td>How close is the result to the true value?</td><td>Requires a reference standard of known content; a “98%” standard is itself an assumption</td></tr>
+        <tr><td>Precision</td><td>Do repeated measurements agree?</td><td>Repeatability within a run; intermediate precision across days, analysts and columns</td></tr>
+        <tr><td>LOD / LOQ</td><td>What is the smallest amount that can be detected or quantified?</td><td>Impurity limits below 0.1% require demonstration, not extrapolation</td></tr>
+        <tr><td>Robustness</td><td>Do small deliberate changes break the method?</td><td>pH, gradient slope, column lot and temperature are the usual sensitivities</td></tr>
+        <tr><td>Solution stability</td><td>How long can prepared samples wait?</td><td>Peptide solutions can degrade or adsorb during a long autosampler queue</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Specificity is harder than it looks</h2>
+    <p>For a peptide, the most important interference is not a solvent or a buffer — it is a molecule one amino acid away from the target. A deletion sequence differs by a residue mass and often elutes close to the main peak; an oxidised variant differs by 16 Da and may be only partially resolved.</p>
+    <p>Three practical tests of specificity:</p>
+    <ul>
+      <li><strong>Forced degradation.</strong> Expose the sample to acid, base, heat, oxidant and light, then show that the resulting peaks are resolved from the main peak. This is the standard way to demonstrate that a purity method can see degradation products at all.</li>
+      <li><strong>Orthogonal detection.</strong> A photodiode array detector shows whether a peak is spectrally pure; mass detection shows whether a peak contains more than one mass. Neither is conclusive alone, but a peak that is spectrally impure is definitely not pure.</li>
+      <li><strong>Spike recovery.</strong> Add a known amount of a related impurity or a known degradation product and show that it is recovered and resolved.</li>
+    </ul>
+    <p>What specificity cannot establish is that everything present has been seen. A species with no chromophore at the detection wavelength is invisible to UV, which is why the impurity discussion in <a href="/knowledge/peptide-synthesis-impurities/">synthesis impurities</a> separates mass-shifted from mass-silent species.</p>
+
+    <h2>Linearity, range and the low-concentration problem</h2>
+    <p>Linearity is usually demonstrated with five or more concentration levels, a regression, and a residual analysis. The correlation coefficient alone is a weak criterion: an r² of 0.999 can coexist with a systematically curved low end, and the low end is exactly where impurity limits live.</p>
+    <p>For peptides, two effects distort the low end:</p>
+    <ul>
+      <li><strong>Adsorption.</strong> At low concentrations a meaningful fraction of the analyte can bind to the vial, the needle or the column. The result is a negative bias that grows as concentration falls — see <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a>.</li>
+      <li><strong>Integration thresholds.</strong> Software that ignores peaks below a height or area threshold will report better purity at low load than at high load. The setting should be fixed in the method and stated in the report.</li>
+    </ul>
+    <p>The range should therefore be split: one range for the main component (typically 80–120% of the nominal concentration) and a separate, lower range for impurities, each validated on its own. A single 0.1–200% range validated with one regression is a common shortcut that hides exactly the behaviour that matters.</p>
+
+    <h2>Accuracy needs a reference standard, and the standard has uncertainty</h2>
+    <p>Accuracy is established by comparing the method's result against a known value — a certified reference material, a standard of assigned content, or a primary method such as amino-acid analysis or qNMR.</p>
+    <p>This creates a circularity that buyers should understand. If the “known” value comes from the same HPLC method, the experiment tests repeatability, not accuracy. If it comes from a commercial standard, the standard's assigned content carries its own uncertainty and its own basis (as-is, anhydrous or peptide content). The distinction between those bases is set out in <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</p>
+    <p>A defensible accuracy study states: the reference material, its assigned value and basis, the number of levels and replicates, and the acceptance criterion. “Recovery 98–102%” without those details is a sentence, not a study.</p>
+
+    <h2>Precision has two floors</h2>
+    <p>Repeatability (same analyst, same day, same instrument) is the easier number and the less useful one. Intermediate precision — different day, different analyst, fresh sample preparation, sometimes a different column lot — is what predicts whether two shipments will be comparable.</p>
+    <p>Report both, as relative standard deviation at a stated concentration. For a purity method on a 98% main peak, the RSD of the main-peak area is usually small; the RSD of a 0.2% impurity peak is much larger, because the peak is small and the integration is less stable. A method can be precise for the main component and imprecise for the impurities that determine whether the batch passes.</p>
+
+    <h2>LOD and LOQ: signal-to-noise is a starting point</h2>
+    <p>The common approach uses a signal-to-noise ratio of about 3:1 for detection and 10:1 for quantification, measured on a sample containing the analyte near the expected limit. The alternative is the standard-deviation-of-response approach, based on the variability of blank or low-level measurements.</p>
+    <p>Both produce a number; neither proves that the peak is the right molecule at that level. For impurity limits, the LOQ should be confirmed by preparing a sample at the claimed limit and showing acceptable recovery and precision. A method with a stated LOQ of 0.05% that has never been tested at 0.05% has a calculated limit, not a demonstrated one.</p>
+
+    <h2>Robustness is where peptide methods fail</h2>
+    <p>Deliberate variation of method parameters shows which ones the separation depends on. For reversed-phase peptide methods the usual sensitivities are:</p>
+    <ul>
+      <li><strong>Mobile-phase pH and ion-pairing agent concentration.</strong> A small shift changes the charge state of basic residues and moves retention.</li>
+      <li><strong>Gradient slope and delay volume.</strong> Different instrument plumbing changes the effective gradient at the column.</li>
+      <li><strong>Column lot and age.</strong> End-capping and pore structure vary between lots; a method that only works on one lot is not transferable.</li>
+      <li><strong>Column temperature.</strong> Retention and selectivity both move; ±5 °C is a common probe.</li>
+      <li><strong>Sample solvent strength.</strong> Injecting in a solvent stronger than the mobile phase distorts early peaks.</li>
+    </ul>
+    <p>Robustness is also the parameter most likely to be skipped, because it is the one that produces failures rather than a tidy table. A supplier who can describe which parameters were varied, and what happened, is describing a method they have actually stress-tested.</p>
+
+    <h2>What this means when you read a certificate</h2>
+    <p>A certificate reports results. Validation reports the method's capability. They are different documents, and the certificate rarely cites the validation report. Reasonable questions:</p>
+    <ul>
+      <li>Is the purity method validated for this product, or is it a generic gradient applied to everything?</li>
+      <li>What is the validated range, and is the reported result inside it?</li>
+      <li>What is the LOQ for related impurities, and was it demonstrated at that level?</li>
+      <li>How was specificity shown — forced degradation, orthogonal detection, or neither?</li>
+      <li>Is the method transferable, and has it been run on more than one column lot?</li>
+    </ul>
+    <p>None of these require the supplier to hand over proprietary details. All of them require that a validation file exists and that someone can answer from it. Where that is not possible, the honest reading of the certificate is “a result from an uncharacterised method” — which may still be useful, but should not be treated as a release decision on its own.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical practice; it makes no claim about any specific compound, certificate or laboratory, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — what HPLC, MS and Karl Fischer each measure</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verifying peptide purity</a> — the buyer's version of the same question</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Reading a chromatogram</a> — integration, peak shape and area percent</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — what the method is trying to resolve</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> — when the paperwork does not support the claim</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — writing method and limit into the order</li>
+      <li><a href="/quality/coa/">How to read a COA</a> — the fields that matter</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/analytical-method-validation/" />
+</BaseLayout>

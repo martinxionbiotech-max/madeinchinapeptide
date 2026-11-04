@@ -39,4 +39,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-aggregate-analytics', title:'Measuring aggregates: SEC, DLS, AUC and FTIR', desc:'Four techniques, four different views of aggregation — what each measures, where it misleads, and what a supplier can report.', cluster:'Quality & testing' },
   { slug:'custom-peptide-synthesis-order', title:'Ordering a custom peptide: what to specify', desc:'The field list behind a comparable quote, the sequence features that drive difficulty, and the scale ambiguity that starts experiments wrong.', cluster:'Sourcing' },
   { slug:'peptide-inventory-and-retest-dates', title:'Peptide inventory planning and retest dates', desc:'Lead-time variance, safety stock arithmetic, retest versus expiry, and a quarantine routine that survives a busy lab.', cluster:'Sourcing' },
+  { slug:'analytical-method-validation', title:'Analytical method validation for peptides', desc:'Specificity, linearity, accuracy, precision and robustness — what each parameter proves for a peptide method, and where the standard playbook falls short.', cluster:'Quality & testing' },
 ];
