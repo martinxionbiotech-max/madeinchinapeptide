@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Peptides in cell-culture assays';
+const description = 'Adsorption, serum binding, vehicle effects and readout interference — where a peptide assay loses signal before the biology even starts.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptides-in-cell-culture-assays/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Cell-culture assays'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">An assay that shows no effect has two possible explanations: the material is inactive, or the material never reached the cells. The second is far more common than people expect, and almost all of it is preventable at the bench.</p>
+
+    <h2>Why a culture well is a harder environment than a cuvette</h2>
+    <p>Analytical work exposes a peptide to a glass vial and a buffer for minutes. A cell-culture well exposes it to a treated plastic surface, a protein-rich medium, 37 °C, a CO₂ atmosphere and hours of incubation — with cells actively taking up and degrading material. The same peptide at the same nominal concentration can behave very differently in the two settings.</p>
+    <p>The relevant quantity is rarely the concentration you pipetted. It is the free, soluble, intact concentration at the cell surface over the exposure period, and each of those three words is a place where the number can fall.</p>
+
+    <h2>Where the signal goes</h2>
+    <table>
+      <thead><tr><th>Loss route</th><th>Mechanism</th><th>Practical check</th></tr></thead>
+      <tbody>
+        <tr><td>Adsorption to plastic</td><td>Hydrophobic and electrostatic binding to wells, tips and filter membranes</td><td>Compare a low-binding plate against a standard plate in a pilot run</td></tr>
+        <tr><td>Serum protein binding</td><td>Albumin and other proteins sequester peptide, lowering the free fraction</td><td>Run a serum-free arm alongside, accepting the physiological trade-off</td></tr>
+        <tr><td>Filtration</td><td>0.22 µm membranes retain aggregates and adsorb peptide</td><td>Centrifuge instead where the format allows; measure before and after</td></tr>
+        <tr><td>Precipitation on dilution</td><td>DMSO stock injected into aqueous medium exceeds solubility</td><td>Inspect against a dark background; spin and re-measure if unclear</td></tr>
+        <tr><td>Freeze–thaw</td><td>Aggregation and loss at the air–liquid interface</td><td>Single-use aliquots; count how many cycles the stock has had</td></tr>
+        <tr><td>Plate evaporation</td><td>Edge wells lose volume faster than centre wells</td><td>Fill the outer ring with medium only, or randomise layout</td></tr>
+        <tr><td>Cell-mediated clearance</td><td>Uptake and proteolysis over the incubation</td><td>Short exposure with washout, if the question allows it</td></tr>
+      </tbody>
+    </table>
+    <p>These are not exotic effects. They are the ordinary reason a 10 µM nominal treatment is not 10 µM at the membrane — and why two labs can disagree about the same lot without either being wrong. The analytical-scale version of the same problem is covered in <a href="/knowledge/peptide-adsorption-labware/">adsorption to labware</a>; here the surface area, the protein load and the timescale are all larger.</p>
+
+    <h2>Vehicle effects are a variable, not a footnote</h2>
+    <p>Most peptides are dissolved in DMSO or water first. Whatever the stock solvent is, three rules apply:</p>
+    <ol>
+      <li><strong>Hold the vehicle concentration constant across every well</strong>, including untreated and vehicle-only controls. A dose series that changes DMSO percentage along with peptide concentration confounds the two variables.</li>
+      <li><strong>Determine your own tolerance.</strong> The acceptable final solvent percentage depends on the cell type, the exposure length and the readout. It is an empirical question for your system, not a universal number to copy from a paper.</li>
+      <li><strong>Run the vehicle-only control through the full readout.</strong> If DMSO alone moves the signal, that movement is your assay's floor for detecting an effect.</li>
+    </ol>
+    <p>The same logic applies to any solubiliser, detergent or carrier protein. Each additive is a variable, and a variable that differs between groups is a confound.</p>
+
+    <h2>Readout interference</h2>
+    <p>Colorimetric and fluorimetric assays measure chemistry, not biology. A peptide can participate in that chemistry:</p>
+    <ul>
+      <li><strong>Reducing residues.</strong> Cysteine and, under some conditions, tryptophan can reduce tetrazolium dyes, inflating a signal that looks like viability or metabolic activity.</li>
+      <li><strong>Optical interference.</strong> Coloured or turbid samples shift absorbance; aromatic residues can quench fluorescence.</li>
+      <li><strong>Assay chemistry.</strong> Some detection systems depend on a redox environment that a peptide can perturb.</li>
+    </ul>
+    <p>The controls that separate these from a real effect are cheap: a no-cell well containing peptide and reagent, a no-reagent well containing cells and peptide, and a peptide-only blank read at the assay wavelength. If the no-cell control moves, the readout is measuring the compound, not the cells.</p>
+
+    <h2>Endotoxin is a confound in any inflammation readout</h2>
+    <p>If the assay measures cytokine release, NF-κB activation or any inflammatory marker, lipopolysaccharide is the most potent contaminant in the room. A lot that carries endotoxin can produce a convincing signal that has nothing to do with the peptide.</p>
+    <p>Two practical measures: use a lot with a documented endotoxin result, and include a control that distinguishes LPS-driven signal from peptide-driven signal — for example an LPS-spike control at a known level, or a comparison against a lot with a different endotoxin profile. What each endotoxin test measures, and what “endotoxin-free” can legitimately mean, is set out in <a href="/knowledge/peptide-endotoxin-bioburden/">endotoxin and bioburden</a>.</p>
+
+    <h2>Solubility at assay concentration</h2>
+    <p>A peptide that dissolves at 1 mg/mL in water may cloud when diluted into medium containing salts, calcium and serum. Precipitation is often invisible at working concentrations, and “the well looked clear” is weak evidence.</p>
+    <p>A more useful check is to prepare the final assay concentration in medium alone, incubate it under the same conditions as the cells, then centrifuge and measure the supernatant by A280 or by HPLC against a known standard. If the recovered concentration is materially below nominal, the cells were not exposed to what you think. The measurement side is covered in <a href="/knowledge/peptide-concentration-measurement/">measuring peptide concentration</a>.</p>
+
+    <h2>How much material a plate actually needs</h2>
+    <p>Working out the quantity before opening a vial avoids both waste and mid-experiment dilution. A worked example, all arithmetic and no assumptions about any particular compound:</p>
+    <ul>
+      <li>A 96-well plate at 100 µL per well needs 9.6 mL for a full plate of one condition.</li>
+      <li>At 10 µM and a molecular weight of 1,000 g/mol, that is 10 mg/L — so 9.6 mL contains 0.096 mg of peptide.</li>
+      <li>Add 20% for dead volume and pipetting loss: about 0.115 mg.</li>
+      <li>Multiply by the number of conditions, and add the stock volume needed to make the dilution series.</li>
+    </ul>
+    <p>The lesson is not the number; it is that a dose series across several plates consumes material faster than intuition suggests, and running out halfway through forces a fresh stock — which is a new variable in the middle of the experiment. Weigh and aliquot for the whole plate set before starting.</p>
+
+    <h2>Designing a run that can be interpreted</h2>
+    <ul>
+      <li><strong>Include a reference compound</strong> with a known response in your system. Without it, a null result cannot be distinguished from a broken assay.</li>
+      <li><strong>Randomise or block plate position</strong>, and keep the outer ring for medium only if evaporation matters.</li>
+      <li><strong>Fix the handling variables</strong> — plate type, serum lot, cell passage, exposure time — and change one at a time when troubleshooting.</li>
+      <li><strong>Record the material variables</strong>: lot number, solvent, final vehicle percentage, nominal and measured concentration.</li>
+      <li><strong>Decide the analysis before the run.</strong> If the assay's own variability is unknown, a pilot with replicates is worth more than a larger single-shot experiment.</li>
+    </ul>
+    <p>None of this makes an assay infallible. It makes a negative result informative, which is the difference between “the material did nothing” and “we do not know”.</p>
+
+    <h2>Questions worth asking of the material</h2>
+    <ul>
+      <li>What is the lot's endotoxin result, and by which method?</li>
+      <li>What is the recommended solvent for this sequence, and does the certificate state the counter-ion?</li>
+      <li>Has solubility at assay-relevant concentration in aqueous buffer been checked, or only in the stock solvent?</li>
+      <li>What is the peptide content of the lot, so that a milligram weighed corresponds to a known molar amount?</li>
+    </ul>
+    <p>The last one matters more than it looks: dosing by mass when the material is 80% peptide by net content introduces a 20% error before the first pipette tip is touched — see <a href="/knowledge/peptide-net-content-and-cost/">net peptide content</a>.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes in-vitro assay practice; it makes no claim about any specific compound, gives no dosing guidance, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Reconstitution guide</a> — solvent choice and stock preparation</li>
+      <li><a href="/knowledge/peptide-adsorption-labware/">Adsorption to labware</a> — the analytical-scale version of the same loss</li>
+      <li><a href="/knowledge/peptide-concentration-measurement/">Measuring concentration</a> — verifying what is actually in the well</li>
+      <li><a href="/knowledge/peptide-endotoxin-bioburden/">Endotoxin and bioburden</a> — the confound in inflammatory readouts</li>
+      <li><a href="/knowledge/peptide-solubility-troubleshooting/">Solubility troubleshooting</a> — when the stock will not go into solution</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Storage and handling</a> — keeping the stock stable between runs</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptides-in-cell-culture-assays/" />
+</BaseLayout>
