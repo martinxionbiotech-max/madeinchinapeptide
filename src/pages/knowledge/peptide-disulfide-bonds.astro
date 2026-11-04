@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+const title = 'Disulfide bonds in synthetic peptides';
+const description = 'How disulfides form, why scrambled connectivity survives purification, and what alkylation, digestion and non-reducing HPLC can actually prove about a batch.';
+---
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-disulfide-bonds/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Disulfide bonds'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">A disulfide is a covalent bond between two cysteine side chains. It is also the one structural feature of a synthetic peptide that a mass check cannot confirm on its own: the same mass can belong to the correct bridge, to a scrambled bridge between the wrong cysteines, or to a reduced chain with no bridge at all. Purity by HPLC does not settle it either, because isomers often co-elute.</p>
+
+    <h2>Why the bond matters analytically</h2>
+    <p>Each disulfide forms by oxidising two thiols and losing two hydrogen atoms: a mass decrease of 2.016 Da per bond. That shift is the easy part. The hard part is that several arrangements can produce exactly the same shift.</p>
+    <table>
+      <thead><tr><th>Species</th><th>Mass relative to the reduced chain</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>Reduced, free thiols</td><td>Baseline</td><td>No bridge; cysteines carry −SH</td></tr>
+        <tr><td>One correct disulfide</td><td>−2.016 Da</td><td>Two cysteines paired as intended</td></tr>
+        <tr><td>Scrambled disulfide</td><td>−2.016 Da per bond</td><td>Same mass, wrong pairing</td></tr>
+        <tr><td>Two disulfides, one correct and one scrambled</td><td>−4.032 Da</td><td>Mass agrees; connectivity does not</td></tr>
+        <tr><td>Mixed disulfide with glutathione or cysteine</td><td>Varies with the adduct</td><td>Incomplete deprotection or oxidation artefact</td></tr>
+      </tbody>
+    </table>
+    <p>This is the specific case of the general rule in <a href="/knowledge/peptide-mass-spec-identity/">mass spectrometry identity checks</a>: a matching mass is consistent with a structure, not proof of one. For a linear peptide the sequence question is answered by fragmentation; for a disulfide the connectivity question needs a different experiment.</p>
+
+    <h2>How the bond is made</h2>
+    <p>In solid-phase synthesis the cysteines are usually protected with an acid-labile group and the chain is cleaved with the thiols still blocked. Folding — deprotection and oxidation — is a separate step in solution. The common routes:</p>
+    <ul>
+      <li><strong>Air or oxygen oxidation.</strong> Slow, cheap, and sensitive to pH, temperature and trace metals. It gives the thermodynamically favoured arrangement, which is not always the desired one.</li>
+      <li><strong>Glutathione redox buffers.</strong> Oxidised and reduced glutathione in a defined ratio set the redox potential; the mixture shuffles disulfides until the stable set dominates.</li>
+      <li><strong>Iodine or DMSO oxidation.</strong> Faster, less discriminating, and more prone to over-oxidation of methionine or tryptophan.</li>
+      <li><strong>Directed or orthogonal protection.</strong> Cysteines are unmasked in a chosen order and oxidised pairwise. This is the reliable route for a specific connectivity, and it costs more.</li>
+    </ul>
+    <p>Two practical consequences for a buyer: a peptide with more than two cysteines cannot be assumed to have a single defined connectivity unless the supplier states that directed oxidation was used, and “HPLC purity 98%” says nothing about which arrangement those molecules have.</p>
+
+    <h2>Scrambling, and why purification does not fix it</h2>
+    <p>At neutral to alkaline pH, thiolate attacks an existing disulfide and exchanges partners. The result is a mixture of isomers that can equilibrate. Purification removes impurities that differ in hydrophobicity; it does not separate isomers that happen to co-elute, and it does not stop the exchange from continuing in the bottle.</p>
+    <p>Conditions that promote scrambling:</p>
+    <ul>
+      <li>pH above roughly 8 during handling or storage of a reduced or partially folded intermediate.</li>
+      <li>Residual reducing agents, or traces of thiol-containing buffers, left in the preparation.</li>
+      <li>Prolonged exposure to oxygen during lyophilisation and storage, which allows slow re-oxidation in the solid state.</li>
+      <li>Heat and high concentration during folding, both of which accelerate exchange.</li>
+    </ul>
+    <p>The mitigation is process-side: directed oxidation, a defined redox buffer, a quench step, and a final pH that keeps the product away from the thiolate window. None of that is visible on a certificate unless the supplier chooses to describe it.</p>
+
+    <h2>What a certificate can and cannot show</h2>
+    <p>A typical COA reports appearance, identity by MS, purity by HPLC and water content. For a disulfide-containing peptide that panel is not sufficient to establish connectivity. The gap is worth stating explicitly, because it is often filled with an assumption:</p>
+    <table>
+      <thead><tr><th>Question</th><th>Answered by a standard COA?</th><th>What would answer it</th></tr></thead>
+      <tbody>
+        <tr><td>Is the mass right?</td><td>Usually yes</td><td>MS with observed and expected mass</td></tr>
+        <tr><td>Is the main peak a single species?</td><td>Partly — by HPLC</td><td>Chromatogram and method, plus a second selectivity</td></tr>
+        <tr><td>Are the cysteines paired as intended?</td><td>No</td><td>Non-reducing digestion with LC-MS/MS, or partial reduction and alkylation</td></tr>
+        <tr><td>How much free thiol remains?</td><td>No</td><td>Ellman's assay or alkylation with mass detection</td></tr>
+        <tr><td>Are there scrambled isomers?</td><td>No, unless a method was built for them</td><td>Non-reducing HPLC, ion exchange, or digestion mapping</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Mapping connectivity: the alkylation experiment</h2>
+    <p>The standard approach is to freeze the arrangement, cut the chain into pieces, and see which pieces travel together.</p>
+    <ol>
+      <li><strong>Block the free thiols.</strong> Treat the sample with an alkylating agent such as iodoacetamide or N-ethylmaleimide so that any unpaired cysteine is capped and cannot re-pair. This step also quantifies free thiol if the reagent is used quantitatively.</li>
+      <li><strong>Digest.</strong> Use a protease that cleaves at predictable sites — trypsin at Lys and Arg, or a nonspecific enzyme if the sequence lacks them. Keep the disulfides intact: no reducing agent in the digest buffer.</li>
+      <li><strong>Separate and analyse.</strong> LC-MS/MS of the digest. A disulfide-linked pair of peptides appears as one precursor whose mass equals the sum of the two peptides minus 2.016 Da per bond.</li>
+      <li><strong>Assign.</strong> Fragment the disulfide-linked precursor. The b/y ladder is interrupted at the linked cysteines, and the fragments that remain connected identify the partner.</li>
+      <li><strong>Compare with a reduced control.</strong> Run the same sample with dithiothreitol or TCEP. The linked precursor disappears and the two individual peptides appear; that is the confirmation that the linkage was a disulfide and not an artefact.</li>
+    </ol>
+    <p>This is a more demanding experiment than a mass check, and it is not usually included in a catalogue-grade certificate. It is reasonable to request it for a first lot, for a regulated application, or when a peptide behaves inconsistently and connectivity is a plausible cause. What MS/MS can and cannot resolve in general is covered in <a href="/knowledge/peptide-ms-ms-sequence-confirmation/">sequence confirmation by MS/MS</a>.</p>
+
+    <h2>Non-reducing versus reducing HPLC</h2>
+    <p>A non-reducing HPLC run keeps disulfides intact; a reducing run adds DTT or TCEP and collapses them. Comparing the two chromatograms is a cheap diagnostic:</p>
+    <ul>
+      <li>A single main peak in both runs suggests a homogeneous, fully oxidised species — but it does not prove the correct connectivity.</li>
+      <li>A main peak that shifts or splits on reduction indicates that the reduced form differs in hydrophobicity, which is expected; it does not by itself indicate an impurity.</li>
+      <li>A shoulder or second peak that disappears on reduction is evidence of a disulfide-linked variant or aggregate, and worth investigating.</li>
+      <li>A peak that appears only after reduction can be a thiol-containing impurity that was co-eluting in the oxidised form.</li>
+    </ul>
+    <p>Ask for both traces when connectivity is critical. A supplier who runs only the non-reducing method has not looked at the question.</p>
+
+    <h2>Free thiols and Ellman's assay</h2>
+    <p>Ellman's reagent (DTNB) reacts with free thiols to release a yellow anion whose absorbance is measured at 412 nm. It is simple, cheap and quantitative, and it answers a different question from mapping: how much of the material is still reduced.</p>
+    <p>The assay has caveats worth knowing. It responds to any free thiol in the sample, including residual reducing agent and cysteine from the medium. It needs a buffer at a pH where the thiol is deprotonated, and the extinction coefficient depends on the matrix. And it reports an average over the population — a sample that is 90% correctly oxidised and 10% fully reduced can give the same free-thiol number as one with a different distribution. Use it as a consistency check across lots, not as a connectivity assignment.</p>
+
+    <h2>Handling material that contains disulfides</h2>
+    <ul>
+      <li>Store lyophilized at low temperature and low humidity; slow oxidation continues in the solid state.</li>
+      <li>Avoid alkaline buffers for prolonged periods, especially once the peptide is in solution.</li>
+      <li>Do not add reducing agents unless the experiment requires the reduced form; if it does, use them deliberately and record it.</li>
+      <li>Keep solutions concentrated enough to work with but not so concentrated that aggregation and exchange compete.</li>
+      <li>Expect the reduced and oxidised forms to behave differently in solubility and in assays; a Method section that does not state which form was used is incomplete.</li>
+    </ul>
+    <p>General storage variables are covered in <a href="/knowledge/peptide-storage-handling/">storage and handling</a>, and the chemical routes by which disulfides and other bonds fail are in <a href="/knowledge/peptide-degradation-pathways/">degradation pathways</a>.</p>
+
+    <h2>Questions for an RFQ</h2>
+    <ol>
+      <li>How many cysteines does the sequence contain, and how many disulfides are intended?</li>
+      <li>Is the oxidation directed or random? If directed, what is the protecting-group scheme?</li>
+      <li>Does the certificate report connectivity, or only mass and HPLC purity?</li>
+      <li>Can you provide a non-reducing and a reducing chromatogram for the lot?</li>
+      <li>Is a digestion-based mapping report available for the first lot, and at what cost?</li>
+      <li>What is the free-thiol specification, and how is it measured?</li>
+    </ol>
+    <p>For a peptide with a single disulfide and no other cysteines, the risk of a wrong connectivity is low and these questions are mostly reassurance. For a peptide with four or six cysteines, they are the difference between a defined molecule and a mixture with a good mass spectrum.</p>
+
+    <div class="ruo">For laboratory research use only. This article describes analytical and manufacturing practice; it makes no claim about any specific product, batch or certificate, and does not support administration to humans or animals.</div>
+
+    <h2>Related reading &amp; products</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-ms-ms-sequence-confirmation/">Sequence confirmation by MS/MS</a> — what fragmentation proves, and the isomers it cannot separate</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Mass spectrometry identity checks</a> — mass accuracy, adducts and the limits of a match</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Synthesis impurities</a> — which by-products shift mass and which are silent</li>
+      <li><a href="/knowledge/peptide-degradation-pathways/">Degradation pathways</a> — oxidation, hydrolysis and deamidation after release</li>
+      <li><a href="/knowledge/peptide-purification-and-salt-conversion/">Purification and salt conversion</a> — what preparative HPLC can and cannot separate</li>
+      <li><a href="/knowledge/">All knowledge guides</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/knowledge/peptide-disulfide-bonds/" />
+</BaseLayout>

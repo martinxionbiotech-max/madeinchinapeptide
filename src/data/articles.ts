@@ -51,4 +51,5 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-elemental-impurities', title:'Elemental impurities in peptides', desc:'Where metals enter peptide synthesis, what ICH Q3D element classes mean for a research-grade product, and how ICP-MS results should be reported.', cluster:'Quality & testing' },
   { slug:'peptide-batch-documentation-package', title:'The peptide batch documentation package', desc:'What a complete lot file contains beyond the COA — raw data, batch records, methods, statements and shipping documents — and what each one proves.', cluster:'Sourcing' },
   { slug:'peptide-weighing-practice', title:'Weighing small peptide quantities', desc:'Balance minimum weight, static, moisture uptake and transfer loss — why a sub-milligram peptide weight is not a simple measurement.', cluster:'Handling' },
+  { slug:'peptide-disulfide-bonds', title:'Disulfide bonds in synthetic peptides', desc:'How disulfides form, why scrambled connectivity survives purification, and what alkylation and non-reducing HPLC can prove about a batch.', cluster:'Manufacturing' },
 ];
