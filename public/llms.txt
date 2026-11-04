@@ -4,6 +4,7 @@
 
 ## Key pages
 - /products/ — catalogue of research peptides and cosmetic raw materials
+- /products/retatrutide/ — retatrutide research material, bulk and OEM supply
 - /wholesale/ — wholesale and bulk ordering model, pricing factors, documentation
 - /oem-private-label/ — OEM and private-label process, label rules
 - /quality/ — QC framework, analytical methods, COA structure
@@ -11,6 +12,7 @@
 - /quality/testing-methods/ — HPLC, MS, Karl Fischer explained
 - /factory/ — process chain and traceability framework
 - /knowledge/ — sourcing and quality guides
+- /knowledge/glp-1-research-peptides-compared/ — semaglutide vs tirzepatide vs retatrutide, analytical comparison
 - /compliance/research-use-only/ — permitted and prohibited uses
 - /compliance/shipping-customs/ — shipping, documentation, restricted destinations
 - /contact/ — RFQ

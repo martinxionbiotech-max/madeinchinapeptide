@@ -29,8 +29,8 @@ export interface CategoryInfo {
 export const categories: Record<Category, CategoryInfo> = {
   tirzepatide: {
     name: 'Tirzepatide',
-    title: 'Tirzepatide (Research Grade) — Bulk & OEM Supply',
-    description: 'Tirzepatide reference material supplied as lyophilized powder for laboratory research. Batch-specific HPLC data and COA on request; bulk and OEM options for qualified research buyers.',
+    title: 'Tirzepatide — Bulk & OEM Supply',
+    description: 'Tirzepatide reference material for laboratory research, supplied as lyophilized powder. Batch-specific HPLC data and COA on request; bulk and OEM supply.',
     take: {
       position: 'Tirzepatide is the highest-demand metabolic research peptide in the Chinese bulk market — and the most counterfeited. My position: buy on batch data, not on price per vial.',
       reasoning: 'The molecule is expensive to synthesize and purify, so the cheapest offers are usually the ones with the least analytical evidence. A 5–10% price difference is trivial next to a failed experiment or a customs seizure.',
@@ -39,8 +39,8 @@ export const categories: Record<Category, CategoryInfo> = {
   },
   semaglutide: {
     name: 'Semaglutide',
-    title: 'Semaglutide (Research Grade) — Bulk & OEM Supply',
-    description: 'Semaglutide reference material in lyophilized form for in-vitro research applications. Documentation-first supply with batch traceability and wholesale pricing tiers.',
+    title: 'Semaglutide — Bulk & OEM Supply',
+    description: 'Semaglutide reference material in lyophilized form for in-vitro research. Documentation-first supply with batch traceability and wholesale tiers.',
     take: {
       position: 'Semaglutide buyers are shifting from single vials to documented bulk lots. My position: the winning suppliers will be those who can show lot-to-lot consistency, not those with the widest catalogue.',
       reasoning: 'Semaglutide is widely available; differentiation has moved to documentation and consistency. A buyer who has been burned by a bad lot will pay for traceability.',
@@ -49,8 +49,8 @@ export const categories: Record<Category, CategoryInfo> = {
   },
   retatrutide: {
     name: 'Retatrutide',
-    title: 'Retatrutide (Research Grade) — Bulk & OEM Supply',
-    description: 'Retatrutide reference material for laboratory research, supplied as lyophilized powder. Batch-specific HPLC and MS documentation with wholesale and OEM options for qualified research buyers.',
+    title: 'Retatrutide — Bulk & OEM Supply',
+    description: 'Retatrutide reference material for laboratory research as lyophilized powder. Batch-specific HPLC and MS documentation; wholesale and OEM options.',
     take: {
       position: 'Retatrutide is the newest of the incretin-class research peptides and the one with the least independent analytical history in the grey market. My position: treat every lot as unverified until you have seen its own chromatogram.',
       reasoning: 'Demand arrived faster than the supply chain matured. When a compound is new, the number of laboratories that have actually run it is small, so buyer-side verification replaces the informal reputation that older molecules have accumulated.',
@@ -59,8 +59,8 @@ export const categories: Record<Category, CategoryInfo> = {
   },
   research: {
     name: 'Research Peptides',
-    title: 'Research Peptides — BPC-157, TB-500, CJC-1295 and More',
-    description: 'A focused catalogue of research-grade peptides for laboratory use: BPC-157, TB-500, CJC-1295, Ipamorelin, Sermorelin, Melanotan II, PT-141, SNAP-8, VIP and AOD-9604.',
+    title: 'Research Peptides — Bulk & OEM Supply',
+    description: 'Research-grade peptides for laboratory use: BPC-157, TB-500, CJC-1295, Ipamorelin, Sermorelin, Melanotan II, PT-141, SNAP-8, VIP and AOD-9604.',
     take: {
       position: 'The research peptide catalogue is where quality variance is largest. My position: fewer SKUs with real data beats a 200-item list with none.',
       reasoning: 'Long-tail peptides are often produced in small campaigns where method validation is thin. Buyers should treat each SKU as its own supplier-evaluation problem.',
@@ -69,8 +69,8 @@ export const categories: Record<Category, CategoryInfo> = {
   },
   cosmetic: {
     name: 'Cosmetic Peptides',
-    title: 'Cosmetic Peptides — GHK-Cu, Glutathione Raw Material',
-    description: 'Cosmetic-grade peptide raw materials for formulation research: GHK-Cu (copper tripeptide-1) and glutathione. Documentation and bulk supply for formulators and brands.',
+    title: 'Cosmetic Peptides — Bulk Raw Material',
+    description: 'Cosmetic-grade peptide raw materials for formulation research: GHK-Cu and glutathione. Documentation and bulk supply for formulators and brands.',
     take: {
       position: 'Cosmetic peptide raw material is the most under-documented segment of this market. My position: brands should demand the same analytical package as pharma-adjacent buyers.',
       reasoning: 'Cosmetic buyers often accept a COA with only an appearance check. That is a formulation risk: purity and counter-ion content affect stability and colour.',
@@ -79,7 +79,7 @@ export const categories: Record<Category, CategoryInfo> = {
   },
   accessories: {
     name: 'Accessories',
-    title: 'Laboratory Accessories — Bacteriostatic Water',
+    title: 'Laboratory Accessories — Bulk Supply',
     description: 'Supporting laboratory supplies for reconstitution and handling workflows. Research-use-only consumables supplied with documentation.',
     take: {
       position: 'Accessories are treated as an afterthought, but reconstitution supplies affect the experiment. My position: buy sterile, documented consumables from the same qualified supplier.',
