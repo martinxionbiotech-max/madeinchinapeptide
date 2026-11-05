@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Cookie Policy — Made in China Peptide" description="Cookies and similar technologies used on madeinchinapeptide.com: strictly necessary security cookies only, no advertising or analytics tracking. Last updated 5 November 2026." canonical="/compliance/cookie-policy/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Cookie policy'}]} />
+    <h1>Cookie policy</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> This site does not use advertising, profiling or analytics cookies. Our hosting and security provider may set strictly necessary cookies to protect the site and route requests.</div>
+    <p class="lead muted">This policy explains what cookies and similar technologies are used on this site, why, and how you can control them.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 2.0</p>
+
+    <h2>1. What cookies are</h2>
+    <p>Cookies are small text files stored by your browser when you visit a site. They can remember preferences, keep a session active, or help a site defend itself against abuse. Similar technologies include local storage, pixels and security tokens.</p>
+
+    <h2>2. Cookies we use</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Purpose</th><th>Set by</th><th>Consent</th></tr></thead>
+      <tbody>
+        <tr><td>Strictly necessary</td><td>Routing, load balancing and protection against malicious traffic</td><td>Hosting/security provider (Cloudflare)</td><td>Not required — essential to serve the site</td></tr>
+        <tr><td>Preferences</td><td>Remembering a language choice, if a preference is stored</td><td>This site</td><td>Where required</td></tr>
+        <tr><td>Analytics</td><td>None used</td><td>—</td><td>—</td></tr>
+        <tr><td>Advertising / profiling</td><td>None used</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>We do not use Google Analytics, advertising pixels, heatmaps or cross-site tracking on this site. If this changes, we will update this policy and, where required, ask for consent before setting non-essential cookies.</p>
+
+    <h2>3. Security cookies</h2>
+    <p>Our hosting and security provider may set a short-lived cookie or token to distinguish legitimate visitors from automated abuse. These are used only for security and are not used to build a profile of your interests. They cannot be disabled without affecting the site's ability to serve you.</p>
+
+    <h2>4. Managing cookies</h2>
+    <p>You can control cookies through your browser settings. Most browsers let you block or delete cookies, or alert you when a cookie is set. Blocking strictly necessary cookies may prevent the site from loading correctly. Browser help pages explain the exact steps for Chrome, Safari, Firefox and Edge.</p>
+
+    <h2>5. Third-party links</h2>
+    <p>This site links to third-party sites, including WhatsApp. Those sites may set their own cookies and have their own privacy policies. We do not control them; review their policies before interacting.</p>
+
+    <h2>6. Changes and contact</h2>
+    <p>We may update this policy if our use of cookies changes. The "last updated" date shows the current version. Questions: <a href={`mailto:${site.email}`}>{site.email}</a> with the subject "Privacy request". See also our <a href="/compliance/privacy/">privacy policy</a>.</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

@@ -1,42 +1,83 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Returns & Claims — Made in China Peptide" description="Return and quality claim policy for research peptide orders: timelines, evidence requirements and resolution options." canonical="/compliance/returns/">
+<BaseLayout title="Returns & Claims Policy — Made in China Peptide" description="How to report damaged, short or non-conforming research peptide shipments: claim window, evidence, return authorisation, remedies and exclusions. Last updated 5 November 2026." canonical="/compliance/returns/">
   <div class="wrap-narrow">
-    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Returns</p>
-    <h1>Returns &amp; quality claims</h1>
-    <div class="quick-answer"><strong>Quick answer.</strong> Report damage or non-conformance within the claim window with photos, the vial and the COA. We resolve by replacement, credit or return per the agreed terms.</div>
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Returns'}]} />
+    <h1>Returns &amp; claims policy</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> Report damage, shortage or non-conformance within 7 days of receipt with photos, the vial, the batch number and the COA. We resolve valid claims by replacement, credit or refund; opened or improperly stored material is not returnable.</div>
+    <p class="lead muted">This policy explains what qualifies as a claim, what evidence we need, and how a valid claim is resolved. It forms part of our <a href="/compliance/terms/">terms of service</a>.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 2.0</p>
 
+    <h2>1. Scope</h2>
+    <p>This policy applies to products supplied by Made in China Peptide. It covers damage in transit, shortage, and material that does not conform to the agreed specification or batch COA. It does not cover a change of mind, incorrect ordering by the buyer, or products that have been opened, reconstituted or improperly stored.</p>
 
-    <h2>Claim window</h2>
-    <p>Damage, shortage or specification non-conformance must be reported within <strong>7 calendar days</strong> of delivery. Claims raised later cannot be verified against the shipped batch.</p>
-
-    <h2>What to send</h2>
+    <h2>2. Claim window</h2>
     <ul>
-      <li>Order number and batch number</li>
-      <li>Photographs of the vial, label, packaging and any damage</li>
-      <li>A short description of the issue and the analytical result you obtained (if applicable)</li>
+      <li><strong>Damage or shortage:</strong> notify us within 7 calendar days of delivery.</li>
+      <li><strong>Non-conformance:</strong> notify us within 14 calendar days of delivery, or within 7 days of your incoming test result, whichever is later.</li>
+      <li><strong>Latent defect:</strong> notify us as soon as it is reasonably discovered, and in any event within 30 days of delivery.</li>
+    </ul>
+    <p>Claims received after these windows may be declined where the material's condition can no longer be verified. If you need more time for an incoming test, tell us before the window closes and we will record an open claim.</p>
+
+    <h2>3. What counts as non-conforming</h2>
+    <ul>
+      <li>The product identity does not match the COA or the ordered specification.</li>
+      <li>Purity or another tested attribute is outside the agreed acceptance criterion, using a validated method.</li>
+      <li>The fill or net content is materially below the declared value.</li>
+      <li>The vial, seal or label is defective, or the batch number does not match the documents.</li>
+      <li>The product was damaged in transit because the packaging was inadequate for the route.</li>
+    </ul>
+    <p>A result that differs because of a different analytical method, a different sample preparation, or a different acceptance criterion is a discussion about method, not automatically a non-conformance. We will compare methods with you before deciding.</p>
+
+    <h2>4. Evidence we need</h2>
+    <p>To assess a claim, please provide:</p>
+    <ul>
+      <li>Order or invoice reference and the batch number.</li>
+      <li>Photographs of the outer packaging, the vial and the label before unpacking where possible.</li>
+      <li>The COA received with the shipment.</li>
+      <li>Your test result, method and raw data if the claim is analytical.</li>
+      <li>A description of storage and handling since receipt.</li>
+      <li>The quantity affected and whether the material has been opened or reconstituted.</li>
+    </ul>
+    <p>We may ask for a retention sample or for the affected vial to be returned for examination. Please do not discard the material until the claim is closed.</p>
+
+    <h2>5. Return authorisation</h2>
+    <p>Do not return goods without a written return authorisation (RMA) and return address. Unauthorised returns may be refused or lost in transit. We will issue an RMA with instructions once the claim has been reviewed. Return shipping is at our cost where the claim is valid; otherwise it is at the buyer's cost.</p>
+
+    <h2>6. Remedies</h2>
+    <p>For a valid claim, we will choose one of the following, in consultation with the buyer:</p>
+    <ul>
+      <li><strong>Replacement:</strong> a new lot or a replacement unit, with its own batch COA.</li>
+      <li><strong>Credit:</strong> a credit note for the affected value, usable against a future order.</li>
+      <li><strong>Refund:</strong> a refund of the affected value, paid by the original payment method where possible.</li>
+    </ul>
+    <p>Where only part of a shipment is affected, the remedy applies to the affected part. Remedies do not extend to indirect or consequential loss, which is limited under the terms of service.</p>
+
+    <h2>7. Exclusions</h2>
+    <ul>
+      <li>Products that have been opened, reconstituted, diluted or transferred to another container.</li>
+      <li>Products stored outside the conditions on the COA or safety data sheet.</li>
+      <li>Custom-labelled or custom-synthesised products, unless the non-conformance is ours.</li>
+      <li>Claims based on a method or acceptance criterion different from the agreed specification, where the product meets the agreed specification.</li>
+      <li>Damage caused after delivery, or by the buyer's carrier where the buyer arranged freight.</li>
+      <li>Change of mind, over-ordering or incorrect product selection.</li>
     </ul>
 
-    <h2>Resolution</h2>
-    <table>
-      <thead><tr><th>Situation</th><th>Resolution</th></tr></thead>
-      <tbody>
-        <tr><td>Transit damage</td><td>Replacement or credit, subject to carrier claim</td></tr>
-        <tr><td>Short shipment</td><td>Replacement of missing units</td></tr>
-        <tr><td>Specification non-conformance (verified)</td><td>Replacement from a conforming batch or refund</td></tr>
-        <tr><td>Buyer error (wrong SKU ordered)</td><td>Not returnable; lyophilized products cannot be restocked once shipped</td></tr>
-      </tbody>
-    </table>
+    <h2>8. Damaged in transit</h2>
+    <p>If the outer packaging is visibly damaged, photograph it before opening and, where possible, note the damage with the carrier at delivery. Keep the packaging, the vial and the documents. We will open a carrier claim where the shipment was arranged by us; where the buyer arranged freight, the buyer should file the carrier claim and we will provide the documents needed.</p>
 
-    <h2>Not accepted</h2>
-    <ul>
-      <li>Returns of opened or reconstituted material</li>
-      <li>Claims without batch identification</li>
-      <li>Claims based on human-use outcomes — products are not supplied for human use</li>
-    </ul>
+    <h2>9. Refund timing</h2>
+    <p>Approved refunds are processed within 10 business days of the remedy being agreed, using the original payment route where possible. Bank charges and currency differences are not refunded. A credit note is issued within 5 business days.</p>
 
-    <p>Email claims to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    <h2>10. Compliance and safety</h2>
+    <p>Returned material must be packaged and labelled in accordance with transport rules. The buyer must not return material that has been contaminated or mixed with other substances. We may decline a return that presents a safety risk to carriers or staff.</p>
+
+    <h2>11. Contact</h2>
+    <p>Claims: <a href={`mailto:${site.email}`}>{site.email}</a> with the subject "Claim — [order reference]". Include the batch number and the evidence listed above. We aim to acknowledge within two business days and to conclude the assessment within ten business days of receiving the complete evidence.</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
   </div>
 </BaseLayout>

@@ -1,46 +1,72 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Shipping & Customs — Research Peptide Export" description="Shipping methods, documentation, customs declarations, restricted destinations and buyer responsibilities for research peptide imports." canonical="/compliance/shipping-customs/">
+<BaseLayout title="Shipping & Customs Policy — Made in China Peptide" description="How we ship research peptides: Incoterms, export documents, duties, restricted destinations, cold chain, customs holds and damaged-shipment claims. Last updated 5 November 2026." canonical="/compliance/shipping-customs/">
   <div class="wrap-narrow">
-    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Shipping &amp; Customs</p>
-    <h1>Shipping &amp; customs</h1>
-    <div class="quick-answer"><strong>Quick answer.</strong> We ship with a commercial invoice, packing list, batch COA and MSDS where required. The buyer confirms import legality and any permits.</div>
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Shipping & customs'}]} />
+    <h1>Shipping &amp; customs policy</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> We ship with a commercial invoice, packing list, batch COA and MSDS where required. The buyer confirms import legality and any permit; destination duties and taxes are the buyer's responsibility unless the Incoterm says otherwise.</div>
+    <p class="lead muted">This policy explains how orders are shipped, which documents accompany them, and how responsibility is divided at the border.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 2.0</p>
 
+    <h2>1. Scope</h2>
+    <p>This policy applies to all shipments of research peptides and related materials. It is part of our <a href="/compliance/terms/">terms of service</a>. Where a written order confirmation specifies different shipping terms, the order confirmation prevails.</p>
 
-    <h2>Shipping methods</h2>
+    <h2>2. Incoterms and risk</h2>
+    <p>Shipments are made under Incoterms® 2020. The applicable term is stated on the order confirmation. Common terms:</p>
     <table>
-      <thead><tr><th>Method</th><th>Typical transit</th><th>Tracking</th></tr></thead>
+      <thead><tr><th>Term</th><th>Freight</th><th>Risk passes</th><th>Typical use</th></tr></thead>
       <tbody>
-        <tr><td>International express (courier)</td><td>3–7 business days</td><td>Yes</td></tr>
-        <tr><td>Air freight (bulk orders)</td><td>5–10 business days</td><td>Yes</td></tr>
-        <tr><td>Sea freight (large volume)</td><td>Quoted per route</td><td>Yes</td></tr>
+        <tr><td>EXW</td><td>Buyer</td><td>At our premises</td><td>Buyers with their own export and freight capability</td></tr>
+        <tr><td>FOB</td><td>Buyer after loading</td><td>On board the vessel/aircraft</td><td>First orders where the buyer controls the forwarder</td></tr>
+        <tr><td>CIF</td><td>Seller</td><td>At destination port</td><td>Buyers who want freight and minimum insurance included</td></tr>
+        <tr><td>DDP</td><td>Seller</td><td>At buyer's address</td><td>Repeat orders with a proven clearance path</td></tr>
       </tbody>
     </table>
+    <p>Title passes on receipt of full payment, regardless of the Incoterm. CIF insurance is minimum cover; buyers who need broader cover should arrange their own policy. See <a href="/knowledge/peptide-cargo-insurance/">cargo insurance</a>.</p>
 
-    <h2>Documentation</h2>
+    <h2>3. Export documents</h2>
+    <p>Each shipment is accompanied by, at minimum:</p>
     <ul>
-      <li>Commercial invoice and packing list</li>
-      <li>Certificate of analysis for each batch</li>
-      <li>MSDS where required by the carrier</li>
-      <li>Certificate of origin on request</li>
+      <li>Commercial invoice (parties, description, quantity, value, Incoterm).</li>
+      <li>Packing list (units, net/gross weight, dimensions).</li>
+      <li>Batch-specific certificate of analysis with HPLC and MS data.</li>
+      <li>Safety data sheet (MSDS/SDS) where the carrier or destination requires it.</li>
+      <li>Certificate of origin, on request or where required.</li>
+      <li>Air waybill or bill of lading.</li>
+      <li>Import permit or licence, where the buyer has supplied one.</li>
     </ul>
+    <p>The product description, quantity and batch number must match across all documents. We review the set before departure; the buyer should review the draft set before the goods leave.</p>
 
-    <h2>Customs declarations</h2>
-    <p>Shipments are declared accurately under the applicable commodity description. We do not under-declare value or misdescribe goods. Buyers are responsible for import duties, taxes and any import licence requirements.</p>
+    <h2>4. Classification, duties and taxes</h2>
+    <p>The customs classification depends on the compound, purity, presentation and destination tariff schedule. We classify in good faith with the input of a broker; the buyer remains responsible for confirming the correct heading at destination. Import duties, VAT, excise and other destination charges are the buyer's responsibility unless the order confirmation expressly includes them.</p>
 
-    <h2>Restricted destinations</h2>
-    <p>We do not ship to destinations where the products are prohibited, or where the buyer cannot demonstrate lawful import. Restricted lists are reviewed regularly and confirmed at quotation stage.</p>
+    <h2>5. Restricted destinations and permits</h2>
+    <p>Some jurisdictions restrict or prohibit specific peptides, or require an import licence, notification or research authorisation. The buyer must confirm that the product may lawfully be imported and used, and must provide any permit before shipment. We may decline a shipment where lawful import cannot be demonstrated. See <a href="/knowledge/peptide-import-permits-restricted-destinations/">import permits and restricted destinations</a>.</p>
 
-    <h2>Buyer responsibilities</h2>
-    <ul>
-      <li>Confirm the products may lawfully be imported into your country</li>
-      <li>Provide an accurate delivery address and contact</li>
-      <li>Clear customs and pay applicable duties</li>
-      <li>Notify us of any seizure or hold within 48 hours</li>
-    </ul>
+    <h2>6. Carriers and cold chain</h2>
+    <p>We choose a carrier appropriate to the route and the product's stability profile. Lyophilized peptides usually tolerate short ambient transit; sensitive products or hot routes may require phase-change packs or a cold-chain service. Packaging includes vial cushioning, secondary containment and desiccant where appropriate. Temperature excursions in transit are a transport risk, not a product defect, unless the packaging or the product was non-conforming at departure.</p>
 
-    <div class="ruo">{site.ruo}</div>
+    <h2>7. Delivery estimates</h2>
+    <p>Lead times stated on the quotation are estimates based on normal production and carrier performance. Customs inspection, carrier delays, weather, public holidays and force-majeure events can extend them. We will inform the buyer of a known delay and provide the tracking information we have.</p>
+
+    <h2>8. Customs holds</h2>
+    <p>If a shipment is held, we will provide the missing document or explanation as quickly as possible and keep the buyer informed. Typical resolutions are a corrected invoice, a COA, a permit or a classification note. The buyer is responsible for responding to destination-authority requests and for any storage, demurrage or return costs arising from the hold, unless the hold was caused by our documentation error.</p>
+
+    <h2>9. Damage, shortage and loss</h2>
+    <p>The buyer must inspect the shipment on arrival and notify us within the claim window in the <a href="/compliance/returns/">returns policy</a>. For visible damage, photograph the outer packaging before unpacking and keep the vial, packing material and documents. For loss, notify the carrier and us promptly so that a claim can be opened within the carrier's deadline.</p>
+
+    <h2>10. Refused or returned shipments</h2>
+    <p>If a buyer refuses a shipment, or a destination authority returns it, the buyer bears the return freight, storage and any re-import costs, unless the refusal resulted from our error. We will advise on disposal or reshipment options; products that have left controlled storage may not be resellable.</p>
+
+    <h2>11. Sanctions and export controls</h2>
+    <p>We will not ship to a restricted party, a sanctioned destination or an end-use prohibited by applicable export-control law. The buyer confirms that it is not subject to such restrictions and that the products will not be diverted to a prohibited end-use.</p>
+
+    <h2>12. Contact</h2>
+    <p>Shipping questions: <a href={`mailto:${site.email}`}>{site.email}</a> (subject "Shipping"). Compliance questions: same address, subject "Compliance". Include the order or quotation reference so we can answer precisely.</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
   </div>
 </BaseLayout>

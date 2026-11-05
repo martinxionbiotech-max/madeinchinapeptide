@@ -1,36 +1,79 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Research Use Only — Terms of Use for Research Peptides" description="Research Use Only statement: the permitted and prohibited uses of peptides supplied by Made in China Peptide, and buyer responsibilities." canonical="/compliance/research-use-only/">
+<BaseLayout title="Research-Use-Only Statement — Made in China Peptide" description="Our research-use-only policy: what RUO means, permitted and prohibited uses, buyer eligibility, documentation duties and enforcement. Last updated 5 November 2026." canonical="/compliance/research-use-only/">
   <div class="wrap-narrow">
-    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Research Use Only</p>
-    <h1>Research Use Only (RUO) statement</h1>
-    <div class="quick-answer"><strong>Quick answer.</strong> All products are for laboratory research only — not for human or veterinary use, diagnosis, treatment or cosmetic application.</div>
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Research use only'}]} />
+    <h1>Research-use-only statement</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> Every product we supply is for laboratory research only. It is not a medicine, food, supplement, cosmetic or veterinary product, and it must not be administered to humans or animals.</div>
+    <p class="lead muted">This statement sets out what "research use only" (RUO) means in practice, who may buy from us, and what we expect a buyer to verify before ordering.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 2.0</p>
 
-    <div class="note"><strong>All products supplied by {site.brand} are for laboratory research use only.</strong> They are not drugs, foods, cosmetics, dietary supplements or veterinary products. They are not intended for human or animal use, diagnosis, treatment, cure or prevention of any disease.</div>
+    <h2>1. Scope</h2>
+    <p>This statement applies to every product listed on this site, every quotation we issue, and every shipment we make, unless a separate written agreement expressly says otherwise. It applies to the buyer, the buyer's institution, and anyone who receives the material from the buyer.</p>
 
-    <h2>Permitted use</h2>
+    <h2>2. What "research use only" means</h2>
+    <p>RUO is an intended-use designation, not a statement that a product is unregulated. It means the material is supplied for laboratory investigation — for example, analytical method development, in-vitro studies, or formulation research — and has not been assessed or approved for therapeutic, diagnostic, food, cosmetic or veterinary use.</p>
+    <p>RUO material is not manufactured under a marketing authorisation, is not accompanied by clinical data, and must not be represented as safe or effective for any human or animal application.</p>
+
+    <h2>3. Permitted uses</h2>
     <ul>
-      <li>In-vitro laboratory research by qualified institutions and companies</li>
-      <li>Analytical method development and reference-standard work</li>
-      <li>Formulation research by cosmetic and pharmaceutical R&amp;D teams (where local law permits)</li>
+      <li>In-vitro laboratory research by qualified personnel in a controlled laboratory environment.</li>
+      <li>Development and validation of analytical methods.</li>
+      <li>Research and development of formulations, where the finished product is independently assessed and authorised before any consumer or clinical use.</li>
+      <li>Educational and training activities that use the material as a laboratory reagent.</li>
+      <li>Legitimate resale to another qualified laboratory or research supplier, subject to the same RUO conditions being passed on in writing.</li>
     </ul>
 
-    <h2>Prohibited use</h2>
+    <h2>4. Prohibited uses</h2>
     <ul>
-      <li>Administration to humans or animals in any form</li>
-      <li>Resale as a drug, supplement, food or cosmetic product</li>
-      <li>Any diagnostic, therapeutic or clinical application</li>
-      <li>Use by persons under 21 or by unqualified consumers</li>
+      <li>Administration to humans or animals, by any route, including self-administration.</li>
+      <li>Diagnosis, treatment, cure, mitigation or prevention of any disease or condition.</li>
+      <li>Use as a food, food ingredient, dietary supplement, cosmetic ingredient for direct consumer application, or veterinary product.</li>
+      <li>Resale as a medicine, supplement, cosmetic or consumer product, or under a label that implies any such use.</li>
+      <li>Any application that is unlawful in the destination country.</li>
+      <li>Use by anyone under 21 years of age, or by anyone who is not a qualified business buyer.</li>
+    </ul>
+    <p>We may refuse, suspend or cancel an order, and decline future supply, if we have reasonable grounds to believe the material will be used contrary to this statement.</p>
+
+    <h2>5. Buyer eligibility</h2>
+    <p>To order, a buyer must:</p>
+    <ul>
+      <li>Be at least 21 years old.</li>
+      <li>Be ordering on behalf of a business, laboratory, institution or research organisation.</li>
+      <li>Have authority to bind that organisation to these terms.</li>
+      <li>Be able to receive and store the material in accordance with its labelling and safety data.</li>
+      <li>Confirm that import and use are lawful in the destination jurisdiction.</li>
     </ul>
 
-    <h2>Buyer responsibility</h2>
-    <p>Buyers confirm they are at least 21 years old, are acquiring material for legitimate research or trade purposes, and will comply with the laws of their jurisdiction. Buyers are responsible for verifying that the products are legal to import and possess in their country.</p>
+    <h2>6. Buyer obligations</h2>
+    <p>The buyer is responsible for:</p>
+    <ul>
+      <li><strong>Legal compliance:</strong> confirming that the product may lawfully be imported, possessed and used in the destination country, and obtaining any permit, licence or notification required.</li>
+      <li><strong>Qualified handling:</strong> ensuring that only trained personnel handle the material, using appropriate personal protective equipment and containment.</li>
+      <li><strong>Storage:</strong> storing the material as stated on the COA and safety data sheet, and respecting retest dates.</li>
+      <li><strong>Documentation:</strong> retaining the batch COA, safety data sheet and shipment records for as long as the material is held and for the period required by local law.</li>
+      <li><strong>No misrepresentation:</strong> not describing the material as a medicine, supplement, cosmetic or product suitable for human or animal use.</li>
+      <li><strong>Passing on conditions:</strong> if the buyer resells to another organisation, imposing these RUO conditions in writing.</li>
+    </ul>
 
-    <h2>No medical advice</h2>
-    <p>Nothing on this website constitutes medical advice. We do not provide dosing information, treatment guidance or recommendations for human use. Consult a licensed medical professional for any health question.</p>
+    <h2>7. No medical or dosing advice</h2>
+    <p>We do not provide medical, veterinary, dosing, administration or clinical guidance. Any technical information we publish describes laboratory or analytical properties and must not be read as a recommendation for human or animal use. Questions about the suitability of a material for a particular research model should be directed to the buyer's scientific staff, not to the supplier.</p>
 
-    <p class="small muted">Last updated: 2026-11-04</p>
+    <h2>8. Labelling and documentation</h2>
+    <p>Products are labelled with the product name, strength, batch number and a research-use-only statement. The batch COA states identity, purity, water content and, where applicable, additional tests. The safety data sheet provides handling and storage information. A label or certificate that does not carry a batch number should be treated as incomplete.</p>
+
+    <h2>9. Enforcement and reporting</h2>
+    <p>We screen orders for indications of personal human use and may ask for the institution, intended research application and destination before accepting an order. We may report suspected unlawful use to the relevant authority where required by law. If you become aware of misuse of material supplied by us, contact <a href={`mailto:${site.email}`}>{site.email}</a> with the subject "RUO concern".</p>
+
+    <h2>10. Limitation and governing terms</h2>
+    <p>This statement is part of our <a href="/compliance/terms/">terms of service</a>. It does not create any warranty that a product is fit for a particular research purpose; suitability must be determined by the buyer. Liability is limited as set out in the terms of service. These statements are governed by the law specified in those terms.</p>
+
+    <h2>11. Contact</h2>
+    <p>Compliance questions: <a href={`mailto:${site.email}`}>{site.email}</a> (subject "Compliance"). Privacy requests: same address, subject "Privacy request". We aim to acknowledge within two business days.</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
   </div>
 </BaseLayout>

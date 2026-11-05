@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Compliance & Policies — Made in China Peptide" description="Compliance centre: research-use-only statement, terms of service, privacy and cookie policy, shipping and customs terms, returns policy and accessibility statement." canonical="/compliance/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance'}]} />
+    <h1>Compliance &amp; policies</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> All products are supplied for laboratory research only. This page collects the policies that govern ordering, privacy, shipping, returns and accessibility, with the version date for each.</div>
+    <p class="lead muted">We publish these policies so that buyers, compliance teams and search engines can verify how we operate before an order is placed. Each policy states its last-updated date; the version on this site at the time of your order governs that order.</p>
+
+    <div class="note"><strong>Research use only.</strong> {site.ruo}</div>
+
+    <h2>Policy library</h2>
+    <table>
+      <thead><tr><th>Policy</th><th>Covers</th><th>Last updated</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/compliance/research-use-only/">Research-use-only statement</a></td><td>Permitted and prohibited uses; buyer eligibility and obligations</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/terms/">Terms of service</a></td><td>Ordering, pricing, payment, shipping, warranties, liability, disputes</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/privacy/">Privacy policy</a></td><td>Data collected, purposes, legal bases, sharing, retention, your rights</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/cookie-policy/">Cookie policy</a></td><td>Cookies and similar technologies used on this site</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/shipping-customs/">Shipping &amp; customs</a></td><td>Incoterms, documentation, duties, restricted destinations, holds</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/returns/">Returns policy</a></td><td>Claims, evidence, remedies, exclusions and refunds</td><td>5 Nov 2026</td></tr>
+        <tr><td><a href="/compliance/accessibility/">Accessibility statement</a></td><td>Our accessibility target, measures and feedback route</td><td>5 Nov 2026</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Who we are</h2>
+    <p>Made in China Peptide is a B2B trading brand that sources research-grade peptides from manufacturing partners in China for laboratories, distributors and research brands. The operating entity, factory details and import/export identifiers are provided in the formal quotation and on request. We do not sell to consumers, and we do not provide medical, veterinary or dosing advice.</p>
+
+    <h2>How to raise a compliance question</h2>
+    <p>Write to <a href={`mailto:${site.email}`}>{site.email}</a> with the subject line "Compliance" and include the order or quotation reference. For privacy requests, use the same address with the subject "Privacy request". We aim to acknowledge within two business days and to resolve or explain the position within ten business days.</p>
+
+    <h2>Standards we work to</h2>
+    <ul>
+      <li>Batch-specific certificates of analysis with HPLC and MS data; no generic or reused certificates.</li>
+      <li>Written specifications and acceptance criteria before volume supply.</li>
+      <li>Export documentation that matches the goods, quantity and batch.</li>
+      <li>No therapeutic, dosing or human-use claims in product copy or labels.</li>
+      <li>Data minimisation: we collect only what is needed to quote, ship and support an order.</li>
+    </ul>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

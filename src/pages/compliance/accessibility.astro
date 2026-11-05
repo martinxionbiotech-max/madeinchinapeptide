@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Accessibility Statement — Made in China Peptide" description="Our accessibility commitment and measures: semantic HTML, keyboard navigation, contrast, alt text and a feedback route for accessibility issues." canonical="/compliance/accessibility/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Accessibility'}]} />
+    <h1>Accessibility statement</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> We aim to meet WCAG 2.2 Level AA. The site uses semantic HTML, keyboard-accessible navigation, readable contrast and descriptive link text. If you encounter a barrier, tell us and we will address it.</div>
+    <p class="lead muted">This statement explains our accessibility target, the measures we have taken, known limitations and how to give feedback.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 1.0</p>
+
+    <h2>1. Our commitment</h2>
+    <p>We want the site to be usable by people with visual, motor, cognitive and auditory impairments, and by people using assistive technology. Accessibility is part of publishing technical information responsibly, not a separate project.</p>
+
+    <h2>2. Target standard</h2>
+    <p>We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA for the English pages, and to apply the same principles to the Spanish, Arabic and Portuguese pages. Arabic pages use right-to-left layout and language attributes.</p>
+
+    <h2>3. Measures taken</h2>
+    <ul>
+      <li>Semantic HTML headings, lists, tables and landmarks.</li>
+      <li>Keyboard-operable navigation and visible focus styles.</li>
+      <li>Text contrast checked against the backgrounds used on the site.</li>
+      <li>Descriptive alternative text for product and hero images.</li>
+      <li>Language attributes on translated pages (`lang` and `dir`).</li>
+      <li>No autoplaying media; no motion-dependent interaction.</li>
+      <li>Forms avoided where a direct email or messaging route is simpler.</li>
+    </ul>
+
+    <h2>4. Known limitations</h2>
+    <ul>
+      <li>Some product images are illustrative or AI-generated; their alt text describes the product, not label details.</li>
+      <li>Technical tables may require horizontal scrolling on very small screens.</li>
+      <li>Third-party sites we link to (including WhatsApp) have their own accessibility practices, which we do not control.</li>
+      <li>Translated pages may contain text that is longer than the English equivalent; layout has been checked but not formally audited.</li>
+    </ul>
+
+    <h2>5. Feedback</h2>
+    <p>If a page is difficult to use, or if you need information in a different format, email <a href={`mailto:${site.email}`}>{site.email}</a> with the subject "Accessibility" and the page address. We aim to acknowledge within two business days and to provide a workable alternative or a fix within ten business days.</p>
+
+    <h2>6. Related policies</h2>
+    <p>See our <a href="/compliance/privacy/">privacy policy</a> for how we handle contact details, and our <a href="/compliance/">compliance centre</a> for the full policy library.</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

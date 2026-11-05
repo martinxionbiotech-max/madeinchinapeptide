@@ -1,40 +1,98 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Terms of Service — Made in China Peptide" description="Terms governing the supply of research peptides: eligibility, orders, payment, shipping, liability and governing law." canonical="/compliance/terms/">
+<BaseLayout title="Terms of Service — Made in China Peptide" description="B2B terms for ordering research peptides: quotations, payment, shipping, inspection, warranties, liability, disputes and governing law. Last updated 5 November 2026." canonical="/compliance/terms/">
   <div class="wrap-narrow">
-    <p class="breadcrumb"><a href="/">Home</a> › Compliance › Terms</p>
-    <h1>Terms of Service</h1>
-    <div class="quick-answer"><strong>Quick answer.</strong> Orders are business-to-business; the specification annex, payment terms and claim window are agreed in writing before production.</div>
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Terms of service'}]} />
+    <h1>Terms of service</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> These are business-to-business terms. An order becomes binding only when we confirm it in writing, and every product is supplied for laboratory research only.</div>
+    <p class="lead muted">These terms govern quotations, orders, supply and delivery of products by Made in China Peptide. By requesting a quotation or placing an order, the buyer accepts them.</p>
+    <p class="small muted">Last updated: 5 November 2026 · Version 2.0</p>
 
-    <p class="small muted">Last updated: 2026-11-04</p>
+    <h2>1. About these terms</h2>
+    <p>These terms apply to all quotations, order confirmations, invoices and shipments unless a separate written agreement signed by both parties expressly overrides them. If there is a conflict, the order confirmation prevails over these terms, and these terms prevail over any buyer purchase order or standard terms.</p>
 
-    <h2>1. Eligibility</h2>
-    <p>Our products are sold exclusively to business buyers — laboratories, distributors, manufacturers and research organisations — for laboratory research use. By ordering, you confirm you are at least 21 years old and authorised to purchase on behalf of your organisation.</p>
+    <h2>2. Definitions</h2>
+    <ul>
+      <li><strong>Seller / we / us:</strong> Made in China Peptide, the trading brand identified on the quotation and invoice.</li>
+      <li><strong>Buyer / you:</strong> the business, laboratory, institution or distributor that places the order.</li>
+      <li><strong>Products:</strong> the research materials described in the quotation and order confirmation.</li>
+      <li><strong>Order confirmation:</strong> our written acceptance of an order, including the specification, quantity, price, Incoterm and delivery estimate.</li>
+      <li><strong>COA:</strong> the batch-specific certificate of analysis.</li>
+    </ul>
 
-    <h2>2. Products and specifications</h2>
-    <p>Product descriptions state form, strength, storage and documentation. Purity and analytical results are batch-specific and provided in the certificate of analysis for the lot supplied. Specifications may be updated; the COA for your batch governs.</p>
+    <h2>3. Eligibility</h2>
+    <p>We sell only to business buyers. The buyer must be at least 21 years old, must be authorised to bind its organisation, and must confirm that the products will be used for laboratory research only in accordance with our <a href="/compliance/research-use-only/">research-use-only statement</a>. We may request evidence of the buyer's business status or intended research use before accepting an order.</p>
 
-    <h2>3. Orders and payment</h2>
-    <p>Orders are confirmed after written quotation and payment (or agreed terms). We may decline orders that appear inconsistent with research use or that originate from restricted destinations.</p>
+    <h2>4. Products and specifications</h2>
+    <p>Products are supplied against the specification in the quotation and the batch COA. The COA for the shipped lot is the authoritative record of identity, purity, water content and any additional tests. Product images are illustrative; vial, label and packaging may vary by batch and configuration.</p>
+    <p>We do not warrant that a product is suitable for any particular research model, assay or formulation. That determination belongs to the buyer. Nothing on this site is medical, veterinary or dosing advice.</p>
 
-    <h2>4. Shipping and risk</h2>
-    <p>Title and risk pass according to the agreed Incoterm. Buyers are responsible for import clearance, duties and compliance with local law. See <a href="/compliance/shipping-customs/">Shipping &amp; Customs</a>.</p>
+    <h2>5. Quotations and pricing</h2>
+    <ul>
+      <li>Quotations are valid for 30 days unless stated otherwise.</li>
+      <li>Prices are exclusive of taxes, duties, import VAT and destination charges unless expressly stated.</li>
+      <li>Prices are tiered by SKU and volume; the applicable tier is stated on the quotation.</li>
+      <li>We may revise a quotation if the specification, quantity, packaging or destination changes.</li>
+      <li>Obvious pricing errors do not bind us; we will notify the buyer and offer a corrected quotation.</li>
+    </ul>
 
-    <h2>5. Returns</h2>
-    <p>Claims for damage, shortage or specification non-conformance must be raised within 7 days of delivery with photographic evidence. See <a href="/compliance/returns/">Returns</a>.</p>
+    <h2>6. Orders and acceptance</h2>
+    <p>An order is an offer to buy. It becomes binding only when we issue a written order confirmation. We may decline an order where we cannot verify the buyer, where the destination is restricted, where the requested use appears inconsistent with the RUO statement, or where compliance checks are incomplete.</p>
 
-    <h2>6. Limitation of liability</h2>
-    <p>To the maximum extent permitted by law, our liability is limited to the invoiced value of the affected products. We are not liable for indirect, incidental or consequential loss, including loss of research data, profits or business opportunity.</p>
+    <h2>7. Payment</h2>
+    <ul>
+      <li>Payment terms are stated on the order confirmation. For first orders we normally require a deposit or full payment before production; repeat buyers may be offered staged terms.</li>
+      <li>Payment is by bank transfer unless another method is agreed in writing.</li>
+      <li>Bank charges and currency-conversion costs are borne by the buyer unless agreed otherwise.</li>
+      <li>We may suspend production or shipment while an invoice is overdue.</li>
+    </ul>
 
-    <h2>7. Compliance with law</h2>
-    <p>Buyers are solely responsible for compliance with the laws and regulations of their jurisdiction, including import, possession and use restrictions. Products must not be resold for human or animal consumption.</p>
+    <h2>8. Shipping, title and risk</h2>
+    <p>Shipment terms are stated on the order confirmation using Incoterms® 2020. Unless stated otherwise, risk passes to the buyer at the point specified by the Incoterm. Title passes on receipt of full payment. Delivery estimates are made in good faith but are not guarantees; customs, carrier and weather delays are outside our control.</p>
+    <p>The buyer is responsible for import clearance, duties, taxes and any permit or licence required at destination. See <a href="/compliance/shipping-customs/">shipping and customs</a>.</p>
 
-    <h2>8. Governing law</h2>
-    <p>These terms are governed by the laws of the jurisdiction stated in the sales contract. Disputes are resolved by negotiation, then by the competent courts of that jurisdiction.</p>
+    <h2>9. Inspection and claims</h2>
+    <p>The buyer must inspect the shipment promptly on receipt. Claims for shortage, damage or non-conformance must be notified within the claim window stated in the <a href="/compliance/returns/">returns policy</a>, with photographs, the batch number, the vial and the COA. Late claims may be declined where the evidence cannot be verified.</p>
 
-    <h2>9. Contact</h2>
-    <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <h2>10. Returns</h2>
+    <p>Returns require a written return authorisation. Products that have been reconstituted, opened, improperly stored or custom-labelled may not be returnable. Remedies are limited to replacement, credit or refund as set out in the returns policy.</p>
+
+    <h2>11. Compliance with laws and export controls</h2>
+    <p>The buyer must comply with all applicable laws, including import/export controls, sanctions, customs rules and restrictions on the destination. The buyer must not resell to a restricted party or use the products in a prohibited application. We may suspend or cancel an order where a legal or sanctions concern arises.</p>
+
+    <h2>12. Intellectual property</h2>
+    <p>Site content, product copy, images and documentation remain our property or that of our licensors. The buyer may use the COA and product documentation for its internal compliance and customer-support purposes. No other licence is granted. Buyer-supplied artwork remains the buyer's property; the buyer warrants that it has the right to use it.</p>
+
+    <h2>13. Confidentiality</h2>
+    <p>Each party will keep confidential the other's non-public commercial, technical and pricing information and use it only for the supply relationship. This does not apply to information that is public, independently developed, or required to be disclosed by law.</p>
+
+    <h2>14. Warranties and disclaimers</h2>
+    <p>We warrant that products conform to the specification and batch COA at the time of shipment and that we have the right to supply them. Except for that warranty, products are supplied "as is" for research use. To the fullest extent permitted by law, we disclaim implied warranties of merchantability, fitness for a particular purpose and non-infringement. Nothing in these terms excludes liability that cannot lawfully be excluded.</p>
+
+    <h2>15. Limitation of liability</h2>
+    <p>To the extent permitted by law, our total liability for any claim arising from an order is limited to the amount paid for the affected products. We are not liable for indirect, incidental, consequential or punitive loss, including lost profits, lost research time, reputational harm or downstream claims, even if advised of the possibility. This limitation does not apply to fraud, wilful misconduct or death/personal injury caused by our negligence where such limitation is prohibited.</p>
+
+    <h2>16. Indemnity</h2>
+    <p>The buyer indemnifies us against claims, losses and costs arising from the buyer's use, resale, labelling or distribution of the products, including any claim based on a use that is inconsistent with the RUO statement or applicable law.</p>
+
+    <h2>17. Force majeure</h2>
+    <p>Neither party is liable for delay or failure caused by events beyond its reasonable control, including natural disasters, epidemics, war, civil unrest, port closures, carrier failures, regulatory action or supplier disruption. The affected party will notify the other and use reasonable efforts to resume performance.</p>
+
+    <h2>18. Suspension and termination</h2>
+    <p>We may suspend or terminate supply if the buyer breaches these terms, fails to pay, misrepresents its eligibility or intended use, or if we are required to do so by law. Termination does not affect accrued rights, confidentiality, indemnity or liability provisions.</p>
+
+    <h2>19. Governing law and disputes</h2>
+    <p>These terms are governed by the laws of the jurisdiction stated on the order confirmation. The parties will first attempt to resolve a dispute in good faith through written notice and discussion within 30 days. If unresolved, the dispute will be referred to the courts or arbitral forum specified on the order confirmation. Nothing prevents either party from seeking urgent injunctive relief.</p>
+
+    <h2>20. Changes to these terms</h2>
+    <p>We may update these terms from time to time. The version published on this page at the time of the order confirmation governs that order. Material changes will be reflected in the "last updated" date.</p>
+
+    <h2>21. Contact</h2>
+    <p>Questions about these terms: <a href={`mailto:${site.email}`}>{site.email}</a> (subject "Terms"). Compliance questions: same address, subject "Compliance".</p>
+
+    <div class="ruo" style="margin-top:24px;">{site.ruo}</div>
   </div>
 </BaseLayout>
