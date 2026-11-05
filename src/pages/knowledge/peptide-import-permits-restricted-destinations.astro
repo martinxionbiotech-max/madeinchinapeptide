@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Peptide Import Permits and Restricted Destinations" description="How to check whether a research peptide can lawfully be imported: controlled-substance rules, research exemptions, import licences and the buyer's verification duties." canonical="/knowledge/peptide-import-permits-restricted-destinations/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Import permits & restrictions'}]} />
+    <h1>Peptide import permits and restricted destinations</h1>
+    <p class="lead muted">Legality is a destination question, not a supplier question. A product that ships freely from China may be restricted, licensed or prohibited where it lands.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
+
+    <h2>What to check before ordering</h2>
+    <ul>
+      <li><strong>Controlled-substance status:</strong> is the compound scheduled or regulated in the destination?</li>
+      <li><strong>Medicines rules:</strong> does the destination treat it as a prescription or unapproved medicine?</li>
+      <li><strong>Research exemption:</strong> is there a laboratory/research exemption, and what documentation does it require?</li>
+      <li><strong>Import licence:</strong> does the destination require a permit, notification or registration?</li>
+      <li><strong>Carrier restrictions:</strong> will the airline or courier carry the material at all?</li>
+    </ul>
+
+    <h2>Who is responsible</h2>
+    <p>The buyer is responsible for lawful import. A supplier can support the process — providing documents, specifications and intended-use statements — but it cannot grant permission that the destination authority has not given. Any supplier that promises "guaranteed customs clearance" for a restricted compound is misrepresenting the process.</p>
+
+    <h2>Red flags</h2>
+    <table>
+      <thead><tr><th>Signal</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>"We ship anywhere, no questions"</td><td>No compliance screening</td></tr>
+        <tr><td>Offers to misdeclare the goods</td><td>Buyer commits the offence</td></tr>
+        <tr><td>Cannot provide an intended-use statement</td><td>No documentation for a research exemption</td></tr>
+        <tr><td>No answer on destination restrictions</td><td>Risk transferred to you silently</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A practical file</h2>
+    <p>Keep the destination rule reference, the permit or exemption, the product specification and the intended-use statement together. If the shipment is stopped, that file is the difference between a delay and a loss.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — specifications and intended use</li>
+      <li><a href="/compliance/shipping-customs/">Shipping &amp; customs policy</a> — restricted destinations</li>
+      <li><a href="/knowledge/peptide-hs-classification/">HS classification</a> — the declaration basis</li>
+    </ul>
+
+    <div class="ruo">Research use only. This article is commercial guidance, not legal advice; confirm import requirements with the destination authority.</div>
+  </div>
+  <ArticleSchema title="Peptide Import Permits and Restricted Destinations" description="How to check whether a research peptide can lawfully be imported: controlled-substance rules, research exemptions, import licences and buyer verification duties." path="/knowledge/peptide-import-permits-restricted-destinations/" section="Shipping & compliance" />
+</BaseLayout>

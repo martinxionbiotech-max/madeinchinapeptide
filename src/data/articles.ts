@@ -22,6 +22,11 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-aggregation-self-assembly', title:'Peptide aggregation and self-assembly', desc:'Loss of soluble material and drifting assays: how disorder-driven aggregation differs from sequence-directed assembly.', cluster:'Handling' },
   { slug:'peptide-packaging-configurations', title:'Peptide packaging configurations', desc:'Vial versus bulk powder, headspace, desiccants and secondary barriers — and the fields to pin down in an RFQ.', cluster:'Handling' },
   { slug:'shipping-peptides-customs-guide', title:'Shipping peptides from China — customs & documentation', desc:'Documents, classification, cold chain and the delays that actually happen.', cluster:'Compliance & shipping' },
+  { slug:'peptide-hs-classification', title:'HS classification for peptide shipments', desc:'Why classification comes first, what drives it, and how to confirm it with a broker.', cluster:'Compliance & shipping' },
+  { slug:'peptide-export-documentation', title:'Peptide export documentation', desc:'The complete document set and the consistency rules that prevent holds.', cluster:'Compliance & shipping' },
+  { slug:'incoterms-peptide-shipments', title:'Incoterms for peptide shipments', desc:'EXW, FOB, CIF and DDP compared — who carries cost and risk.', cluster:'Compliance & shipping' },
+  { slug:'peptide-import-permits-restricted-destinations', title:'Import permits and restricted destinations', desc:'Legality checks, research exemptions and buyer responsibility.', cluster:'Compliance & shipping' },
+  { slug:'peptide-shipping-packaging', title:'Shipping packaging for peptides', desc:'Vial protection, desiccation, phase-change packs and label consistency.', cluster:'Compliance & shipping' },
   { slug:'peptide-coa-red-flags', title:'Peptide COA red flags — 8 signs of a recycled certificate', desc:'Batch linkage, chromatograms, methods and the patterns that reveal a template.', cluster:'Quality & testing' },
   { slug:'bulk-peptide-sourcing-risks', title:'Bulk peptide sourcing risks buyers underestimate', desc:'Supplier concentration, lot drift, customs exposure and payment risk.', cluster:'Sourcing' },
   { slug:'peptide-cold-chain-logistics', title:'Peptide cold chain & logistics', desc:'Temperature limits, insulated packaging and what to check on arrival.', cluster:'Compliance & shipping' },
@@ -79,4 +84,5 @@ export const pillars: ArticleMeta[] = [
   { slug:'peptide-quality-verification-framework', title:'Peptide quality verification: from COA to release decision', desc:'The six questions a COA must answer, chromatogram review, net-content cost math and lot consistency.', cluster:'Pillar' },
   { slug:'peptide-handling-laboratory-practice', title:'Peptide handling and laboratory practice: from receipt to result', desc:'Receipt, storage, weighing, dissolution, filtration, aliquoting and records — the failure modes that quietly bias experiments.', cluster:'Pillar' },
   { slug:'glp-1-research-peptides-framework', title:'GLP-1 research peptides compared: semaglutide, tirzepatide, retatrutide', desc:'Molecular weight, receptor profile, analytical burden, handling and sourcing verification — without dosing or efficacy claims.', cluster:'Pillar' },
+  { slug:'peptide-shipping-customs-framework', title:'Shipping research peptides from China: customs, documentation and risk', desc:'Classification, documentation, Incoterms, restricted destinations, cold chain, customs holds and insurance.', cluster:'Pillar' },
 ];

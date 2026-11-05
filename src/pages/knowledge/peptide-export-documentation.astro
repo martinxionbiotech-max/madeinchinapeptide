@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Peptide Export Documentation — The Complete Set and Common Errors" description="The documents that should accompany a research peptide export: invoice, packing list, COA, MSDS, certificate of origin and transport documents — plus the consistency rules that prevent holds." canonical="/knowledge/peptide-export-documentation/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Export documentation'}]} />
+    <h1>Peptide export documentation</h1>
+    <p class="lead muted">Customs systems compare documents against each other. Most holds are not caused by missing paperwork — they are caused by documents that disagree.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
+
+    <h2>The core set</h2>
+    <table>
+      <thead><tr><th>Document</th><th>Purpose</th><th>Issued by</th></tr></thead>
+      <tbody>
+        <tr><td>Commercial invoice</td><td>Parties, description, value, Incoterm</td><td>Supplier</td></tr>
+        <tr><td>Packing list</td><td>Units, weights, dimensions</td><td>Supplier</td></tr>
+        <tr><td>Certificate of analysis</td><td>Batch identity and test results</td><td>Supplier QC</td></tr>
+        <tr><td>MSDS / SDS</td><td>Hazard and transport information</td><td>Supplier</td></tr>
+        <tr><td>Certificate of origin</td><td>Origin declaration, if required</td><td>Chamber / authority</td></tr>
+        <tr><td>Air waybill / bill of lading</td><td>Transport contract</td><td>Carrier</td></tr>
+        <tr><td>Import permit / licence</td><td>Destination authorisation</td><td>Buyer / authority</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The consistency rule</h2>
+    <p>Product description, quantity, batch number and value must match across the invoice, packing list, COA and transport document. If the invoice says "research peptide 10 mg" and the COA says a different product name, the shipment is a candidate for inspection.</p>
+    <ul>
+      <li>Use the same product name everywhere, including the salt form.</li>
+      <li>Use the same batch number on the COA, the vial label and the invoice reference.</li>
+      <li>Make the declared value match the commercial reality; under-declaration is the buyer's legal risk.</li>
+      <li>State the Incoterm consistently on the invoice and the transport document.</li>
+    </ul>
+
+    <h2>Common errors</h2>
+    <table>
+      <thead><tr><th>Error</th><th>Consequence</th></tr></thead>
+      <tbody>
+        <tr><td>Vague description ("chemical samples")</td><td>Inspection, delay, possible seizure</td></tr>
+        <tr><td>COA not batch-linked</td><td>Identity doubt; hold pending documentation</td></tr>
+        <tr><td>Weight or count mismatch</td><td>Physical inspection</td></tr>
+        <tr><td>Missing MSDS where carrier requires it</td><td>Carrier refusal</td></tr>
+        <tr><td>No permit for a restricted destination</td><td>Seizure or return at buyer's cost</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What buyers should request before departure</h2>
+    <p>Ask for a draft document set for approval before the shipment leaves. Reviewing a PDF costs minutes; correcting a declaration at the border costs days. Keep the approved set with the purchase record.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — specifications for declarations</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — documentation package</li>
+      <li><a href="/knowledge/peptide-hs-classification/">HS classification</a> — the heading behind the documents</li>
+    </ul>
+
+    <div class="ruo">Research use only. Commercial guidance, not legal advice.</div>
+  </div>
+  <ArticleSchema title="Peptide Export Documentation — The Complete Set and Common Errors" description="Documents for a research peptide export: invoice, packing list, COA, MSDS, certificate of origin and transport documents, plus the consistency rules that prevent holds." path="/knowledge/peptide-export-documentation/" section="Shipping & compliance" />
+</BaseLayout>

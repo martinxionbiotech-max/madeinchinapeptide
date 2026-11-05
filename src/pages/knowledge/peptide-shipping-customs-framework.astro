@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Shipping Research Peptides from China: Customs, Documentation and Risk" description="A practical framework for exporting research peptides from China: classification, documentation, Incoterms, restricted destinations, cold chain, customs holds and insurance — written as a risk-allocation guide, not a freight brochure." canonical="/knowledge/peptide-shipping-customs-framework/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Shipping & customs framework'}]} />
+    <h1>Shipping research peptides from China: customs, documentation and risk</h1>
+    <p class="lead muted">Most shipment failures are not logistics failures. They are paperwork failures that become logistics failures at the border. This framework treats the shipment as a documentation problem first and a freight problem second.</p>
+
+    <div class="note"><strong>Scope.</strong> Commercial guidance for business buyers importing research peptides. It is not legal, customs or regulatory advice; classification and permit requirements must be confirmed with a licensed broker and the destination authority.</div>
+
+    <h2>The premise: the paperwork is the passport</h2>
+    <p>A shipment can be perfectly packed and still die at customs because the invoice description does not match the goods, the COA covers a different lot, or the destination requires a permit nobody checked. In this trade, the documents are not supporting material — they are what determines whether the goods move at all.</p>
+    <p>Our position: <strong>buyers should evaluate a supplier's export capability with the same seriousness as its analytical capability.</strong> A supplier that cannot produce a consistent document set is a supplier that will eventually cost you a shipment, and the loss will not be limited to the freight.</p>
+
+    <h2>The export chain</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>Decision</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>Classification</td><td>Commodity description and HS heading</td><td>Supplier + broker</td></tr>
+        <tr><td>Documentation</td><td>Invoice, packing list, COA, MSDS, COO</td><td>Supplier</td></tr>
+        <tr><td>Permits</td><td>Import licence or notification, if required</td><td>Buyer</td></tr>
+        <tr><td>Packaging</td><td>Vial protection, desiccant, phase-change material</td><td>Supplier</td></tr>
+        <tr><td>Carrier</td><td>Express, air freight or sea freight</td><td>Per Incoterm</td></tr>
+        <tr><td>Customs</td><td>Declaration, duty, inspection</td><td>Buyer / broker</td></tr>
+        <tr><td>Delivery</td><td>Receipt check, damage claim window</td><td>Buyer</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Classification: why it is the first decision</h2>
+    <p>The HS classification depends on the specific compound, its purity, its presentation and the destination's tariff schedule. Peptides can fall under different chapters depending on whether they are presented as research chemicals, pharmaceutical intermediates or formulated products. A wrong heading can mean the wrong duty rate, a permit requirement nobody anticipated, or a hold.</p>
+    <p><strong>Our rule:</strong> confirm the heading with a broker in the destination country before the first shipment. Do not rely on a supplier's generic code, and do not let a forwarder classify on your behalf without showing you the reasoning. <a href="/knowledge/peptide-hs-classification/">HS classification for peptide shipments</a> covers the process.</p>
+
+    <h2>The document set</h2>
+    <table>
+      <thead><tr><th>Document</th><th>Must contain</th><th>Common failure</th></tr></thead>
+      <tbody>
+        <tr><td>Commercial invoice</td><td>Parties, description, quantity, value, Incoterm</td><td>Vague description; value inconsistent with the PO</td></tr>
+        <tr><td>Packing list</td><td>Units, net/gross weight, dimensions</td><td>Counts that do not match the invoice</td></tr>
+        <tr><td>Certificate of analysis</td><td>Batch number, tests, results</td><td>Generic COA not tied to the shipped lot</td></tr>
+        <tr><td>MSDS</td><td>Hazard and transport information</td><td>Missing where the carrier requires it</td></tr>
+        <tr><td>Certificate of origin</td><td>Origin declaration</td><td>Requested late; delays clearance</td></tr>
+        <tr><td>Air waybill / B/L</td><td>Consignee, goods description, weight</td><td>Description inconsistent with the invoice</td></tr>
+      </tbody>
+    </table>
+    <p>The consistency rule is simple: <strong>the same product description, quantity and batch must appear across every document.</strong> Customs systems compare them; discrepancies trigger holds. <a href="/knowledge/peptide-export-documentation/">Export documentation for peptides</a> has a working checklist.</p>
+
+    <h2>Incoterms: who carries which risk</h2>
+    <table>
+      <thead><tr><th>Term</th><th>Freight</th><th>Risk transfers</th><th>Practical note</th></tr></thead>
+      <tbody>
+        <tr><td>EXW</td><td>Buyer</td><td>At supplier premises</td><td>Maximum buyer burden; rarely sensible for first orders</td></tr>
+        <tr><td>FOB</td><td>Buyer (after loading)</td><td>On board</td><td>Common for air and sea; buyer controls the forwarder</td></tr>
+        <tr><td>CIF</td><td>Supplier</td><td>At destination port</td><td>Insurance included but minimum cover; check the policy</td></tr>
+        <tr><td>DDP</td><td>Supplier</td><td>At buyer's address</td><td>Convenient, but the supplier must be able to clear legally</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Our rule:</strong> for a first order, FOB or CIF with a named forwarder is easier to audit than DDP; for repeat orders, DDP can be efficient if the supplier has a proven clearance path. <a href="/knowledge/incoterms-peptide-shipments/">Incoterms for peptide shipments</a> explains the trade-offs.</p>
+
+    <h2>Restricted destinations and permits</h2>
+    <p>Some jurisdictions restrict or prohibit specific peptides, or require an import licence, notification or prescription-like authorisation. The buyer is responsible for confirming legality; a supplier that ships into a restricted destination without asking is transferring regulatory risk to you.</p>
+    <ul>
+      <li>Check the destination's controlled-substances and medicines rules for the specific compound.</li>
+      <li>Confirm whether a research-material exemption applies, and what documentation it requires.</li>
+      <li>Keep the permit or exemption on file with the shipment records.</li>
+    </ul>
+    <p><a href="/knowledge/peptide-import-permits-restricted-destinations/">Import permits and restricted destinations</a> covers the practical checks.</p>
+
+    <h2>Packaging and cold chain</h2>
+    <p>Lyophilized peptides tolerate short ambient transit, but heat, humidity and handling do not improve them. Packaging should protect the vial mechanically, control moisture and, where needed, control temperature.</p>
+    <ul>
+      <li>Individually cushioned vials, secondary containment, desiccant.</li>
+      <li>Phase-change packs for hot routes or multi-day transit.</li>
+      <li>Tamper-evident outer packaging and a label that matches the documents.</li>
+      <li>For sensitive compounds, a cold-chain carrier rather than a generic express service.</li>
+    </ul>
+    <p><a href="/knowledge/peptide-shipping-packaging/">Shipping packaging for peptides</a> and <a href="/knowledge/peptide-cold-chain-logistics/">cold chain logistics</a> cover the detail.</p>
+
+    <h2>When customs holds the shipment</h2>
+    <p>A hold is a process problem, not a catastrophe. The response is: identify the reason, produce the missing document, and keep the buyer informed. Most holds resolve with a corrected invoice, a COA, or a permit. The failure mode is silence — a supplier that stops answering while the goods sit in a bonded warehouse.</p>
+    <p><a href="/knowledge/peptide-customs-hold/">Customs holds on peptide shipments</a> has a response playbook.</p>
+
+    <h2>Insurance</h2>
+    <p>Cargo insurance is cheap relative to the value of a peptide shipment and is routinely overlooked. Check what the Incoterm includes (CIF cover is often minimum), whether the policy covers temperature damage, and the claim window. <a href="/knowledge/peptide-cargo-insurance/">Cargo insurance for peptide shipments</a> explains the coverage questions.</p>
+
+    <h2>The decision table</h2>
+    <table>
+      <thead><tr><th>Signal</th><th>Interpretation</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Supplier cannot state a classification rationale</td><td>Export process is improvised</td><td>Do not ship; engage a broker</td></tr>
+        <tr><td>Invoice description differs from the COA product</td><td>Document inconsistency</td><td>Correct before departure</td></tr>
+        <tr><td>No permit check for a restricted destination</td><td>Regulatory exposure</td><td>Stop and verify</td></tr>
+        <tr><td>Full prepayment + DDP + no insurance</td><td>All risk on the buyer, no recourse</td><td>Renegotiate terms</td></tr>
+        <tr><td>Supplier goes silent during a hold</td><td>No export capability</td><td>Escalate; treat as a supplier failure</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The Author's Take</h2>
+    <p><strong>Position.</strong> Buyers should treat export documentation as part of product quality. The cheapest freight quote is irrelevant if the paperwork cannot clear, and the most expensive vial is the one that never arrives.</p>
+    <p><strong>Reasoning.</strong> In this category, the border is where suppliers differentiate: the ones with a repeatable document process clear shipments without drama, and the ones without it improvise under pressure. You can test this before ordering by asking for a sample document set.</p>
+    <p><strong>Disclosure.</strong> We ship research peptides and benefit when buyers value export discipline. We also decline shipments where lawful import cannot be demonstrated, which is a commercial cost we accept.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — 33 documented SKUs</li>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — research formats</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — research formats</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — research formats</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — logistics and documentation</li>
+    </ul>
+
+    <h2>Cluster: the shipping &amp; compliance library</h2>
+    <ol>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Shipping peptides from China</a> — the overview</li>
+      <li><a href="/knowledge/peptide-hs-classification/">HS classification</a> — the first decision</li>
+      <li><a href="/knowledge/peptide-export-documentation/">Export documentation</a> — the document set</li>
+      <li><a href="/knowledge/incoterms-peptide-shipments/">Incoterms</a> — risk and cost transfer</li>
+      <li><a href="/knowledge/peptide-import-permits-restricted-destinations/">Import permits and restrictions</a> — legality first</li>
+      <li><a href="/knowledge/peptide-shipping-packaging/">Shipping packaging</a> — protecting the vial</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Cold chain logistics</a> — temperature control</li>
+      <li><a href="/knowledge/peptide-customs-hold/">Customs holds</a> — the response playbook</li>
+      <li><a href="/knowledge/peptide-cargo-insurance/">Cargo insurance</a> — transferring transit risk</li>
+    </ol>
+
+    <div class="ruo">Research use only. This guide is commercial logistics guidance, not legal or customs advice.</div>
+  </div>
+  <ArticleSchema title="Shipping Research Peptides from China: Customs, Documentation and Risk" description="A practical framework for exporting research peptides from China: classification, documentation, Incoterms, restricted destinations, cold chain, customs holds and insurance." path="/knowledge/peptide-shipping-customs-framework/" section="Shipping & compliance" />
+</BaseLayout>

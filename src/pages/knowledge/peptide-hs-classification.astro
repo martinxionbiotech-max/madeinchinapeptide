@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="HS Classification for Peptide Shipments — Why It Comes First" description="How customs classification works for research peptides, why the heading depends on compound and presentation, and how to confirm it with a broker before the first shipment." canonical="/knowledge/peptide-hs-classification/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'HS classification'}]} />
+    <h1>HS classification for peptide shipments</h1>
+    <p class="lead muted">Classification is the first decision in any export, because it determines duty, permit requirements and whether the shipment is even allowed in. It is also the decision most often made by copying a code from a previous shipment.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
+
+    <h2>Why peptides are not one classification</h2>
+    <p>The correct heading depends on what the material is, how pure it is and how it is presented. A research chemical, a pharmaceutical intermediate and a formulated product can sit in different chapters, and destinations apply their own tariff lines and restrictions on top.</p>
+    <p>Broadly, peptide shipments may fall under headings in chapters covering organic chemicals, pharmaceutical products or miscellaneous chemical products — but the specific heading is a legal determination, not a supplier's preference. Treat any supplier who states a code without asking about presentation and destination with caution.</p>
+
+    <h2>What drives the classification</h2>
+    <table>
+      <thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Chemical nature</td><td>Peptide vs salt vs formulation changes the chapter</td></tr>
+        <tr><td>Purity and grade</td><td>Research grade vs pharmaceutical grade can change treatment</td></tr>
+        <tr><td>Presentation</td><td>Bulk powder vs filled vials vs kits</td></tr>
+        <tr><td>Intended use statement</td><td>Research use only vs pharmaceutical intermediate</td></tr>
+        <tr><td>Destination schedule</td><td>National tariff lines and restrictions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The process that works</h2>
+    <ol>
+      <li>Give the broker the compound identity, purity, presentation and intended use in writing.</li>
+      <li>Ask for the proposed heading and the reasoning, not just a number.</li>
+      <li>Check the destination's tariff and permit requirements against that heading.</li>
+      <li>Record the classification decision with the shipment file.</li>
+      <li>Re-check when the product, presentation or destination changes.</li>
+    </ol>
+
+    <h2>Common errors</h2>
+    <ul>
+      <li>Reusing a code from a different compound because "it worked last time".</li>
+      <li>Classifying by trade name rather than composition.</li>
+      <li>Ignoring the presentation change when moving from vials to bulk.</li>
+      <li>Assuming the supplier's code applies in the destination country.</li>
+      <li>Letting the forwarder classify without showing the reasoning.</li>
+    </ul>
+
+    <h2>What to keep on file</h2>
+    <p>Keep the broker's written classification rationale, the product specification, the intended-use statement and the destination's requirement check with each shipment record. If a customs authority asks why the goods were declared under a heading, that file is your answer.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — product specifications</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — export documentation</li>
+      <li><a href="/knowledge/peptide-export-documentation/">Export documentation</a> — the document set</li>
+    </ul>
+
+    <div class="ruo">Research use only. This article is commercial guidance, not customs or legal advice; confirm classification with a licensed broker.</div>
+  </div>
+  <ArticleSchema title="HS Classification for Peptide Shipments — Why It Comes First" description="How customs classification works for research peptides, why the heading depends on compound and presentation, and how to confirm it before shipping." path="/knowledge/peptide-hs-classification/" section="Shipping & compliance" />
+</BaseLayout>

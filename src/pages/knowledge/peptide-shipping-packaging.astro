@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Shipping Packaging for Peptides — Protecting the Vial in Transit" description="Packaging practice for research peptide shipments: vial cushioning, desiccation, phase-change materials, tamper evidence and label consistency with customs documents." canonical="/knowledge/peptide-shipping-packaging/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Shipping packaging'}]} />
+    <h1>Shipping packaging for peptides</h1>
+    <p class="lead muted">Packaging has one job: deliver the vial in the condition it left the factory. Everything else — branding, inserts, unboxing — is secondary to mechanical protection, moisture control and temperature stability.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
+
+    <h2>Layer by layer</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Function</th><th>Practical note</th></tr></thead>
+      <tbody>
+        <tr><td>Primary</td><td>Vial, stopper, crimp</td><td>Seal integrity is the first check on arrival</td></tr>
+        <tr><td>Cushioning</td><td>Absorb shock and vibration</td><td>Individual vial pockets beat loose fill</td></tr>
+        <tr><td>Moisture control</td><td>Desiccant in a sealed barrier</td><td>Protects the cake if the outer pack is breached</td></tr>
+        <tr><td>Temperature</td><td>Phase-change packs where needed</td><td>Size the pack for transit time, not for the handover</td></tr>
+        <tr><td>Outer</td><td>Rigid box, tamper evidence</td><td>Label must match the customs documents</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Temperature: match the pack to the route</h2>
+    <p>Lyophilized peptides tolerate short ambient exposure, but a multi-day summer route or a customs hold can exceed that tolerance. Use phase-change packs for hot routes and insulated liners for multi-day transit; for sensitive compounds, a cold-chain carrier is the honest option rather than a generic express service with an ice pack.</p>
+
+    <h2>What to check on arrival</h2>
+    <ul>
+      <li>Outer packaging intact; no crush, water damage or resealing.</li>
+      <li>Phase-change packs still within their working range, if used.</li>
+      <li>Vial seals and crimps intact; no loose stopper.</li>
+      <li>Label batch number matches the COA and invoice.</li>
+      <li>Cake appearance consistent with the certificate.</li>
+    </ul>
+
+    <h2>Label consistency</h2>
+    <p>The label is part of the customs file. Product name, strength, batch and quantity should match the invoice and packing list. A label that disagrees with the documents is an invitation to inspect.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — vial formats</li>
+      <li><a href="/products/accessories/bacteriostatic-water-10ml/">Bacteriostatic water 10 mL</a> — laboratory consumable</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Cold chain logistics</a> — temperature control</li>
+    </ul>
+
+    <div class="ruo">Research use only. Commercial packaging guidance, not a stability guarantee.</div>
+  </div>
+  <ArticleSchema title="Shipping Packaging for Peptides — Protecting the Vial in Transit" description="Packaging practice for research peptide shipments: vial cushioning, desiccation, phase-change materials, tamper evidence and label consistency." path="/knowledge/peptide-shipping-packaging/" section="Shipping & compliance" />
+</BaseLayout>

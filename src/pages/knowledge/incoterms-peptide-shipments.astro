@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Incoterms for Peptide Shipments — EXW, FOB, CIF, DDP Compared" description="How Incoterms allocate cost and risk in research peptide shipments, which terms suit first orders versus repeat programs, and the traps in DDP and CIF." canonical="/knowledge/incoterms-peptide-shipments/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Incoterms'}]} />
+    <h1>Incoterms for peptide shipments</h1>
+    <p class="lead muted">An Incoterm is a risk-allocation device. Choosing one is not a freight preference — it decides who owns the goods when something goes wrong.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
+
+    <h2>The four terms buyers actually use</h2>
+    <table>
+      <thead><tr><th>Term</th><th>Freight</th><th>Risk transfers</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td>EXW</td><td>Buyer</td><td>At supplier premises</td><td>Buyers with an established forwarder and export capability</td></tr>
+        <tr><td>FOB</td><td>Buyer (after loading)</td><td>On board</td><td>First orders where the buyer wants control of the forwarder</td></tr>
+        <tr><td>CIF</td><td>Supplier</td><td>At destination port</td><td>Buyers who want a single quote including freight and minimum insurance</td></tr>
+        <tr><td>DDP</td><td>Supplier</td><td>At buyer's address</td><td>Repeat orders where the supplier has a proven clearance path</td></tr>
+      </tbody>
+    </table>
+
+    <h2>FOB: the default for a first shipment</h2>
+    <p>FOB gives the buyer control of the forwarder, which means visibility and a direct relationship with the carrier. The risk transfers when the goods are on board, so the buyer owns the transit risk — which is why insurance matters. For a first order, this is usually the most auditable structure.</p>
+
+    <h2>CIF: convenient, but read the insurance</h2>
+    <p>CIF includes freight and insurance to the destination port, but the cover is typically minimum (Institute Cargo Clauses C or similar). For high-value peptides, that may not cover the risks you care about — temperature damage, for example, is often excluded. If you choose CIF, ask for the policy wording, not just the term.</p>
+
+    <h2>DDP: convenience with a hidden dependency</h2>
+    <p>DDP is attractive because the supplier handles everything, including clearance. The trap: if the supplier clears under its own importer identity, the buyer may not appear in the customs record, and the supplier must be legally able to act as importer in the destination. For restricted categories, that can be impossible or non-compliant. Use DDP only when the supplier has a proven, lawful clearance path.</p>
+
+    <h2>What to put in the contract</h2>
+    <ul>
+      <li>The named Incoterm and the edition (e.g., Incoterms 2020).</li>
+      <li>The named place or port — "FOB Shanghai" is not the same as "FOB any Chinese port".</li>
+      <li>Who arranges insurance and at what cover.</li>
+      <li>Who bears the cost of a customs hold, return or destruction.</li>
+    </ul>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/">Research peptide catalogue</a> — shipment specifications</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — commercial terms</li>
+      <li><a href="/knowledge/peptide-cargo-insurance/">Cargo insurance</a> — transferring transit risk</li>
+    </ul>
+
+    <div class="ruo">Research use only. Commercial guidance, not legal advice.</div>
+  </div>
+  <ArticleSchema title="Incoterms for Peptide Shipments — EXW, FOB, CIF, DDP Compared" description="How Incoterms allocate cost and risk in research peptide shipments, which terms suit first orders versus repeat programs, and the traps in DDP and CIF." path="/knowledge/incoterms-peptide-shipments/" section="Shipping & compliance" />
+</BaseLayout>
