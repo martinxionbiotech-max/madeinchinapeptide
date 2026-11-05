@@ -72,4 +72,5 @@ export const articles: ArticleMeta[] = [
 export const pillars: ArticleMeta[] = [
   { slug:'china-peptide-sourcing-framework', title:'Sourcing research peptides from China: the five-layer verification model', desc:'Entity, analytics, lot consistency, commercial structure and logistics — a buying decision framework, not a checklist.', cluster:'Pillar' },
   { slug:'peptide-quality-verification-framework', title:'Peptide quality verification: from COA to release decision', desc:'The six questions a COA must answer, chromatogram review, net-content cost math and lot consistency.', cluster:'Pillar' },
+  { slug:'peptide-handling-laboratory-practice', title:'Peptide handling and laboratory practice: from receipt to result', desc:'Receipt, storage, weighing, dissolution, filtration, aliquoting and records — the failure modes that quietly bias experiments.', cluster:'Pillar' },
 ];
