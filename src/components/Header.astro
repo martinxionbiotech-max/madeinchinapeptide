@@ -1,6 +1,15 @@
 ---
 import { site, nav } from '../data/site';
 const path = Astro.url.pathname;
+const langMatch = path.match(/^\/(es|ar|pt)(\/.*)?$/);
+const currentLang = langMatch ? langMatch[1] : 'en';
+const basePath = langMatch ? (langMatch[2] || '/') : path;
+const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/']);
+const hrefFor = (l: string) => {
+  if (l === 'en') return translated.has(basePath) ? basePath : '/';
+  return translated.has(basePath) ? `/${l}${basePath}` : `/${l}/`;
+};
+const langs = [{ code: 'en', label: 'EN' }, { code: 'es', label: 'ES' }, { code: 'ar', label: 'AR' }, { code: 'pt', label: 'PT' }];
 ---
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
@@ -12,6 +21,14 @@ const path = Astro.url.pathname;
     <nav class="site-nav" aria-label="Main">
       {nav.map((n) => (
         <a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      {langs.map((l, i) => (
+        <>
+          {i > 0 && <span aria-hidden="true">·</span>}
+          <a href={hrefFor(l.code)} hreflang={l.code} aria-current={currentLang === l.code ? 'true' : undefined}>{l.label}</a>
+        </>
       ))}
     </nav>
   </div>
