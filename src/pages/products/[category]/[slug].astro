@@ -89,8 +89,8 @@ const faqLd = {
         <p class="tiny muted">Include target quantity, destination country and any documentation your QC requires.</p>
       </div>
       <div>
-        <img src={`/images/products/vial-${category}.svg`} alt={`${p.name} — research-grade vial (layout image)`} width="640" height="640" style="max-width:280px;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;" loading="lazy" />
-        <p class="tiny muted" style="margin-top:8px;">Illustrative image. Actual vial and label may differ by batch and packaging option.</p>
+        <img src={p.image ?? `/images/products/vial-${category}.svg`} alt={`${p.name} — research-grade vial`} width="640" height="640" style="max-width:280px;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff;" loading="lazy" />
+        <p class="tiny muted" style="margin-top:8px;">{p.image ? 'Product photograph. Label and batch details may vary by lot.' : 'Illustrative image. Actual vial and label may differ by batch and packaging option.'}</p>
       </div>
     </div>
 
