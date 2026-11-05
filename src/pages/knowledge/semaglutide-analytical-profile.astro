@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Semaglutide Analytical Profile — Sequence, Modifications, Methods" description="A research-material analytical profile of semaglutide: modified sequence, molecular weight, side-chain effects on HPLC and MS, solubility, counter-ion considerations and verification points." canonical="/knowledge/semaglutide-analytical-profile/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Semaglutide analytical profile'}]} />
+    <h1>Semaglutide: analytical profile for research buyers</h1>
+    <p class="lead muted">A modified GLP-1 analogue whose side chain changes the analytical picture. This profile covers what to verify, not what the compound does.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 research peptides pillar</a>.</p>
+
+    <h2>What the molecule is</h2>
+    <p>Semaglutide is a 31-amino-acid GLP-1 analogue with two design features that matter analytically: a fatty-acid side chain attached through a linker, and sequence modifications that slow enzymatic degradation. The side chain supports albumin binding and is the reason the molecule behaves differently on reverse-phase HPLC than an unmodified GLP-1 sequence.</p>
+    <p>Reference molecular weight: ≈4113.6 g/mol for the parent compound. Salt form and counter-ion change the mass of the actual material, so the MS interpretation must match the form you bought — acetate and TFA salts are not interchangeable in a mass calculation.</p>
+
+    <h2>Why the side chain matters for HPLC</h2>
+    <p>The fatty-acid moiety increases hydrophobicity and shifts retention. Consequences:</p>
+    <ul>
+      <li>A generic GLP-1 gradient may elute semaglutide later than expected, or with poor peak shape.</li>
+      <li>Side-chain-related impurities (incomplete acylation, linker fragments) can elute close to the parent.</li>
+      <li>Method transfer between suppliers is not automatic — the column and gradient should be stated on the COA.</li>
+    </ul>
+    <p>When reviewing a chromatogram, check that the method is described well enough to reproduce, and that the integration shows the impurity profile rather than a single peak with no baseline detail.</p>
+
+    <h2>Mass spectrometry expectations</h2>
+    <p>MS confirmation should match the modified sequence, not the unmodified backbone. A common failure pattern in the market is a COA whose observed mass corresponds to a different analogue or to a truncated sequence. Ask for the spectrum and the expected mass calculation, and check the adduct pattern — sodium and potassium adducts are normal, but they should be interpretable.</p>
+
+    <h2>Solubility and handling</h2>
+    <p>The modified molecule is less hydrophilic than the native sequence. Practical notes:</p>
+    <ul>
+      <li>Dissolve slowly; add solvent down the vial wall and allow time.</li>
+      <li>If aqueous solubility is limiting, follow the COA's recommended solvent rather than improvising.</li>
+      <li>Avoid vortexing — hydrophobic sequences are more prone to interfacial aggregation.</li>
+      <li>Use low-binding tubes at low concentrations to limit adsorption loss.</li>
+    </ul>
+
+    <h2>Counter-ion and net content</h2>
+    <p>Semaglutide is commonly supplied as the acetate salt. The counter-ion fraction is not peptide, and it is not visible in an HPLC purity number. For cost-per-mg comparisons, ask for water content and net peptide content; without them, two vials at the same nominal fill can differ materially in what you actually receive.</p>
+
+    <h2>Verification checklist</h2>
+    <table>
+      <thead><tr><th>Item</th><th>What to look for</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS spectrum matching the modified sequence and the correct salt form</td></tr>
+        <tr><td>Purity</td><td>HPLC chromatogram with method, gradient and integration</td></tr>
+        <tr><td>Water content</td><td>Karl Fischer value stated</td></tr>
+        <tr><td>Net peptide</td><td>Assay or content value, not just purity</td></tr>
+        <tr><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td></tr>
+        <tr><td>Consistency</td><td>Consecutive lot data if reordering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — 2–50 mg research formats</li>
+      <li><a href="/products/semaglutide/semaglutide-10mg/">Semaglutide 10 mg</a> — standard laboratory format</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer</li>
+      <li><a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 pillar</a> — the comparison framework</li>
+    </ul>
+
+    <div class="ruo">Research use only. This profile describes analytical properties of a research material; it makes no claim about effects or human use.</div>
+  </div>
+  <ArticleSchema title="Semaglutide Analytical Profile — Sequence, Modifications, Methods" description="Analytical profile of semaglutide for research buyers: modified sequence, molecular weight, side-chain effects on HPLC and MS, solubility, counter-ion and verification points." path="/knowledge/semaglutide-analytical-profile/" section="GLP-1 research peptides" />
+</BaseLayout>

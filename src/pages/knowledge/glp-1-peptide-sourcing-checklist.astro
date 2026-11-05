@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="GLP-1 Peptide Sourcing Checklist — What to Verify Before You Buy" description="A sourcing checklist for GLP-1 research peptides: identity, purity method, content, batch linkage, provenance and consistency — with the red flags specific to this category." canonical="/knowledge/glp-1-peptide-sourcing-checklist/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'GLP-1 sourcing checklist'}]} />
+    <h1>GLP-1 peptide sourcing checklist</h1>
+    <p class="lead muted">This category carries a higher counterfeit risk than commodity peptides. The checklist is correspondingly stricter — and it is designed to be answered before payment, not after receipt.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 research peptides pillar</a>.</p>
+
+    <h2>Before you request a quote</h2>
+    <ul>
+      <li>Define the compound, salt form and strength — "GLP-1 peptide" is not a specification.</li>
+      <li>Decide the acceptance criteria: identity method, purity threshold, water and content limits.</li>
+      <li>Confirm the material may lawfully be imported into your jurisdiction.</li>
+    </ul>
+
+    <h2>The checklist</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass condition</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Legal entity</td><td>Licence, bank account and invoice entity match</td></tr>
+        <tr><td>2</td><td>Compound-specific COA</td><td>Not a template shared across analogues</td></tr>
+        <tr><td>3</td><td>Identity</td><td>MS spectrum with expected mass calculation for the modified sequence</td></tr>
+        <tr><td>4</td><td>Purity</td><td>HPLC chromatogram with method, gradient and integration</td></tr>
+        <tr><td>5</td><td>Content</td><td>Water content (Karl Fischer) + net peptide content</td></tr>
+        <tr><td>6</td><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td></tr>
+        <tr><td>7</td><td>Provenance</td><td>Manufacturing batch reference; analytical lab named</td></tr>
+        <tr><td>8</td><td>Consistency</td><td>Two or three consecutive lot COAs</td></tr>
+        <tr><td>9</td><td>Packaging</td><td>Vial format, fill, closure and label content specified</td></tr>
+        <tr><td>10</td><td>Logistics</td><td>Correct commodity description, documentation, destination legality</td></tr>
+        <tr><td>11</td><td>Remedy</td><td>Written claim window and replacement/credit terms</td></tr>
+        <tr><td>12</td><td>Payment</td><td>Staged terms or documentary payment for a first order</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Red flags specific to GLP-1 compounds</h2>
+    <ul>
+      <li><strong>"Same as brand" language</strong> — a research material is not a brand product; the framing is a warning.</li>
+      <li><strong>COAs without a batch number</strong> — the document cannot be tied to goods.</li>
+      <li><strong>Purity quoted to two decimals with no chromatogram</strong> — precision without evidence.</li>
+      <li><strong>Mass values that do not match the published sequence</strong> — check the arithmetic yourself.</li>
+      <li><strong>Pressure to pay in full immediately</strong> — risk transfer at the worst moment.</li>
+      <li><strong>No answer on salt form</strong> — acetate vs TFA changes the mass and the behaviour.</li>
+    </ul>
+
+    <h2>How to use the checklist</h2>
+    <p>Score each item 0–2. A supplier below 18/24 is not ready for a volume order, regardless of price. The purpose is not to find a perfect supplier; it is to make the gaps visible while you still have negotiating room.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — research formats</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — research formats</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — research formats</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — MOQ and documentation</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">General supplier checklist</a> — 12-point framework</li>
+    </ul>
+
+    <div class="ruo">Research use only. This checklist is commercial due diligence, not regulatory or medical guidance.</div>
+  </div>
+  <ArticleSchema title="GLP-1 Peptide Sourcing Checklist — What to Verify Before You Buy" description="A sourcing checklist for GLP-1 research peptides: identity, purity method, content, batch linkage, provenance, consistency and category-specific red flags." path="/knowledge/glp-1-peptide-sourcing-checklist/" section="GLP-1 research peptides" />
+</BaseLayout>

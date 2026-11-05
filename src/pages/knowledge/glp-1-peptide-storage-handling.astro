@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="GLP-1 Peptide Storage and Handling — Practical Protocol" description="Storage and handling guidance for GLP-1 research peptides: temperature, moisture, dissolution, adsorption, filtration and aliquot practice for hydrophobic modified peptides." canonical="/knowledge/glp-1-peptide-storage-handling/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'GLP-1 storage & handling'}]} />
+    <h1>GLP-1 peptide storage and handling</h1>
+    <p class="lead muted">Modified, hydrophobic peptides are less forgiving than short hydrophilic ones. The same principles apply — cold, dry, dark, minimal handling — but the margins are tighter.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 research peptides pillar</a>.</p>
+
+    <h2>Receipt</h2>
+    <ul>
+      <li>Inspect the outer packaging and the vial seal before accepting.</li>
+      <li>Check that the lot number matches the COA and the invoice.</li>
+      <li>Let sealed vials equilibrate to room temperature for 15–30 minutes before opening — condensation into the cake is irreversible.</li>
+      <li>Record the receipt date and storage location.</li>
+    </ul>
+
+    <h2>Storage</h2>
+    <table>
+      <thead><tr><th>State</th><th>Condition</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Lyophilized powder</td><td>−20 °C, dark, desiccated</td><td>Long-term; avoid frost-free freezers with temperature cycling</td></tr>
+        <tr><td>Reconstituted solution</td><td>2–8 °C, short term</td><td>Protect from light; use within the period supported by your stability data</td></tr>
+        <tr><td>Frozen aliquots</td><td>−20 °C or below</td><td>Single-use volumes; avoid repeated freeze–thaw</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Dissolution</h2>
+    <p>Hydrophobic modified peptides wet slowly. Add solvent down the vial wall, swirl gently, and allow time. Do not vortex: shear promotes aggregation at the air–liquid interface, and these sequences are more prone to it.</p>
+    <p>If the compound does not dissolve in the recommended solvent, do not improvise with heat. Check the COA's solvent note, consider a small fraction of organic solvent, and confirm the final solvent composition is compatible with your assay.</p>
+
+    <h2>Adsorption and filtration</h2>
+    <ul>
+      <li>Use low-binding tubes; hydrophobic peptides adsorb to standard plastic at low concentrations.</li>
+      <li>Pre-rinse filters and account for hold-up volume — at small volumes the loss is proportionally large.</li>
+      <li>Choose a membrane compatible with the solvent; some organic phases dissolve certain filter materials.</li>
+    </ul>
+
+    <h2>Aliquoting</h2>
+    <p>Split the reconstituted solution into single-use aliquots immediately. Record the volume and date on each. A preparation that has been thawed three times is a different material from one thawed once — and without records, you cannot tell which result came from which.</p>
+
+    <h2>What to record</h2>
+    <ul>
+      <li>Lot number, measured mass, solvent, volume, final concentration</li>
+      <li>Filtration step and membrane type</li>
+      <li>Aliquot dates and storage temperature</li>
+      <li>Operator and preparation date</li>
+    </ul>
+    <p>A result without a preparation record is an observation, not data. <a href="/knowledge/peptide-handling-laboratory-practice/">The handling pillar</a> covers the full chain.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/accessories/bacteriostatic-water-10ml/">Bacteriostatic water 10 mL</a> — laboratory reconstitution</li>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — research formats</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — research formats</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — research formats</li>
+      <li><a href="/knowledge/peptide-storage-handling/">General storage guide</a> — principles</li>
+    </ul>
+
+    <div class="ruo">Research use only. This guide describes laboratory handling practice; it is not medical, veterinary or dosing guidance.</div>
+  </div>
+  <ArticleSchema title="GLP-1 Peptide Storage and Handling — Practical Protocol" description="Storage and handling guidance for GLP-1 research peptides: temperature, moisture, dissolution, adsorption, filtration and aliquot practice." path="/knowledge/glp-1-peptide-storage-handling/" section="GLP-1 research peptides" />
+</BaseLayout>

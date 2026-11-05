@@ -1,6 +1,11 @@
 export interface ArticleMeta { slug: string; title: string; desc: string; cluster: string; }
 export const articles: ArticleMeta[] = [
   { slug:'glp-1-research-peptides-compared', title:'Semaglutide vs tirzepatide vs retatrutide', desc:'Sequence, receptor profile, molecular weight and analytical burden — side by side.', cluster:'Compound background' },
+  { slug:'semaglutide-analytical-profile', title:'Semaglutide analytical profile', desc:'Modified sequence, side-chain effects on HPLC and MS, solubility and verification points.', cluster:'GLP-1 research' },
+  { slug:'tirzepatide-analytical-profile', title:'Tirzepatide analytical profile', desc:'Long-sequence analytics, impurity profile, HPLC/MS verification and net-content economics.', cluster:'GLP-1 research' },
+  { slug:'retatrutide-analytical-profile', title:'Retatrutide analytical profile', desc:'Triple-agonist verification: identity, purity, provenance and consistency checks.', cluster:'GLP-1 research' },
+  { slug:'glp-1-peptide-sourcing-checklist', title:'GLP-1 peptide sourcing checklist', desc:'Twelve checks before payment, plus red flags specific to this category.', cluster:'GLP-1 research' },
+  { slug:'glp-1-peptide-storage-handling', title:'GLP-1 peptide storage and handling', desc:'Temperature, dissolution, adsorption, filtration and aliquot practice.', cluster:'GLP-1 research' },
   { slug:'peptide-counter-ion-forms', title:'Acetate vs TFA: peptide counter-ion forms', desc:'Why the salt form changes mass, peptide content, pH and assay behaviour.', cluster:'Quality & testing' },
   { slug:'peptide-endotoxin-bioburden', title:'Endotoxin and bioburden in research peptides', desc:'What the two tests measure, and why sterile filtration does not remove pyrogens.', cluster:'Quality & testing' },
   { slug:'how-to-verify-peptide-purity', title:'How to verify peptide purity before you buy', desc:'HPLC, MS and the COA details that separate evidence from marketing.', cluster:'Quality & testing' },
@@ -73,4 +78,5 @@ export const pillars: ArticleMeta[] = [
   { slug:'china-peptide-sourcing-framework', title:'Sourcing research peptides from China: the five-layer verification model', desc:'Entity, analytics, lot consistency, commercial structure and logistics — a buying decision framework, not a checklist.', cluster:'Pillar' },
   { slug:'peptide-quality-verification-framework', title:'Peptide quality verification: from COA to release decision', desc:'The six questions a COA must answer, chromatogram review, net-content cost math and lot consistency.', cluster:'Pillar' },
   { slug:'peptide-handling-laboratory-practice', title:'Peptide handling and laboratory practice: from receipt to result', desc:'Receipt, storage, weighing, dissolution, filtration, aliquoting and records — the failure modes that quietly bias experiments.', cluster:'Pillar' },
+  { slug:'glp-1-research-peptides-framework', title:'GLP-1 research peptides compared: semaglutide, tirzepatide, retatrutide', desc:'Molecular weight, receptor profile, analytical burden, handling and sourcing verification — without dosing or efficacy claims.', cluster:'Pillar' },
 ];

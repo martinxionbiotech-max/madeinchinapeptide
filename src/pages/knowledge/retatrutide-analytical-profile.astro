@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Retatrutide Analytical Profile — Verification for a Newer Research Peptide" description="Analytical profile of retatrutide for research buyers: reported triple-agonist design, reference molecular weight, limited public reference data, and the verification points that matter most." canonical="/knowledge/retatrutide-analytical-profile/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Retatrutide analytical profile'}]} />
+    <h1>Retatrutide: analytical profile for research buyers</h1>
+    <p class="lead muted">The newest of the three GLP-1-adjacent research peptides — and the one where documentation discipline matters most, because public reference data is thinner.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 research peptides pillar</a>.</p>
+
+    <h2>What the molecule is</h2>
+    <p>Retatrutide is a long, modified peptide reported as a GLP-1/GIP/glucagon triple agonist. Reference molecular weight: ≈4731.4 g/mol for the parent compound. As with the other two compounds in this family, the fatty-acid modification supports albumin binding and changes both hydrophobicity and analytical behaviour.</p>
+    <p>Because the compound is newer in the research-supply market, fewer independent public analytical references exist than for semaglutide or tirzepatide. That does not make it unverifiable — it makes the supplier's own documentation more important.</p>
+
+    <h2>Why provenance matters more here</h2>
+    <p>When public reference data is limited, the buyer's ability to cross-check an identity claim depends almost entirely on the supplier's records. The common failure modes in this situation are predictable:</p>
+    <ul>
+      <li>COAs copied from a related compound with the product name changed</li>
+      <li>Mass values that do not match the published sequence</li>
+      <li>Chromatograms reused across lots</li>
+      <li>Suppliers who cannot name the manufacturing batch or the analytical laboratory</li>
+    </ul>
+    <p><strong>Our rule:</strong> for newer compounds, require the raw spectrum file and a batch record reference, not just the PDF summary. A supplier with a real release process can produce them; one without will negotiate instead.</p>
+
+    <h2>Identity verification</h2>
+    <p>MS confirmation should match the modified sequence and the correct salt form. Check the expected mass calculation — it should account for the side chain, not just the backbone. Where the risk justifies it, MS/MS fragmentation or amino-acid analysis adds sequence-level confidence. A single nominal mass match is weaker evidence for a large modified peptide than for a short one.</p>
+
+    <h2>Purity and impurity profile</h2>
+    <p>Long hydrophobic sequences produce complex impurity envelopes. Ask for the method and the full integration. A chromatogram that shows only the main peak, with no visible minor peaks and no baseline detail, is more likely to be a reporting choice than a purification achievement.</p>
+
+    <h2>Content and cost</h2>
+    <p>At this molecular weight, net peptide content matters economically. Water and counter-ion fractions are not peptide, and they are invisible in a purity percentage. Compare price per mg of net peptide; ask for Karl Fischer water content and assay content alongside the HPLC result.</p>
+
+    <h2>Handling notes</h2>
+    <ul>
+      <li>Equilibrate sealed vials before opening — the cake is hygroscopic.</li>
+      <li>Dissolve slowly in the solvent named on the COA; hydrophobic sequences wet slowly.</li>
+      <li>Use low-binding labware; at low concentrations adsorption is a real loss.</li>
+      <li>Aliquot before freezing; avoid repeated freeze–thaw.</li>
+      <li>Protect from light; store at −20 °C.</li>
+    </ul>
+
+    <h2>Verification checklist</h2>
+    <table>
+      <thead><tr><th>Item</th><th>What to look for</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS with expected mass calculation; raw spectrum available</td></tr>
+        <tr><td>Purity</td><td>Chromatogram with method and full integration</td></tr>
+        <tr><td>Content</td><td>Water content + net peptide content</td></tr>
+        <tr><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td></tr>
+        <tr><td>Provenance</td><td>Manufacturing batch reference and analytical laboratory named</td></tr>
+        <tr><td>Consistency</td><td>Consecutive lot data before reordering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — 5–60 mg research formats</li>
+      <li><a href="/products/retatrutide/retatrutide-20mg/">Retatrutide 20 mg</a> — research format</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer</li>
+      <li><a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 pillar</a> — the comparison framework</li>
+    </ul>
+
+    <div class="ruo">Research use only. This profile describes analytical properties of a research material; it makes no claim about effects or human use.</div>
+  </div>
+  <ArticleSchema title="Retatrutide Analytical Profile — Verification for a Newer Research Peptide" description="Analytical profile of retatrutide: reported triple-agonist design, reference molecular weight, limited public reference data and the verification points that matter most." path="/knowledge/retatrutide-analytical-profile/" section="GLP-1 research peptides" />
+</BaseLayout>

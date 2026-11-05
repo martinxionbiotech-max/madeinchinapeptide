@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Tirzepatide Analytical Profile — Long-Sequence Analytics" description="Analytical profile of tirzepatide for research buyers: 39-residue modified peptide, molecular weight, impurity profile, HPLC/MS verification and net-content economics." canonical="/knowledge/tirzepatide-analytical-profile/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Tirzepatide analytical profile'}]} />
+    <h1>Tirzepatide: analytical profile for research buyers</h1>
+    <p class="lead muted">A long, modified dual-agonist peptide — which means a more complex impurity profile and a higher analytical bar than short research peptides.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 research peptides pillar</a>.</p>
+
+    <h2>What the molecule is</h2>
+    <p>Tirzepatide is a 39-amino-acid modified peptide reported as a GIP/GLP-1 dual agonist. Like semaglutide, it carries a fatty-acid side chain that supports albumin binding; unlike semaglutide, the longer backbone multiplies the number of coupling steps and the potential for deletion and truncation impurities.</p>
+    <p>Reference molecular weight: ≈4813.5 g/mol for the parent compound. Confirm the salt form before interpreting MS data.</p>
+
+    <h2>The analytical consequence of length</h2>
+    <p>Each coupling cycle is rarely perfect. Over 39 residues, small per-step inefficiencies accumulate into a visible impurity envelope. Practical implications:</p>
+    <ul>
+      <li>Purification is harder and more expensive; a "98% pure" label at this length deserves a closer look at the chromatogram.</li>
+      <li>Deletion sequences often elute close to the parent, so method resolution matters more than the reported percentage.</li>
+      <li>A single peak with no visible shoulders on a generic gradient is a prompt to ask for the method, not a reason to relax.</li>
+    </ul>
+
+    <h2>HPLC method notes</h2>
+    <p>Ask for column chemistry, dimensions, mobile phase, gradient slope and detection wavelength. At this hydrophobicity, small gradient changes shift retention and resolution; without the method, a purity number cannot be compared across suppliers. Also check whether the integration includes the impurity envelope or only the main peak.</p>
+
+    <h2>MS and sequence confirmation</h2>
+    <p>For a molecule this size, a single MS mass match is necessary but not sufficient: it confirms the expected mass, not the sequence. Where identity risk is high, MS/MS fragmentation or amino-acid analysis adds a layer. At minimum, the COA should state the expected mass calculation and show the observed spectrum with interpretable adducts.</p>
+
+    <h2>Net content economics</h2>
+    <p>At ≈4813 g/mol, a 10 mg fill is a small molar quantity, and water plus counter-ion fraction can be a meaningful share of the powder. Compare price per mg of net peptide, not per vial. A 10% content difference is a 10% price difference at constant quality — easy to miss when quotes are compared per box.</p>
+
+    <h2>Handling</h2>
+    <ul>
+      <li>Equilibrate sealed vials before opening; the cake is hygroscopic.</li>
+      <li>Dissolve slowly; hydrophobic sequences wet slowly and are prone to foaming.</li>
+      <li>Avoid vortexing; use low-binding tubes and pre-rinsed filters.</li>
+      <li>Aliquot before freezing; repeated freeze–thaw is the usual cause of "it stopped working".</li>
+    </ul>
+
+    <h2>Verification checklist</h2>
+    <table>
+      <thead><tr><th>Item</th><th>What to look for</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS with expected mass calculation; MS/MS where risk is high</td></tr>
+        <tr><td>Purity</td><td>Chromatogram with method and full impurity integration</td></tr>
+        <tr><td>Content</td><td>Water content + net peptide content</td></tr>
+        <tr><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td></tr>
+        <tr><td>Consistency</td><td>Two or three consecutive lots for reorder decisions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — 2–60 mg research formats</li>
+      <li><a href="/products/tirzepatide/tirzepatide-10mg/">Tirzepatide 10 mg</a> — standard laboratory format</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer</li>
+      <li><a href="/knowledge/glp-1-research-peptides-framework/">GLP-1 pillar</a> — the comparison framework</li>
+    </ul>
+
+    <div class="ruo">Research use only. This profile describes analytical properties of a research material; it makes no claim about effects or human use.</div>
+  </div>
+  <ArticleSchema title="Tirzepatide Analytical Profile — Long-Sequence Analytics" description="Analytical profile of tirzepatide for research buyers: 39-residue modified peptide, molecular weight, impurity profile, HPLC/MS verification and net-content economics." path="/knowledge/tirzepatide-analytical-profile/" section="GLP-1 research peptides" />
+</BaseLayout>

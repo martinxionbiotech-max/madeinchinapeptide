@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="GLP-1 Research Peptides Compared: Semaglutide, Tirzepatide, Retatrutide" description="A research-level comparison of semaglutide, tirzepatide and retatrutide: molecular weight, sequence length, receptor profile, analytical burden, handling and sourcing verification — without dosing or efficacy claims." canonical="/knowledge/glp-1-research-peptides-framework/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'GLP-1 peptides compared'}]} />
+    <h1>GLP-1 research peptides compared: semaglutide, tirzepatide and retatrutide</h1>
+    <p class="lead muted">Three compounds, one shorthand — "GLP-1 peptides" — and three different analytical problems. Treating them as interchangeable reference materials is the most common specification error we see in this category.</p>
+
+    <div class="note"><strong>Scope.</strong> This is a research-material comparison: molecular properties, receptor pharmacology as reported in the public literature, analytical burden, handling and sourcing verification. It contains no dosing, no efficacy claims and no human-use guidance. All three compounds are supplied for laboratory research only.</div>
+
+    <h2>The comparison, at a glance</h2>
+    <table>
+      <thead><tr><th>Property</th><th>Semaglutide</th><th>Tirzepatide</th><th>Retatrutide</th></tr></thead>
+      <tbody>
+        <tr><td>Reported receptor profile</td><td>GLP-1 receptor agonist</td><td>GIP / GLP-1 dual agonist</td><td>GLP-1 / GIP / glucagon triple agonist</td></tr>
+        <tr><td>Reference molecular weight</td><td>≈4113.6 g/mol</td><td>≈4813.5 g/mol</td><td>≈4731.4 g/mol</td></tr>
+        <tr><td>Backbone class</td><td>Modified GLP-1 analogue</td><td>Modified dual-agonist peptide</td><td>Modified triple-agonist peptide</td></tr>
+        <tr><td>Half-life strategy (reported)</td><td>Albumin binding via fatty-acid side chain</td><td>Albumin binding via fatty-acid side chain</td><td>Albumin binding via fatty-acid side chain</td></tr>
+        <tr><td>Analytical burden</td><td>High — modified side chain, hydrophobic character</td><td>High — long sequence, hydrophobic modifications</td><td>High — long sequence, triple-pharmacology design</td></tr>
+        <tr><td>Typical research formats</td><td>2–50 mg lyophilized powder</td><td>2–60 mg lyophilized powder</td><td>5–60 mg lyophilized powder</td></tr>
+      </tbody>
+    </table>
+    <p class="small muted">Molecular weights are reference values for the parent compounds; salt form and counter-ion affect the mass of the actual material. Receptor assignments are as reported in the public literature and are not a claim about effects.</p>
+
+    <h2>Why the class label is misleading</h2>
+    <p>"GLP-1 peptide" is a pharmacological shorthand, not a specification. The three molecules differ in sequence length, side-chain chemistry, hydrophobicity and receptor profile. Those differences change three practical things:</p>
+    <ul>
+      <li><strong>Analytical behaviour:</strong> longer, more hydrophobic sequences produce more complex impurity profiles and can tail on standard RP-HPLC methods.</li>
+      <li><strong>Solubility and handling:</strong> hydrophobic modifications affect dissolution and adsorption behaviour; a solvent that works for one may not work for another.</li>
+      <li><strong>Documentation expectations:</strong> a COA that is adequate for a short peptide is thin for a 39–44 residue modified analogue.</li>
+    </ul>
+    <p><strong>Our position:</strong> each of these compounds is its own specification problem. Buyers who write one generic "GLP-1 peptide" specification and apply it to all three are not simplifying procurement — they are hiding the variables that matter.</p>
+
+    <h2>Semaglutide: the reference analogue</h2>
+    <p>Semaglutide is a modified GLP-1 analogue with a fatty-acid side chain that supports albumin binding. The modification is what makes the molecule analytically interesting: the side chain increases hydrophobicity, shifts retention on RP-HPLC, and creates a distinct impurity pattern compared with unmodified GLP-1 sequences.</p>
+    <p>Practical consequences for buyers:</p>
+    <ul>
+      <li>HPLC methods must resolve the modified parent from side-chain-related impurities.</li>
+      <li>MS confirmation should be checked against the expected mass of the modified sequence, not the unmodified backbone.</li>
+      <li>Solubility in purely aqueous solvent can be limited; the COA's recommended solvent should be followed.</li>
+    </ul>
+    <p><a href="/knowledge/semaglutide-analytical-profile/">Semaglutide analytical profile</a> covers sequence, modifications and method notes.</p>
+
+    <h2>Tirzepatide: the dual agonist</h2>
+    <p>Tirzepatide is a longer modified peptide reported as a GIP/GLP-1 dual agonist. The longer sequence and hydrophobic modifications raise the analytical bar: more coupling steps, a more complex impurity profile, and a greater chance that a generic HPLC gradient will under-resolve the main peak.</p>
+    <p>What to verify:</p>
+    <ul>
+      <li>Mass confirmation for the full modified sequence</li>
+      <li>Chromatographic resolution of the parent from deletion sequences</li>
+      <li>Water content and net peptide content — the economic difference at this molecular weight is not trivial</li>
+    </ul>
+    <p><a href="/knowledge/tirzepatide-analytical-profile/">Tirzepatide analytical profile</a> has the detail.</p>
+
+    <h2>Retatrutide: the triple agonist</h2>
+    <p>Retatrutide is reported as a GLP-1/GIP/glucagon triple agonist. It is the newest of the three in research supply, which has two consequences: fewer independent analytical references are publicly available, and the market contains more material of uncertain provenance. That makes documentation discipline more important, not less.</p>
+    <p>Buyers should be especially careful about:</p>
+    <ul>
+      <li>Suppliers who cannot provide a batch-linked chromatogram for this specific compound</li>
+      <li>COAs copied from a related compound with the name changed</li>
+      <li>Molecular-weight claims that do not match the published sequence</li>
+    </ul>
+    <p><a href="/knowledge/retatrutide-analytical-profile/">Retatrutide analytical profile</a> covers the verification points.</p>
+
+    <h2>Sourcing verification for this category</h2>
+    <p>These are among the most counterfeited research peptides, for the same reason they are in demand: high value per gram and a buyer base that often cannot run full identity testing. The verification standard should be higher than for commodity peptides.</p>
+    <table>
+      <thead><tr><th>Check</th><th>Minimum evidence</th><th>Why it matters here</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS spectrum matching the modified sequence</td><td>Close analogues and truncations can pass a casual glance</td></tr>
+        <tr><td>Purity</td><td>HPLC chromatogram with method and integration</td><td>Hydrophobic impurities co-elute under generic gradients</td></tr>
+        <tr><td>Content</td><td>Water content + net peptide content</td><td>High-value material — content drives cost per mg</td></tr>
+        <tr><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td><td>Prevents certificate reuse across lots</td></tr>
+        <tr><td>Consistency</td><td>Two or three consecutive lot COAs</td><td>Distinguishes a process from ad-hoc sourcing</td></tr>
+      </tbody>
+    </table>
+    <p><a href="/knowledge/glp-1-peptide-sourcing-checklist/">GLP-1 peptide sourcing checklist</a> turns this into a working document.</p>
+
+    <h2>Handling differences that matter</h2>
+    <p>All three are lyophilized powders handled under the same general principles — cold, dry, dark, minimal freeze–thaw — but the hydrophobic modifications change the details:</p>
+    <ul>
+      <li><strong>Dissolution:</strong> expect slower wetting; add solvent down the wall and allow time.</li>
+      <li><strong>Adsorption:</strong> at low concentrations, hydrophobic sequences adsorb more readily to plastic; use low-binding labware.</li>
+      <li><strong>Filtration:</strong> membrane choice affects recovery; pre-rinse and account for hold-up.</li>
+      <li><strong>Aggregation:</strong> hydrophobic segments increase the risk; avoid vortexing and high local concentrations.</li>
+    </ul>
+    <p><a href="/knowledge/glp-1-peptide-storage-handling/">GLP-1 peptide storage and handling</a> covers the practical protocol.</p>
+
+    <h2>What this comparison does not tell you</h2>
+    <p>It does not tell you which compound is "better" — that is a research question, not a procurement question, and it is outside the scope of a supplier's competence. It also does not establish equivalence between salt forms, purity grades or suppliers. Those are separate verification problems, each with its own evidence requirements.</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>Position.</strong> The GLP-1 category rewards buyers who slow down. The compounds are expensive, the analytical bar is high, and the market is full of material that looks right on a label. The winning behaviour is not finding the cheapest vial; it is refusing to buy without a batch-linked identity and purity package.</p>
+    <p><strong>Reasoning.</strong> At this molecular weight and hydrophobicity, small analytical differences translate into large practical ones: a co-eluting impurity, a wrong salt form, or a 5% net-content gap changes what an experiment is actually testing. The cost of the vial is small compared with the cost of a wrong conclusion.</p>
+    <p><strong>Disclosure.</strong> We supply all three compounds and benefit when buyers prefer documented material. We also decline orders where the buyer cannot describe a legitimate research use — a policy that costs us revenue and is, in our view, part of selling this category responsibly.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — 2–60 mg research formats</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — 2–50 mg research formats</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — 5–60 mg research formats</li>
+      <li><a href="/products/">Research peptide catalogue</a> — full SKU list</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — MOQ and documentation</li>
+      <li><a href="/quality/testing-methods/">Testing methods</a> — HPLC, MS, Karl Fischer</li>
+    </ul>
+
+    <h2>Cluster: the GLP-1 library</h2>
+    <ol>
+      <li><a href="/knowledge/glp-1-research-peptides-compared/">Semaglutide vs tirzepatide vs retatrutide</a> — the short comparison</li>
+      <li><a href="/knowledge/semaglutide-analytical-profile/">Semaglutide analytical profile</a> — sequence and method notes</li>
+      <li><a href="/knowledge/tirzepatide-analytical-profile/">Tirzepatide analytical profile</a> — long-sequence analytics</li>
+      <li><a href="/knowledge/retatrutide-analytical-profile/">Retatrutide analytical profile</a> — verification points</li>
+      <li><a href="/knowledge/glp-1-peptide-sourcing-checklist/">GLP-1 sourcing checklist</a> — what to verify</li>
+      <li><a href="/knowledge/glp-1-peptide-storage-handling/">GLP-1 storage and handling</a> — practical protocol</li>
+      <li><a href="/knowledge/peptide-sequence-notation/">Peptide sequence notation</a> — reading the sequence</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Identity by mass spectrometry</a> — the verification method</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> — the trend view</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Net content and cost</a> — the economics</li>
+    </ol>
+
+    <div class="ruo">Research use only. This comparison describes molecular and analytical properties of research materials; it makes no claim about efficacy, safety or suitability for human or veterinary use.</div>
+  </div>
+  <ArticleSchema title="GLP-1 Research Peptides Compared: Semaglutide, Tirzepatide, Retatrutide" description="Research-level comparison of semaglutide, tirzepatide and retatrutide: molecular weight, receptor profile, analytical burden, handling and sourcing verification." path="/knowledge/glp-1-research-peptides-framework/" section="GLP-1 research peptides" />
+</BaseLayout>
