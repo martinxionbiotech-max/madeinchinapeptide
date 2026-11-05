@@ -7,6 +7,7 @@ export const site = {
   description:
     'B2B sourcing channel for research peptides manufactured in China. Batch documentation, HPLC data, bulk supply and OEM/private-label programs for laboratories, distributors and research suppliers.',
   email: 'aaron@madeinchinapeptide.com',
+  emails: ['aaron@madeinchinapeptide.com', 'martin@madeinchinapeptide.com', 'admin@madeinchinapeptide.com'],
   whatsapp: '+64 2102668969',
   whatsappLink: 'https://wa.me/642102668969',
   address: 'China (factory details provided on request)',
