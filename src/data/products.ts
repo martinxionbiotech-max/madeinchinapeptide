@@ -288,7 +288,7 @@ P({ slug:'ghk-cu-100mg', image:'/images/products/ghk-cu.webp', name:'GHK-Cu 100m
      packaging:'10 mL amber vial', moq:'10 vials', leadTime:'5–10 business days',
      docs:['COA (batch-specific)','HPLC chromatogram','MS confirmation','MSDS'],
      summary:'GHK-Cu copper tripeptide-1 cosmetic raw material for formulation research and cosmetic ingredient development.' }),
-P({ slug:'glutathione-1500mg', image:'/images/products/glutathione-1500mg.jpg', name:'Glutathione 1500mg', category:'cosmetic', strength:'1500 mg/vial', form:'Lyophilized powder',
+P({ slug:'glutathione-1500mg', image:'/images/products/glutathione.webp', name:'Glutathione 1500mg', category:'cosmetic', strength:'1500 mg/vial', form:'Lyophilized powder',
      note: 'A high-mass fill intended for formulation research where larger quantities are needed. Store at 2–8 °C and protect from light.',
      cas:'70-18-8', mw:'307.32 g/mol (reference)', purity:'Batch-specific; HPLC purity stated on COA', storage:'2–8 °C, protect from light',
      packaging:'20 mL vial', moq:'5 vials', leadTime:'5–10 business days',
