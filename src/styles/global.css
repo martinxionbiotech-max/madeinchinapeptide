@@ -111,3 +111,6 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .lang-switch a[aria-current="true"]{background:var(--bg-soft);color:var(--navy);font-weight:700}
 .lang-switch span{color:#cbd5e1}
 @media(max-width:720px){.lang-switch{margin-left:8px}.lang-switch a{padding:4px 5px}}
+
+.price-line{font-size:1.02rem;color:var(--navy);margin:4px 0 14px}
+.price-line strong{color:var(--accent);font-size:1.15rem}

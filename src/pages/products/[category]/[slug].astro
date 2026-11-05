@@ -67,6 +67,16 @@ const ld = {
   ],
   url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
   audience: { '@type': 'BusinessAudience', audienceType: 'Research laboratories and distributors' },
+  offers: {
+    '@type': 'Offer',
+    url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
+    priceCurrency: 'USD',
+    price: p.price,
+    priceValidUntil: '2027-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'Made in China Peptide' },
+  },
 };
 
 const faqLd = {
@@ -84,6 +94,7 @@ const faqLd = {
   <div class="wrap">
     <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name,href:`/products/${category}/`},{label:p.name}]} />
     <h1>{p.name}</h1>
+    <p class="price-line">Indicative price: <strong>{p.price} USD</strong> per vial · bulk tiers quoted on request</p>
     <div class="quick-answer"><strong>Quick answer.</strong> {p.name} is supplied as {p.form.toLowerCase()} for laboratory research, with a batch-specific COA (HPLC chromatogram + MS confirmation). MOQ {p.moq}; lead time {p.leadTime}. <a href={site.whatsappLink} target="_blank" rel="noopener">Ask on WhatsApp</a>.</div>
 
     <div class="grid grid-2" style="align-items:start;gap:32px;">
@@ -114,6 +125,7 @@ const faqLd = {
         <tr><th>Packaging</th><td>{p.packaging}</td></tr>
         <tr><th>MOQ</th><td>{p.moq}</td></tr>
         <tr><th>Lead time</th><td>{p.leadTime}</td></tr>
+        <tr><th>Indicative price</th><td>{p.price} USD per vial (bulk tiers on request)</td></tr>
         <tr><th>Documentation</th><td>{p.docs.join(' · ')}</td></tr>
       </tbody>
     </table>
