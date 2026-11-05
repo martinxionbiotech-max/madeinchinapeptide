@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
@@ -9,7 +10,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <h1>Peptide handling and laboratory practice: from receipt to result</h1>
     <p class="lead muted">Most variability in peptide experiments does not come from the peptide. It comes from what happens between the courier label and the assay result — and almost none of it is recorded. This is the framework we use to close that gap.</p>
 
-    <div class="note"><strong>Scope.</strong> Laboratory practice for research-grade lyophilized peptides. This is not clinical or veterinary guidance, and nothing here is a dosing or administration protocol.</div>
+<div class="quick-answer"><strong>Quick answer.</strong> Peptide handling is an eight-step chain from receipt to record: receipt, storage, weighing, dissolution, buffer, filtration, aliquoting and documentation. Most experimental variability comes from the middle steps, not from the peptide itself.</div>
+
+        <div class="note"><strong>Scope.</strong> Laboratory practice for research-grade lyophilized peptides. This is not clinical or veterinary guidance, and nothing here is a dosing or administration protocol.</div>
 
     <h2>The uncomfortable claim</h2>
     <p>Ask a lab why two runs of the same experiment disagreed and the answer is usually "the peptide". Sometimes that is true. More often, the material was fine and the handling was not: a vial left open while the balance settled, a stock vortexed instead of swirled, an aliquot thawed three times, a filter that adsorbed a meaningful fraction of a small batch.</p>
@@ -104,6 +107,8 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Chinese Pharmacopoeia (ChP 2020), Part IV:</strong> General Chapter 0832 (loss on drying) and 0903 (particulate matter) — cited by chapter number.</li>
     </ul>
     <p class="small muted">The mass-balance example is illustrative; the loss percentages are assumptions used to show the arithmetic, not measured data.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask on WhatsApp</a></p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
@@ -9,7 +10,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <h1>GLP-1 research peptides compared: semaglutide, tirzepatide and retatrutide</h1>
     <p class="lead muted">Three compounds, one shorthand — "GLP-1 peptides" — and three different analytical problems. Treating them as interchangeable reference materials is the most common specification error we see in this category.</p>
 
-    <div class="note"><strong>Scope.</strong> This is a research-material comparison: molecular properties, receptor pharmacology as reported in the public literature, analytical burden, handling and sourcing verification. It contains no dosing, no efficacy claims and no human-use guidance. All three compounds are supplied for laboratory research only.</div>
+<div class="quick-answer"><strong>Quick answer.</strong> Semaglutide, tirzepatide and retatrutide share a GLP-1 label but differ in sequence, molecular weight, receptor profile and analytical burden. Each needs its own specification and batch-linked COA; they are not interchangeable reference materials.</div>
+
+        <div class="note"><strong>Scope.</strong> This is a research-material comparison: molecular properties, receptor pharmacology as reported in the public literature, analytical burden, handling and sourcing verification. It contains no dosing, no efficacy claims and no human-use guidance. All three compounds are supplied for laboratory research only.</div>
 
     <h2>The comparison, at a glance</h2>
     <table>
@@ -118,6 +121,8 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Specification concepts:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH quality guidelines</a>.</li>
     </ul>
     <p class="small muted">Receptor assignments describe reported pharmacology of the research materials; they are not efficacy claims and not guidance for human use.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask on WhatsApp</a></p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

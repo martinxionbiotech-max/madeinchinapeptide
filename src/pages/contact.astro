@@ -89,10 +89,11 @@ import { site } from '../data/site';
     <div class="note" style="margin-top:24px;">We only quote to business buyers. Requests that indicate personal human use will be declined.</div>
 
     <h2>Contact channels</h2>
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Chat on WhatsApp now</a></p>
     <table>
       <tbody>
         <tr><th style="width:180px;">Email</th><td><a href={`mailto:${site.email}`}>{site.email}</a></td></tr>
-        <tr><th>WhatsApp</th><td>{site.whatsapp}</td></tr>
+        <tr><th>WhatsApp</th><td><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 {site.whatsapp}</a></td></tr>
         <tr><th>Response time</th><td>Within 1 business day (Mon–Sat, UTC+8)</td></tr>
       </tbody>
     </table>

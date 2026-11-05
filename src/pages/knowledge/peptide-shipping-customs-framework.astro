@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
@@ -9,7 +10,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <h1>Shipping research peptides from China: customs, documentation and risk</h1>
     <p class="lead muted">Most shipment failures are not logistics failures. They are paperwork failures that become logistics failures at the border. This framework treats the shipment as a documentation problem first and a freight problem second.</p>
 
-    <div class="note"><strong>Scope.</strong> Commercial guidance for business buyers importing research peptides. It is not legal, customs or regulatory advice; classification and permit requirements must be confirmed with a licensed broker and the destination authority.</div>
+<div class="quick-answer"><strong>Quick answer.</strong> A peptide shipment clears customs when classification, documentation and permits are consistent before departure. Confirm the HS heading with a broker, match product, batch and quantity across all documents, and check destination legality before ordering.</div>
+
+        <div class="note"><strong>Scope.</strong> Commercial guidance for business buyers importing research peptides. It is not legal, customs or regulatory advice; classification and permit requirements must be confirmed with a licensed broker and the destination authority.</div>
 
     <h2>The premise: the paperwork is the passport</h2>
     <p>A shipment can be perfectly packed and still die at customs because the invoice description does not match the goods, the COA covers a different lot, or the destination requires a permit nobody checked. In this trade, the documents are not supporting material — they are what determines whether the goods move at all.</p>
@@ -126,6 +129,8 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>China customs classification:</strong> 《中华人民共和国进出口税则》 and GACC commodity classification decisions (海关总署商品归类决定) — the destination schedule still governs; confirm with a licensed broker.</li>
     </ul>
     <p class="small muted">No shipment data was fabricated for this guide; the decision table describes common failure modes, not measured statistics.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask on WhatsApp</a></p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

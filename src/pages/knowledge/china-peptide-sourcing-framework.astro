@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
@@ -9,7 +10,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <h1>Sourcing research peptides from China: the five-layer verification model</h1>
     <p class="lead muted">Most sourcing guides give you a list of questions. That is not the hard part. The hard part is knowing which answers should end the conversation — and which ones are noise. This is the framework we use, written as a buying decision, not a brochure.</p>
 
-    <div class="note"><strong>Scope.</strong> This guide is for business buyers — laboratories, distributors and OEM brands — sourcing lyophilized research peptides from Chinese suppliers. It is commercial due diligence, not regulatory or legal advice, and it makes no claim about human use.</div>
+<div class="quick-answer"><strong>Quick answer.</strong> Evaluate a Chinese peptide supplier in five layers: legal entity, batch-linked analytical evidence, consecutive-lot consistency, commercial terms and export compliance. Any supplier that fails the first two layers should not receive a volume order, regardless of price.</div>
+
+        <div class="note"><strong>Scope.</strong> This guide is for business buyers — laboratories, distributors and OEM brands — sourcing lyophilized research peptides from Chinese suppliers. It is commercial due diligence, not regulatory or legal advice, and it makes no claim about human use.</div>
 
     <h2>The uncomfortable premise</h2>
     <p>The Chinese peptide market is not short of suppliers. It is short of <em>verifiable</em> suppliers. A search returns hundreds of companies with similar catalogues, similar photos and similar claims. Price differences of 30–50% between quotes for the same nominal product are normal, and they rarely mean what buyers think they mean.</p>
@@ -109,6 +112,8 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Market structure:</strong> supplier listings on 1688, Global Sources and Made-in-China were used to observe catalogue and pricing patterns — not as evidence of quality.</li>
     </ul>
     <p class="small muted">No laboratory testing was performed by the author for this guide. Figures described as illustrative are assumptions, not measurements.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask on WhatsApp</a></p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

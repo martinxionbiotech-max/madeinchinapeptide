@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
@@ -9,7 +10,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <h1>Peptide quality verification: from COA to release decision</h1>
     <p class="lead muted">"99% pure" is the most quoted and least examined number in this market. Quality is not a percentage on a certificate — it is a set of questions the certificate either answers or avoids. This is the framework we use to decide whether a lot is releasable.</p>
 
-    <div class="note"><strong>Scope.</strong> This guide covers analytical verification of research-grade peptides for laboratory use. It is not a regulatory release standard and makes no claim about human or veterinary use.</div>
+<div class="quick-answer"><strong>Quick answer.</strong> Releasable peptide quality requires six data points: identity by MS, purity by HPLC with method and chromatogram, water content, net peptide content, particle inspection and — where claimed — endotoxin. A purity percentage alone is not a release decision.</div>
+
+        <div class="note"><strong>Scope.</strong> This guide covers analytical verification of research-grade peptides for laboratory use. It is not a regulatory release standard and makes no claim about human or veterinary use.</div>
 
     <h2>The premise: a COA is an argument, not a fact</h2>
     <p>A certificate of analysis is a document that <em>claims</em> a set of results. Whether those results are true depends on three things: whether the sample tested was the lot shipped, whether the methods were capable, and whether the document was produced when the lot was made — not assembled later from a template.</p>
@@ -119,6 +122,8 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Chinese Pharmacopoeia (ChP 2020), Part IV:</strong> General Chapter 0512 (HPLC), 0832 (loss on drying), 0903 (particulate matter), 1143 (bacterial endotoxins) — cited by chapter number; the official edition is the authoritative text.</li>
     </ul>
     <p class="small muted">The net-content worked example is illustrative: the percentages are stated assumptions, not measured results from any lot.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask on WhatsApp</a></p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

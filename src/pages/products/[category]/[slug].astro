@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { products, categories, type Category } from '../../../data/products';
+import { site } from '../../../data/site';
 export function getStaticPaths() {
   return products.map((p) => ({ params: { category: p.category, slug: p.slug } }));
 }
@@ -60,11 +61,24 @@ const ld = {
   url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
   audience: { '@type': 'BusinessAudience', audienceType: 'Research laboratories and distributors' },
 };
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: `Is ${p.name} for human use?`, acceptedAnswer: { '@type': 'Answer', text: 'No. It is supplied for laboratory research only, not for human or veterinary use.' } },
+    { '@type': 'Question', name: 'What documentation ships with the order?', acceptedAnswer: { '@type': 'Answer', text: 'A batch-specific COA with HPLC chromatogram and method, MS confirmation, MSDS and storage instructions.' } },
+    { '@type': 'Question', name: 'Can I order a sample before a bulk order?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, for qualified business buyers. The sample ships with its own batch COA.' } },
+  ],
+};
+
 ---
 <BaseLayout title={seoTitle} description={`${p.name} — ${p.form.toLowerCase()} for laboratory research. Batch-specific COA with HPLC and MS data; bulk and OEM supply.`} canonical={`/products/${category}/${slug}/`}>
   <div class="wrap">
     <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name,href:`/products/${category}/`},{label:p.name}]} />
     <h1>{p.name}</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> {p.name} is supplied as {p.form.toLowerCase()} for laboratory research, with a batch-specific COA (HPLC chromatogram + MS confirmation). MOQ {p.moq}; lead time {p.leadTime}. <a href={site.whatsappLink} target="_blank" rel="noopener">Ask on WhatsApp</a>.</div>
+
     <div class="grid grid-2" style="align-items:start;gap:32px;">
       <div>
         <p class="lead muted" style="max-width:800px;">{p.summary}</p>
@@ -137,6 +151,15 @@ const ld = {
       {reading[category].map(r => <li><a href={r.href}>{r.label}</a></li>)}
     </ul>
 
+    <h2>Frequently asked</h2>
+    <h3>Is {p.name} for human use?</h3>
+    <p>No. It is supplied for laboratory research only — not for human or veterinary use, diagnosis, treatment or cosmetic application.</p>
+    <h3>What documentation ships with the order?</h3>
+    <p>A batch-specific COA with HPLC chromatogram and method, MS confirmation, MSDS and storage instructions. The batch number on the COA matches the vial label and invoice.</p>
+    <h3>Can I order a sample before a bulk order?</h3>
+    <p>Yes, for qualified business buyers. The sample ships with its own batch COA so you can verify identity and documentation before committing to volume.</p>
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Ask about {p.name} on WhatsApp</a></p>
+
     <h2>Related</h2>
     <p>
       <a href={`/products/${category}/`}>All {cat.name}</a> ·
@@ -148,4 +171,5 @@ const ld = {
     </p>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </BaseLayout>

@@ -90,3 +90,11 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .calc-out p{margin:6px 0;font-size:.95rem}
 .calc-out .calc-hint{grid-column:auto;margin-top:8px}
 @media(max-width:560px){.calc-grid{grid-template-columns:1fr}.calc-hint{grid-column:1}}
+
+.quick-answer{background:#f0fdfa;border:1px solid #99f6e4;border-left:5px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 18px;margin:20px 0 26px;font-size:.98rem}
+.quick-answer strong{color:var(--accent)}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;font-weight:600;font-size:.92rem;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.wa-float:hover{background:#1ebe5b;text-decoration:none}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff!important;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.92rem}
+.wa-btn:hover{background:#1ebe5b;text-decoration:none}
+@media(max-width:560px){.wa-float{right:12px;bottom:12px;padding:10px 14px;font-size:.85rem}}
