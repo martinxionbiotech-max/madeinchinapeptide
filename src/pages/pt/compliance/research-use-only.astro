@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="pt" title="Apenas para uso em pesquisa — Declaração RUO" description="Declaração de uso exclusivo em pesquisa: utilizações permitidas e proibidas dos péptidos fornecidos." canonical="/pt/compliance/research-use-only/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/research-use-only/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/research-use-only/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/research-use-only/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/research-use-only/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/research-use-only/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/pt/">Início</a> › Conformidade › Uso em pesquisa</p>
+    <h1>Declaração de uso exclusivo em pesquisa (RUO)</h1>
+    <div class="note"><strong>Todos os produtos são para uso exclusivo em investigação laboratorial.</strong> Não são medicamentos, alimentos, cosméticos nem produtos veterinários. Não se destinam a uso humano ou animal, diagnóstico, tratamento, cura ou prevenção de doenças.</div>
+    <h2>Utilizações permitidas</h2>
+    <ul><li>Investigação in vitro por instituições qualificadas</li><li>Desenvolvimento de métodos analíticos</li><li>Investigação de formulação por equipas de I&amp;D</li></ul>
+    <h2>Utilizações proibidas</h2>
+    <ul><li>Administração a humanos ou animais</li><li>Revenda como medicamento, suplemento ou cosmético</li><li>Aplicação diagnóstica ou terapêutica</li><li>Uso por menores de 21 anos ou consumidores não qualificados</li></ul>
+    <h2>Responsabilidade do comprador</h2>
+    <p>O comprador confirma que tem pelo menos 21 anos, que adquire o material para investigação ou comércio legítimo e que cumprirá as leis da sua jurisdição.</p>
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="pt" title="Péptidos de pesquisa por atacado — Preços e fornecimento" description="Fornecimento por atacado de péptidos de pesquisa a partir da China: preços por volume, MOQ desde 10 frascos, COA por lote e documentação de exportação." canonical="/pt/wholesale/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/wholesale/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/wholesale/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/wholesale/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/wholesale/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/wholesale/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/pt/">Início</a> › Atacado</p>
+    <h1>Atacado e fornecimento a granel</h1>
+    <p class="lead muted">Concebido para distribuidores, laboratórios e fornecedores que compram em volumes repetidos.</p>
+    <h2>O que determina o preço</h2>
+    <table>
+      <thead><tr><th>Fator</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr><td>Péptido e concentração</td><td>Custo base</td></tr>
+        <tr><td>Volume</td><td>Menor custo unitário por escalões</td></tr>
+        <tr><td>Embalagem</td><td>Frasco, caixa e folhetos</td></tr>
+        <tr><td>Documentação</td><td>COA padrão incluído; testes extra cotados</td></tr>
+        <tr><td>Destino</td><td>Frete e conformidade</td></tr>
+      </tbody>
+    </table>
+    <h2>Fluxo do pedido</h2>
+    <ol>
+      <li>Envie SKU, concentrações, quantidades e destino.</li>
+      <li>Confirmamos disponibilidade, preço por escalão e prazo.</li>
+      <li>Amostra opcional com o respetivo COA.</li>
+      <li>Pagamento e produção.</li>
+      <li>Envio com fatura comercial e lista de embalagem.</li>
+    </ol>
+    <p><a class="btn" href="/pt/contact/">Solicitar cotação</a> <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener" style="margin-left:10px;">💬 WhatsApp</a></p>
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { products, categories } from '../../../data/products';
+---
+<BaseLayout lang="pt" title="Catálogo de péptidos de pesquisa — Atacado e OEM" description="Catálogo de péptidos de grau de pesquisa para fornecimento por atacado e OEM a partir da China: tirzepatida, semaglutida, BPC-157, GHK-Cu e mais." canonical="/pt/products/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/products/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/products/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/products/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/products/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/products/'}]}>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/pt/">Início</a> › Produtos</p>
+    <h1>Catálogo de péptidos de pesquisa</h1>
+    <p class="lead muted">Cada ficha indica forma, armazenamento e documentação. A pureza é por lote: solicite o COA do lote que está a avaliar.</p>
+    {Object.entries(categories).map(([slug, c]) => (
+      <section style="margin-top:32px;">
+        <h2>{c.name}</h2>
+        <table>
+          <thead><tr><th>Produto</th><th>Concentração</th><th>Forma</th><th>MOQ</th><th></th></tr></thead>
+          <tbody>
+            {products.filter(p => p.category === slug).map(p => (
+              <tr><td><a href={`/products/${p.category}/${p.slug}/`}>{p.name}</a></td><td>{p.strength}</td><td>{p.form}</td><td>{p.moq}</td><td><a href={`/products/${p.category}/${p.slug}/`}>Ver</a></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))}
+    <div class="ruo" style="margin:28px 0;">Todos os produtos são para uso exclusivo em investigação laboratorial.</div>
+  </div>
+</BaseLayout>

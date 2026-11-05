@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="pt" title="Made in China Peptide — Péptidos de pesquisa por atacado" description="Canal B2B de péptidos de pesquisa fabricados na China: COA por lote, dados HPLC/MS, fornecimento por atacado e programas OEM." canonical="/pt/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/'}]}>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">Apenas para uso em pesquisa · Fornecimento B2B</span>
+      <h1>Péptidos de pesquisa da China, documentados lote a lote.</h1>
+      <p class="lead">Um canal de compra para laboratórios, distribuidores e marcas que precisam de mais do que uma lista de preços: COA por lote, dados de HPLC, rastreabilidade e fornecimento por atacado.</p>
+      <p style="margin-top:24px;"><a class="btn" href="/products/">Ver catálogo</a> <a class="btn btn-ghost" href="/wholesale/" style="margin-left:10px;">Atacado</a></p>
+      <p class="small muted" style="margin-top:18px;">{site.ruo}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>Por que comprar connosco</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>Documentação primeiro</h3><p>Cada lote inclui COA, cromatograma HPLC e confirmação por MS. O número de lote é rastreável.</p></div>
+        <div class="card"><h3>Fornecimento por atacado</h3><p>Formatos de frasco e gramas com preços por volume para distribuidores e laboratórios qualificados.</p></div>
+        <div class="card"><h3>OEM e marca própria</h3><p>Rótulos, caixas e pacotes de documentação personalizados para marcas.</p></div>
+      </div>
+      <p style="margin-top:24px;"><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 WhatsApp</a></p>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>Produtos em destaque</h2>
+      <ul>
+        <li><a href="/products/tirzepatide/">Tirzepatida</a> — 2–60 mg</li>
+        <li><a href="/products/semaglutide/">Semaglutida</a> — 2–50 mg</li>
+        <li><a href="/products/retatrutide/">Retatrutida</a> — 5–60 mg</li>
+        <li><a href="/products/research/">Péptidos de pesquisa</a> — BPC-157, TB-500, CJC-1295</li>
+        <li><a href="/products/cosmetic/">Péptidos cosméticos</a> — GHK-Cu, glutationa</li>
+      </ul>
+      <p class="small muted">A pureza é específica de cada lote e indicada no respetivo COA. Solicite uma amostra de COA antes de comprar.</p>
+    </div>
+  </section>
+</BaseLayout>
