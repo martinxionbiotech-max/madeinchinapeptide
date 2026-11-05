@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Cosmetic Peptide Stability and Packaging — Light, Oxygen, Moisture" description="Stability and packaging guidance for cosmetic peptide raw materials: light sensitivity, oxygen and oxidation, moisture control, container choice and storage conditions." canonical="/knowledge/cosmetic-peptide-stability-packaging/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Stability & packaging'}]} />
+    <h1>Cosmetic peptide stability and packaging</h1>
+    <p class="lead muted">Most raw-material degradation happens before the formula is made. Packaging and storage are not logistics details — they are the first stability control.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>Three exposure routes</h2>
+    <table>
+      <thead><tr><th>Exposure</th><th>Effect</th><th>Control</th></tr></thead>
+      <tbody>
+        <tr><td>Light</td><td>Photodegradation; colour drift</td><td>Amber/opaque containers; dark storage</td></tr>
+        <tr><td>Oxygen</td><td>Oxidation (esp. glutathione); colour change</td><td>Minimal headspace; nitrogen flush; sealed barrier</td></tr>
+        <tr><td>Moisture</td><td>Hydrolysis; caking; microbial risk</td><td>Desiccant; sealed primary pack; low-humidity handling</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Container choice</h2>
+    <ul>
+      <li><strong>Amber glass:</strong> good light barrier; check stopper compatibility with the material.</li>
+      <li><strong>Opaque HDPE:</strong> practical for bulk; confirm extractables and moisture barrier.</li>
+      <li><strong>Foil barrier bags:</strong> for bulk powder; good moisture and light protection if sealed.</li>
+      <li><strong>Headspace:</strong> minimise for oxygen-sensitive materials; consider nitrogen.</li>
+    </ul>
+
+    <h2>Storage conditions</h2>
+    <p>Cool, dry, dark, sealed. Avoid frost-free freezers with temperature cycling; avoid storage near oxidisers or metal surfaces. For glutathione in particular, keep away from transition metals.</p>
+
+    <h2>In-use stability</h2>
+    <p>Once a container is opened, the clock starts. Record the opening date, reseal promptly, and use within a defined period. For a raw material used over months, split into smaller containers rather than repeatedly opening the bulk pack.</p>
+
+    <h2>What to ask the supplier</h2>
+    <ol>
+      <li>Recommended storage temperature and shelf life, with supporting data.</li>
+      <li>Container and closure specification; extractables statement.</li>
+      <li>Light and oxygen protection measures used in packing.</li>
+      <li>Retest date and batch number on the label.</li>
+    </ol>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/ghk-cu-50mg/">GHK-Cu 50 mg</a></li>
+      <li><a href="/products/cosmetic/glutathione-1500mg/">Glutathione 1500 mg</a></li>
+      <li><a href="/products/cosmetic/">All cosmetic peptides</a></li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Packaging configurations</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. No stability guarantee is made for any specific formulation.</div>
+  </div>
+  <ArticleSchema title="Cosmetic Peptide Stability and Packaging — Light, Oxygen, Moisture" description="Stability and packaging guidance for cosmetic peptide raw materials: light sensitivity, oxygen, moisture, container choice and storage conditions." path="/knowledge/cosmetic-peptide-stability-packaging/" section="Cosmetic peptides" />
+</BaseLayout>

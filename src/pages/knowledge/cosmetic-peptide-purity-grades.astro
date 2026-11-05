@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Cosmetic Peptide Purity Grades — What the Label Should Mean" description="Why cosmetic grade is not a defined purity standard, what analytical panel a cosmetic peptide raw material should carry, and how to write a specification that suppliers can be held to." canonical="/knowledge/cosmetic-peptide-purity-grades/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Cosmetic purity grades'}]} />
+    <h1>Cosmetic peptide purity grades: what the label should mean</h1>
+    <p class="lead muted">There is no single international definition of "cosmetic grade". That is not a detail — it is the reason two suppliers can both be telling the truth and still be describing different materials.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>What the label actually communicates</h2>
+    <p>At most, "cosmetic grade" communicates intended use: the material is not presented as a pharmaceutical. It does not state a purity threshold, a test panel, a counter-ion, a microbial limit or an appearance standard. Those are the things a formulator needs.</p>
+
+    <h2>Replace the label with a specification</h2>
+    <table>
+      <thead><tr><th>Attribute</th><th>Suggested specification wording</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS consistent with the declared sequence/complex</td></tr>
+        <tr><td>Purity</td><td>≥ 98.0% by RP-HPLC, method stated, impurities integrated above 0.05%</td></tr>
+        <tr><td>Counter-ion</td><td>Acetate or TFA, stated, consistent with the MS interpretation</td></tr>
+        <tr><td>Water</td><td>≤ 5.0% by Karl Fischer</td></tr>
+        <tr><td>Appearance</td><td>Colour within an agreed range against a retained reference</td></tr>
+        <tr><td>Microbial</td><td>Total aerobic count, method and limit stated</td></tr>
+      </tbody>
+    </table>
+    <p>With this wording, two suppliers are finally comparable and a third party can verify the result.</p>
+
+    <h2>What "98%" hides</h2>
+    <p>A purity percentage is method-dependent. Wavelength, gradient, column load and integration thresholds change the number. For cosmetic materials, the practical question is not only "how pure" but "what else is in the powder, and does it matter for colour, stability or compatibility".</p>
+
+    <h2>Grade versus application</h2>
+    <p>A higher purity is not automatically the right purchase. If a formulation tolerates a 95% material and the impurity profile is consistent, paying for 99% may add cost without adding performance. The decision should be made against the formulation's sensitivity, not against a marketing hierarchy.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/ghk-cu-50mg/">GHK-Cu 50 mg</a></li>
+      <li><a href="/products/cosmetic/ahk-cu/">AHK-Cu</a></li>
+      <li><a href="/products/cosmetic/glutathione-1500mg/">Glutathione 1500 mg</a></li>
+      <li><a href="/products/cosmetic/">All cosmetic peptides</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. No cosmetic efficacy claim is made.</div>
+  </div>
+  <ArticleSchema title="Cosmetic Peptide Purity Grades — What the Label Should Mean" description="Why cosmetic grade is not a defined purity standard, what panel a cosmetic peptide raw material should carry, and how to write a specification." path="/knowledge/cosmetic-peptide-purity-grades/" section="Cosmetic peptides" />
+</BaseLayout>

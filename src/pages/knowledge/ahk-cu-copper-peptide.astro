@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="AHK-Cu Copper Peptide — Profile and Verification" description="AHK-Cu copper tripeptide: what distinguishes it from GHK-Cu, how to verify identity and copper content, and the formulation questions to ask before purchase." canonical="/knowledge/ahk-cu-copper-peptide/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'AHK-Cu'}]} />
+    <h1>AHK-Cu copper peptide: profile and verification</h1>
+    <p class="lead muted">AHK-Cu is often treated as a drop-in alternative to GHK-Cu. It is a different tripeptide with its own sequence, copper binding and analytical behaviour — and that difference should show up in the specification.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>What it is</h2>
+    <p>AHK-Cu is a copper complex of the tripeptide alanyl-histidyl-lysine. Like GHK-Cu, it is blue because of the copper–peptide complex; the sequence difference changes the complex's behaviour, including colour, solubility and the analytical signals used to confirm identity.</p>
+
+    <h2>AHK-Cu vs GHK-Cu: what actually differs</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>GHK-Cu</th><th>AHK-Cu</th></tr></thead>
+      <tbody>
+        <tr><td>Peptide sequence</td><td>Gly-His-Lys</td><td>Ala-His-Lys</td></tr>
+        <tr><td>Analytical identity</td><td>Mass consistent with GHK + Cu</td><td>Mass consistent with AHK + Cu</td></tr>
+        <tr><td>Colour</td><td>Blue complex</td><td>Blue complex</td></tr>
+        <tr><td>Formulation behaviour</td><td>pH-sensitive; chelator interactions</td><td>Same class of issues; confirm in your vehicle</td></tr>
+      </tbody>
+    </table>
+    <p>The shared class behaviour does not make them interchangeable. If a supplier substitutes one for the other without telling you, the COA identity test is the place to catch it.</p>
+
+    <h2>Verification points</h2>
+    <ul>
+      <li><strong>Identity:</strong> MS must match the AHK sequence with copper, not GHK.</li>
+      <li><strong>Copper content:</strong> confirms the complex, not just the peptide.</li>
+      <li><strong>Purity:</strong> HPLC chromatogram with method; copper complexes can show broad or shifted peaks.</li>
+      <li><strong>Counter-ion:</strong> stated and consistent with the mass interpretation.</li>
+      <li><strong>Appearance:</strong> colour within an agreed range against a reference.</li>
+    </ul>
+
+    <h2>Formulation questions to ask</h2>
+    <ol>
+      <li>What is the recommended pH window for this complex?</li>
+      <li>How does it behave with chelators and reducing agents in your vehicle?</li>
+      <li>What colour range should be expected at the intended concentration?</li>
+      <li>What is the microbial status of the lot?</li>
+    </ol>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/ahk-cu/">AHK-Cu</a> — copper tripeptide raw material</li>
+      <li><a href="/products/cosmetic/ghk-cu-50mg/">GHK-Cu 50 mg</a> — for comparison</li>
+      <li><a href="/products/cosmetic/">All cosmetic peptides</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. Formulation research; no efficacy claim.</div>
+  </div>
+  <ArticleSchema title="AHK-Cu Copper Peptide — Profile and Verification" description="AHK-Cu copper tripeptide: what distinguishes it from GHK-Cu, how to verify identity and copper content, and the formulation questions to ask." path="/knowledge/ahk-cu-copper-peptide/" section="Cosmetic peptides" />
+</BaseLayout>

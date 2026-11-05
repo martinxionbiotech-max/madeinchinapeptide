@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Cosmetic Peptide Sourcing Checklist — Ten Checks Before Payment" description="A sourcing checklist for cosmetic peptide raw materials: identity, purity, counter-ion, water, colour, microbial status, batch linkage, documentation and commercial terms." canonical="/knowledge/cosmetic-peptide-sourcing-checklist/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Cosmetic sourcing checklist'}]} />
+    <h1>Cosmetic peptide sourcing checklist</h1>
+    <p class="lead muted">Ten checks, answered before payment. The point is not to find a perfect supplier — it is to make the gaps visible while you still have negotiating room.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>The ten checks</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass condition</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Legal entity</td><td>Licence, bank account and invoice entity match</td></tr>
+        <tr><td>2</td><td>Identity</td><td>MS consistent with the declared sequence/complex</td></tr>
+        <tr><td>3</td><td>Purity</td><td>HPLC chromatogram with method and integration</td></tr>
+        <tr><td>4</td><td>Counter-ion</td><td>Stated and consistent with the MS interpretation</td></tr>
+        <tr><td>5</td><td>Water content</td><td>Karl Fischer value reported</td></tr>
+        <tr><td>6</td><td>Appearance / colour</td><td>Within an agreed range against a retained reference</td></tr>
+        <tr><td>7</td><td>Microbial status</td><td>Method and result stated where claimed</td></tr>
+        <tr><td>8</td><td>Batch linkage</td><td>Lot number on vial, COA and invoice</td></tr>
+        <tr><td>9</td><td>Documentation</td><td>COA, MSDS, storage instructions, packaging spec</td></tr>
+        <tr><td>10</td><td>Commercial terms</td><td>MOQ, lead time, claim window and remedy in writing</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Score it</h2>
+    <p>Score each item 0–2. Below 16/20, treat the supplier as unqualified for a repeat program. The score is a conversation tool, not a certification.</p>
+
+    <h2>Red flags</h2>
+    <ul>
+      <li>"Cosmetic grade" offered as the only specification</li>
+      <li>No copper content for a copper peptide</li>
+      <li>Colour described as "varies" with no acceptance range</li>
+      <li>Microbial claim without a method</li>
+      <li>COA reused across batches or products</li>
+      <li>No answer on counter-ion</li>
+    </ul>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/ghk-cu-50mg/">GHK-Cu 50 mg</a></li>
+      <li><a href="/products/cosmetic/ahk-cu/">AHK-Cu</a></li>
+      <li><a href="/products/cosmetic/glutathione-1500mg/">Glutathione 1500 mg</a></li>
+      <li><a href="/oem-private-label/">OEM / private label</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. Commercial due diligence, not regulatory advice.</div>
+  </div>
+  <ArticleSchema title="Cosmetic Peptide Sourcing Checklist — Ten Checks Before Payment" description="A sourcing checklist for cosmetic peptide raw materials: identity, purity, counter-ion, water, colour, microbial status, batch linkage and commercial terms." path="/knowledge/cosmetic-peptide-sourcing-checklist/" section="Cosmetic peptides" />
+</BaseLayout>

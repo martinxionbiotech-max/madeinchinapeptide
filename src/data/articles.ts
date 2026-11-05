@@ -77,6 +77,12 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-cross-contamination', title:'Cross-contamination in peptide plants', desc:'How multi-product plants carry material between lots, what changeover and cleaning verification can show, and what to ask.', cluster:'Quality & testing' },
   { slug:'peptide-data-integrity', title:'Data integrity in peptide QC records', desc:'What raw data, audit trails and integration settings reveal about a peptide certificate, and the records a buyer should ask for.', cluster:'Quality & testing' },
   { slug:'peptide-scale-up', title:'Scaling peptide production to kilograms', desc:'Why a peptide process does not scale linearly, what changes between gram and kilogram batches, and the evidence to request.', cluster:'Manufacturing' },
+  { slug:'cosmetic-peptide-purity-grades', title:'Cosmetic peptide purity grades', desc:'What the label should mean, and how to replace it with a testable specification.', cluster:'Cosmetic peptides' },
+  { slug:'ghk-cu-formulation-notes', title:'GHK-Cu formulation notes', desc:'Colour as a quality signal, pH, compatibility and handling.', cluster:'Cosmetic peptides' },
+  { slug:'ahk-cu-copper-peptide', title:'AHK-Cu copper peptide', desc:'Profile, difference from GHK-Cu, identity and copper verification.', cluster:'Cosmetic peptides' },
+  { slug:'glutathione-in-formulation', title:'Glutathione in formulation', desc:'GSH vs GSSG, oxidation control, pH and specification points.', cluster:'Cosmetic peptides' },
+  { slug:'cosmetic-peptide-sourcing-checklist', title:'Cosmetic peptide sourcing checklist', desc:'Ten checks before payment, plus category red flags.', cluster:'Cosmetic peptides' },
+  { slug:'cosmetic-peptide-stability-packaging', title:'Cosmetic peptide stability and packaging', desc:'Light, oxygen, moisture, container choice and in-use stability.', cluster:'Cosmetic peptides' },
 ];
 
 export const pillars: ArticleMeta[] = [
@@ -85,4 +91,5 @@ export const pillars: ArticleMeta[] = [
   { slug:'peptide-handling-laboratory-practice', title:'Peptide handling and laboratory practice: from receipt to result', desc:'Receipt, storage, weighing, dissolution, filtration, aliquoting and records — the failure modes that quietly bias experiments.', cluster:'Pillar' },
   { slug:'glp-1-research-peptides-framework', title:'GLP-1 research peptides compared: semaglutide, tirzepatide, retatrutide', desc:'Molecular weight, receptor profile, analytical burden, handling and sourcing verification — without dosing or efficacy claims.', cluster:'Pillar' },
   { slug:'peptide-shipping-customs-framework', title:'Shipping research peptides from China: customs, documentation and risk', desc:'Classification, documentation, Incoterms, restricted destinations, cold chain, customs holds and insurance.', cluster:'Pillar' },
+  { slug:'cosmetic-peptide-raw-materials-framework', title:'Cosmetic peptide raw materials: the formulation buyer\'s guide', desc:'GHK-Cu, AHK-Cu and glutathione — grades, analytical panels, colour as data, pH compatibility, stability and sourcing.', cluster:'Pillar' },
 ];

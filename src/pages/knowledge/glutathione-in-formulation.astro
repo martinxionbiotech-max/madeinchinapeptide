@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Glutathione in Formulation — Oxidation, pH and Handling" description="Reduced glutathione as a cosmetic raw material: GSH vs GSSG, oxidation control, pH and metal interactions, colour and odour signals, and specification points." canonical="/knowledge/glutathione-in-formulation/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Glutathione in formulation'}]} />
+    <h1>Glutathione in formulation: oxidation, pH and handling</h1>
+    <p class="lead muted">Glutathione is a reducing agent before it is anything else. Its formulation behaviour — and its analytical specification — follow from that.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>Reduced versus oxidised</h2>
+    <p>Glutathione is supplied as the reduced form (GSH). It oxidises to the disulfide dimer (GSSG) on exposure to oxygen, light and trace metals. The two forms have different masses and different reactivity; a purity figure that does not distinguish them is incomplete.</p>
+    <table>
+      <thead><tr><th>Form</th><th>Character</th><th>Specification note</th></tr></thead>
+      <tbody>
+        <tr><td>GSH (reduced)</td><td>Free sulfhydryl; reducing</td><td>Assay of reduced form should be stated</td></tr>
+        <tr><td>GSSG (oxidised)</td><td>Disulfide dimer</td><td>Reported separately where available</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Oxidation control</h2>
+    <ul>
+      <li>Sealed, dry packaging with minimal headspace; nitrogen flushing where available.</li>
+      <li>Protect from light; amber or opaque containers.</li>
+      <li>Avoid contact with iron, copper and other transition metals.</li>
+      <li>Store cool and dry; reconstitute fresh where possible.</li>
+    </ul>
+
+    <h2>pH and compatibility</h2>
+    <p>Glutathione is most stable in mildly acidic to neutral conditions; alkaline conditions and oxidising actives accelerate loss. Because it is a reducing agent, it can react with ingredients the formula depends on — compatibility testing is not optional.</p>
+
+    <h2>Signals of oxidation</h2>
+    <ul>
+      <li>Loss of the characteristic sulfhydryl assay value</li>
+      <li>Colour shift or odour change</li>
+      <li>Precipitation or cloudiness in solution</li>
+    </ul>
+    <p>These are early warnings, not proof. If a batch behaves differently, test GSH and GSSG rather than assuming a formulation problem.</p>
+
+    <h2>Specification points</h2>
+    <table>
+      <thead><tr><th>Item</th><th>Suggested requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Identity</td><td>MS consistent with glutathione; correct form declared</td></tr>
+        <tr><td>Assay (GSH)</td><td>Stated, with method</td></tr>
+        <tr><td>GSSG</td><td>Reported where available</td></tr>
+        <tr><td>Water</td><td>Karl Fischer value stated</td></tr>
+        <tr><td>Appearance</td><td>White to off-white powder; colour range defined</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/glutathione-1500mg/">Glutathione 1500 mg</a> — reduced glutathione</li>
+      <li><a href="/products/cosmetic/">All cosmetic peptides</a></li>
+      <li><a href="/knowledge/cosmetic-peptide-stability-packaging/">Stability and packaging</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. Formulation research; no efficacy claim.</div>
+  </div>
+  <ArticleSchema title="Glutathione in Formulation — Oxidation, pH and Handling" description="Reduced glutathione as a cosmetic raw material: GSH vs GSSG, oxidation control, pH and metal interactions, colour signals and specification points." path="/knowledge/glutathione-in-formulation/" section="Cosmetic peptides" />
+</BaseLayout>

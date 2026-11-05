@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="GHK-Cu Formulation Notes — Colour, pH and Compatibility" description="Practical formulation notes for GHK-Cu copper peptide: colour as a quality signal, pH-dependent speciation, compatibility with chelators and reducing agents, and handling practice." canonical="/knowledge/ghk-cu-formulation-notes/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'GHK-Cu formulation notes'}]} />
+    <h1>GHK-Cu formulation notes</h1>
+    <p class="lead muted">GHK-Cu is a copper complex, not just a peptide. That single fact explains most of its formulation behaviour — and most of the batch-to-batch questions buyers ask.</p>
+    <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/cosmetic-peptide-raw-materials-framework/">cosmetic peptide raw materials pillar</a>.</p>
+
+    <h2>What the material is</h2>
+    <p>GHK-Cu is a tripeptide (glycyl-L-histidyl-L-lysine) complexed with copper(II). The blue colour comes from the copper–peptide complex. Reference molecular weight for the peptide is ≈340.4 g/mol; the complex includes the copper and any associated counter-ions, so the mass you see on a COA depends on the form supplied.</p>
+
+    <h2>Colour as a quality signal</h2>
+    <ul>
+      <li>Define an acceptance range against a retained reference sample.</li>
+      <li>Pale, grey or greenish batches warrant a copper-content check and a purity review.</li>
+      <li>Record colour at receipt and after storage; drift is an early stability indicator.</li>
+    </ul>
+    <p>Colour is not a substitute for analysis, but it is a cheap first screen that costs nothing and catches the obvious.</p>
+
+    <h2>pH and speciation</h2>
+    <p>Copper–peptide speciation is pH-dependent. Colour and solubility can shift across the formulation window, and the optimal pH for one system may not suit another. Ask the supplier for the recommended pH range in writing, then confirm it in your own vehicle.</p>
+
+    <h2>Compatibility</h2>
+    <table>
+      <thead><tr><th>Ingredient class</th><th>Interaction to test</th></tr></thead>
+      <tbody>
+        <tr><td>Chelators (EDTA, citrate)</td><td>Can compete for copper; colour and stability may change</td></tr>
+        <tr><td>Reducing agents</td><td>Can reduce copper; test colour and assay</td></tr>
+        <tr><td>Anionic surfactants</td><td>Charge interaction; precipitation risk</td></tr>
+        <tr><td>High-water-activity systems</td><td>Hydrolysis and colour drift over time</td></tr>
+      </tbody>
+    </table>
+    <p>None of these is automatically disqualifying — but each needs a compatibility test before the formula is fixed.</p>
+
+    <h2>Handling</h2>
+    <ul>
+      <li>Store sealed, dry, protected from light; avoid metal contact.</li>
+      <li>Weigh in a low-humidity environment; the powder is hygroscopic.</li>
+      <li>Dissolve slowly; avoid vortexing and high shear.</li>
+      <li>Record lot, mass, solvent and pH for every preparation.</li>
+    </ul>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/cosmetic/ghk-cu-50mg/">GHK-Cu 50 mg</a></li>
+      <li><a href="/products/cosmetic/ghk-cu-100mg/">GHK-Cu 100 mg</a></li>
+      <li><a href="/products/cosmetic/">All cosmetic peptides</a></li>
+    </ul>
+
+    <div class="ruo">Research use only. Formulation research; no efficacy claim.</div>
+  </div>
+  <ArticleSchema title="GHK-Cu Formulation Notes — Colour, pH and Compatibility" description="Practical formulation notes for GHK-Cu: colour as a quality signal, pH-dependent speciation, compatibility with chelators and reducing agents, and handling." path="/knowledge/ghk-cu-formulation-notes/" section="Cosmetic peptides" />
+</BaseLayout>
