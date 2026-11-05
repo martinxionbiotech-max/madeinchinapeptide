@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+---
+<BaseLayout title="Sourcing Research Peptides from China: The Five-Layer Verification Model" description="A buyer's framework for sourcing research peptides from China: entity verification, analytical evidence, lot consistency, commercial structure and logistics — with the decision rules that actually matter." canonical="/knowledge/china-peptide-sourcing-framework/">
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'China peptide sourcing framework'}]} />
+    <h1>Sourcing research peptides from China: the five-layer verification model</h1>
+    <p class="lead muted">Most sourcing guides give you a list of questions. That is not the hard part. The hard part is knowing which answers should end the conversation — and which ones are noise. This is the framework we use, written as a buying decision, not a brochure.</p>
+
+    <div class="note"><strong>Scope.</strong> This guide is for business buyers — laboratories, distributors and OEM brands — sourcing lyophilized research peptides from Chinese suppliers. It is commercial due diligence, not regulatory or legal advice, and it makes no claim about human use.</div>
+
+    <h2>The uncomfortable premise</h2>
+    <p>The Chinese peptide market is not short of suppliers. It is short of <em>verifiable</em> suppliers. A search returns hundreds of companies with similar catalogues, similar photos and similar claims. Price differences of 30–50% between quotes for the same nominal product are normal, and they rarely mean what buyers think they mean.</p>
+    <p>Our view, after working through this market: <strong>the product is not the differentiator — the paper trail is.</strong> Two suppliers can ship the same molecule from the same industrial cluster; one can prove which lot you received and one cannot. That difference decides whether a failed experiment is a data point or a dead end.</p>
+    <p>So the framework below is not a checklist to score suppliers against. It is a sequence of gates. A supplier that fails an early gate should not reach the next one, no matter how good the price looks.</p>
+
+    <h2>Layer 1 — Entity and authorisation</h2>
+    <p><strong>The question:</strong> who is legally responsible for what arrives?</p>
+    <p>Ask for the business licence, the bank account name and the invoice entity. They must match. This single check filters out a large share of the market: trading companies that present as factories, resellers using personal accounts, and entities that change names between the quotation and the shipment.</p>
+    <ul>
+      <li>Legal name, registration number, registered address</li>
+      <li>Bank account holder matching the contracting entity</li>
+      <li>Export licence or registration, if the destination requires it</li>
+      <li>A named technical contact who can answer analytical questions</li>
+    </ul>
+    <p><strong>Our rule:</strong> if the entity cannot be resolved in one email, the supplier is not qualified — regardless of price. Corporate due diligence is cheap; a seized shipment is not. <a href="/knowledge/peptide-supplier-corporate-due-diligence/">Corporate due diligence for peptide suppliers</a> covers the documents to request.</p>
+
+    <h2>Layer 2 — Analytical evidence</h2>
+    <p><strong>The question:</strong> can the supplier prove identity and purity for the lot, not just the product?</p>
+    <p>This is where most buyers think they are doing diligence and are actually being entertained. A COA with a purity percentage and no chromatogram is a marketing document. The evidence standard is simple:</p>
+    <table>
+      <thead><tr><th>Evidence</th><th>What it proves</th><th>What it does not prove</th></tr></thead>
+      <tbody>
+        <tr><td>RP-HPLC chromatogram with method</td><td>The impurity profile of the tested sample</td><td>Identity; that the sample is your lot</td></tr>
+        <tr><td>MS spectrum (ESI or MALDI)</td><td>The molecular mass is consistent with the target</td><td>Purity; absence of isomers</td></tr>
+        <tr><td>Karl Fischer water content</td><td>Residual moisture of the tested sample</td><td>Net peptide content</td></tr>
+        <tr><td>Net peptide content / assay</td><td>How much of the powder is peptide</td><td>Impurity identity</td></tr>
+        <tr><td>Batch number linking vial, COA and record</td><td>Traceability of the document to the goods</td><td>That the test was performed on that lot</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Our rule:</strong> no chromatogram, no order. A supplier who cannot produce the trace for the batch is either not testing or not willing to show it; both are disqualifying at volume. The <a href="/knowledge/how-to-verify-peptide-purity/">purity verification guide</a> and <a href="/knowledge/peptide-coa-red-flags/">COA red flags</a> go deeper on reading the data.</p>
+
+    <h2>Layer 3 — Lot consistency</h2>
+    <p><strong>The question:</strong> is the fifth lot as good as the first?</p>
+    <p>This is the layer buyers systematically skip, because it requires history. A single clean COA proves that one batch was acceptable. It says nothing about the process. Suppliers optimise for the sample; production drifts.</p>
+    <p>Ask for two or three consecutive lot COAs for the same product and compare: retention time, impurity profile, water content, net content. If the supplier cannot produce consecutive lots — because each order is sourced ad hoc — that is the answer, and it is a structural risk, not a temporary gap.</p>
+    <p><strong>Our rule:</strong> for any SKU you intend to reorder, require consecutive-lot data and keep retention samples. <a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> explains what to trend; <a href="/knowledge/peptide-stability-studies/">stability studies</a> covers the time dimension.</p>
+
+    <h2>Layer 4 — Commercial structure</h2>
+    <p><strong>The question:</strong> does the commercial structure match the risk you are taking?</p>
+    <p>MOQ, tier pricing, payment terms and contract terms are not administrative details. They encode who carries the risk. A supplier that demands 100% prepayment from a new buyer is transferring all of it to you; a contract without a specification annex transfers all of the quality risk.</p>
+    <ul>
+      <li><strong>MOQ:</strong> per SKU, not per order — mixed orders rarely get tier pricing.</li>
+      <li><strong>Payment:</strong> staged payments or documentary terms for first orders; full prepayment only after a track record.</li>
+      <li><strong>Specification annex:</strong> identity, purity, water, net content, packaging and acceptance criteria, in writing.</li>
+      <li><strong>Remedy:</strong> replacement or credit for non-conforming lots, with a defined claim window.</li>
+    </ul>
+    <p><strong>Our rule:</strong> the contract is part of the product. <a href="/knowledge/peptide-procurement-contract-terms/">Procurement contract terms</a> and <a href="/knowledge/peptide-specification-annex/">writing a specification annex</a> are the practical templates.</p>
+
+    <h2>Layer 5 — Logistics and compliance</h2>
+    <p><strong>The question:</strong> can the goods lawfully reach you, intact, with documents that survive scrutiny?</p>
+    <p>This layer is where otherwise-good suppliers fail. The shipment needs a correct commodity description, an accurate invoice, a COA for the lot, an MSDS where the carrier requires it, and a destination where the product is legal to import. Cold chain matters for sensitive compounds; customs holds matter for everyone.</p>
+    <p><strong>Our rule:</strong> confirm the import position before the first order, not after the first hold. <a href="/knowledge/shipping-peptides-customs-guide/">Shipping and customs</a>, <a href="/knowledge/peptide-customs-hold/">customs holds</a> and <a href="/knowledge/peptide-cold-chain-logistics/">cold chain</a> cover the operational detail.</p>
+
+    <h2>The decision table</h2>
+    <table>
+      <thead><tr><th>Signal</th><th>Interpretation</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Entity, bank and invoice do not match</td><td>No legal accountability</td><td>Walk away</td></tr>
+        <tr><td>No batch-linked chromatogram</td><td>No analytical evidence</td><td>Do not order</td></tr>
+        <tr><td>Only one lot available, no history</td><td>Ad-hoc sourcing</td><td>Sample only, no volume</td></tr>
+        <tr><td>Price 40% below the market</td><td>Either no purification or no testing</td><td>Ask for the data; expect a deflection</td></tr>
+        <tr><td>Full prepayment demanded from a new buyer</td><td>Risk transfer</td><td>Negotiate staged terms or decline</td></tr>
+        <tr><td>Restricted destination, vague paperwork</td><td>Customs exposure</td><td>Do not ship</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What this framework does not solve</h2>
+    <p>It does not tell you whether a specific compound is appropriate for your research, and it does not replace your own incoming testing. It also does not eliminate the possibility of a sophisticated forgery. What it does is make the supplier's claims falsifiable — and that is the difference between diligence and hope.</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>Position.</strong> In this market, buyers should optimise for verifiability, not for price per vial. The cheapest quote is frequently the most expensive decision, because the cost of a failed batch is not the vial — it is the experiment, the timeline and the credibility of the result.</p>
+    <p><strong>Reasoning.</strong> The Chinese supply base is capable of excellent work; the variance is in documentation discipline, not in chemistry. A supplier that invests in batch records and release testing charges for it, and that premium is small relative to the cost of repeating work with material you cannot trust.</p>
+    <p><strong>Disclosure.</strong> We sell research peptides and benefit commercially from buyers preferring documented supply. This framework is also the standard we apply to ourselves — including the parts that make us look expensive.</p>
+
+    <h2>Products referenced in this guide</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — 2–60 mg research formats</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — 2–50 mg research formats</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — 5–60 mg research formats</li>
+      <li><a href="/products/research/">Research peptides</a> — BPC-157, TB-500, CJC-1295 and more</li>
+      <li><a href="/products/cosmetic/">Cosmetic peptides</a> — GHK-Cu, glutathione</li>
+      <li><a href="/wholesale/">Wholesale &amp; bulk supply</a> — MOQ, tiers and documentation</li>
+    </ul>
+
+    <h2>Cluster: the sourcing library</h2>
+    <p>This pillar is the map; the cluster articles are the detail. Read in this order if you are new to the market:</p>
+    <ol>
+      <li><a href="/knowledge/how-to-buy-research-peptides-from-china/">How to buy research peptides from China</a> — the sequence</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Supplier checklist</a> — 12 points to verify</li>
+      <li><a href="/knowledge/peptide-supplier-corporate-due-diligence/">Corporate due diligence</a> — entity verification</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Remote supplier audit</a> — what can be checked without a visit</li>
+      <li><a href="/knowledge/peptide-qualification-sample/">Qualification samples</a> — what one lot can prove</li>
+      <li><a href="/knowledge/peptide-batch-documentation-package/">Batch documentation package</a> — what should ship</li>
+      <li><a href="/knowledge/peptide-moq-and-pricing-tiers/">MOQ and pricing tiers</a> — the commercial structure</li>
+      <li><a href="/knowledge/peptide-supplier-payment-terms/">Payment terms</a> — who carries the risk</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Contract terms</a> — the enforceable part</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Specification annex</a> — turning expectations into criteria</li>
+      <li><a href="/knowledge/second-peptide-supplier-qualification/">Second supplier qualification</a> — concentration risk</li>
+      <li><a href="/knowledge/bulk-peptide-sourcing-risks/">Bulk sourcing risks</a> — what volume changes</li>
+      <li><a href="/knowledge/peptide-inventory-and-retest-dates/">Inventory and retest dates</a> — planning the stock</li>
+      <li><a href="/knowledge/third-party-peptide-testing/">Third-party testing</a> — when it is worth it</li>
+      <li><a href="/knowledge/peptide-supplier-performance-review/">Supplier performance reviews</a> — keeping the score</li>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Shipping and customs</a> — getting it there lawfully</li>
+      <li><a href="/knowledge/peptide-cargo-insurance/">Cargo insurance</a> — transferring transit risk</li>
+    </ol>
+
+    <div class="ruo">Research use only. This guide describes commercial due diligence for research materials; it makes no claim about any compound's effects or suitability for human use.</div>
+  </div>
+  <ArticleSchema title="Sourcing Research Peptides from China: The Five-Layer Verification Model" description="A buyer's framework for sourcing research peptides from China: entity verification, analytical evidence, lot consistency, commercial structure and logistics." path="/knowledge/china-peptide-sourcing-framework/" section="China peptide sourcing" />
+</BaseLayout>

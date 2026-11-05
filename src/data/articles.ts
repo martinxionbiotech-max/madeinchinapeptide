@@ -68,3 +68,8 @@ export const articles: ArticleMeta[] = [
   { slug:'peptide-data-integrity', title:'Data integrity in peptide QC records', desc:'What raw data, audit trails and integration settings reveal about a peptide certificate, and the records a buyer should ask for.', cluster:'Quality & testing' },
   { slug:'peptide-scale-up', title:'Scaling peptide production to kilograms', desc:'Why a peptide process does not scale linearly, what changes between gram and kilogram batches, and the evidence to request.', cluster:'Manufacturing' },
 ];
+
+export const pillars: ArticleMeta[] = [
+  { slug:'china-peptide-sourcing-framework', title:'Sourcing research peptides from China: the five-layer verification model', desc:'Entity, analytics, lot consistency, commercial structure and logistics — a buying decision framework, not a checklist.', cluster:'Pillar' },
+  { slug:'peptide-quality-verification-framework', title:'Peptide quality verification: from COA to release decision', desc:'The six questions a COA must answer, chromatogram review, net-content cost math and lot consistency.', cluster:'Pillar' },
+];

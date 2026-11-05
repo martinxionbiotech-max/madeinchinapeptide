@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { articles } from '../../data/articles';
+import { articles, pillars } from '../../data/articles';
 const clusters = [...new Set(articles.map(a => a.cluster))];
 ---
 <BaseLayout title="Knowledge Base — Research Peptide Sourcing & Quality" description="Technical guides on peptide purity, storage, supplier evaluation and bulk procurement from China." canonical="/knowledge/">
@@ -8,6 +8,19 @@ const clusters = [...new Set(articles.map(a => a.cluster))];
     <p class="breadcrumb"><a href="/">Home</a> › Knowledge</p>
     <h1>Knowledge base</h1>
     <p class="lead muted" style="max-width:800px;">Practical, evidence-oriented guides for buyers of research peptides: how to read analytical data, how to store material, and how to evaluate a supplier without visiting the factory. New to the vocabulary? Start with the <a href="/glossary/">glossary</a>.</p>
+    <section style="margin-top:32px;">
+      <h2>Start here — two pillar guides</h2>
+      <p class="muted" style="max-width:760px;">If you read only two pages, read these. Each pillar is a decision framework that links to the detailed cluster articles beneath it.</p>
+      <div class="grid grid-2">
+        {pillars.map(p => (
+          <div class="card" style="border-color:#b2f5ea;background:#f0fdfa;">
+            <h3><a href={`/knowledge/${p.slug}/`}>{p.title}</a></h3>
+            <p>{p.desc}</p>
+            <p class="small" style="margin-top:10px;"><a href={`/knowledge/${p.slug}/`}>Read the pillar →</a></p>
+          </div>
+        ))}
+      </div>
+    </section>
     <section style="margin-top:32px;">
       <h2>Tools</h2>
       <div class="grid grid-2">
