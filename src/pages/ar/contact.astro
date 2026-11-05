@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout lang="ar" title="اتصل بنا واطلب عرض سعر — Made in China Peptide" description="اطلب عرض سعر للببتيدات البحثية: المنتج والتركيز والكمية والوجهة. الرد خلال يوم عمل واحد." canonical="/ar/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/contact/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
+<BaseLayout lang="ar" title="اتصل بنا واطلب عرض سعر — Made in China Peptide" description="اطلب عرض سعر للببتيدات البحثية: المنتج والتركيز والكمية والوجهة. الرد خلال يوم عمل واحد." canonical="/ar/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/contact/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/contact/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/ar/">الرئيسية</a> › اتصل بنا</p>
     <h1>اطلب عرض سعر</h1>
@@ -18,6 +18,21 @@ import { site } from '../../data/site';
     <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 واتساب</a></p>
     <p>البريد: <a href={`mailto:${site.email}`}>{site.email}</a></p>
     <div class="note">نقدم عروض الأسعار للمشترين التجاريين فقط. الطلبات التي تشير إلى استخدام بشري شخصي ستُرفض.</div>
-    <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
+    
+    <h2>ماذا يحدث بعد رسالتك</h2>
+    <p>نراجع قائمة المنتجات والكمية والوجهة، ونرد خلال يوم عمل واحد بالتوفر والسعر المتدرج والمدة وحزمة التوثيق. إذا لم تكن الدفعة قد أُنتجت بعد، نقول ذلك بدلًا من إعطاء موعد لا نستطيع الالتزام به. لا نرسل شيئًا حتى تؤكد الطلب والدفع.</p>
+    <h3>هل أحتاج إلى حساب للطلب؟</h3><p>لا. نعمل بطلبات مباشرة عبر البريد أو واتساب؛ لا يوجد دفع إلكتروني ولا تسجيل حساب.</p>
+    <h3>هل يمكنني طلب عينة؟</h3><p>نعم، للمشترين التجاريين المؤهلين. تُرسل العينة مع شهادة التحليل الخاصة بها.</p>
+    <h3>هل تخدمون الطلبات الشخصية؟</h3><p>لا. نورد للشركات والمختبرات فقط؛ تُرفض طلبات الاستخدام البشري الشخصي.</p>
+    <h3>بأي لغات تردون؟</h3><p>نرد بالإنجليزية والعربية؛ للغات الأخرى نستخدم ترجمة مكتوبة. وقت الرد يوم عمل واحد، من الاثنين إلى السبت (UTC+8).</p>
+
+    <h3>ما شروط الدفع؟</h3><p>للطلب الأول نفضل الدفع على مراحل أو términos مستندية؛ الدفع الكامل مقدماً يُطلب فقط بعد سجل تعامل مثبت. تُتفق الشروط كتابياً قبل الإنتاج.</p>
+    <h3>هل يمكن الدفع ببطاقة؟</h3><p>لا. نعمل بالتحويل البنكي؛ تفاصيل الحساب تُرسل مع عرض السعر الرسمي.</p>
+
+    <h3>هل يمكنني الحصول على عرض سعر مكتوب؟</h3><p>نعم، نرسل عرضاً رسمياً يتضمن المنتجات والكميات والسعر والمدة وشروط الدفع. لا يبدأ الإنتاج قبل تأكيدكم الكتابي.</p>
+
+    <p>يمكنكم إرسال قائمة المنتجات والكمية والوجهة في رسالة واحدة؛ هذا يسرّع إعداد العرض ويقلل الأسئلة المتكررة.</p>
+
+<div class="ruo" style="margin-top:20px;">{site.ruo}</div>
   </div>
 </BaseLayout>

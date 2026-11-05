@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { site } from '../../../data/site';
 ---
-<BaseLayout lang="es" title="Solo uso en investigación — Declaración RUO" description="Declaración de uso exclusivo en investigación: usos permitidos y prohibidos de los péptidos suministrados." canonical="/es/compliance/research-use-only/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/research-use-only/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/research-use-only/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/research-use-only/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/research-use-only/'}]}>
+<BaseLayout lang="es" title="Solo uso en investigación — Declaración RUO" description="Declaración de uso exclusivo en investigación: usos permitidos y prohibidos de los péptidos suministrados." canonical="/es/compliance/research-use-only/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/research-use-only/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/research-use-only/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/research-use-only/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/research-use-only/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/research-use-only/'}]}>
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/es/">Inicio</a> › Cumplimiento › Uso en investigación</p>
     <h1>Declaración de uso exclusivo en investigación (RUO)</h1>
@@ -13,6 +13,14 @@ import { site } from '../../../data/site';
     <ul><li>Administración a humanos o animales</li><li>Reventa como medicamento, suplemento o cosmético</li><li>Aplicación diagnóstica o terapéutica</li><li>Uso por menores de 21 años o consumidores no cualificados</li></ul>
     <h2>Responsabilidad del comprador</h2>
     <p>El comprador confirma que tiene al menos 21 años, que adquiere el material para investigación o comercio legítimo y que cumplirá las leyes de su jurisdicción.</p>
-    <div class="ruo">{site.ruo}</div>
+    
+    <h2>Aplicación y responsabilidad</h2>
+    <p>El comprador es responsable de confirmar que la importación y el uso previsto son legales en su jurisdicción. No emitimos prescripciones ni asesoramiento de uso, y no vendemos a consumidores finales. Si su institución exige un comité de seguridad o un registro de materiales, conserve el COA y la ficha de seguridad con el registro interno.</p>
+    <h3>¿Puedo revender el material como cosmético o suplemento?</h3><p>No. El material se suministra para investigación de laboratorio; la reventa como producto de consumo, medicamento o suplemento está prohibida.</p>
+    <h3>¿Qué hago si mi país exige un permiso?</h3><p>Confirme el requisito con la autoridad competente antes de pedir y mantenga el permiso con los documentos del envío. Podemos facilitar la documentación del producto, pero no sustituir la autorización.</p>
+
+    <p>Conserve el COA y la ficha de seguridad junto al registro interno del material; son la evidencia de que el uso previsto estaba documentado cuando se adquirió.</p>
+
+<div class="ruo">{site.ruo}</div>
   </div>
 </BaseLayout>

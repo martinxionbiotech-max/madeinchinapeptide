@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout lang="es" title="Contacto y cotización — Made in China Peptide" description="Solicite una cotización de péptidos de investigación: producto, concentración, cantidad y destino. Respuesta en un día hábil." canonical="/es/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/contact/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
+<BaseLayout lang="es" title="Contacto y cotización — Made in China Peptide" description="Solicite una cotización de péptidos de investigación: producto, concentración, cantidad y destino. Respuesta en un día hábil." canonical="/es/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/contact/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/contact/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/es/">Inicio</a> › Contacto</p>
     <h1>Solicitar una cotización</h1>
@@ -18,6 +18,16 @@ import { site } from '../../data/site';
     <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 WhatsApp</a></p>
     <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
     <div class="note">Solo cotizamos a compradores comerciales. Las solicitudes que indiquen uso humano personal serán rechazadas.</div>
-    <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
+    
+    <h2>Qué ocurre después de su mensaje</h2>
+    <p>Revisamos la lista de productos, la cantidad y el destino, y respondemos en un día hábil con disponibilidad, precio por tramo, plazo y el paquete de documentación. Si el lote aún no está producido, se lo decimos en lugar de dar una fecha que no podemos cumplir. No enviamos nada hasta que usted confirme el pedido y el pago.</p>
+    <h3>¿Necesito una cuenta para pedir?</h3><p>No. Trabajamos con pedidos directos por correo o WhatsApp; no hay checkout online ni registro de cuenta.</p>
+    <h3>¿Puedo pedir una muestra?</h3><p>Sí, para compradores comerciales cualificados. La muestra se envía con su propio COA.</p>
+    <h3>¿Atienden pedidos personales?</h3><p>No. Solo suministramos a empresas y laboratorios; las solicitudes de uso humano personal se rechazan.</p>
+    <h3>¿En qué idiomas pueden responder?</h3><p>Atendemos en inglés y español; para otros idiomas usamos traducción escrita. El tiempo de respuesta es de un día hábil, de lunes a sábado (UTC+8).</p>
+
+    <h3>¿Cómo protegen mis datos?</h3><p>Los datos que envía por correo o WhatsApp se usan solo para responder a su solicitud y preparar la cotización. No los vendemos ni los compartimos con terceros ajenos al envío. Para asuntos técnicos puede escribir también a martin@madeinchinapeptide.com; para facturación, a admin@madeinchinapeptide.com.</p>
+
+<div class="ruo" style="margin-top:20px;">{site.ruo}</div>
   </div>
 </BaseLayout>

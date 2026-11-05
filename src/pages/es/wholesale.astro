@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout lang="es" title="Péptidos de investigación al por mayor — Precios y suministro" description="Suministro al por mayor de péptidos de investigación desde China: precios por volumen, MOQ desde 10 viales, COA por lote y documentación de exportación." canonical="/es/wholesale/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/wholesale/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/wholesale/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/wholesale/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/wholesale/'}]}>
+<BaseLayout lang="es" title="Péptidos de investigación al por mayor — Precios y suministro" description="Suministro al por mayor de péptidos de investigación desde China: precios por volumen, MOQ desde 10 viales, COA por lote y documentación de exportación." canonical="/es/wholesale/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/wholesale/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/wholesale/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/wholesale/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/wholesale/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/wholesale/'}]}>
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/es/">Inicio</a> › Mayoreo</p>
     <h1>Mayoreo y suministro al por mayor</h1>
@@ -27,6 +27,13 @@ import { site } from '../../data/site';
       <li>Envío con factura comercial y lista de empaque.</li>
     </ol>
     <p><a class="btn" href="/es/contact/">Solicitar cotización</a> <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener" style="margin-left:10px;">💬 WhatsApp</a></p>
-    <div class="ruo">{site.ruo}</div>
+    
+    <h2>Documentación de exportación</h2>
+    <p>Cada envío se acompaña de factura comercial, lista de embalaje, COA del lote y MSDS cuando el transportista lo exige. El certificado de origen se emite a petición. La descripción del producto, la cantidad y el número de lote deben coincidir en todos los documentos: las autoridades comparan los archivos y una discrepancia provoca una retención.</p>
+    <h3>¿Quién gestiona la aduana?</h3><p>El comprador o su agente, salvo que el Incoterm acordado transfiera esa responsabilidad. La legalidad de la importación sigue siendo responsabilidad del comprador.</p>
+    <h3>¿Qué ocurre si el envío se retiene?</h3><p>Proporcionamos la documentación que falte y un canal de escalado. La mayoría de las retenciones se resuelven con una factura corregida, un COA o un permiso; el silencio es el fallo que hay que evitar.</p>
+    <h3>¿Qué Incoterm recomiendan para el primer pedido?</h3><p>FOB o CIF con un transitario nombrado suele ser lo más auditable. DDP puede ser eficiente en pedidos repetidos si el proveedor tiene una ruta de despacho probada.</p>
+
+<div class="ruo">{site.ruo}</div>
   </div>
 </BaseLayout>
