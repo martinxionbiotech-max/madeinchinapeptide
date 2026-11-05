@@ -16,6 +16,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p>Our position: <strong>handling is part of the measurement.</strong> If you cannot describe what happened to the material — mass weighed, solvent, volume, temperature, time, number of freeze–thaw cycles — then you cannot attribute a result to the compound. The chain of custody is not paperwork for its own sake; it is the only way to separate a chemical effect from a procedural artefact.</p>
 
     <h2>The chain: eight steps, eight failure modes</h2>
+    <h3>Where the losses actually hide</h3>
     <table>
       <thead><tr><th>Step</th><th>What can go wrong</th><th>Control</th></tr></thead>
       <tbody>
@@ -36,6 +37,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p>Record the storage location and date on receipt. A vial with no receipt date has no defensible stability window.</p>
 
     <h2>Step 3: weighing, and why small vials are harder than they look</h2>
+    <h3>The balance problem</h3>
     <p>Weighing 2 mg on a balance with a 0.1 mg readability introduces a 5% uncertainty before anything else happens. Static can make the powder jump; drafts move the reading; a tared vial that touched your glove carries residue.</p>
     <ul>
       <li>Use a balance with readability at least one order of magnitude below the target mass.</li>
@@ -69,6 +71,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p>A "5 mg" experiment delivered roughly 4.8 mg to the assay — a 4% systematic loss that no COA will show. If your dose–response curve assumes nominal mass, every point is shifted. Recording the measured mass and the transfer steps is how you keep that error visible instead of folding it into biological variability.</p>
 
     <h2>Step 8: records that make a result attributable</h2>
+    <h3>What a defensible record contains</h3>
     <p>At minimum, each preparation should record: lot number, measured mass, solvent and volume, final concentration, filtration step, aliquot dates, storage temperature, and operator. This is not bureaucracy — it is what lets you compare two runs, or defend one.</p>
     <p><strong>Our rule:</strong> a result without a preparation record is an observation, not data. <a href="/knowledge/peptide-lab-safety/">Lab safety and spill response</a> and <a href="/knowledge/peptide-data-integrity/">Data integrity</a> cover the adjacent controls.</p>
 
@@ -79,6 +82,17 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p><strong>Position.</strong> Buyers and labs spend enormous attention on the certificate and almost none on the ten minutes after opening the vial. That is backwards. The cheapest quality improvement available to most labs is a written handling protocol, not a more expensive peptide.</p>
     <p><strong>Reasoning.</strong> Handling errors are systematic, not random: they shift every data point in the same direction. Systematic error is invisible in replicates and lethal to conclusions. Recording mass, volume and transfer steps converts an invisible bias into a correctable one.</p>
     <p><strong>Disclosure.</strong> We sell research peptides and, like any supplier, benefit when buyers trust the material. This framework is also an argument for buying documented lots — you cannot control what you cannot identify.</p>
+
+
+    <h2>Sources &amp; evidence</h2>
+    <p class="small muted">Handling recommendations are laboratory practice; they do not replace your institution's SOPs or the product's COA instructions.</p>
+    <ul>
+      <li><strong>Moisture and drying methods:</strong> USP &lt;731&gt; — <a href="https://www.usp.org/chemical-medicines" rel="noopener" target="_blank">USP</a>.</li>
+      <li><strong>Particulate matter in solutions:</strong> USP &lt;788&gt; — same USP source.</li>
+      <li><strong>Specification and stability concepts:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH quality guidelines</a>.</li>
+      <li><strong>Reference molecular weights:</strong> PubChem — semaglutide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; tirzepatide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>.</li>
+    </ul>
+    <p class="small muted">The mass-balance example is illustrative; the loss percentages are assumptions used to show the arithmetic, not measured data.</p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

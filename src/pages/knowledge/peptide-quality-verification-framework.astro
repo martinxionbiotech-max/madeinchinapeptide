@@ -16,6 +16,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p>Our position: <strong>a COA without batch linkage is not evidence.</strong> Everything else in this guide is downstream of that. If the batch number on the certificate cannot be tied to the vial label and the production record, the analytical numbers are decoration.</p>
 
     <h2>The six questions</h2>
+    <h3>Why these six and not twenty</h3>
     <p>Every releasable lot should be able to answer these six questions with data. If a supplier answers four and hand-waves two, you are buying an assumption.</p>
     <table>
       <thead><tr><th>Question</th><th>Method</th><th>Failure mode if unanswered</th></tr></thead>
@@ -30,6 +31,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     </table>
 
     <h2>Reading the chromatogram like an auditor</h2>
+    <h3>Method first, then the trace</h3>
     <p>Do not start with the percentage. Start with the method: column, dimensions, mobile phase, gradient, wavelength, injection volume. A purity figure without these is not reproducible and cannot be compared across suppliers.</p>
     <p>Then look at the trace itself:</p>
     <ul>
@@ -70,6 +72,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p>If a supplier cannot provide two or three consecutive lot COAs, you are not buying a process — you are buying a series of independent purchases that happen to share a product name. <a href="/knowledge/peptide-lot-consistency/">Lot-to-lot consistency</a> covers the statistics and the retention-sample practice.</p>
 
     <h2>Third-party testing: when it is worth it, when it is theatre</h2>
+    <h3>The sampling question decides it</h3>
     <p>Independent testing adds value when it answers a question the supplier cannot self-certify convincingly — identity on a high-value lot, endotoxin for cell work, or a disputed result. It adds little when it simply repeats the supplier's own HPLC on a sample the supplier selected.</p>
     <p><strong>Our rule:</strong> use third-party testing as a tie-breaker and a dispute tool, not as a substitute for supplier qualification. <a href="/knowledge/third-party-peptide-testing/">Using a third-party laboratory</a> explains sampling and chain-of-custody.</p>
 
@@ -92,6 +95,19 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p><strong>Position.</strong> Buyers should stop asking "what is the purity?" and start asking "what is the evidence chain?" A supplier that can walk you from batch record to chromatogram to shipped vial is in a different category from one that emails a PDF with a number on it.</p>
     <p><strong>Reasoning.</strong> Purity is easy to state and hard to verify; traceability is hard to fake at scale. The suppliers who invest in records do so because their process depends on them — which is exactly the behaviour you want to rely on when something goes wrong.</p>
     <p><strong>Disclosure.</strong> We sell research peptides and compete on documentation. We also reject lots that fail this framework, which occasionally costs us orders.</p>
+
+
+    <h2>Sources &amp; evidence</h2>
+    <p class="small muted">The methods and acceptance concepts referenced in this guide map to published standards. Specific limits must come from your own specification, not from this page.</p>
+    <ul>
+      <li><strong>Method validation:</strong> ICH Q2(R1) — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH quality guidelines</a>.</li>
+      <li><strong>Specification setting:</strong> ICH Q6B — same ICH page.</li>
+      <li><strong>Water content:</strong> USP &lt;731&gt; Loss on Drying / Karl Fischer methods — <a href="https://www.usp.org/chemical-medicines" rel="noopener" target="_blank">USP</a>.</li>
+      <li><strong>Particulate matter:</strong> USP &lt;788&gt; — same USP source.</li>
+      <li><strong>Endotoxin:</strong> USP &lt;85&gt; Bacterial Endotoxins Test — same USP source.</li>
+      <li><strong>Reference molecular weights:</strong> PubChem — semaglutide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; tirzepatide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>.</li>
+    </ul>
+    <p class="small muted">The net-content worked example is illustrative: the percentages are stated assumptions, not measured results from any lot.</p>
 
     <h2>Products referenced in this guide</h2>
     <ul>
