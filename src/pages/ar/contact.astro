@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="ar" title="اتصل بنا واطلب عرض سعر — Made in China Peptide" description="اطلب عرض سعر للببتيدات البحثية: المنتج والتركيز والكمية والوجهة. الرد خلال يوم عمل واحد." canonical="/ar/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/ar/">الرئيسية</a> › اتصل بنا</p>
+    <h1>اطلب عرض سعر</h1>
+    <p class="lead muted">أخبرنا بما تحتاجه والوجهة. نرد خلال يوم عمل واحد بالتوفر والسعر والمدة والتوثيق.</p>
+    <h2>ما يجب تضمينه</h2>
+    <ul>
+      <li>المنتجات والتركيزات</li>
+      <li>الكمية لكل منتج</li>
+      <li>بلد الوجهة</li>
+      <li>التوثيق المطلوب (شهادة التحليل، MSDS، الملصق)</li>
+      <li>نوع المشتري: مختبر، موزع، علامة/OEM</li>
+    </ul>
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 واتساب {site.whatsapp}</a></p>
+    <p>البريد: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <div class="note">نقدم عروض الأسعار للمشترين التجاريين فقط. الطلبات التي تشير إلى استخدام بشري شخصي ستُرفض.</div>
+    <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

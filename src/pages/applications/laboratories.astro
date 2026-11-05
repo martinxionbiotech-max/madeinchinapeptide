@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout title="Research Peptides for Laboratories — Documentation & Sample Supply" description="Research peptide supply for academic and private laboratories: batch-linked COA, HPLC/MS data, sample lots, handling guidance and documented bulk supply." canonical="/applications/laboratories/">
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/">Home</a> › Applications › Laboratories</p>
+    <h1>Research peptides for laboratories</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> Laboratories need three things from a peptide supplier: a batch-linked COA with chromatogram and MS, a sample lot that matches the shipment, and handling data that survives an audit. Price is fourth.</div>
+    <p class="lead muted">We supply academic, institutional and private laboratories that need documentation they can file, not just a vial with a label.</p>
+
+    <h2>What we provide</h2>
+    <table>
+      <thead><tr><th>Need</th><th>What you receive</th></tr></thead>
+      <tbody>
+        <tr><td>Identity and purity</td><td>Batch COA with HPLC chromatogram, method and MS confirmation</td></tr>
+        <tr><td>Traceability</td><td>Lot number linking vial, COA and invoice</td></tr>
+        <tr><td>Sample before volume</td><td>Qualification sample with its own batch COA</td></tr>
+        <tr><td>Handling</td><td>Storage and reconstitution notes; SDS where required</td></tr>
+        <tr><td>Repeat supply</td><td>Consecutive lot data on request; retention samples per agreement</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How labs usually start</h2>
+    <ol>
+      <li>Send a short list: compound, strength, quantity, destination.</li>
+      <li>Review the sample COA for the lot we propose.</li>
+      <li>Order a sample and run it through your own workflow.</li>
+      <li>Move to a standing order with defined acceptance criteria.</li>
+    </ol>
+
+    <h2>Documentation discipline</h2>
+    <p>We do not send a generic product COA and call it batch data. The COA you receive should let you answer: which lot, tested how, by whom, with what result. If it cannot, ask us — or any supplier — for the missing piece before you order.</p>
+    <p>For method and interpretation guidance, see the <a href="/knowledge/peptide-quality-verification-framework/">quality verification pillar</a> and <a href="/knowledge/peptide-handling-laboratory-practice/">handling pillar</a>.</p>
+
+    <h2>Products commonly requested</h2>
+    <ul>
+      <li><a href="/products/research/">Research peptides</a> — BPC-157, TB-500, CJC-1295, Ipamorelin and more</li>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> and <a href="/products/semaglutide/">Semaglutide</a> — reference materials</li>
+      <li><a href="/products/accessories/bacteriostatic-water-10ml/">Bacteriostatic water</a> — reconstitution workflows</li>
+    </ul>
+
+    <p><a class="btn" href="/contact/">Request a laboratory quotation</a> <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener" style="margin-left:10px;">💬 WhatsApp</a></p>
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

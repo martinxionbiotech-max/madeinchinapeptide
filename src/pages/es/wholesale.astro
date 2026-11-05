@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="es" title="Péptidos de investigación al por mayor — Precios y suministro" description="Suministro al por mayor de péptidos de investigación desde China: precios por volumen, MOQ desde 10 viales, COA por lote y documentación de exportación." canonical="/es/wholesale/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/wholesale/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/wholesale/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/wholesale/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/es/">Inicio</a> › Mayoreo</p>
+    <h1>Mayoreo y suministro al por mayor</h1>
+    <p class="lead muted">Diseñado para distribuidores, laboratorios y proveedores que compran en volúmenes repetidos.</p>
+    <h2>Qué determina el precio</h2>
+    <table>
+      <thead><tr><th>Factor</th><th>Efecto</th></tr></thead>
+      <tbody>
+        <tr><td>Péptido y concentración</td><td>Costo base</td></tr>
+        <tr><td>Volumen</td><td>Menor costo unitario por tramos</td></tr>
+        <tr><td>Envase</td><td>Vial, caja e insertos</td></tr>
+        <tr><td>Documentación</td><td>COA estándar incluido; pruebas extra cotizadas</td></tr>
+        <tr><td>Destino</td><td>Flete y cumplimiento</td></tr>
+      </tbody>
+    </table>
+    <h2>Flujo de pedido</h2>
+    <ol>
+      <li>Envíe SKU, concentraciones, cantidades y destino.</li>
+      <li>Confirmamos disponibilidad, precio por tramo y plazo.</li>
+      <li>Muestra opcional con su propio COA.</li>
+      <li>Pago y producción.</li>
+      <li>Envío con factura comercial y lista de empaque.</li>
+    </ol>
+    <p><a class="btn" href="/es/contact/">Solicitar cotización</a> <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener" style="margin-left:10px;">💬 WhatsApp</a></p>
+    <div class="ruo">{site.ruo}</div>
+  </div>
+</BaseLayout>

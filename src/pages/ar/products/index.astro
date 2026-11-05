@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { products, categories } from '../../../data/products';
+---
+<BaseLayout lang="ar" title="كتالوج الببتيدات البحثية — جملة وOEM" description="كتالوج ببتيدات بدرجة بحثية للتوريد بالجملة وOEM من الصين: تيرزيباتيد، سيماغلوتيد، BPC-157، GHK-Cu والمزيد." canonical="/ar/products/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/products/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/products/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/products/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/products/'}]}>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/ar/">الرئيسية</a> › المنتجات</p>
+    <h1>كتالوج الببتيدات البحثية</h1>
+    <p class="lead muted">كل صفحة تحدد الشكل والتخزين وحزمة التوثيق. النقاء لكل دفعة: اطلب شهادة التحليل للدفعة التي تقيّمها.</p>
+    {Object.entries(categories).map(([slug, c]) => (
+      <section style="margin-top:32px;">
+        <h2>{c.name}</h2>
+        <table>
+          <thead><tr><th>المنتج</th><th>التركيز</th><th>الشكل</th><th>الحد الأدنى</th><th></th></tr></thead>
+          <tbody>
+            {products.filter(p => p.category === slug).map(p => (
+              <tr><td><a href={`/products/${p.category}/${p.slug}/`}>{p.name}</a></td><td>{p.strength}</td><td>{p.form}</td><td>{p.moq}</td><td><a href={`/products/${p.category}/${p.slug}/`}>عرض</a></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))}
+    <div class="ruo" style="margin:28px 0;">جميع المنتجات للاستخدام البحثي المختبري فقط.</div>
+  </div>
+</BaseLayout>

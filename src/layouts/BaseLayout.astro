@@ -9,8 +9,10 @@ interface Props {
   description?: string;
   canonical?: string;
   noindex?: boolean;
+  lang?: 'en' | 'es' | 'ar';
+  alternates?: { hreflang: string; href: string }[];
 }
-const { title, description = site.description, canonical, noindex = false } = Astro.props;
+const { title, description = site.description, canonical, noindex = false, lang = 'en', alternates = [] } = Astro.props;
 const canonicalUrl = canonical ? `${site.url}${canonical}` : new URL(Astro.url.pathname, site.url).href;
 const orgLd = {
   '@context': 'https://schema.org',
@@ -35,13 +37,14 @@ const webSiteLd = {
 };
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
+  {alternates.map(a => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   {noindex && <meta name="robots" content="noindex,nofollow" />}
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={site.brand} />

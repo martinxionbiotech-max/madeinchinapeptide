@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="es" title="Contacto y cotización — Made in China Peptide" description="Solicite una cotización de péptidos de investigación: producto, concentración, cantidad y destino. Respuesta en un día hábil." canonical="/es/contact/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/contact/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/contact/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/contact/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/es/">Inicio</a> › Contacto</p>
+    <h1>Solicitar una cotización</h1>
+    <p class="lead muted">Indíquenos qué necesita y el destino. Respondemos en un día hábil con disponibilidad, precio, plazo y documentación.</p>
+    <h2>Qué incluir</h2>
+    <ul>
+      <li>Productos y concentraciones</li>
+      <li>Cantidad por SKU</li>
+      <li>País de destino</li>
+      <li>Documentación requerida (COA, MSDS, etiqueta)</li>
+      <li>Tipo de comprador: laboratorio, distribuidor, marca/OEM</li>
+    </ul>
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 WhatsApp {site.whatsapp}</a></p>
+    <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <div class="note">Solo cotizamos a compradores comerciales. Las solicitudes que indiquen uso humano personal serán rechazadas.</div>
+    <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
+  </div>
+</BaseLayout>

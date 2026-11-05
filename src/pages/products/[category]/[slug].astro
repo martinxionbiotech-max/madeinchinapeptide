@@ -9,6 +9,13 @@ export function getStaticPaths() {
 const { category, slug } = Astro.params as { category: Category; slug: string };
 const p = products.find(x => x.slug === slug)!;
 const cat = categories[category];
+const mgOf = (s: string) => { const m = s.match(/([\d.]+)\s*mg/); return m ? parseFloat(m[1]) : NaN; };
+const myMg = mgOf(p.strength);
+const sibs = products.filter(x => x.category === category && x.slug !== p.slug)
+  .map(x => ({ x, mg: mgOf(x.strength) })).filter(o => !isNaN(o.mg)).sort((a,b) => a.mg - b.mg);
+const lower = !isNaN(myMg) ? [...sibs].filter(o => o.mg < myMg).pop() : undefined;
+const higher = !isNaN(myMg) ? sibs.find(o => o.mg > myMg) : undefined;
+
 const reading: Record<Category, { href: string; label: string }[]> = {
   tirzepatide: [
     { href: '/knowledge/how-to-verify-peptide-purity/', label: 'How to verify purity before you buy' },
@@ -112,6 +119,14 @@ const faqLd = {
     </table>
 
     {p.note && (<><h2>Lot notes</h2><p>{p.note}</p></>)}
+
+    {!isNaN(myMg) && (lower || higher) && (
+      <><h2>Range context</h2>
+      <p>
+        This {p.strength} format sits {lower ? <>above <a href={`/products/${category}/${lower.x.slug}/`}>{lower.x.name}</a></> : 'at the low end of the range'} {higher ? <>and below <a href={`/products/${category}/${higher.x.slug}/`}>{higher.x.name}</a></> : 'at the top of the range'}.
+        It is packaged as {p.packaging.toLowerCase()} with an MOQ of {p.moq} and a typical lead time of {p.leadTime}.
+      </p></>
+    )}
 
     <h2>Documentation &amp; batch traceability</h2>
     <p>Each production lot is assigned a batch number that links to its certificate of analysis, HPLC chromatogram and mass-spec confirmation. We do not publish a single "typical" purity figure as if it applied to every lot — the COA for the specific batch is the authoritative document. Request a sample COA before purchase.</p>

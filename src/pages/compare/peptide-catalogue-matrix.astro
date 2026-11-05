@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products, categories } from '../../data/products';
+const grouped = Object.keys(categories).map(c => ({ key: c, info: categories[c as keyof typeof categories], items: products.filter(p => p.category === c) }));
+---
+<BaseLayout title="Research Peptide Catalogue Matrix — All 65 SKUs Compared" description="A single-table comparison of the full research peptide catalogue: category, strength, form, MOQ and lead time, with links to each specification page." canonical="/compare/peptide-catalogue-matrix/">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Home</a> › Compare › Catalogue matrix</p>
+    <h1>Research peptide catalogue matrix</h1>
+    <div class="quick-answer"><strong>Quick answer.</strong> The full catalogue is 65 SKUs across six categories. This matrix is the fastest way to compare strength, form, MOQ and lead time before opening individual specification pages.</div>
+    <p class="lead muted">A single view of what is available. Specifications are batch-specific; the individual product page and its COA are authoritative.</p>
+
+    {grouped.map(g => (
+      <section style="margin-top:32px;">
+        <h2>{g.info.name} <span class="tag">{g.items.length} SKUs</span></h2>
+        <table>
+          <thead><tr><th>Product</th><th>Strength</th><th>Form</th><th>MOQ</th><th>Lead time</th><th></th></tr></thead>
+          <tbody>
+            {g.items.map(p => (
+              <tr>
+                <td><a href={`/products/${p.category}/${p.slug}/`}>{p.name}</a></td>
+                <td>{p.strength}</td>
+                <td>{p.form}</td>
+                <td>{p.moq}</td>
+                <td>{p.leadTime}</td>
+                <td><a href={`/products/${p.category}/${p.slug}/`}>View</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))}
+
+    <h2>How to use this matrix</h2>
+    <p>Start with the category, then compare strength and packaging. MOQ and lead time are standard for each format; distributor and OEM volumes are quoted individually. If a product you need is not listed, ask — the catalogue is not a limit on custom synthesis.</p>
+    <p>For sourcing criteria, see the <a href="/knowledge/china-peptide-sourcing-framework/">sourcing framework</a>; for analytical release, the <a href="/knowledge/peptide-quality-verification-framework/">quality verification framework</a>.</p>
+    <div class="ruo">Research use only. All products are supplied for laboratory research, not for human or veterinary use.</div>
+  </div>
+</BaseLayout>
