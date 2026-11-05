@@ -2,94 +2,32 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 ---
-<BaseLayout title="Contact & RFQ — Made in China Peptide" description="Request a quotation for research peptides: send product, strength, quantity and destination. Response within one business day." canonical="/contact/">
+<BaseLayout title="Contact & Orders — Made in China Peptide" description="Orders are placed by contacting our sales team directly. Send your product list, quantities and destination by email or WhatsApp; we confirm availability, pricing, documentation and lead time within one business day." canonical="/contact/">
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/">Home</a> › Contact</p>
-    <h1>Request a quotation</h1>
-    <p class="lead muted">Tell us what you need and where it is going. We reply within one business day with availability, pricing tier, lead time and documentation.</p>
+    <h1>Contact us to place an order</h1>
+    <p class="lead muted">We do not use an online checkout. Orders are placed directly with our sales team so that availability, documentation, pricing tier and destination requirements are confirmed before payment.</p>
 
-    <h2>Build your RFQ</h2>
-    <p class="small muted">Complete the fields below and press <strong>Prepare email</strong>. Your mail client opens with the request already written — nothing is sent until you send it, and no data is stored on this site.</p>
+    <h2>How to order</h2>
+    <ol>
+      <li><strong>Send your requirement</strong> — product names and strengths, quantity per SKU, destination country, and any documentation you need.</li>
+      <li><strong>Receive confirmation</strong> — we reply within one business day with availability, price tier, lead time and the batch documentation package.</li>
+      <li><strong>Review the documents</strong> — check the sample COA (HPLC chromatogram and MS confirmation) before committing.</li>
+      <li><strong>Confirm and pay</strong> — once terms are agreed, we schedule production and prepare the export documents.</li>
+    </ol>
 
-    <form id="rfq-form" novalidate>
-      <div class="rfq">
-        <div>
-          <label for="company">Company or institution <span class="hint">(required)</span></label>
-          <input id="company" name="company" type="text" autocomplete="organization" required />
-        </div>
-        <div>
-          <label for="email">Business email <span class="hint">(required)</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div>
-          <label for="website">Website <span class="hint">(optional)</span></label>
-          <input id="website" name="website" type="url" inputmode="url" placeholder="https://" />
-        </div>
-        <div>
-          <label for="buyerType">Buyer type</label>
-          <select id="buyerType" name="buyerType">
-            <option value="Laboratory / research institution">Laboratory / research institution</option>
-            <option value="Distributor / reseller">Distributor / reseller</option>
-            <option value="Brand / OEM private label">Brand / OEM private label</option>
-            <option value="Other business buyer">Other business buyer</option>
-          </select>
-        </div>
-        <div class="full">
-          <label for="products">Products and strengths <span class="hint">(SKU list is ideal — required)</span></label>
-          <textarea id="products" name="products" required placeholder="e.g. Tirzepatide 10mg — 20 vials; BPC-157 5mg — 50 vials"></textarea>
-        </div>
-        <div>
-          <label for="quantity">Quantity per SKU</label>
-          <input id="quantity" name="quantity" type="text" placeholder="e.g. 20 vials each" />
-        </div>
-        <div>
-          <label for="destination">Destination country <span class="hint">(required)</span></label>
-          <input id="destination" name="destination" type="text" autocomplete="country-name" required />
-        </div>
-        <div class="full">
-          <fieldset>
-            <legend>Documentation needed</legend>
-            <div class="checks">
-              <label><input type="checkbox" name="docs" value="COA (batch-specific)" checked /> COA (batch-specific)</label>
-              <label><input type="checkbox" name="docs" value="HPLC chromatogram" /> HPLC chromatogram</label>
-              <label><input type="checkbox" name="docs" value="MS confirmation" /> MS confirmation</label>
-              <label><input type="checkbox" name="docs" value="MSDS" /> MSDS</label>
-              <label><input type="checkbox" name="docs" value="Specification sheet" /> Specification sheet</label>
-              <label><input type="checkbox" name="docs" value="Custom label artwork" /> Custom label artwork</label>
-            </div>
-          </fieldset>
-        </div>
-        <div>
-          <label for="payment">Payment preference</label>
-          <select id="payment" name="payment">
-            <option value="To discuss">To discuss</option>
-            <option value="Bank transfer (T/T)">Bank transfer (T/T)</option>
-            <option value="Letter of credit">Letter of credit</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div>
-          <label for="timeline">Required by <span class="hint">(optional)</span></label>
-          <input id="timeline" name="timeline" type="text" placeholder="e.g. within 4 weeks" />
-        </div>
-        <div class="full">
-          <label for="notes">Notes <span class="hint">(optional)</span></label>
-          <textarea id="notes" name="notes" placeholder="Packaging requirements, prior supplier issues, labelling constraints, customs questions…"></textarea>
-        </div>
-      </div>
-
-      <div class="rfq-actions">
-        <button class="btn" type="submit">Prepare email</button>
-        <button class="btn btn-ghost" type="button" id="rfq-copy">Copy request as text</button>
-        <a class="btn btn-ghost" href={`mailto:${site.email}`}>Email us directly</a>
-      </div>
-      <p class="rfq-status" id="rfq-status" role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="note" style="margin-top:24px;">We only quote to business buyers. Requests that indicate personal human use will be declined.</div>
+    <h2>What to include in your message</h2>
+    <ul>
+      <li>Products and strengths (an SKU list is ideal)</li>
+      <li>Quantity per SKU</li>
+      <li>Destination country</li>
+      <li>Documentation needs (COA, HPLC, MS, MSDS, specification sheet, custom label)</li>
+      <li>Buyer type: laboratory, distributor, brand/OEM</li>
+      <li>Required delivery window, if any</li>
+    </ul>
 
     <h2>Contact channels</h2>
-    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Chat on WhatsApp now</a></p>
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Chat on WhatsApp</a></p>
     <table>
       <tbody>
         <tr><th style="width:180px;">Email</th><td><a href={`mailto:${site.email}`}>{site.email}</a></td></tr>
@@ -98,72 +36,11 @@ import { site } from '../data/site';
       </tbody>
     </table>
 
+    <div class="note" style="margin-top:24px;">We only supply business buyers. Requests that indicate personal human use will be declined.</div>
+
+    <h2>Before you write</h2>
+    <p>If you are comparing suppliers, the <a href="/knowledge/china-peptide-sourcing-framework/">sourcing framework</a> lists the five checks that matter. If you already have a supplier and need a second source, the <a href="/knowledge/second-peptide-supplier-qualification/">second-supplier qualification guide</a> explains the sample and documentation sequence.</p>
+
     <div class="ruo" style="margin-top:20px;">{site.ruo}</div>
   </div>
-
-  <script is:inline define:vars={{ salesEmail: site.email }}>
-    const form = document.getElementById('rfq-form');
-    const status = document.getElementById('rfq-status');
-    const copyBtn = document.getElementById('rfq-copy');
-
-    function value(id) {
-      const el = document.getElementById(id);
-      return el ? el.value.trim() : '';
-    }
-
-    function compose() {
-      const docs = [...form.querySelectorAll('input[name="docs"]:checked')].map(x => x.value);
-      const lines = [
-        'Request for quotation',
-        '',
-        'Company: ' + (value('company') || '—'),
-        'Business email: ' + (value('email') || '—'),
-        'Website: ' + (value('website') || '—'),
-        'Buyer type: ' + value('buyerType'),
-        'Destination: ' + (value('destination') || '—'),
-        'Required by: ' + (value('timeline') || '—'),
-        'Payment preference: ' + value('payment'),
-        '',
-        'Products and strengths:',
-        value('products') || '—',
-        '',
-        'Quantity per SKU: ' + (value('quantity') || '—'),
-        'Documentation needed: ' + (docs.length ? docs.join(', ') : '—'),
-        '',
-        'Notes:',
-        value('notes') || '—',
-        '',
-        'Sent from the RFQ form on madeinchinapeptide.com'
-      ];
-      const subject = 'RFQ — ' + (value('company') || 'new enquiry') + ' — ' + (value('destination') || 'destination');
-      return { subject, body: lines.join('\n') };
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const missing = ['company', 'email', 'products', 'destination'].filter(id => !value(id));
-      if (missing.length) {
-        status.textContent = 'Please complete the required fields: ' + missing.map(id => {
-          const el = document.getElementById(id);
-          return el ? (el.closest('div')?.querySelector('label')?.textContent || id).replace('(required)', '').trim() : id;
-        }).join(', ') + '.';
-        document.getElementById(missing[0])?.focus();
-        return;
-      }
-      const { subject, body } = compose();
-      window.location.href = 'mailto:' + salesEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      status.textContent = 'Your email client should open with the request. If nothing happens, use “Copy request as text” and send it to ' + salesEmail + '.';
-    });
-
-    copyBtn.addEventListener('click', async () => {
-      const { subject, body } = compose();
-      const text = 'To: ' + salesEmail + '\nSubject: ' + subject + '\n\n' + body;
-      try {
-        await navigator.clipboard.writeText(text);
-        status.textContent = 'Request copied to clipboard. Paste it into an email to ' + salesEmail + '.';
-      } catch {
-        status.textContent = 'Clipboard unavailable in this browser. Please email ' + salesEmail + ' directly.';
-      }
-    });
-  </script>
 </BaseLayout>
