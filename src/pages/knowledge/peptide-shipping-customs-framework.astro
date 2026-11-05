@@ -106,6 +106,16 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p><strong>Disclosure.</strong> We ship research peptides and benefit when buyers value export discipline. We also decline shipments where lawful import cannot be demonstrated, which is a commercial cost we accept.</p>
 
 
+    <h2>Frequently asked</h2>
+    <h3>Which Incoterm should I choose for a first order?</h3>
+    <p>FOB or CIF with a named forwarder is usually the most auditable. DDP can be efficient for repeat orders once the supplier has a proven clearance path.</p>
+    <h3>What documents ship with the order?</h3>
+    <p>Commercial invoice, packing list, batch COA, MSDS where required, certificate of origin on request, and the transport document.</p>
+    <h3>Who handles customs clearance?</h3>
+    <p>The buyer or its broker, unless the agreed Incoterm transfers that responsibility. The buyer remains responsible for lawful import.</p>
+    <h3>What happens if the shipment is held?</h3>
+    <p>We provide the missing documents and an escalation path. Most holds resolve with a corrected invoice, COA or permit; silence is the failure mode to avoid.</p>
+
     <h2>Sources &amp; evidence</h2>
     <p class="small muted">This guide is commercial logistics guidance. Classification and permit decisions must be confirmed with a licensed broker and the destination authority.</p>
     <ul>
@@ -113,6 +123,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Trade terms:</strong> Incoterms® 2020, International Chamber of Commerce.</li>
       <li><strong>Chinese national standards:</strong> GB/T standards via the <a href="https://openstd.samr.gov.cn/" rel="noopener" target="_blank">National Standards full-text platform</a> (SAMR).</li>
       <li><strong>Analytical documentation concepts:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH quality guidelines</a>.</li>
+      <li><strong>China customs classification:</strong> 《中华人民共和国进出口税则》 and GACC commodity classification decisions (海关总署商品归类决定) — the destination schedule still governs; confirm with a licensed broker.</li>
     </ul>
     <p class="small muted">No shipment data was fabricated for this guide; the decision table describes common failure modes, not measured statistics.</p>
 
@@ -141,4 +152,5 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <div class="ruo">Research use only. This guide is commercial logistics guidance, not legal or customs advice.</div>
   </div>
   <ArticleSchema title="Shipping Research Peptides from China: Customs, Documentation and Risk" description="A practical framework for exporting research peptides from China: classification, documentation, Incoterms, restricted destinations, cold chain, customs holds and insurance." path="/knowledge/peptide-shipping-customs-framework/" section="Shipping & compliance" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which Incoterm should I choose for a first order?", "acceptedAnswer": {"@type": "Answer", "text": "FOB or CIF with a named forwarder is usually the most auditable. DDP can be efficient for repeat orders once the supplier has a proven clearance path."}}, {"@type": "Question", "name": "What documents ship with the order?", "acceptedAnswer": {"@type": "Answer", "text": "Commercial invoice, packing list, batch COA, MSDS where required, certificate of origin on request, and the transport document."}}, {"@type": "Question", "name": "Who handles customs clearance?", "acceptedAnswer": {"@type": "Answer", "text": "The buyer or its broker, unless the agreed Incoterm transfers that responsibility. The buyer remains responsible for lawful import."}}, {"@type": "Question", "name": "What happens if the shipment is held?", "acceptedAnswer": {"@type": "Answer", "text": "We provide the missing documents and an escalation path. Most holds resolve with a corrected invoice, COA or permit; silence is the failure mode to avoid."}}]})} />
 </BaseLayout>

@@ -97,6 +97,16 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p><strong>Disclosure.</strong> We sell research peptides and compete on documentation. We also reject lots that fail this framework, which occasionally costs us orders.</p>
 
 
+    <h2>Frequently asked</h2>
+    <h3>Is purity the same for every batch?</h3>
+    <p>No. Purity is measured per lot and stated on that lot's COA. A single clean result does not describe the process.</p>
+    <h3>What does a batch COA include?</h3>
+    <p>Identity by MS, purity by HPLC with chromatogram and method, water content by Karl Fischer, appearance, and where applicable net peptide content.</p>
+    <h3>Do you provide third-party testing?</h3>
+    <p>Yes, on request and at additional cost. It is most useful as a tie-breaker on a specific lot, not as a substitute for supplier qualification.</p>
+    <h3>How do I compare net peptide content between suppliers?</h3>
+    <p>Ask for water content and assay content, then compare price per milligram of net peptide rather than price per vial.</p>
+
     <h2>Sources &amp; evidence</h2>
     <p class="small muted">The methods and acceptance concepts referenced in this guide map to published standards. Specific limits must come from your own specification, not from this page.</p>
     <ul>
@@ -106,6 +116,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Particulate matter:</strong> USP &lt;788&gt; — same USP source.</li>
       <li><strong>Endotoxin:</strong> USP &lt;85&gt; Bacterial Endotoxins Test — same USP source.</li>
       <li><strong>Reference molecular weights:</strong> PubChem — semaglutide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; tirzepatide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>.</li>
+      <li><strong>Chinese Pharmacopoeia (ChP 2020), Part IV:</strong> General Chapter 0512 (HPLC), 0832 (loss on drying), 0903 (particulate matter), 1143 (bacterial endotoxins) — cited by chapter number; the official edition is the authoritative text.</li>
     </ul>
     <p class="small muted">The net-content worked example is illustrative: the percentages are stated assumptions, not measured results from any lot.</p>
 
@@ -154,4 +165,5 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <div class="ruo">Research use only. This guide describes analytical verification practice; it is not a pharmacopoeial method and makes no claim about any compound's effects or human suitability.</div>
   </div>
   <ArticleSchema title="Peptide Quality Verification: From COA to Release Decision" description="A buyer's framework for verifying peptide quality: the six questions a COA must answer, chromatogram review, net-content cost math and lot consistency." path="/knowledge/peptide-quality-verification-framework/" section="Peptide quality" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is purity the same for every batch?", "acceptedAnswer": {"@type": "Answer", "text": "No. Purity is measured per lot and stated on that lot's COA. A single clean result does not describe the process."}}, {"@type": "Question", "name": "What does a batch COA include?", "acceptedAnswer": {"@type": "Answer", "text": "Identity by MS, purity by HPLC with chromatogram and method, water content by Karl Fischer, appearance, and where applicable net peptide content."}}, {"@type": "Question", "name": "Do you provide third-party testing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, on request and at additional cost. It is most useful as a tie-breaker on a specific lot, not as a substitute for supplier qualification."}}, {"@type": "Question", "name": "How do I compare net peptide content between suppliers?", "acceptedAnswer": {"@type": "Answer", "text": "Ask for water content and assay content, then compare price per milligram of net peptide rather than price per vial."}}]})} />
 </BaseLayout>

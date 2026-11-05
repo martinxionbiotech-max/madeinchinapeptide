@@ -84,6 +84,16 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <p><strong>Disclosure.</strong> We sell research peptides and, like any supplier, benefit when buyers trust the material. This framework is also an argument for buying documented lots — you cannot control what you cannot identify.</p>
 
 
+    <h2>Frequently asked</h2>
+    <h3>How should lyophilized peptides be stored?</h3>
+    <p>At −20 °C, protected from light and moisture, in a non-cycling freezer where possible. Equilibrate sealed vials to room temperature before opening.</p>
+    <h3>Can I refreeze a reconstituted peptide?</h3>
+    <p>Aliquot into single-use volumes before freezing. Repeated freeze–thaw cycles change the material and are a common cause of apparent degradation.</p>
+    <h3>Which solvent should I use?</h3>
+    <p>Follow the solvent named on the COA. Hydrophobic sequences may need a small fraction of organic solvent; do not improvise with heat.</p>
+    <h3>Why did my peptide not dissolve completely?</h3>
+    <p>Check solvent, pH and time before adding heat or vortexing. Incomplete wetting and aggregation are more common than genuine insolubility.</p>
+
     <h2>Sources &amp; evidence</h2>
     <p class="small muted">Handling recommendations are laboratory practice; they do not replace your institution's SOPs or the product's COA instructions.</p>
     <ul>
@@ -91,6 +101,7 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
       <li><strong>Particulate matter in solutions:</strong> USP &lt;788&gt; — same USP source.</li>
       <li><strong>Specification and stability concepts:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH quality guidelines</a>.</li>
       <li><strong>Reference molecular weights:</strong> PubChem — semaglutide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; tirzepatide <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>.</li>
+      <li><strong>Chinese Pharmacopoeia (ChP 2020), Part IV:</strong> General Chapter 0832 (loss on drying) and 0903 (particulate matter) — cited by chapter number.</li>
     </ul>
     <p class="small muted">The mass-balance example is illustrative; the loss percentages are assumptions used to show the arithmetic, not measured data.</p>
 
@@ -126,4 +137,5 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
     <div class="ruo">Research use only. This guide describes laboratory handling practice for research materials; it is not medical, veterinary or dosing guidance.</div>
   </div>
   <ArticleSchema title="Peptide Handling and Laboratory Practice: From Receipt to Result" description="A practical framework for handling lyophilized peptides: receipt, storage, weighing, dissolution, filtration, aliquoting and records — with the failure modes that quietly ruin experiments." path="/knowledge/peptide-handling-laboratory-practice/" section="Laboratory practice" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How should lyophilized peptides be stored?", "acceptedAnswer": {"@type": "Answer", "text": "At −20 °C, protected from light and moisture, in a non-cycling freezer where possible. Equilibrate sealed vials to room temperature before opening."}}, {"@type": "Question", "name": "Can I refreeze a reconstituted peptide?", "acceptedAnswer": {"@type": "Answer", "text": "Aliquot into single-use volumes before freezing. Repeated freeze–thaw cycles change the material and are a common cause of apparent degradation."}}, {"@type": "Question", "name": "Which solvent should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Follow the solvent named on the COA. Hydrophobic sequences may need a small fraction of organic solvent; do not improvise with heat."}}, {"@type": "Question", "name": "Why did my peptide not dissolve completely?", "acceptedAnswer": {"@type": "Answer", "text": "Check solvent, pH and time before adding heat or vortexing. Incomplete wetting and aggregation are more common than genuine insolubility."}}]})} />
 </BaseLayout>
