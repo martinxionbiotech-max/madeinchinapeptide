@@ -53,7 +53,7 @@ const fullTitle = `${p.name} — Bulk & OEM Supply | Made in China Peptide`;
 const seoTitle = fullTitle.length > 65 ? `${p.name} — Bulk & OEM` : fullTitle;
 // The visible <img> below and the Product.image in JSON-LD must be the same URL:
 // Google requires a Product image, and it must match what the page shows.
-const productImage = `https://madeinchinapeptide.com${p.image ?? `/images/products/vial-${category}.svg`}`;
+const productImage = `https://madeinchinapeptide.com${p.image ?? '/images/logo.png'}`;
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -111,8 +111,8 @@ const faqLd = {
         <p class="tiny muted">Include target quantity, destination country and any documentation your QC requires.</p>
       </div>
       <div>
-        <img src={p.image ?? `/images/products/vial-${category}.svg`} alt={`${p.name} — research-grade vial`} width="640" height="640" style="max-width:280px;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff;" loading="lazy" />
-        <p class="tiny muted" style="margin-top:8px;">{p.image ? 'Product photograph. Label and batch details may vary by lot.' : 'Illustrative image. Actual vial and label may differ by batch and packaging option.'}</p>
+        <img src={p.image ?? '/images/logo.png'} alt={`${p.name} — research-grade vial`} width="640" height="640" style="max-width:280px;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff;" loading="lazy" />
+        <p class="tiny muted" style="margin-top:8px;">{p.image ? 'Product photograph. Label and batch details may vary by lot.' : 'Brand image used as a product placeholder. Actual vial and label differ by batch and packaging option.'}</p>
       </div>
     </div>
 
