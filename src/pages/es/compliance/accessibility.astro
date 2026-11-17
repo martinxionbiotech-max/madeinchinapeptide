@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="es" title="Declaración de accesibilidad — Made in China Peptide" description="Nuestro compromiso de accesibilidad y las medidas adoptadas: HTML semántico, navegación por teclado, contraste, texto alternativo y vía de contacto." canonical="/es/compliance/accessibility/" alternates={[
+    { hreflang: 'en', href: 'https://madeinchinapeptide.com/compliance/accessibility/' },
+    { hreflang: 'es', href: 'https://madeinchinapeptide.com/es/compliance/accessibility/' },
+    { hreflang: 'pt', href: 'https://madeinchinapeptide.com/pt/compliance/accessibility/' },
+    { hreflang: 'ar', href: 'https://madeinchinapeptide.com/ar/compliance/accessibility/' },
+    { hreflang: 'x-default', href: 'https://madeinchinapeptide.com/compliance/accessibility/' },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Cumplimiento',href:'/es/compliance/'},{label:'Accesibilidad'}]} />
+    <h1>Declaración de accesibilidad</h1>
+    <div class="quick-answer"><strong>Respuesta rápida.</strong> Nuestro objetivo es cumplir WCAG 2.2 en el nivel AA. El sitio utiliza HTML semántico, navegación accesible por teclado, contraste legible y texto de enlace descriptivo. Si encuentra una barrera, díganoslo y la resolveremos.</div>
+    <p class="lead muted">Esta declaración explica nuestro objetivo de accesibilidad, las medidas que hemos adoptado, las limitaciones conocidas y cómo enviarnos sus comentarios.</p>
+    <p class="small muted">Última actualización: 5 de noviembre de 2026 · Versión 1.0</p>
+
+    <h2>1. Nuestro compromiso</h2>
+    <p>Queremos que el sitio sea utilizable por personas con discapacidad visual, motora, cognitiva y auditiva, y por personas que utilizan tecnología de asistencia. La accesibilidad forma parte de publicar información técnica de forma responsable; no es un proyecto aparte.</p>
+
+    <h2>2. Norma de referencia</h2>
+    <p>Nuestro objetivo es cumplir las Pautas de Accesibilidad para el Contenido Web (WCAG) 2.2 en el nivel AA en las páginas en inglés, y aplicar los mismos principios a las páginas en español, árabe y portugués. Las páginas en árabe utilizan un diseño de derecha a izquierda y atributos de idioma.</p>
+
+    <h2>3. Medidas adoptadas</h2>
+    <ul>
+      <li>Encabezados, listas, tablas y regiones HTML semánticos.</li>
+      <li>Navegación operable por teclado y estilos de foco visibles.</li>
+      <li>Contraste del texto comprobado frente a los fondos utilizados en el sitio.</li>
+      <li>Texto alternativo descriptivo para las imágenes de producto y las imágenes principales.</li>
+      <li>Atributos de idioma en las páginas traducidas (`lang` y `dir`).</li>
+      <li>Sin medios de reproducción automática; sin interacción que dependa del movimiento.</li>
+      <li>Formularios evitados cuando una vía directa por correo electrónico o mensajería es más sencilla.</li>
+    </ul>
+
+    <h2>4. Limitaciones conocidas</h2>
+    <ul>
+      <li>Algunas imágenes de producto son ilustrativas o generadas por IA; su texto alternativo describe el producto, no los detalles de la etiqueta.</li>
+      <li>Las tablas técnicas pueden requerir desplazamiento horizontal en pantallas muy pequeñas.</li>
+      <li>Los sitios de terceros a los que enlazamos (incluido WhatsApp) tienen sus propias prácticas de accesibilidad, que no controlamos.</li>
+      <li>Las páginas traducidas pueden contener texto más largo que el equivalente en inglés; el diseño se ha revisado, pero no se ha auditado formalmente.</li>
+    </ul>
+
+    <h2>5. Comentarios</h2>
+    <p>Si una página le resulta difícil de usar, o si necesita la información en otro formato, escriba a <a href={`mailto:${site.email}`}>{site.email}</a> con el asunto «Accesibilidad» y la dirección de la página. Nuestro objetivo es acusar recibo en un plazo de dos días hábiles y ofrecer una alternativa viable o una solución en un plazo de diez días hábiles.</p>
+
+    <h2>6. Políticas relacionadas</h2>
+    <p>Consulte nuestra <a href="/es/compliance/privacy/">política de privacidad</a> para saber cómo tratamos los datos de contacto, y nuestro <a href="/es/compliance/">centro de cumplimiento</a> para la biblioteca completa de políticas.</p>
+
+    <div class="ruo" style="margin-top:24px;">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>

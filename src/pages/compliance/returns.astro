@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Returns & Claims Policy — Made in China Peptide" description="Returns and claims: what is eligible, the condition and documentation required, temperature-sensitive exclusions and how to open a claim within 14 days." canonical="/compliance/returns/">
+<BaseLayout title="Returns & Claims Policy — Made in China Peptide" description="Returns and claims: what is eligible, the condition and documentation required, temperature-sensitive exclusions and how to open a claim within 14 days." canonical="/compliance/returns/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/returns/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/returns/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/returns/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/returns/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/returns/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Returns'}]} />
     <h1>Returns &amp; claims policy</h1>

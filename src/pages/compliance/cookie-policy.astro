@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Cookie Policy — Made in China Peptide" description="Cookie policy: the cookies this site uses, their purpose and lifetime, analytics and consent choices, and how to control cookies in your browser." canonical="/compliance/cookie-policy/">
+<BaseLayout title="Cookie Policy — Made in China Peptide" description="Cookie policy: the cookies this site uses, their purpose and lifetime, analytics and consent choices, and how to control cookies in your browser." canonical="/compliance/cookie-policy/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/cookie-policy/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/cookie-policy/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/cookie-policy/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/cookie-policy/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/cookie-policy/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Cookie policy'}]} />
     <h1>Cookie policy</h1>

@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Accessibility Statement — Made in China Peptide" description="Our accessibility commitment and measures: semantic HTML, keyboard navigation, contrast, alt text and a feedback route for accessibility issues." canonical="/compliance/accessibility/">
+<BaseLayout title="Accessibility Statement — Made in China Peptide" description="Our accessibility commitment and measures: semantic HTML, keyboard navigation, contrast, alt text and a feedback route for accessibility issues." canonical="/compliance/accessibility/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/accessibility/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/accessibility/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/accessibility/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/accessibility/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/accessibility/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Accessibility'}]} />
     <h1>Accessibility statement</h1>

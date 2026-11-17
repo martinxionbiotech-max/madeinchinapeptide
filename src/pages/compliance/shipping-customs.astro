@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Shipping & Customs Policy — Made in China Peptide" description="Shipping and customs terms: who clears import, what documents travel with each order, restricted destinations, cold-chain limits and duty responsibility." canonical="/compliance/shipping-customs/">
+<BaseLayout title="Shipping & Customs Policy — Made in China Peptide" description="Shipping and customs terms: who clears import, what documents travel with each order, restricted destinations, cold-chain limits and duty responsibility." canonical="/compliance/shipping-customs/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/shipping-customs/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/shipping-customs/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/shipping-customs/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/shipping-customs/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/shipping-customs/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Shipping & customs'}]} />
     <h1>Shipping &amp; customs policy</h1>

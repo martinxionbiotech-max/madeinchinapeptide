@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="pt" title="Cookies e tecnologias semelhantes — MICP" description="Que cookies e tecnologias semelhantes este site utiliza, com que finalidade e duração, cookies de segurança e como as controlar no seu navegador." canonical="/pt/compliance/cookie-policy/" alternates={[
+    { hreflang: 'en', href: 'https://madeinchinapeptide.com/compliance/cookie-policy/' },
+    { hreflang: 'es', href: 'https://madeinchinapeptide.com/es/compliance/cookie-policy/' },
+    { hreflang: 'pt', href: 'https://madeinchinapeptide.com/pt/compliance/cookie-policy/' },
+    { hreflang: 'ar', href: 'https://madeinchinapeptide.com/ar/compliance/cookie-policy/' },
+    { hreflang: 'x-default', href: 'https://madeinchinapeptide.com/compliance/cookie-policy/' },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Início',href:'/pt/'},{label:'Conformidade',href:'/pt/compliance/'},{label:'Política de cookies'}]} />
+    <h1>Política de cookies</h1>
+    <div class="quick-answer"><strong>Resposta rápida.</strong> Este site não utiliza cookies publicitários, de perfilagem ou de analítica. O nosso fornecedor de alojamento e segurança pode definir cookies estritamente necessários para proteger o site e encaminhar pedidos.</div>
+    <p class="lead muted">Esta política explica que cookies e tecnologias semelhantes são utilizados neste site, porquê e como os pode controlar.</p>
+    <p class="small muted">Última atualização: 5 de novembro de 2026 · Versão 2.0</p>
+
+    <h2>1. O que são cookies</h2>
+    <p>Os cookies são pequenos ficheiros de texto armazenados pelo seu navegador quando visita um site. Podem recordar preferências, manter uma sessão ativa ou ajudar um site a defender-se de abusos. As tecnologias semelhantes incluem o armazenamento local, os píxeis e os tokens de segurança.</p>
+
+    <h2>2. Cookies que utilizamos</h2>
+    <table>
+      <thead><tr><th>Categoria</th><th>Finalidade</th><th>Definido por</th><th>Consentimento</th></tr></thead>
+      <tbody>
+        <tr><td>Estritamente necessários</td><td>Encaminhamento, equilíbrio de carga e proteção contra tráfego malicioso</td><td>Fornecedor de alojamento e segurança (Cloudflare)</td><td>Não exigido — essenciais para servir o site</td></tr>
+        <tr><td>Preferências</td><td>Recordar a escolha de idioma, se for armazenada uma preferência</td><td>Este site</td><td>Quando exigido</td></tr>
+        <tr><td>Analíticos</td><td>Nenhum utilizado</td><td>—</td><td>—</td></tr>
+        <tr><td>Publicidade / perfilagem</td><td>Nenhum utilizado</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>Não utilizamos o Google Analytics, píxeis publicitários, mapas de calor nem rastreamento entre sites neste site. Se isto mudar, atualizaremos esta política e, quando exigido, pediremos consentimento antes de definir cookies não essenciais.</p>
+
+    <h2>3. Cookies de segurança</h2>
+    <p>O nosso fornecedor de alojamento e segurança pode definir um cookie ou token de curta duração para distinguir visitantes legítimos de abusos automatizados. Estes são utilizados apenas para fins de segurança e não são usados para criar um perfil dos seus interesses. Não podem ser desativados sem afetar a capacidade do site de o servir.</p>
+
+    <h2>4. Gestão de cookies</h2>
+    <p>Pode controlar os cookies através das definições do seu navegador. A maioria dos navegadores permite bloquear ou eliminar cookies, ou alertá-lo quando um cookie é definido. Bloquear cookies estritamente necessários pode impedir o carregamento correto do site. As páginas de ajuda dos navegadores explicam os passos exatos para o Chrome, o Safari, o Firefox e o Edge.</p>
+
+    <h2>5. Ligações a terceiros</h2>
+    <p>Este site contém ligações a sites de terceiros, incluindo o WhatsApp. Esses sites podem definir os seus próprios cookies e têm as suas próprias políticas de privacidade. Não os controlamos; reveja as respetivas políticas antes de interagir.</p>
+
+    <h2>6. Alterações e contacto</h2>
+    <p>Podemos atualizar esta política se a nossa utilização de cookies mudar. A data de «última atualização» mostra a versão atual. Questões: <a href={`mailto:${site.email}`}>{site.email}</a> com o assunto «Pedido de privacidade». Consulte também a nossa <a href="/pt/compliance/privacy/">política de privacidade</a>.</p>
+
+    <div class="ruo" style="margin-top:24px;">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário.</div>
+  </div>
+</BaseLayout>

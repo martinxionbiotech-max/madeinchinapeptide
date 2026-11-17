@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="es" title="Política de envío y aduanas — Made in China Peptide" description="Envío y aduanas: quién despacha la importación, documentos por pedido, destinos restringidos, cadena de frío, retenciones y responsabilidad de aranceles." canonical="/es/compliance/shipping-customs/" alternates={[
+    { hreflang: 'en', href: 'https://madeinchinapeptide.com/compliance/shipping-customs/' },
+    { hreflang: 'es', href: 'https://madeinchinapeptide.com/es/compliance/shipping-customs/' },
+    { hreflang: 'pt', href: 'https://madeinchinapeptide.com/pt/compliance/shipping-customs/' },
+    { hreflang: 'ar', href: 'https://madeinchinapeptide.com/ar/compliance/shipping-customs/' },
+    { hreflang: 'x-default', href: 'https://madeinchinapeptide.com/compliance/shipping-customs/' },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Cumplimiento',href:'/es/compliance/'},{label:'Envío y aduanas'}]} />
+    <h1>Política de envío y aduanas</h1>
+    <div class="quick-answer"><strong>Respuesta rápida.</strong> Enviamos con factura comercial, lista de empaque, COA de lote y MSDS cuando se exige. El comprador confirma la legalidad de la importación y cualquier permiso; los derechos e impuestos del destino son responsabilidad del comprador, salvo que el Incoterm disponga otra cosa.</div>
+    <p class="lead muted">Esta política explica cómo se envían los pedidos, qué documentos los acompañan y cómo se reparte la responsabilidad en la frontera.</p>
+    <p class="small muted">Última actualización: 5 de noviembre de 2026 · Versión 2.0</p>
+
+    <h2>1. Ámbito de aplicación</h2>
+    <p>Esta política se aplica a todos los envíos de péptidos de investigación y materiales relacionados. Forma parte de nuestras <a href="/es/compliance/terms/">condiciones del servicio</a>. Cuando una confirmación de pedido por escrito especifica condiciones de envío distintas, prevalece la confirmación del pedido.</p>
+
+    <h2>2. Incoterms y riesgo</h2>
+    <p>Los envíos se realizan bajo Incoterms® 2020. El término aplicable se indica en la confirmación del pedido. Términos habituales:</p>
+    <table>
+      <thead><tr><th>Término</th><th>Flete</th><th>Transmisión del riesgo</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td>EXW</td><td>Comprador</td><td>En nuestras instalaciones</td><td>Compradores con capacidad propia de exportación y transporte</td></tr>
+        <tr><td>FOB</td><td>Comprador tras la carga</td><td>A bordo del buque/aeronave</td><td>Primeros pedidos en los que el comprador controla al transitario</td></tr>
+        <tr><td>CIF</td><td>Vendedor</td><td>En el puerto de destino</td><td>Compradores que desean incluir el flete y un seguro mínimo</td></tr>
+        <tr><td>DDP</td><td>Vendedor</td><td>En la dirección del comprador</td><td>Pedidos recurrentes con un circuito de despacho aduanero probado</td></tr>
+      </tbody>
+    </table>
+    <p>La propiedad se transmite con el pago íntegro, independientemente del Incoterm. El seguro CIF es una cobertura mínima; los compradores que necesiten una cobertura más amplia deben contratar su propia póliza. Véase <a href="/knowledge/peptide-cargo-insurance/">seguro de carga</a>.</p>
+
+    <h2>3. Documentos de exportación</h2>
+    <p>Cada envío va acompañado, como mínimo, de:</p>
+    <ul>
+      <li>Factura comercial (partes, descripción, cantidad, valor, Incoterm).</li>
+      <li>Lista de empaque (unidades, peso neto/bruto, dimensiones).</li>
+      <li>Certificado de análisis específico del lote con datos de HPLC y MS.</li>
+      <li>Ficha de datos de seguridad (MSDS/SDS) cuando la exija el transportista o el destino.</li>
+      <li>Certificado de origen, a petición o cuando se exija.</li>
+      <li>Guía aérea o conocimiento de embarque.</li>
+      <li>Permiso o licencia de importación, cuando el comprador haya aportado uno.</li>
+    </ul>
+    <p>La descripción del producto, la cantidad y el número de lote deben coincidir en todos los documentos. Revisamos el conjunto antes de la salida; el comprador debe revisar el borrador del conjunto antes de que la mercancía salga.</p>
+
+    <h2>4. Clasificación, derechos y impuestos</h2>
+    <p>La clasificación aduanera depende del compuesto, la pureza, la presentación y el arancel del país de destino. Clasificamos de buena fe con el aporte de un agente de aduanas; el comprador sigue siendo responsable de confirmar la partida correcta en destino. Los derechos de importación, el IVA, los impuestos especiales y demás cargas del destino son responsabilidad del comprador, salvo que la confirmación del pedido los incluya expresamente.</p>
+
+    <h2>5. Destinos restringidos y permisos</h2>
+    <p>Algunas jurisdicciones restringen o prohíben determinados péptidos, o exigen una licencia de importación, una notificación o una autorización de investigación. El comprador debe confirmar que el producto puede importarse y utilizarse legalmente, y debe aportar cualquier permiso antes del envío. Podemos rechazar un envío cuando no pueda demostrarse la legalidad de la importación. Véase <a href="/es/knowledge/peptide-import-permits-restricted-destinations/">permisos de importación y destinos restringidos</a>.</p>
+
+    <h2>6. Transportistas y cadena de frío</h2>
+    <p>Elegimos un transportista adecuado a la ruta y al perfil de estabilidad del producto. Los péptidos liofilizados suelen tolerar un tránsito corto a temperatura ambiente; los productos sensibles o las rutas cálidas pueden requerir placas de cambio de fase o un servicio de cadena de frío. El embalaje incluye amortiguación de viales, contención secundaria y desecante cuando procede. Las excursiones de temperatura en tránsito son un riesgo del transporte, no un defecto del producto, salvo que el embalaje o el producto no fueran conformes en la salida.</p>
+
+    <h2>7. Plazos de entrega estimados</h2>
+    <p>Los plazos indicados en la cotización son estimaciones basadas en el rendimiento normal de la producción y del transportista. La inspección aduanera, los retrasos del transportista, la meteorología, los días festivos y los acontecimientos de fuerza mayor pueden ampliarlos. Informaremos al comprador de cualquier retraso conocido y facilitaremos la información de seguimiento de la que dispongamos.</p>
+
+    <h2>8. Retenciones en aduana</h2>
+    <p>Si un envío queda retenido, facilitaremos el documento o la explicación que falte lo antes posible y mantendremos informado al comprador. Las soluciones habituales son una factura corregida, un COA, un permiso o una nota de clasificación. El comprador es responsable de responder a las solicitudes de las autoridades de destino y de cualquier coste de almacenamiento, demora o devolución derivado de la retención, salvo que la retención se deba a un error documental nuestro.</p>
+
+    <h2>9. Daños, faltantes y pérdidas</h2>
+    <p>El comprador debe inspeccionar el envío a su llegada y notificárnoslo dentro del plazo de reclamación previsto en la <a href="/compliance/returns/">política de devoluciones</a>. En caso de daño visible, fotografíe el embalaje exterior antes de desembalarlo y conserve el vial, el material de embalaje y los documentos. En caso de pérdida, notifíquelo con prontitud al transportista y a nosotros para que la reclamación pueda abrirse dentro del plazo del transportista.</p>
+
+    <h2>10. Envíos rechazados o devueltos</h2>
+    <p>Si un comprador rechaza un envío, o una autoridad de destino lo devuelve, el comprador asume el flete de devolución, el almacenamiento y cualquier coste de reimportación, salvo que el rechazo se deba a un error nuestro. Aconsejaremos sobre las opciones de eliminación o reenvío; los productos que han salido del almacenamiento controlado pueden no ser revendibles.</p>
+
+    <h2>11. Sanciones y controles de exportación</h2>
+    <p>No enviaremos a una parte restringida, a un destino sancionado ni a un uso final prohibido por la legislación aplicable en materia de controles de exportación. El comprador confirma que no está sujeto a tales restricciones y que los productos no se desviarán a un uso final prohibido.</p>
+
+    <h2>12. Contacto</h2>
+    <p>Consultas sobre envíos: <a href={`mailto:${site.email}`}>{site.email}</a> (asunto «Envíos»). Consultas de cumplimiento: la misma dirección, asunto «Cumplimiento». Indique la referencia del pedido o de la cotización para que podamos responder con precisión.</p>
+
+    <div class="ruo" style="margin-top:24px;">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>
