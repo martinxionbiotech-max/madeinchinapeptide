@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Debida diligencia corporativa de un proveedor de péptidos';
+const description = 'Verificar la empresa detrás de un COA de péptidos: registros, derechos de exportación, cotejo de entidades y capacidad que no resiste la aritmética.';
+---
+<BaseLayout lang="es" title={title} description={description} canonical="/es/knowledge/peptide-supplier-corporate-due-diligence/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-supplier-corporate-due-diligence/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Debida diligencia corporativa'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Una auditoría de proveedores pregunta si el sistema de calidad puede fabricar el producto. La debida diligencia corporativa hace otra pregunta: quién es legalmente responsable, si esa entidad puede exportar y si la entidad que firma el contrato es la misma que fabrica el material. Los compradores suelen hacer lo primero y saltarse lo segundo, y luego descubren en el banco o en la aduana que la empresa del certificado no es la empresa a la que pagaron.</p>
+
+    <h2>Tres entidades que suelen confundirse</h2>
+    <p>En las cadenas de suministro de péptidos, al menos tres organizaciones pueden aparecer en un mismo pedido:</p>
+    <ul>
+      <li><strong>La entidad contratante</strong> — la empresa que figura en la orden de compra y en la factura, y a la que reclamaría en una disputa.</li>
+      <li><strong>La entidad fabricante</strong> — el sitio que ejecuta realmente la síntesis, la purificación y la liofilización.</li>
+      <li><strong>La entidad comercializadora</strong> — un intermediario que compra al fabricante y le vende a usted, a veces con su propia plantilla de certificado.</li>
+    </ul>
+    <p>Las tres pueden ser legítimas. El problema es la ambigüedad: una cotización de una comercializadora, un COA en el membrete de un fabricante, una factura a nombre de un tercero y una cuenta bancaria de un cuarto. Cada cesión es un punto donde la responsabilidad se vuelve confusa. Anote qué entidad desempeña qué papel antes de pagar nada y haga que el contrato lo diga.</p>
+
+    <h2>Lea la licencia de actividad, no el folleto</h2>
+    <p>La licencia de actividad (营业执照) es el registro público principal. Campos útiles:</p>
+    <table>
+      <thead><tr><th>Campo</th><th>Qué le dice</th><th>Qué no le dice</th></tr></thead>
+      <tbody>
+        <tr><td>Código unificado de crédito social</td><td>Un identificador estable de la entidad legal</td><td>Si la empresa es buena o no</td></tr>
+        <tr><td>Domicilio registrado</td><td>Dónde está registrada la entidad</td><td>Dónde se fabrica</td></tr>
+        <tr><td>Objeto social</td><td>Si la fabricación o el comercio figuran entre las actividades registradas</td><td>Si esa línea se opera de verdad</td></tr>
+        <tr><td>Capital registrado</td><td>Una cifra suscrita, no prueba de fondos desembolsados</td><td>Solvencia o capacidad</td></tr>
+        <tr><td>Fecha de constitución</td><td>Cuánto tiempo existe la entidad</td><td>Cuánto tiempo llevan las personas que están detrás en el sector</td></tr>
+        <tr><td>Representante legal</td><td>La persona con autoridad estatutaria</td><td>Quién dirige realmente las operaciones</td></tr>
+      </tbody>
+    </table>
+    <p>Mire el objeto social en concreto. Una empresa cuyas actividades registradas cubren «venta de productos químicos» pero no la fabricación puede ser un comercializador; eso no la descalifica, pero cambia lo que está comprando y las preguntas que debe hacer. Una empresa que afirma fabricar pero cuyo objeto social no incluye ninguna actividad de producción merece una pregunta directa.</p>
+
+    <h2>Registros públicos que conviene consultar</h2>
+    <p>El Sistema Nacional de Publicidad de Información Crediticia Empresarial de China publica la situación del registro, las sanciones administrativas, la lista de operaciones anómalas y la lista de incumplidores graves (失信). Un proveedor que aparece en la lista de operaciones anómalas — habitualmente por no presentar el informe anual o por un domicilio con el que no se puede contactar — no es automáticamente fraudulento, pero la entrada debe explicarse y resolverse antes de un primer pedido.</p>
+    <p>Busque patrones y no hechos aislados: cambios frecuentes de representante legal o de domicilio, un grupo de empresas en una misma dirección pequeña, un registro de solo unos meses combinado con afirmaciones de una década de producción, o un objeto social modificado inmediatamente antes de la cotización. Todo eso es barato de comprobar y difícil de explicar de forma inocente.</p>
+
+    <h2>Derechos de exportación y registro aduanero</h2>
+    <p>Fabricar un producto y tener permiso para exportarlo son autorizaciones distintas. Pida el registro aduanero y el código de aduanas de la entidad que figurará como exportador en la declaración de la expedición. El nombre en la declaración de exportación debe coincidir con el vendedor con el que contrató, o la diferencia debe explicarse por escrito.</p>
+    <p>Esto importa también en el destino. Si la factura comercial, la lista de empaque, el certificado de origen y la guía aérea llevan nombres de empresa incoherentes, la expedición puede atascarse en la aduana mientras el agente de aduanas formula preguntas que el proveedor tarda en responder. El lado documental del envío se trata en <a href="/knowledge/shipping-peptides-customs-guide/">envío y aduanas</a>; el punto aquí es que la coherencia de entidades empieza en el registro del vendedor, no en el transitario.</p>
+
+    <h2>El dinero debe coincidir con la entidad</h2>
+    <p>El nombre del beneficiario de la cuenta bancaria debe coincidir con la entidad contratante. Una petición de pago a otra empresa, a una cuenta personal o a una cuenta en Hong Kong «por motivos fiscales» es un cambio de contraparte, no una comodidad. Si existe una estructura de grupo legítima, pida por escrito la relación y una autorización a nivel de consejo para la entidad receptora.</p>
+    <p>La misma regla vale para certificados y facturas: el membrete, el sello, el emisor de la factura y el beneficiario bancario deben formar una cadena coherente. Cualquier ruptura de esa cadena es el punto donde se discutirá una disputa. Los instrumentos de pago y la verificación de cambios en datos bancarios se detallan en <a href="/knowledge/peptide-supplier-payment-terms/">condiciones de pago del proveedor</a>.</p>
+
+    <h2>Someta la afirmación de capacidad a la aritmética</h2>
+    <p>«Varias toneladas al mes» es una afirmación que puede comprobarse sin visitar la planta. Pida el número y el volumen de los reactores, el tamaño típico de lote, el número de liofilizadores y su superficie de bandeja, y el régimen de turnos. Después compruebe si la producción declarada es plausible para ese equipo y esa mezcla de productos.</p>
+    <p>Una comprobación sencilla: un lote ocupa un reactor durante un ciclo de síntesis y un liofilizador durante un ciclo de secado. Si la producción mensual declarada exige más ciclos de secado de los que el equipo declarado puede ejecutar en un mes, o la lista de equipos o la cifra de producción es errónea. No necesita los detalles del proceso del proveedor para advertir que las dos cifras no pueden ser verdaderas a la vez.</p>
+    <p>Las afirmaciones de capacidad también suelen ignorar los cambios de producto. Una planta que fabrica varios productos comparte reactores, módulos de filtración y capacidad de secado; la producción de su producto no es la producción total de la planta. Pregunte qué fracción de la capacidad está comprometida en este momento y con qué tipo de producto.</p>
+
+    <h2>Verifique los certificados en el organismo emisor</h2>
+    <p>La imagen de un certificado es un documento, no una verificación. Los certificados de gestión de la calidad llevan un organismo emisor, un número de certificado y un periodo de validez, y la mayoría de los emisores ofrecen una consulta pública. Compruebe el número, el alcance, la dirección del sitio y las fechas de validez contra el documento que le enviaron.</p>
+    <p>El alcance importa más que el logotipo. Un certificado que cubre «venta de productos químicos» no cubre la fabricación, y un certificado de un sitio no cubre otro. Para los resultados analíticos, compruebe si el laboratorio que emitió el informe está acreditado para el ensayo concreto y para qué matriz. La diferencia entre un resultado acreditado y uno no acreditado no es la calidad del papel; es si alguien independiente ha comprobado la competencia del laboratorio para ese método.</p>
+
+    <h2>Referencias comerciales y las preguntas que responden</h2>
+    <p>Pida dos o tres referencias en su región o en su segmento, y hágalas preguntas concretas: si el lote cumplió la especificación, cómo respondió el proveedor ante una discrepancia, si la documentación llegó completa y si volverían a pedir. Una referencia que solo confirma que «son un buen proveedor» no le ha dicho nada.</p>
+    <p>Trate las referencias como un dato entre varios. Un proveedor puede elegir referencias amistosas; la señal útil es si puede aportar alguna y si el negocio de la referencia se parece al suyo.</p>
+
+    <h2>Señales de alarma que justifican detenerse</h2>
+    <ul>
+      <li>El membrete del COA, el emisor de la factura y el beneficiario bancario son tres empresas distintas sin relación documentada.</li>
+      <li>El proveedor se niega a nombrar el sitio de fabricación, o nombra un sitio que no aparece en ningún registro.</li>
+      <li>El objeto social solo cubre el comercio, pero la cotización afirma fabricación directa de fábrica sin explicar la entidad fabricante.</li>
+      <li>La empresa se registró hace poco, pero afirma años de historial de lotes y auditorías de clientes.</li>
+      <li>El domicilio registrado es una vivienda, una oficina virtual o lo comparte un número inverosímil de empresas.</li>
+      <li>Se pide el pago a una cuenta personal o a una entidad ajena al contrato.</li>
+      <li>El proveedor no puede aportar el registro aduanero del exportador que figura en la declaración.</li>
+      <li>Los certificados no pueden verificarse en el organismo emisor, o el alcance no cubre la actividad declarada.</li>
+    </ul>
+    <p>Ninguna de estas señales prueba por sí sola un fraude. En conjunto describen una contraparte cuyo relato no cierra, y el coste de resolverlo antes de pagar es trivial comparado con resolverlo después de que falle una expedición.</p>
+
+    <h2>Lo que la debida diligencia no puede hacer</h2>
+    <p>Las comprobaciones corporativas establecen la identidad legal, los permisos y la coherencia. No establecen que el sistema de calidad funcione, que los métodos analíticos sean adecuados ni que el material cumpla su especificación. Esos son los temas de la <a href="/knowledge/remote-peptide-supplier-audit/">auditoría remota</a>, el <a href="/knowledge/peptide-supplier-site-audit-questionnaire/">cuestionario de auditoría en planta</a> y los análisis de recepción descritos en <a href="/knowledge/peptide-sampling-and-batch-release/">muestreo y liberación de lote</a>.</p>
+    <p>Use las capas juntas: las comprobaciones corporativas le dicen con quién trata, la auditoría le dice cómo trabajan, y la muestra y los análisis de recepción le dicen qué enviaron. Saltarse la primera capa hace más difíciles de interpretar las otras dos, porque no sabe de quién auditó el sistema ni de quién analizó el material.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Este artículo describe la debida diligencia en compras; no formula ninguna afirmación sobre ninguna empresa, producto o certificación concreta, y no respalda su administración a personas ni a animales.</div>
+
+    <h2>La opinión del autor</h2>
+    <p>La debida diligencia corporativa es un seguro barato contra el fallo más caro: pagar a una entidad a la que no se puede exigir nada.</p>
+
+    <h2>Limitaciones</h2>
+    <p>Esta es una guía de debida diligencia comercial, no asesoramiento legal. Las afirmaciones de los proveedores deben verificarse contra los documentos de lote y, cuando se requiera, mediante una auditoría independiente.</p>
+
+    <h2>Productos mencionados en esta guía</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a></li>
+      <li><a href="/wholesale/">Suministro mayorista y a granel</a></li>
+    </ul>
+
+    <h2>Lecturas y productos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Lista de verificación de proveedores de péptidos en China</a> — la secuencia de cribado antes de un pedido</li>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Auditoría remota de proveedores</a> — documentos, recorrido en vídeo y puntuación</li>
+      <li><a href="/knowledge/peptide-supplier-site-audit-questionnaire/">Cuestionario de auditoría en planta de 40 preguntas</a> — lista de evidencias imprimible</li>
+      <li><a href="/knowledge/peptide-supplier-payment-terms/">Condiciones de pago del proveedor</a> — anticipos, L/C, depósito en garantía y verificación de datos bancarios</li>
+      <li><a href="/knowledge/peptide-scale-up/">Escalado a kilogramos</a> — comprobar las afirmaciones de capacidad con evidencia de lote</li>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Envío y aduanas</a> — documentos y requisitos de importación</li>
+      <li><a href="/es/knowledge/">Todas las guías de conocimiento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/es/knowledge/peptide-supplier-corporate-due-diligence/" section="Debida diligencia corporativa" lang="es" />
+</BaseLayout>

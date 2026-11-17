@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Análisis por terceros: usar un laboratorio externo';
+const description = 'Cómo encargar análisis independientes de péptidos: alcance de la acreditación, encargo al laboratorio, logística de muestras y lectura del informe.';
+---
+<BaseLayout lang="es" title={title} description={description} canonical="/es/knowledge/third-party-peptide-testing/" alternates={[
+    { hreflang: 'en', href: 'https://madeinchinapeptide.com/knowledge/third-party-peptide-testing/' },
+    { hreflang: 'es', href: 'https://madeinchinapeptide.com/es/knowledge/third-party-peptide-testing/' },
+    { hreflang: 'pt', href: 'https://madeinchinapeptide.com/pt/knowledge/third-party-peptide-testing/' },
+    { hreflang: 'ar', href: 'https://madeinchinapeptide.com/ar/knowledge/third-party-peptide-testing/' },
+    { hreflang: 'x-default', href: 'https://madeinchinapeptide.com/knowledge/third-party-peptide-testing/' },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Análisis por terceros'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Un resultado independiente es la única prueba, en una compra de péptidos, que el proveedor no ha producido. También es fácil de desperdiciar: el laboratorio equivocado, un método no declarado o una muestra que nunca representó al lote producirán una cifra que parece autorizada y no resuelve nada. La pregunta útil no es «qué laboratorio está acreditado» sino «qué demostrará exactamente este informe».</p>
+
+    <h2>Cuándo el análisis independiente justifica su coste</h2>
+    <ul>
+      <li><strong>Cualificar a un nuevo proveedor.</strong> Un resultado de un laboratorio que usted eligió, sobre una muestra que usted tomó, es la línea base con la que se comparan los lotes posteriores.</li>
+      <li><strong>Resultados en disputa.</strong> Cuando su análisis de recepción y el certificado del proveedor no coinciden, un tercer laboratorio con un alcance escrito es la vía de arbitraje: acordada antes de necesitarla, no después.</li>
+      <li><strong>Un análisis que no puede realizar internamente.</strong> ICP-MS para impurezas elementales, GC de espacio de cabeza para disolventes residuales, MS/MS para cobertura de secuencia y mapas peptídicos son las carencias habituales.</li>
+      <li><strong>Un expediente de calidad que exige independencia.</strong> Algunos clientes y auditores aceptan un resultado interno; otros no.</li>
+      <li><strong>Verificación periódica.</strong> Incluso un proveedor de confianza merece una comprobación ciega a intervalos, porque la gracia de una comprobación es que no se espera.</li>
+    </ul>
+    <p>El análisis no sustituye al plan de muestreo. Un análisis perfecto de una muestra no representativa sigue siendo la respuesta equivocada; la lógica de muestreo está en <a href="/knowledge/peptide-sampling-and-batch-release/">muestreo y liberación de lote</a>.</p>
+
+    <h2>Qué significa la acreditación y qué no</h2>
+    <p>La norma pertinente para los laboratorios analíticos es ISO/IEC 17025. La acreditación significa que un organismo independiente ha evaluado la competencia del laboratorio para un alcance definido: análisis concretos, sobre matrices concretas, con métodos concretos. No significa:</p>
+    <ul>
+      <li>que todos los servicios que el laboratorio anuncia estén dentro de ese alcance;</li>
+      <li>que un método fuera del alcance sea inválido — solo que su competencia no se ha evaluado de forma independiente;</li>
+      <li>que el muestreo fuera representativo;</li>
+      <li>que la interpretación del informe sea correcta.</li>
+    </ul>
+    <p>La comprobación práctica es el documento de alcance, no el logotipo. Busque el nombre del análisis, la técnica y la matriz. Un laboratorio acreditado para la «pureza de péptidos sintéticos por RP-HPLC» no está por ello acreditado para impurezas elementales por ICP-MS, y un informe que lleva el logotipo para un análisis fuera del alcance es una fuente habitual de confianza falsa. Si un análisis se subcontrata, el informe debe decirlo y nombrar el laboratorio que lo realizó.</p>
+
+    <h2>El encargo al laboratorio</h2>
+    <p>Un laboratorio solo puede responder a la pregunta que se le hace. Un encargo útil incluye:</p>
+    <table>
+      <thead><tr><th>Elemento</th><th>Por qué cambia el resultado</th></tr></thead>
+      <tbody>
+        <tr><td>Secuencia, incluidas las modificaciones terminales</td><td>Fija la masa esperada, los fragmentos que hay que buscar y el comportamiento de solubilidad</td></tr>
+        <tr><td>Forma de contraión</td><td>Cambia la masa esperada y la interpretación de «pureza» y «contenido»</td></tr>
+        <tr><td>La pregunta</td><td>Identidad, pureza, cantidad, disolvente residual, impurezas elementales o secuencia: un solo informe rara vez responde bien a todo</td></tr>
+        <tr><td>Preferencia de método, si la tiene</td><td>Una transferencia de método cuesta más que un método de catálogo, pero produce un resultado comparable</td></tr>
+        <tr><td>Rango de pureza esperado</td><td>Permite al laboratorio elegir la carga de inyección y el rango lineal en lugar de adivinar</td></tr>
+        <tr><td>Cantidad de muestra disponible</td><td>Determina si el panel puede incluir réplicas y una reserva</td></tr>
+        <tr><td>Condiciones de almacenamiento y envío</td><td>Afecta al resultado si la muestra es sensible a la temperatura</td></tr>
+      </tbody>
+    </table>
+    <p>«Por favor, analice la pureza» no es un encargo. Un laboratorio que lo recibe aplicará su método por defecto, informará un porcentaje de área y será técnicamente correcto mientras responde a una pregunta distinta de la suya.</p>
+
+    <h2>Logística de muestras</h2>
+    <ul>
+      <li><strong>Envíe suficiente.</strong> Como mínimo, cantidad para el panel completo por duplicado más una reserva. Una sola alícuota significa que un reanálisis confirmatorio exige una muestra nueva y una nueva cadena de custodia.</li>
+      <li><strong>Conserve el envase original cuando sea posible.</strong> Transferir el polvo añade una etapa de manipulación y rompe el vínculo con el lote salvo que la transferencia se documente.</li>
+      <li><strong>Documente la cadena.</strong> Quién tomó la muestra, de qué vial y lote, cuándo, cómo se almacenó y quién la recibió. Un resultado sin ese registro es difícil de defender después.</li>
+      <li><strong>Use códigos ciegos en las comparaciones.</strong> Al comparar dos proveedores, etiquete las muestras con códigos y mantenga la clave por separado; un laboratorio que conoce la marca es un laboratorio con una expectativa.</li>
+      <li><strong>Declare el contenido con exactitud en los documentos de envío.</strong> Describir mal un químico de investigación para que llegue antes es un problema aduanero, no un atajo; véase <a href="/knowledge/shipping-peptides-customs-guide/">envío y aduanas</a>.</li>
+    </ul>
+
+    <h2>Leer el informe</h2>
+    <p>La línea del resultado es la parte menos informativa. Los campos que deciden si la cifra significa algo:</p>
+    <ul>
+      <li><strong>Método y condiciones.</strong> Columna, dimensiones y tamaño de partícula, fase móvil, gradiente, caudal, temperatura, longitud de onda de detección, volumen de inyección.</li>
+      <li><strong>Estándar.</strong> Qué se usó para calibrar y si era un material de referencia certificado, un estándar interno o un estándar externo.</li>
+      <li><strong>Integración y umbral.</strong> El porcentaje de área depende de lo que se integró; un informe que no declara el umbral no se puede comparar con la cifra de otro laboratorio.</li>
+      <li><strong>Idoneidad del sistema.</strong> Resolución, cola, repetibilidad y blancos. Sin esto, el cromatograma es una imagen, no prueba de un método que funciona.</li>
+      <li><strong>Límite de detección y de cuantificación.</strong> «No detectado» no significa nada sin el límite.</li>
+      <li><strong>Datos brutos.</strong> El archivo del cromatograma y el espectro de masas, no solo una imagen. Una captura en PDF no se puede reintegrar ni comprobar.</li>
+      <li><strong>Incertidumbre.</strong> Cuando se informa un resultado cuantitativo, la incertidumbre importa tanto como el valor al compararlo con un límite.</li>
+    </ul>
+    <p>Son los mismos campos que hacen legible el certificado de un proveedor, y las comprobaciones se detallan en <a href="/knowledge/how-to-verify-peptide-purity/">verificar la pureza de los péptidos</a> y <a href="/knowledge/peptide-coa-red-flags/">señales de alarma en el COA</a>. La diferencia es que un informe de terceros se puede cuestionar directamente, porque lo encargó usted.</p>
+
+    <h2>Triangulación, no promedio</h2>
+    <p>Cuando el resultado de terceros difiere del certificado del proveedor, el movimiento útil no es promediar las dos cifras. Es averiguar por qué difieren:</p>
+    <ol>
+      <li><strong>Métodos distintos.</strong> Dos métodos de HPLC con gradientes distintos pueden informar legítimamente porcentajes de área diferentes para el mismo lote.</li>
+      <li><strong>Base distinta.</strong> Tal cual, anhidro, base peptídica y base libre de sal son cuatro números diferentes; un informe que no declara la base no se puede comparar.</li>
+      <li><strong>Manipulación distinta de la muestra.</strong> Una muestra que captó agua en tránsito informará más agua y menos contenido de péptido.</li>
+      <li><strong>Integración distinta.</strong> El umbral y los ajustes de anchura de pico cambian el total de picos pequeños.</li>
+      <li><strong>Un desacuerdo real.</strong> Si el método, la base y la manipulación coinciden y los resultados siguen difiriendo, eso es un hallazgo que merece escalarse.</li>
+    </ol>
+    <p>El último caso es la razón de ser del ejercicio. Los cuatro primeros son la razón por la que muchas discrepancias aparentes se disuelven en cuanto se comparan los métodos.</p>
+
+    <h2>Lo que un tercero no puede decirle</h2>
+    <ul>
+      <li><strong>Si la muestra representaba al lote.</strong> Es una cuestión de muestreo y se decide antes de que la muestra salga de sus manos.</li>
+      <li><strong>Si la secuencia es la que usted pretendía.</strong> Una coincidencia de masa e incluso un resultado de cobertura de secuencia confirman qué es el material, no qué quiso pedir; los límites se tratan en <a href="/knowledge/peptide-ms-ms-sequence-confirmation/">confirmación de secuencia por MS/MS</a>.</li>
+      <li><strong>Si el proveedor puede repetirlo.</strong> Un lote es un lote; la consistencia necesita una tendencia, como se describe en <a href="/knowledge/peptide-lot-consistency/">consistencia lote a lote</a>.</li>
+      <li><strong>Si el proceso está controlado.</strong> Esa es una cuestión de auditoría, no analítica.</li>
+    </ul>
+
+    <h2>Preguntas que hacer a un laboratorio antes de encargar el trabajo</h2>
+    <ol>
+      <li>¿Este análisis concreto está dentro de su alcance acreditado y puede enviarme el documento de alcance?</li>
+      <li>¿Qué método aplicará y puede enviarme el resumen del método antes de que envíe la muestra?</li>
+      <li>¿Entrega los archivos del cromatograma y del espectro de masas, o solo imágenes?</li>
+      <li>¿Qué cantidad de muestra necesita para el panel por duplicado, más una reserva?</li>
+      <li>¿Cómo procede con una muestra que no se disuelve en las condiciones del método?</li>
+      <li>¿Se subcontratará alguna parte del trabajo y lo dirá el informe?</li>
+      <li>¿Cuál es el plazo y qué ocurre si el resultado está fuera de especificación?</li>
+      <li>¿Puede analizar una muestra codificada a ciegas e informar solo el código?</li>
+    </ol>
+    <p>Las respuestas separan a un laboratorio que producirá pruebas de uno que producirá un documento. El coste y el plazo varían según el método y el número de réplicas, así que conviene cotizarlos por proyecto en lugar de suponer una tarifa estándar.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Este artículo describe prácticas de análisis independiente; no formula ninguna afirmación sobre ningún laboratorio, producto o resultado concretos y no respalda su administración a personas o animales.</div>
+
+    <h2>La opinión del editor</h2>
+    <p>El análisis por terceros es un desempate, no una estrategia. Resulta más útil cuando responde a una pregunta concreta sobre un lote concreto, y menos útil cuando repite el análisis del propio proveedor sobre una muestra elegida por el proveedor.</p>
+
+    <h2>Fuentes y evidencia</h2>
+    <ul>
+      <li>Especificación y expectativas analíticas: ICH Q6B / Q2(R1) — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">directrices de calidad de la ICH</a>.</li>
+      <li>Sistemas de calidad en la fabricación de API: ICH Q7 — misma página de la ICH.</li>
+      <li>Normas nacionales chinas: GB/T a través de la <a href="https://openstd.samr.gov.cn/" rel="noopener" target="_blank">plataforma de texto completo de la SAMR</a>.</li>
+    </ul>
+    <p class="small muted">Orientación de diligencia debida comercial, no asesoramiento jurídico; las afirmaciones del proveedor deben verificarse contra los documentos del lote.</p>
+
+    <h2>Limitaciones</h2>
+    <p>Esta es una orientación de diligencia debida comercial, no asesoramiento jurídico. Las afirmaciones del proveedor deben verificarse contra los documentos del lote y, cuando se requiera, mediante una auditoría independiente.</p>
+
+    <h2>Productos citados en esta guía</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a></li>
+      <li><a href="/wholesale/">Suministro mayorista y a granel</a></li>
+    </ul>
+
+    <h2>Lecturas y productos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-qualification-sample/">Pedir una muestra de cualificación</a> — cómo dimensionar y codificar muestras antes del análisis</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Muestreo y liberación de lote</a> — conseguir que la muestra represente al lote</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verificar la pureza de los péptidos</a> — qué puede establecer un resultado de pureza</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">Señales de alarma en el COA</a> — las mismas comprobaciones aplicadas al certificado de un proveedor</li>
+      <li><a href="/knowledge/analytical-method-validation/">Validación de métodos analíticos</a> — por qué importa la historia de un método</li>
+      <li><a href="/knowledge/peptide-batch-documentation-package/">El paquete de documentación del lote</a> — datos brutos y registros más allá del resumen</li>
+      <li><a href="/es/knowledge/">Todas las guías de conocimiento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/es/knowledge/third-party-peptide-testing/" section="Análisis por terceros" lang="es" />
+</BaseLayout>

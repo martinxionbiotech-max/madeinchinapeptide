@@ -4,7 +4,7 @@ const path = Astro.url.pathname;
 const langMatch = path.match(/^\/(es|ar|pt)(\/.*)?$/);
 const currentLang = langMatch ? langMatch[1] : 'en';
 const basePath = langMatch ? (langMatch[2] || '/') : path;
-const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/', '/about/', '/quality/', '/oem-private-label/', '/knowledge/']);
+const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/', '/about/', '/quality/', '/oem-private-label/', '/knowledge/', '/compliance/', '/compliance/privacy/', '/compliance/terms/']);
 const hrefFor = (l: string) => {
   if (l === 'en') return translated.has(basePath) ? basePath : '/';
   return translated.has(basePath) ? `/${l}${basePath}` : `/${l}/`;

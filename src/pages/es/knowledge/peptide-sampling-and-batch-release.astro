@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Muestreo de péptidos y liberación de lote';
+const description = 'Cuántos viales analizar, muestra compuesta o individual, reserva de retención y una investigación OOS que no acaba siendo analizar hasta aprobar.';
+---
+<BaseLayout lang="es" title={title} description={description} canonical="/es/knowledge/peptide-sampling-and-batch-release/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Muestreo y liberación'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Un certificado de análisis describe la muestra que el proveedor decidió analizar. No describe el vial que tiene en la mano. La distancia entre esas dos cosas la fija el plan de muestreo, y también lo que usted hace cuando su propio resultado no coincide con el papel que llegó en la caja.</p>
+
+    <h2>Por qué el muestreo es una decisión, no un trámite</h2>
+    <p>Un péptido liofilizado no es un líquido homogéneo. El peso de llenado varía de vial a vial, la humedad residual varía con la posición en la pila de bandejas, y una tanda de liofilización puede producir un gradiente de calidad de la torta de delante a atrás de la cámara. Un proveedor que saca un vial de la bandeja superior e informa 98,4 % le ha dicho algo verdadero sobre ese vial. Que sea verdad sobre los mil viales que hay detrás depende de cómo se mezcló, se llenó y se muestreó el lote.</p>
+    <p>No es una acusación. Es la razón por la que existen planes de muestreo en todos los sectores manufactureros regulados, y la razón por la que un comprador debería poder exponer su propio plan en lugar de aceptar lo que el departamento de calidad del proveedor hiciera por casualidad.</p>
+
+    <h2>Qué debe especificar un plan de muestreo</h2>
+    <table>
+      <thead><tr><th>Elemento</th><th>Qué fija</th><th>Si se deja abierto</th></tr></thead>
+      <tbody>
+        <tr><td>Tamaño de muestra</td><td>Cuántas unidades se extraen del lote</td><td>Lo decide el proveedor, y normalmente extrae el mínimo</td></tr>
+        <tr><td>Método de selección</td><td>Aleatorio, estratificado por bandeja o palé, o por conveniencia</td><td>Sesgo hacia la parte superior de la pila</td></tr>
+        <tr><td>Compuesta o individual</td><td>Si las unidades se agrupan antes del ensayo</td><td>La variación entre viales desaparece en un promedio</td></tr>
+        <tr><td>Quién muestrea</td><td>Proveedor, comprador o un tercero en las instalaciones del proveedor</td><td>Ningún registro independiente de lo extraído</td></tr>
+        <tr><td>Criterios de aceptación</td><td>Los límites numéricos que debe cumplir una unidad</td><td>«Aprobado» pasa a ser un juicio, no un ensayo</td></tr>
+        <tr><td>Cantidad de retención</td><td>Cuánto se guarda para disputas futuras</td><td>No queda nada que reanalizar cuando surge una duda más adelante</td></tr>
+      </tbody>
+    </table>
+    <p>En la práctica, buena parte de esto pertenece al anexo técnico y no al correo electrónico, porque un acuerdo que solo vive en una cadena de mensajes desaparece con la siguiente orden de compra: véase <a href="/knowledge/peptide-specification-annex/">redactar un anexo de especificación</a>.</p>
+
+    <h2>La regla de la raíz cuadrada y lo que no le compra</h2>
+    <p>La heurística habitual para el muestreo de entrada es √N + 1: para un lote de 1.000 unidades, extraer 33. Es barata, está muy extendida y no tiene base estadística en el muestreo de aceptación. Escala con el tamaño del lote, que es lo que la intuición pide, pero no dice nada sobre el riesgo que se está aceptando.</p>
+    <p>Las normas de muestreo por atributos, como ISO 2859-1, funcionan al revés: primero se elige un límite de calidad aceptable (AQL) y un nivel de inspección, y las tablas devuelven un tamaño de muestra y un número de aceptación. Las tablas son inutilizables sin un AQL, y un AQL es una decisión de negocio: ¿con qué frecuencia está dispuesto a aceptar un lote que tenga, por ejemplo, un 1,5 % de unidades no conformes? Para material de investigación casi nadie lo declara, y por eso mismo el valor por defecto acaba siendo «lo que hiciera el proveedor».</p>
+    <p>Un poco de aritmética hace concreto el compromiso. Si el 25 % de las unidades de un lote son defectuosas y usted muestrea 10 al azar, la probabilidad de que ninguna sea defectuosa es 0,75<sup>10</sup> ≈ 0,056; es decir, en torno al 94 % de las veces detectaría al menos una. Baje la tasa de defectos al 5 % y esas mismas 10 unidades lo pasan por alto el 0,95<sup>10</sup> ≈ 60 % de las veces. Las muestras pequeñas encuentran problemas groseros y son casi ciegas a los sutiles. Es una propiedad de la aritmética, no del proveedor.</p>
+
+    <h2>Muestra compuesta frente a muestra individual</h2>
+    <p>Agrupar es la elección más consecuente de la lista, porque es irreversible e invisible en el resultado.</p>
+    <ul>
+      <li><strong>Compuesta.</strong> Varias unidades se combinan y se analizan una vez. Da un promedio, usa menos capacidad analítica y es adecuada cuando la pregunta es «¿está el lote, en general, según lo especificado?». No puede responder «¿está cada vial según lo especificado?», y diluye una sola unidad mala entre el número de unidades agrupadas.</li>
+      <li><strong>Individual.</strong> Las unidades se analizan por separado. Cuesta más y es la única forma de ver la distribución, que es lo que necesita si está cualificando a un proveedor nuevo o investigando una reclamación.</li>
+      <li><strong>Híbrida.</strong> Analice una compuesta para el panel completo y unidades individuales para un atributo barato y sensible, como el peso de llenado o el aspecto de la torta. El peso de llenado es la señal de heterogeneidad de bajo coste y mayor valor disponible: solo necesita una balanza calibrada, no es destructivo en el sentido de que el polvo sigue siendo utilizable, y una dispersión amplia entre viales le dice que la línea de llenado no estaba bajo control incluso antes de ejecutar ningún ensayo.</li>
+    </ul>
+    <p>Si pide resultados individuales, pídalos por adelantado. Un proveedor al que se le piden datos por vial después de los hechos los rechazará o los producirá a partir de un reanálisis, y un reanálisis es una muestra distinta.</p>
+
+    <h2>Qué analizar a la recepción</h2>
+    <p>El análisis de recepción no es una repetición del panel de liberación del proveedor. Es una comprobación de que el material que tiene delante coincide con el material descrito, más el atributo del que depende su propio trabajo. El aspecto es la primera de esas comprobaciones y no cuesta nada; cómo registrarlo de forma reproducible se trata en <a href="/knowledge/peptide-appearance-inspection/">aspecto e inspección visual</a>.</p>
+    <table>
+      <thead><tr><th>Ensayo</th><th>Pregunta que responde</th><th>Panel</th></tr></thead>
+      <tbody>
+        <tr><td>Aspecto e integridad de la torta</td><td>¿Es la misma forma física que se envió: tapón intacto, sin fusión, sin decoloración?</td><td>Cada recepción</td></tr>
+        <tr><td>Peso de llenado</td><td>¿La masa neta es la pedida, dentro de una tolerancia acordada?</td><td>Cada recepción</td></tr>
+        <tr><td>Identidad por MS</td><td>¿La masa observada es coherente con la secuencia etiquetada?</td><td>Primer lote, proveedor nuevo, cualquier disputa</td></tr>
+        <tr><td>Pureza por HPLC</td><td>¿Está el pico principal donde indica el certificado, con el área que el certificado declara?</td><td>Primer lote, proveedor nuevo, cualquier disputa</td></tr>
+        <tr><td>Agua por Karl Fischer</td><td>¿Se secó la torta como se afirmaba, y ha captado humedad desde entonces?</td><td>Cuando importan el contenido neto o el pesaje</td></tr>
+        <tr><td>Solubilidad en su disolvente</td><td>¿Se disuelve como supone su método?</td><td>Cuando el ensayo depende de ello</td></tr>
+      </tbody>
+    </table>
+    <p>El agua merece una nota: una torta liofilizada puede salir de fábrica con un nivel de humedad y llegar con otro, porque el cierre del vial es una barrera con una tasa de permeación, no un sellado en sentido absoluto. Si su aritmética de contenido neto supone un polvo seco, mídalo en lugar de suponerlo: véase <a href="/knowledge/peptide-net-content-and-cost/">contenido neto de péptido</a>.</p>
+    <p>Revalidar por completo cada ensayo de liberación rara vez vale la pena para material de investigación. El propósito del análisis de recepción es detectar una discrepancia, no volver a certificar el lote. Lo que importa es que los ensayos que sí se ejecutan sean aquellos cuyo fallo cambiaría su decisión.</p>
+
+    <h2>Muestras de retención: compre la opción antes de necesitarla</h2>
+    <p>Una muestra de retención es material guardado, sin abrir, en condiciones declaradas, para que una pregunta planteada meses después pueda responderse contra el mismo lote y no contra una compra nueva. Es el control de riesgo más barato de toda la transacción y el que más a menudo se omite.</p>
+    <ul>
+      <li><strong>Cantidad.</strong> Suficiente para repetir el panel completo de liberación al menos dos veces. Si surge una disputa, analizará la retención y posiblemente enviará una porción a un tercero: una sola alícuota no basta.</li>
+      <li><strong>Condición.</strong> La misma condición de almacenamiento que el stock de trabajo, registrada. Una muestra de retención guardada en un cajón no es una muestra de retención.</li>
+      <li><strong>Duración.</strong> Como mínimo, mientras siga usando material de ese lote; más tiempo si puede necesitar respaldar una consulta de un cliente o de una autoridad.</li>
+      <li><strong>Cadena de custodia.</strong> Número de lote, fecha de recepción, quién abrió qué y qué vial sigue sellado. Sin esto, el valor probatorio de la retención se derrumba en el momento en que alguien mete mano.</li>
+    </ul>
+    <p>Acuerde la cantidad de retención en la orden de compra. Los proveedores suelen facilitarla, pero rara vez la ofrecen, y «guardamos muestras de retención» no es lo mismo que «ustedes retienen muestras de retención».</p>
+
+    <h2>OOS y OOT son problemas distintos</h2>
+    <p>Un resultado fuera de especificación (OOS) queda fuera de un límite establecido. Un resultado fuera de tendencia (OOT) está dentro del límite pero es incoherente con el historial de lotes anteriores: una pureza que se desplaza de 98,9 % a 98,2 % y a 97,8 % es OOT antes de ser nunca OOS, y es la señal más útil porque llega cuando aún puede actuar a bajo coste. La revisión de tendencias necesita un historial, lo que significa guardar sus propios resultados en lugar de archivar certificados: véase <a href="/knowledge/peptide-lot-consistency/">consistencia lote a lote</a>.</p>
+    <p>Un resultado OOS es un hallazgo sobre un ensayo, no inmediatamente un hallazgo sobre el material. La investigación tiene dos fases y deben ejecutarse en orden:</p>
+    <ol>
+      <li><strong>Fase de laboratorio.</strong> ¿Fue el resultado causado por el método, el analista, el instrumento o la preparación de la muestra? Revise la integración, el volumen de inyección, el estado de la columna, el diluyente, la preparación del estándar y si la muestra estaba completamente disuelta. Esta fase encuentra una causa asignable o documenta que no se encontró ninguna.</li>
+      <li><strong>Fase de fabricación.</strong> Solo si el laboratorio queda descartado la pregunta pasa a ser qué le ocurrió al material: un lote distinto, un envío degradado, un error de llenado.</li>
+    </ol>
+    <p>El reanálisis es legítimo solo después de que se haya identificado una causa asignable y se haya invalidado el resultado original por una razón declarada. Reanalizar porque la primera respuesta era inconveniente no es una investigación; es la búsqueda de un número que le guste, y el término del sector para eso es analizar hasta la conformidad.</p>
+    <p>Dos prácticas que hay que rechazar de plano:</p>
+    <ul>
+      <li><strong>Promediar un aprobado y un fallo.</strong> Si un resultado está válidamente fuera de especificación y otro válidamente dentro, no se ha demostrado que el material cumpla. El promedio de un resultado conforme y otro no conforme no es un resultado conforme.</li>
+      <li><strong>La regla no planificada de «dos de tres».</strong> Un plan de reanálisis preespecificado, con un número definido de réplicas y una regla de decisión definida, puede ser estadísticamente defendible. Aplicado a posteriori para rescatar un resultado fallido, es solo muestreo repetido hasta que el ruido colabore.</li>
+    </ul>
+
+    <h2>Cuando su resultado no coincide con el certificado</h2>
+    <p>Las discrepancias son frecuentes y suelen tener una explicación inocente: otra columna, otro gradiente, otro disolvente de inyección, una muestra que no se disolvió por completo o una cifra de pureza calculada sobre una base distinta. La secuencia productiva es:</p>
+    <ol>
+      <li>Revise su propio método contra el impreso en el certificado antes de concluir nada. El porcentaje de área y el porcentaje en masa no son intercambiables, y tampoco lo son las bases anhidra y tal cual.</li>
+      <li>Envíe la comparación, no la conclusión: su cromatograma, las condiciones del método y el resultado numérico. Los proveedores responden mucho mejor a los datos que a las acusaciones.</li>
+      <li>Pida los datos brutos que respaldan su cifra: cromatograma, parámetros de integración y el estándar utilizado. Un certificado que no puede acompañarse de un cromatograma ya le ha dicho algo por sí solo.</li>
+      <li>Si la diferencia persiste, analice la muestra de retención. Este es el momento en que la retención justifica su coste: es la única muestra que procede sin ambigüedad del lote entregado y está sin ambigüedad bajo su control.</li>
+      <li>Escale a un laboratorio externo con un alcance por escrito, y acuerde de antemano quién asume el coste según el resultado. Lo que ese alcance debe contener se expone en <a href="/knowledge/third-party-peptide-testing/">recurrir a un laboratorio externo</a>.</li>
+    </ol>
+    <p>Regístrelo todo. Un registro de recepción fechado, con la identidad de la muestra, la balanza utilizada, la versión del método y la salida bruta, es lo que convierte una discrepancia en una desviación documentada, y es lo que hace mejor el siguiente envío.</p>
+
+    <h2>Preguntas para el proveedor</h2>
+    <ul>
+      <li>¿Cuántas unidades se extrajeron de este lote, con qué método, y se agruparon o se analizaron individualmente?</li>
+      <li>¿Las unidades muestreadas procedían de la misma tanda de liofilización que llenó los viales enviados, y puede identificarse la tanda en el certificado?</li>
+      <li>¿Cuál es la tolerancia de peso de llenado de este producto, y cuál fue el rango observado en este lote?</li>
+      <li>¿Suministrará material de retención de este lote, en la cantidad que especifiquemos, conservado en la condición declarada?</li>
+      <li>Si nuestro análisis de recepción no coincide con su certificado, ¿cuál es su procedimiento de investigación y quién paga el arbitraje por un tercero?</li>
+    </ul>
+    <p>Ninguna de estas preguntas exige al proveedor revelar un secreto comercial. Todas exigen que tenga un sistema. Las respuestas son más informativas que la columna de «conforme» del certificado: véase <a href="/quality/coa/">leer un COA</a> para el lado documental del mismo problema.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Este artículo describe prácticas de muestreo y control de calidad; no formula ninguna afirmación sobre ningún compuesto concreto y no respalda su administración a personas ni a animales.</div>
+
+    <h2>La opinión del autor</h2>
+    <p>El muestreo es donde un lote se convierte en un número. Si la muestra no es representativa, la decisión de liberación es teatro con una firma.</p>
+
+    <h2>Limitaciones</h2>
+    <p>Esta guía describe métodos e interpretación, no límites de aceptación. Los límites deben venir de su propia especificación y, cuando proceda, de la monografía farmacopea correspondiente. El autor no realizó ningún análisis para esta página.</p>
+
+    <h2>Productos mencionados en esta guía</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a></li>
+      <li><a href="/wholesale/">Suministro mayorista y a granel</a></li>
+    </ul>
+
+    <h2>Lecturas y productos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-qualification-sample/">Muestras de cualificación</a> — dimensionar, codificar y comparar proveedores antes del primer pedido a granel</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Anexo de especificación</a> — dónde encajan el plan de muestreo y los criterios de aceptación</li>
+      <li><a href="/quality/coa/">Leer un COA</a> — qué establece y qué no el documento del proveedor</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Consistencia lote a lote</a> — usar sus propios resultados como línea base de tendencia</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Estudios de estabilidad</a> — por qué un resultado de liberación no es una vida útil</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Liofilización</a> — de dónde viene la variación entre viales</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Contenido neto de péptido</a> — peso de llenado, agua y la aritmética entre ambos</li>
+      <li><a href="/es/knowledge/">Todas las guías de conocimiento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/es/knowledge/peptide-sampling-and-batch-release/" section="Muestreo y liberación de lote" lang="es" />
+</BaseLayout>

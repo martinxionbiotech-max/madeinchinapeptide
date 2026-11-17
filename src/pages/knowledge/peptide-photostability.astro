@@ -5,7 +5,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Light exposure and peptide stability';
 const description = 'Which residues absorb light, what photo-oxidation produces, how container and lamp type change the risk, and what a photostability study can prove.';
 ---
-<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-photostability/">
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-photostability/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-photostability/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-photostability/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-photostability/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-photostability/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-photostability/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Light and stability'}]} />
     <h1>{title}</h1>

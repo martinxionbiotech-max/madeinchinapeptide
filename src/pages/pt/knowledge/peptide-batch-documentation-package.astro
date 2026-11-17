@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'O dossiê de documentação do lote de péptidos';
+const description = 'O que um dossiê de lote completo deve conter além do COA: dados brutos, registo de lote, métodos, declarações e documentos de expedição, e o que cada um prova.';
+---
+<BaseLayout lang="pt" title={title} description={description} canonical="/pt/knowledge/peptide-batch-documentation-package/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-batch-documentation-package/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-batch-documentation-package/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-batch-documentation-package/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-batch-documentation-package/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-batch-documentation-package/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Início',href:'/pt/'},{label:'Conhecimento',href:'/pt/knowledge/'},{label:'Documentação de lote'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Um certificado de análise é uma página. O dossiê de lote é a evidência que está por trás dela. Muitos compradores negociam o COA com dureza e depois aceitam uma expedição sem cromatograma, sem resumo do registo de lote e sem uma declaração de quem produziu o material, ficando com um resultado que não conseguem reconstruir e um fornecedor que não conseguem cruzar.</p>
+
+    <h2>O que é um COA e o que não é</h2>
+    <p>Um COA específico do lote indica os ensaios realizados, os métodos, os limites de especificação e os resultados, e identifica o lote. Isso é um resumo. Não são os dados brutos, não é o registo de lote e não é prova de que os métodos eram adequados. A distinção importa quando um resultado é contestado ou quando um regulador, um cliente ou um auditor pergunta como foi obtido um número.</p>
+    <p>O certificado deve incluir, no mínimo: nome do produto e sequência ou identificador de catálogo, número de lote, datas de fabrico e de ensaio, ensaios com métodos e limites, resultados, a base dos valores de pureza e de teor, o nome e o endereço do emitente, e uma assinatura ou um selo autorizado. Menos do que isso é uma folha de especificação com resultados anexados.</p>
+
+    <h2>As camadas de um dossiê de lote</h2>
+    <table>
+      <thead><tr><th>Camada</th><th>Documentos</th><th>O que estabelece</th></tr></thead>
+      <tbody>
+        <tr><td>Resumo de libertação</td><td>COA, especificação, resumos de métodos</td><td>O que foi ensaiado contra que limites, e o resultado</td></tr>
+        <tr><td>Dados analíticos brutos</td><td>Cromatogramas de HPLC com parâmetros do método, espetros de MS, relatórios de KF, GC, ICP-MS</td><td>Que existe uma medição por trás de cada número, e como foi executada</td></tr>
+        <tr><td>Registo de fabrico</td><td>Resumo do registo de lote, escala, rendimento, desvios, notas de reprocessamento</td><td>Como o lote foi produzido e se aconteceu algo invulgar</td></tr>
+        <tr><td>Documentos de controlo</td><td>Controlos em processo, registos de limpeza, estado de calibração dos equipamentos</td><td>Se o processo estava sob controlo nesse momento</td></tr>
+        <tr><td>Declarações</td><td>Declaração RUO, declaração de origem e fabricante, declaração TSE/BSE quando aplicável, SDS</td><td>A utilização prevista e a proveniência do material</td></tr>
+        <tr><td>Conjunto de expedição</td><td>Fatura comercial, lista de embalagem, guia aérea, certificado de origem, MSDS</td><td>Que a expedição corresponde ao pedido e pode desalfandegar</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A questão dos dados brutos</h2>
+    <p>Peça o cromatograma, não apenas a percentagem de área. O cromatograma mostra a linha de base, a forma do pico, as marcas de integração e os picos de impureza que foram incluídos ou excluídos. Um valor de pureza sem o traçado é uma conclusão sem evidência, e a diferença entre 98 % e 96 % vive muitas vezes nesses detalhes — como se explica em <a href="/knowledge/reading-peptide-hplc-chromatograms/">ler um cromatograma</a>.</p>
+    <p>Para espetrometria de massa, peça o espetro e a massa reportada, não apenas «MS: conforme». Os detalhes úteis são a massa observada, a massa esperada, os estados de carga e o erro de massa. Um espetro mostra também se o sinal principal é a espécie esperada ou uma mistura. O que uma correspondência de massa pode e não pode provar está tratado em <a href="/knowledge/peptide-mass-spec-identity/">verificações de identidade por espetrometria de massa</a>.</p>
+    <p>Não todos os fornecedores libertam dados brutos completos para cada encomenda. Isso é uma posição comercial, não científica, e deve ser negociada antes da encomenda em vez de descoberta depois de uma falha. Um meio-termo é um pacote de dados para o primeiro lote, ou para qualquer lote que falhe os ensaios de receção.</p>
+
+    <h2>O resumo do registo de lote</h2>
+    <p>Não precisa do registo de fabrico completo para colocar três perguntas: a que escala foi produzido este lote, se foi produzido numa única campanha ou misturado a partir de várias, e se houve desvios ou etapas de reprocessamento. As respostas explicam uma quantidade surpreendente da variação entre lotes.</p>
+    <ul>
+      <li><strong>Escala.</strong> Um lote de 10 g e um lote de 1 kg são processos diferentes, mesmo pela mesma rota.</li>
+      <li><strong>Campanha e mistura.</strong> Um lote reunido a partir de várias sínteses não está errado, mas a sua homogeneidade e rastreabilidade têm de ser descritas.</li>
+      <li><strong>Desvios e reprocessamento.</strong> Um lote repurificado ou reliofilizado pode cumprir a especificação e comportar-se de forma diferente na sua aplicação.</li>
+      <li><strong>Rendimento.</strong> Um rendimento implausivelmente alto para uma sequência difícil é uma pergunta, não um argumento de venda.</li>
+    </ul>
+    <p>São os mesmos sinais que determinam a <a href="/knowledge/peptide-lot-consistency/">consistência entre lotes</a>, e são muito mais fáceis de interpretar quando o resumo do registo de lote chega com a primeira expedição e não com a terceira.</p>
+
+    <h2>Declarações fáceis de esquecer</h2>
+    <p><strong>Utilização prevista.</strong> Uma declaração de uso exclusivo em investigação deve constar do COA, do rótulo e do sítio web, e deve ser coerente. Um fornecedor que anuncia uso humano numa página e RUO no certificado está a dizer-lhe que os documentos são marketing, não controlo.</p>
+    <p><strong>Fabricante e origem.</strong> O conjunto documental deve nomear o local de fabrico, não apenas o vendedor. Se a parte contratante for uma empresa de comércio, peça uma declaração da entidade fabricante e do seu endereço. É o lado documental do cruzamento de entidades descrito na <a href="/knowledge/peptide-supplier-corporate-due-diligence/">devida diligência corporativa</a>.</p>
+    <p><strong>TSE/BSE e materiais de origem animal.</strong> Os péptidos sintéticos não utilizam matérias-primas de origem animal na cadeia principal, mas os materiais auxiliares, os filtros, os meios e os reagentes de libertação podem levantar a questão. Uma declaração curta de que não é usado material de origem animal, ou uma lista dos que são, é barata de fornecer e útil de ter em arquivo.</p>
+    <p><strong>SDS.</strong> Uma ficha de dados de segurança é um documento de expedição e de segurança laboratorial, não um documento de qualidade. Deve corresponder à forma e à concentração do produto; uma SDS genérica para «péptido» é um indício de que a papelada é um modelo.</p>
+
+    <h2>O conjunto de expedição tem de coincidir com o conjunto do lote</h2>
+    <p>Os documentos aduaneiros e os documentos de qualidade descrevem a mesma expedição física e devem coincidir no nome do produto, na quantidade, no número de lote e nas partes. As discrepâncias entre a fatura, a lista de embalagem, o rótulo e o COA são uma razão comum para uma expedição ficar retida, e são também a primeira coisa que um cliente ou um auditor nota. Os requisitos documentais para a importação estão tratados em <a href="/knowledge/shipping-peptides-customs-guide/">expedição e alfândega</a>; o ponto aqui é a coerência em todo o conjunto.</p>
+
+    <h2>Uma lista de pedido prática</h2>
+    <ol>
+      <li>COA específico do lote com métodos, limites, resultados e base.</li>
+      <li>Cromatograma de HPLC com os parâmetros do método para o lote.</li>
+      <li>Espetro de massa com a massa observada e a esperada.</li>
+      <li>Resultado do teor de água e método utilizado.</li>
+      <li>Relatórios de solventes residuais e impurezas elementares, se esses limites constarem da especificação.</li>
+      <li>Resumo do registo de lote: escala, campanha, desvios, rendimento.</li>
+      <li>Nome do fabricante e endereço do local, mais uma declaração se o vendedor não for o fabricante.</li>
+      <li>Declaração RUO e SDS.</li>
+      <li>Certificado de origem e o conjunto comercial de expedição.</li>
+      <li>Política de amostra de retenção e data de reanálise, se for oferecida.</li>
+    </ol>
+    <p>Peça a lista uma vez, como parte da qualificação de fornecedores, e depois exija o subconjunto específico do lote em cada expedição. Um fornecedor que consegue produzir o pacote completo para uma primeira encomenda está a mostrar-lhe como se comportará quando algo correr mal.</p>
+
+    <h2>Sinais de alarme na papelada</h2>
+    <ul>
+      <li>Um COA sem número de lote, ou com um número de lote que não corresponde ao rótulo.</li>
+      <li>Resultados apresentados como «típicos» em vez de específicos do lote.</li>
+      <li>Métodos indicados apenas como «HPLC» ou «MS», sem condições.</li>
+      <li>Um valor de pureza sem base (tal como está, anidro ou teor de péptido).</li>
+      <li>Nenhum cromatograma disponível em circunstância alguma, incluindo depois de um ensaio de receção falhado.</li>
+      <li>O emitente do COA, a fatura e o beneficiário bancário são entidades diferentes sem explicação.</li>
+      <li>Um certificado de análise datado antes do fabrico do lote, ou depois da chegada da expedição.</li>
+      <li>Um certificado com um âmbito ou nome de produto mais amplo do que o material expedido.</li>
+    </ul>
+    <p>Nenhum destes pontos prova um lote mau. Cada um significa que o conjunto documental não consegue responder à pergunta para que existe, e a altura de o corrigir é antes do pagamento.</p>
+
+    <div class="ruo">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário. Este artigo descreve práticas de documentação; não formula qualquer afirmação sobre um fornecedor, produto ou certificado específico, e não sustenta a sua administração a pessoas ou animais.</div>
+
+    <h2>A opinião do autor</h2>
+    <p>O pacote documental é a memória do produto. Se não consegue responder a quem produziu o lote, como foi ensaiado e para onde foi, o produto não tem história — apenas um rótulo.</p>
+
+    <h2>Limitações</h2>
+    <p>Esta é uma orientação de devida diligência comercial, não aconselhamento jurídico. As afirmações dos fornecedores têm de ser verificadas contra os documentos de lote e, quando exigido, por uma auditoria independente.</p>
+
+    <h2>Produtos referidos neste guia</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigação</a></li>
+      <li><a href="/wholesale/">Fornecimento por atacado e a granel</a></li>
+    </ul>
+
+    <h2>Leituras e produtos relacionados</h2>
+    <ul>
+      <li><a href="/quality/coa/">Ler um COA de péptidos</a> — os campos que tornam um certificado útil</li>
+      <li><a href="/knowledge/third-party-peptide-testing/">Recorrer a um laboratório externo</a> — como encomendar um resultado independente</li>
+      <li><a href="/knowledge/peptide-data-integrity/">Integridade de dados</a> — ficheiros brutos, pistas de auditoria e registos de integração</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Anexo de especificação</a> — os limites contra os quais os documentos são medidos</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Amostragem e libertação de lote</a> — o que ensaiar quando a expedição chega</li>
+      <li><a href="/knowledge/peptide-supplier-corporate-due-diligence/">Devida diligência corporativa</a> — cruzar as entidades em todo o conjunto documental</li>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Expedição e alfândega</a> — os documentos comerciais que viajam com a mercadoria</li>
+      <li><a href="/pt/knowledge/">Todos os guias de conhecimento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/pt/knowledge/peptide-batch-documentation-package/" section="Documentação de lote" lang="pt" />
+</BaseLayout>

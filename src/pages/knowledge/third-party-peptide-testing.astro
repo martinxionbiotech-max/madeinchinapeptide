@@ -5,7 +5,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Using a third-party laboratory';
 const description = 'Commissioning independent peptide testing: accreditation scope, briefing the lab, sample logistics and how to read the report you get back.';
 ---
-<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/third-party-peptide-testing/">
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/third-party-peptide-testing/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/third-party-peptide-testing/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/third-party-peptide-testing/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/third-party-peptide-testing/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/third-party-peptide-testing/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/third-party-peptide-testing/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Third-party testing'}]} />
     <h1>{title}</h1>

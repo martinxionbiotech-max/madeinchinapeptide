@@ -1,5 +1,30 @@
 ---
 import { site } from '../data/site';
+const langMatch = Astro.url.pathname.match(/^\/(es|pt|ar)(\/|$)/);
+const lang = langMatch ? langMatch[1] : null;
+const localizedLegal = {
+  es: [
+    { label: 'Centro de cumplimiento', href: '/es/compliance/' },
+    { label: 'Uso exclusivo en investigación', href: '/es/compliance/research-use-only/' },
+    { label: 'Términos del servicio', href: '/es/compliance/terms/' },
+    { label: 'Política de privacidad', href: '/es/compliance/privacy/' },
+    { label: 'Cookie policy (EN)', href: '/compliance/cookie-policy/' },
+  ],
+  pt: [
+    { label: 'Centro de conformidade', href: '/pt/compliance/' },
+    { label: 'Uso exclusivo em pesquisa', href: '/pt/compliance/research-use-only/' },
+    { label: 'Termos de serviço', href: '/pt/compliance/terms/' },
+    { label: 'Política de privacidade', href: '/pt/compliance/privacy/' },
+    { label: 'Cookie policy (EN)', href: '/compliance/cookie-policy/' },
+  ],
+  ar: [
+    { label: 'مركز الامتثال', href: '/ar/compliance/' },
+    { label: 'الاستخدام البحثي فقط', href: '/ar/compliance/research-use-only/' },
+    { label: 'شروط الخدمة', href: '/ar/compliance/terms/' },
+    { label: 'سياسة الخصوصية', href: '/ar/compliance/privacy/' },
+    { label: 'سياسة الكوكيز (EN)', href: '/compliance/cookie-policy/' },
+  ],
+};
 const year = new Date().getFullYear();
 const links = [
   { label: 'Products', href: '/products/' },
@@ -15,7 +40,7 @@ const links = [
   { label: 'For OEM brands', href: '/applications/oem-brands/' },
   { label: 'Catalogue matrix', href: '/compare/peptide-catalogue-matrix/' },
 ];
-const legal = [
+const legal = lang ? localizedLegal[lang as keyof typeof localizedLegal] : [
   { label: 'Compliance centre', href: '/compliance/' },
   { label: 'Research Use Only', href: '/compliance/research-use-only/' },
   { label: 'Terms of Service', href: '/compliance/terms/' },

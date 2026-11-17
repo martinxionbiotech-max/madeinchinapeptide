@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+---
+<BaseLayout lang="es" title="Envío de péptidos de investigación desde China: aduanas y riesgo" description="Exportación de péptidos de investigación desde China: clasificación HS, documentos, Incoterms, destinos restringidos, cadena de frío, retenciones y seguro." canonical="/es/knowledge/peptide-shipping-customs-framework/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-shipping-customs-framework/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-shipping-customs-framework/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-shipping-customs-framework/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-shipping-customs-framework/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-shipping-customs-framework/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Marco de envío y aduanas'}]} />
+    <h1>Envío de péptidos de investigación desde China: aduanas, documentación y riesgo</h1>
+    <p class="lead muted">La mayoría de los fallos de un envío no son fallos logísticos. Son fallos de documentación que se convierten en fallos logísticos en la frontera. Este marco trata el envío primero como un problema documental y después como un problema de transporte.</p>
+
+<div class="quick-answer"><strong>Respuesta rápida.</strong> Un envío de péptidos despacha en aduana cuando la clasificación, la documentación y los permisos son coherentes antes de la salida. Confirme la partida HS con un agente aduanal, haga coincidir producto, lote y cantidad en todos los documentos, y verifique la legalidad en destino antes de pedir.</div>
+
+        <div class="note"><strong>Alcance.</strong> Orientación comercial para compradores profesionales que importan péptidos de investigación. No es asesoramiento legal, aduanero ni regulatorio; la clasificación y los requisitos de permisos deben confirmarse con un agente aduanal autorizado y con la autoridad del país de destino.</div>
+
+    <h2>La premisa: la documentación es el pasaporte</h2>
+    <p>Un envío puede estar perfectamente embalado y aun así morir en la aduana porque la descripción de la factura no coincide con la mercancía, el COA corresponde a otro lote o el destino exige un permiso que nadie comprobó. En este comercio, los documentos no son material de apoyo: son lo que determina si la mercancía se mueve o no.</p>
+    <p>Nuestra posición: <strong>el comprador debería evaluar la capacidad de exportación de un proveedor con la misma seriedad que su capacidad analítica.</strong> Un proveedor que no puede producir un conjunto documental coherente es un proveedor que tarde o temprano le costará un envío, y la pérdida no se limitará al flete.</p>
+
+    <h2>La cadena de exportación</h2>
+    <h3>Quién decide qué</h3>
+    <table>
+      <thead><tr><th>Etapa</th><th>Decisión</th><th>Responsable</th></tr></thead>
+      <tbody>
+        <tr><td>Clasificación</td><td>Descripción de la mercancía y partida HS</td><td>Proveedor + agente aduanal</td></tr>
+        <tr><td>Documentación</td><td>Factura, lista de empaque, COA, MSDS, certificado de origen</td><td>Proveedor</td></tr>
+        <tr><td>Permisos</td><td>Licencia de importación o notificación, si se exige</td><td>Comprador</td></tr>
+        <tr><td>Embalaje</td><td>Protección del vial, desecante, material de cambio de fase</td><td>Proveedor</td></tr>
+        <tr><td>Transportista</td><td>Mensajería exprés, flete aéreo o flete marítimo</td><td>Según Incoterm</td></tr>
+        <tr><td>Aduana</td><td>Declaración, arancel, inspección</td><td>Comprador / agente aduanal</td></tr>
+        <tr><td>Entrega</td><td>Verificación a la recepción, plazo de reclamación por daños</td><td>Comprador</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Clasificación: por qué es la primera decisión</h2>
+    <p>La clasificación HS depende del compuesto concreto, de su pureza, de su presentación y del arancel del país de destino. Los péptidos pueden situarse en capítulos distintos según se presenten como productos químicos de investigación, intermedios farmacéuticos o productos formulados. Una partida equivocada puede significar un tipo arancelario incorrecto, un requisito de permiso que nadie previó o una retención.</p>
+    <p><strong>Nuestra regla:</strong> confirme la partida con un agente aduanal en el país de destino antes del primer envío. No se fíe del código genérico de un proveedor ni deje que un transitario clasifique en su nombre sin mostrarle el razonamiento. <a href="/knowledge/peptide-hs-classification/">La clasificación HS para envíos de péptidos</a> cubre el proceso.</p>
+
+    <h2>El conjunto documental</h2>
+    <table>
+      <thead><tr><th>Documento</th><th>Debe contener</th><th>Fallo habitual</th></tr></thead>
+      <tbody>
+        <tr><td>Factura comercial</td><td>Partes, descripción, cantidad, valor, Incoterm</td><td>Descripción vaga; valor incoherente con la orden de compra</td></tr>
+        <tr><td>Lista de empaque</td><td>Unidades, peso neto/bruto, dimensiones</td><td>Recuentos que no coinciden con la factura</td></tr>
+        <tr><td>Certificado de análisis</td><td>Número de lote, ensayos, resultados</td><td>COA genérico no vinculado al lote enviado</td></tr>
+        <tr><td>MSDS</td><td>Información de peligros y transporte</td><td>Ausente cuando el transportista lo exige</td></tr>
+        <tr><td>Certificado de origen</td><td>Declaración de origen</td><td>Solicitado tarde; retrasa el despacho</td></tr>
+        <tr><td>Guía aérea / B/L</td><td>Consignatario, descripción de la mercancía, peso</td><td>Descripción incoherente con la factura</td></tr>
+      </tbody>
+    </table>
+    <p>La regla de coherencia es simple: <strong>la misma descripción de producto, cantidad y lote debe aparecer en todos los documentos.</strong> Los sistemas aduaneros los comparan; las discrepancias provocan retenciones. <a href="/knowledge/peptide-export-documentation/">La documentación de exportación para péptidos</a> incluye una lista de verificación práctica.</p>
+
+    <h2>Incoterms: quién asume cada riesgo</h2>
+    <h3>Primer pedido frente a programa recurrente</h3>
+    <table>
+      <thead><tr><th>Término</th><th>Flete</th><th>Transmisión del riesgo</th><th>Nota práctica</th></tr></thead>
+      <tbody>
+        <tr><td>EXW</td><td>Comprador</td><td>En las instalaciones del proveedor</td><td>Carga máxima para el comprador; rara vez sensato en primeros pedidos</td></tr>
+        <tr><td>FOB</td><td>Comprador (tras la carga)</td><td>A bordo</td><td>Habitual en aéreo y marítimo; el comprador controla el transitario</td></tr>
+        <tr><td>CIF</td><td>Proveedor</td><td>En el puerto de destino</td><td>Incluye seguro pero con cobertura mínima; revise la póliza</td></tr>
+        <tr><td>DDP</td><td>Proveedor</td><td>En la dirección del comprador</td><td>Cómodo, pero el proveedor debe poder despachar legalmente</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Nuestra regla:</strong> en un primer pedido, FOB o CIF con un transitario designado es más fácil de auditar que DDP; en pedidos recurrentes, DDP puede ser eficiente si el proveedor tiene una ruta de despacho probada. <a href="/knowledge/incoterms-peptide-shipments/">Los Incoterms para envíos de péptidos</a> explican las contrapartidas.</p>
+
+    <h2>Destinos restringidos y permisos</h2>
+    <p>Algunas jurisdicciones restringen o prohíben péptidos concretos, o exigen una licencia de importación, una notificación o una autorización asimilable a la receta. El comprador es responsable de confirmar la legalidad; un proveedor que envía a un destino restringido sin preguntar le está trasladando el riesgo regulatorio.</p>
+    <ul>
+      <li>Compruebe las normas de sustancias controladas y medicamentos del destino para el compuesto concreto.</li>
+      <li>Confirme si se aplica una exención para material de investigación y qué documentación exige.</li>
+      <li>Archive el permiso o la exención junto con los registros del envío.</li>
+    </ul>
+    <p><a href="/knowledge/peptide-import-permits-restricted-destinations/">Permisos de importación y destinos restringidos</a> cubre las comprobaciones prácticas.</p>
+
+    <h2>Embalaje y cadena de frío</h2>
+    <p>Los péptidos liofilizados toleran el tránsito breve a temperatura ambiente, pero el calor, la humedad y la manipulación no los mejoran. El embalaje debe proteger el vial mecánicamente, controlar la humedad y, cuando sea necesario, controlar la temperatura.</p>
+    <ul>
+      <li>Viales con protección individual, contención secundaria y desecante.</li>
+      <li>Acumuladores de cambio de fase para rutas calurosas o tránsitos de varios días.</li>
+      <li>Embalaje exterior con precinto de inviolabilidad y etiqueta que coincida con los documentos.</li>
+      <li>Para compuestos sensibles, un transportista de cadena de frío en lugar de un servicio exprés genérico.</li>
+    </ul>
+    <p><a href="/knowledge/peptide-shipping-packaging/">El embalaje de envío para péptidos</a> y <a href="/knowledge/peptide-cold-chain-logistics/">la logística de cadena de frío</a> cubren el detalle.</p>
+
+    <h2>Cuando la aduana retiene el envío</h2>
+    <h3>Las primeras 48 horas</h3>
+    <p>Una retención es un problema de proceso, no una catástrofe. La respuesta es: identificar el motivo, aportar el documento que falta y mantener informado al comprador. La mayoría de las retenciones se resuelven con una factura corregida, un COA o un permiso. El modo de fallo es el silencio: un proveedor que deja de responder mientras la mercancía está en un almacén aduanero.</p>
+    <p><a href="/knowledge/peptide-customs-hold/">Las retenciones aduaneras de envíos de péptidos</a> incluyen un manual de respuesta.</p>
+
+    <h2>Seguro</h2>
+    <p>El seguro de carga es barato en relación con el valor de un envío de péptidos y suele pasarse por alto. Compruebe qué incluye el Incoterm (la cobertura CIF suele ser mínima), si la póliza cubre daños por temperatura y el plazo de reclamación. <a href="/knowledge/peptide-cargo-insurance/">El seguro de carga para envíos de péptidos</a> explica las preguntas sobre cobertura.</p>
+
+    <h2>La tabla de decisión</h2>
+    <table>
+      <thead><tr><th>Señal</th><th>Interpretación</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td>El proveedor no sabe explicar el criterio de clasificación</td><td>El proceso de exportación es improvisado</td><td>No enviar; recurrir a un agente aduanal</td></tr>
+        <tr><td>La descripción de la factura difiere del producto del COA</td><td>Incoherencia documental</td><td>Corregir antes de la salida</td></tr>
+        <tr><td>No se comprueban permisos para un destino restringido</td><td>Exposición regulatoria</td><td>Detener y verificar</td></tr>
+        <tr><td>Pago total anticipado + DDP + sin seguro</td><td>Todo el riesgo en el comprador, sin recurso</td><td>Renegociar condiciones</td></tr>
+        <tr><td>El proveedor guarda silencio durante una retención</td><td>Sin capacidad de exportación</td><td>Escalar; tratarlo como fallo del proveedor</td></tr>
+      </tbody>
+    </table>
+
+    <h2>La opinión del autor</h2>
+    <p><strong>Postura.</strong> El comprador debería tratar la documentación de exportación como parte de la calidad del producto. La cotización de flete más barata es irrelevante si la documentación no despacha, y el vial más caro es el que nunca llega.</p>
+    <p><strong>Razonamiento.</strong> En esta categoría, la frontera es donde los proveedores se diferencian: los que tienen un proceso documental repetible despachan sin drama, y los que no lo tienen improvisan bajo presión. Puede comprobarlo antes de pedir solicitando un conjunto documental de muestra.</p>
+    <p><strong>Declaración.</strong> Enviamos péptidos de investigación y nos beneficiamos de que los compradores valoren la disciplina de exportación. También rechazamos envíos en los que no se puede demostrar una importación lícita, lo cual es un coste comercial que asumimos.</p>
+
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué Incoterm debería elegir para un primer pedido?</h3>
+    <p>FOB o CIF con un transitario designado suele ser lo más auditable. DDP puede ser eficiente para pedidos recurrentes una vez que el proveedor tiene una ruta de despacho probada.</p>
+    <h3>¿Qué documentos se envían con el pedido?</h3>
+    <p>Factura comercial, lista de empaque, COA de lote, MSDS cuando se exige, certificado de origen a petición y el documento de transporte.</p>
+    <h3>¿Quién gestiona el despacho de aduana?</h3>
+    <p>El comprador o su agente aduanal, salvo que el Incoterm acordado transfiera esa responsabilidad. El comprador sigue siendo responsable de la importación lícita.</p>
+    <h3>¿Qué ocurre si retienen el envío?</h3>
+    <p>Aportamos los documentos que faltan y una vía de escalado. La mayoría de las retenciones se resuelven con una factura corregida, un COA o un permiso; el silencio es el modo de fallo que hay que evitar.</p>
+
+    <h2>Fuentes y evidencia</h2>
+    <p class="small muted">Esta guía es orientación logística comercial. Las decisiones de clasificación y permisos deben confirmarse con un agente aduanal autorizado y con la autoridad del país de destino.</p>
+    <ul>
+      <li><strong>Marco de clasificación:</strong> nomenclatura del Sistema Armonizado de la WCO (Organización Mundial de Aduanas); sobre ella se aplican los aranceles nacionales.</li>
+      <li><strong>Términos comerciales:</strong> Incoterms® 2020, Cámara de Comercio Internacional.</li>
+      <li><strong>Normas nacionales chinas:</strong> normas GB/T a través de la <a href="https://openstd.samr.gov.cn/" rel="noopener" target="_blank">plataforma de texto completo de Normas Nacionales</a> (SAMR).</li>
+      <li><strong>Conceptos de documentación analítica:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">directrices de calidad del ICH</a>.</li>
+      <li><strong>Clasificación aduanera de China:</strong> 《中华人民共和国进出口税则》 y decisiones de clasificación de mercancías de la GACC (海关总署商品归类决定); el arancel de destino sigue siendo el aplicable; confirme con un agente aduanal autorizado.</li>
+    </ul>
+    <p class="small muted">No se fabricaron datos de envío para esta guía; la tabla de decisión describe modos de fallo habituales, no estadísticas medidas.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Consultar por WhatsApp</a></p>
+
+    <h2>Productos citados en esta guía</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a> — 33 SKU documentados</li>
+      <li><a href="/products/tirzepatide/">Tirzepatide</a> — formatos de investigación</li>
+      <li><a href="/products/semaglutide/">Semaglutide</a> — formatos de investigación</li>
+      <li><a href="/products/retatrutide/">Retatrutide</a> — formatos de investigación</li>
+      <li><a href="/wholesale/">Venta mayorista y suministro a granel</a> — logística y documentación</li>
+    </ul>
+
+    <h2>Clúster: la biblioteca de envío y cumplimiento</h2>
+    <ol>
+      <li><a href="/knowledge/shipping-peptides-customs-guide/">Envío de péptidos desde China</a> — la visión general</li>
+      <li><a href="/knowledge/peptide-hs-classification/">Clasificación HS</a> — la primera decisión</li>
+      <li><a href="/knowledge/peptide-export-documentation/">Documentación de exportación</a> — el conjunto documental</li>
+      <li><a href="/knowledge/incoterms-peptide-shipments/">Incoterms</a> — transmisión de riesgo y coste</li>
+      <li><a href="/knowledge/peptide-import-permits-restricted-destinations/">Permisos de importación y restricciones</a> — la legalidad primero</li>
+      <li><a href="/knowledge/peptide-shipping-packaging/">Embalaje de envío</a> — proteger el vial</li>
+      <li><a href="/knowledge/peptide-cold-chain-logistics/">Logística de cadena de frío</a> — control de temperatura</li>
+      <li><a href="/knowledge/peptide-customs-hold/">Retenciones aduaneras</a> — el manual de respuesta</li>
+      <li><a href="/knowledge/peptide-cargo-insurance/">Seguro de carga</a> — transferir el riesgo de tránsito</li>
+    </ol>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Esta guía es orientación logística comercial, no asesoramiento legal ni aduanero.</div>
+  </div>
+  <ArticleSchema lang="es" title="Envío de péptidos de investigación desde China: aduanas y riesgo" description="Marco práctico para exportar péptidos de investigación desde China: clasificación, documentación, Incoterms, destinos restringidos, cadena de frío, retenciones y seguro." path="/es/knowledge/peptide-shipping-customs-framework/" section="Envío y cumplimiento" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué Incoterm debería elegir para un primer pedido?", "acceptedAnswer": {"@type": "Answer", "text": "FOB o CIF con un transitario designado suele ser lo más auditable. DDP puede ser eficiente para pedidos recurrentes una vez que el proveedor tiene una ruta de despacho probada."}}, {"@type": "Question", "name": "¿Qué documentos se envían con el pedido?", "acceptedAnswer": {"@type": "Answer", "text": "Factura comercial, lista de empaque, COA de lote, MSDS cuando se exige, certificado de origen a petición y el documento de transporte."}}, {"@type": "Question", "name": "¿Quién gestiona el despacho de aduana?", "acceptedAnswer": {"@type": "Answer", "text": "El comprador o su agente aduanal, salvo que el Incoterm acordado transfiera esa responsabilidad. El comprador sigue siendo responsable de la importación lícita."}}, {"@type": "Question", "name": "¿Qué ocurre si retienen el envío?", "acceptedAnswer": {"@type": "Answer", "text": "Aportamos los documentos que faltan y una vía de escalado. La mayoría de las retenciones se resuelven con una factura corregida, un COA o un permiso; el silencio es el modo de fallo que hay que evitar."}}]})} />
+</BaseLayout>

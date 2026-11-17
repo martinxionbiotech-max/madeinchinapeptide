@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Amostragem de péptidos e libertação de lote';
+const description = 'Quantos frascos analisar, amostra composta ou individual, reserva de retenção e uma investigação OOS que não acaba em analisar até aprovar.';
+---
+<BaseLayout lang="pt" title={title} description={description} canonical="/pt/knowledge/peptide-sampling-and-batch-release/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Início',href:'/pt/'},{label:'Conhecimento',href:'/pt/knowledge/'},{label:'Amostragem e libertação'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Um certificado de análise descreve a amostra que o fornecedor decidiu analisar. Não descreve o frasco que tem na mão. A distância entre as duas coisas é definida pelo plano de amostragem — e pelo que faz quando o seu próprio resultado discorda do papel que veio na caixa.</p>
+
+    <h2>Porque a amostragem é uma decisão, não uma formalidade</h2>
+    <p>Um péptido liofilizado não é um líquido homogéneo. O peso de enchimento varia de frasco para frasco, a humidade residual varia com a posição na pilha de bandejas, e um ciclo de liofilização pode produzir um gradiente de qualidade do bolo da frente para o fundo da câmara. Um fornecedor que retira um frasco da bandeja superior e reporta 98,4% disse-lhe algo verdadeiro sobre esse frasco. Se isso é verdade sobre os mil frascos atrás dele depende de como o lote foi misturado, enchido e amostrado.</p>
+    <p>Não é uma acusação. É a razão pela qual existem planos de amostragem em todos os setores industriais regulados, e a razão pela qual um comprador deve poder enunciar o seu próprio plano em vez de aceitar o que o departamento de qualidade do fornecedor calhou fazer.</p>
+
+    <h2>O que um plano de amostragem tem de especificar</h2>
+    <table>
+      <thead><tr><th>Elemento</th><th>O que fixa</th><th>Se ficar em aberto</th></tr></thead>
+      <tbody>
+        <tr><td>Dimensão da amostra</td><td>Quantas unidades são retiradas do lote</td><td>O fornecedor decide, e habitualmente retira o mínimo</td></tr>
+        <tr><td>Método de seleção</td><td>Aleatório, estratificado por bandeja ou palete, ou por conveniência</td><td>Enviesamento para o topo da pilha</td></tr>
+        <tr><td>Composta ou individual</td><td>Se as unidades são agrupadas antes do ensaio</td><td>A variação entre frascos desaparece numa média</td></tr>
+        <tr><td>Quem amostra</td><td>Fornecedor, comprador ou um terceiro nas instalações do fornecedor</td><td>Nenhum registo independente do que foi retirado</td></tr>
+        <tr><td>Critérios de aceitação</td><td>Os limites numéricos que uma unidade tem de cumprir</td><td>«Aprovado» passa a ser um juízo, não um ensaio</td></tr>
+        <tr><td>Quantidade de retenção</td><td>Quanto é guardado para disputas futuras</td><td>Nada resta para reanalisar quando surge uma dúvida mais tarde</td></tr>
+      </tbody>
+    </table>
+    <p>Na prática, a maior parte disto pertence ao anexo técnico e não ao e-mail, porque um acordo que vive apenas numa cadeia de mensagens desaparece com a seguinte ordem de compra — ver <a href="/knowledge/peptide-specification-annex/">redigir um anexo de especificação</a>.</p>
+
+    <h2>A regra da raiz quadrada e o que ela não compra</h2>
+    <p>A heurística comum para a amostragem de entrada é √N + 1: para um lote de 1.000 unidades, retirar 33. É barata, amplamente utilizada e não tem base estatística na amostragem de aceitação. Escala com a dimensão do lote, que é o que a intuição quer, mas não diz nada sobre o risco que está a aceitar.</p>
+    <p>As normas de amostragem por atributos, como a ISO 2859-1, funcionam ao contrário: escolhe-se primeiro um limite de qualidade aceitável (AQL) e um nível de inspeção, e as tabelas devolvem uma dimensão de amostra e um número de aceitação. As tabelas são inutilizáveis sem um AQL, e um AQL é uma decisão de negócio: com que frequência está disposto a aceitar um lote que tenha, digamos, 1,5% de unidades não conformes? Para material de investigação quase ninguém o declara, e é exactamente por isso que a omissão passa a ser «o que o fornecedor fez».</p>
+    <p>Um pouco de aritmética torna o compromisso concreto. Se 25% das unidades de um lote forem defeituosas e amostrar 10 ao acaso, a probabilidade de nenhuma ser defeituosa é 0,75<sup>10</sup> ≈ 0,056 — ou seja, cerca de 94% das vezes detetaria pelo menos uma. Baixe a taxa de defeito para 5% e as mesmas 10 unidades deixam passar 0,95<sup>10</sup> ≈ 60% das vezes. Amostras pequenas encontram problemas grosseiros e são quase cegas aos subtis. É uma propriedade da aritmética, não do fornecedor.</p>
+
+    <h2>Amostra composta versus amostra individual</h2>
+    <p>Agrupar é a escolha mais consequente da lista, porque é irreversível e invisível no resultado.</p>
+    <ul>
+      <li><strong>Composta.</strong> Várias unidades são combinadas e ensaiadas uma vez. Dá uma média, usa menos capacidade analítica e é adequada quando a pergunta é «o lote está, em termos gerais, conforme a especificação». Não pode responder «cada frasco está conforme a especificação», e dilui uma única unidade má pelo número de unidades agrupadas.</li>
+      <li><strong>Individual.</strong> As unidades são ensaiadas separadamente. Custa mais e é a única forma de ver a distribuição — que é o que precisa se estiver a qualificar um novo fornecedor ou a investigar uma reclamação.</li>
+      <li><strong>Híbrida.</strong> Ensaie uma composta para o painel completo e unidades individuais para um atributo barato e sensível, como o peso de enchimento ou o aspecto do bolo. O peso de enchimento é o sinal de heterogeneidade de baixo custo e maior valor disponível: exige apenas uma balança calibrada, não é destrutivo no sentido em que o pó continua utilizável, e uma dispersão ampla entre frascos diz-lhe que a linha de enchimento não estava sob controlo ainda antes de qualquer ensaio.</li>
+    </ul>
+    <p>Se pedir resultados individuais, peça-os antecipadamente. Um fornecedor a quem se pedem dados por frasco depois do facto ou recusa ou produz os dados a partir de uma reanálise, e uma reanálise é uma amostra diferente.</p>
+
+    <h2>O que analisar à receção</h2>
+    <p>O ensaio de receção não é uma repetição do painel de libertação do fornecedor. É uma verificação de que o material à sua frente corresponde ao material descrito, mais o atributo de que o seu próprio trabalho depende. O aspecto é a primeira dessas verificações e não custa nada; como registá-lo de forma reprodutível está explicado em <a href="/knowledge/peptide-appearance-inspection/">aspecto e inspeção visual</a>.</p>
+    <table>
+      <thead><tr><th>Ensaio</th><th>Pergunta a que responde</th><th>Painel</th></tr></thead>
+      <tbody>
+        <tr><td>Aspecto e integridade do bolo</td><td>É a mesma forma física que foi expedida — tampão intacto, sem fusão, sem descoloração?</td><td>Cada receção</td></tr>
+        <tr><td>Peso de enchimento</td><td>A massa líquida é a encomendada, dentro de uma tolerância acordada?</td><td>Cada receção</td></tr>
+        <tr><td>Identidade por MS</td><td>A massa observada é coerente com a sequência rotulada?</td><td>Primeiro lote, novo fornecedor, qualquer disputa</td></tr>
+        <tr><td>Pureza por HPLC</td><td>O pico principal está onde o certificado indica, com a área que o certificado reivindica?</td><td>Primeiro lote, novo fornecedor, qualquer disputa</td></tr>
+        <tr><td>Água por Karl Fischer</td><td>O bolo foi seco como alegado, e absorveu humidade desde então?</td><td>Quando o teor líquido ou a pesagem importam</td></tr>
+        <tr><td>Solubilidade no seu solvente</td><td>Dissolve-se como o seu método pressupõe?</td><td>Quando o ensaio depende disso</td></tr>
+      </tbody>
+    </table>
+    <p>A água merece uma nota: um bolo liofilizado pode sair da fábrica com um nível de humidade e chegar com outro, porque o fecho do frasco é uma barreira com uma taxa de permeação, não um selo em sentido absoluto. Se a sua aritmética de teor líquido pressupõe um pó seco, meça-o em vez de o pressupor — ver <a href="/knowledge/peptide-net-content-and-cost/">teor líquido de péptido</a>.</p>
+    <p>Revalidar por completo cada ensaio de libertação raramente compensa para material de investigação. O objetivo do ensaio de receção é detetar uma divergência, não voltar a certificar o lote. O que importa é que os ensaios que corre são aqueles cuja falha mudaria a sua decisão.</p>
+
+    <h2>Amostras de retenção: compre a opção antes de precisar dela</h2>
+    <p>Uma amostra de retenção é material guardado, fechado, em condições declaradas, para que uma pergunta colocada meses depois possa ser respondida contra o mesmo lote e não contra uma nova compra. É o controlo de risco mais barato de toda a transação e o que mais vezes é omitido.</p>
+    <ul>
+      <li><strong>Quantidade.</strong> Suficiente para repetir o painel completo de libertação pelo menos duas vezes. Se surgir uma disputa, vai ensaiar a retenção e possivelmente enviar uma porção a um terceiro — uma única alíquota não chega.</li>
+      <li><strong>Condição.</strong> A mesma condição de armazenamento do stock de trabalho, registada. Uma amostra de retenção guardada numa gaveta não é uma amostra de retenção.</li>
+      <li><strong>Duração.</strong> No mínimo, enquanto continuar a utilizar material desse lote; mais tempo se puder vir a ter de sustentar uma questão de um cliente ou de uma autoridade.</li>
+      <li><strong>Cadeia de custódia.</strong> Número de lote, data de receção, quem abriu o quê e que frasco continua selado. Sem isto, o valor probatório da retenção colapsa no momento em que alguém lhe mexe.</li>
+    </ul>
+    <p>Acorde a quantidade de retenção na ordem de compra. Os fornecedores habitualmente fornecem-na, mas raramente a propõem, e «guardamos amostras de retenção» não é o mesmo que «vocês retêm amostras de retenção».</p>
+
+    <h2>OOS e OOT são problemas diferentes</h2>
+    <p>Um resultado fora de especificação (OOS) cai fora de um limite estabelecido. Um resultado fora de tendência (OOT) está dentro do limite mas é incoerente com o histórico de lotes anteriores — uma pureza a desviar-se de 98,9% para 98,2% e para 97,8% é OOT antes de alguma vez ser OOS, e é o sinal mais útil porque chega enquanto ainda pode agir a baixo custo. A revisão de tendências precisa de um histórico, o que significa guardar os seus próprios resultados em vez de arquivar certificados — ver <a href="/knowledge/peptide-lot-consistency/">consistência lote a lote</a>.</p>
+    <p>Um resultado OOS é uma constatação sobre um ensaio, não imediatamente uma constatação sobre o material. A investigação tem duas fases e têm de correr por ordem:</p>
+    <ol>
+      <li><strong>Fase de laboratório.</strong> O resultado foi causado pelo método, pelo analista, pelo instrumento ou pela preparação da amostra? Verifique a integração, o volume de injeção, o estado da coluna, o diluente, a preparação do padrão e se a amostra estava completamente dissolvida. Esta fase ou encontra uma causa atribuível ou documenta que nenhuma foi encontrada.</li>
+      <li><strong>Fase de fabrico.</strong> Só se o laboratório for ilibado é que a pergunta passa a ser o que aconteceu ao material — um lote diferente, uma expedição degradada, um erro de enchimento.</li>
+    </ol>
+    <p>A reanálise só é legítima depois de identificada uma causa atribuível e de o resultado original ter sido invalidado por uma razão declarada. Reanalisar porque a primeira resposta foi inconveniente não é uma investigação; é a procura de um número de que gosta, e o termo da indústria para isso é analisar até à conformidade.</p>
+    <p>Duas práticas a recusar de imediato:</p>
+    <ul>
+      <li><strong>Fazer a média de um aprovado e de um reprovado.</strong> Se um resultado está validamente fora de especificação e outro validamente dentro, não se demonstrou que o material é conforme. A média de um resultado conforme e de um não conforme não é um resultado conforme.</li>
+      <li><strong>A regra «dois em três» não planeada.</strong> Um plano de reanálise pré-especificado, com um número definido de réplicas e uma regra de decisão definida, pode ser estatisticamente defensável. Aplicado a posteriori para salvar um resultado falhado, é apenas amostragem repetida até o ruído colaborar.</li>
+    </ul>
+
+    <h2>Quando o seu resultado discorda do certificado</h2>
+    <p>As discordâncias são comuns e normalmente têm uma explicação inocente — outra coluna, outro gradiente, outro solvente de injeção, uma amostra que não ficou completamente dissolvida, ou um valor de pureza calculado numa base diferente. A sequência produtiva é:</p>
+    <ol>
+      <li>Rever o seu próprio método contra o impresso no certificado antes de concluir seja o que for. Percentagem de área e percentagem em massa não são intercambiáveis, e as bases anidra e tal e qual também não.</li>
+      <li>Enviar a comparação, não a conclusão: o seu cromatograma, as condições do método e o resultado numérico. Os fornecedores respondem muito melhor a dados do que a acusações.</li>
+      <li>Pedir os dados brutos por trás do valor deles — cromatograma, parâmetros de integração e o padrão utilizado. Um certificado que não pode ser acompanhado de um cromatograma já lhe disse algo por si.</li>
+      <li>Se a diferença persistir, ensaiar a amostra de retenção. É o momento em que a retenção justifica o seu custo: é a única amostra que vem inequivocamente do lote entregue e está inequivocamente sob o seu controlo.</li>
+      <li>Escalar para um laboratório externo com um âmbito escrito, e acordar antecipadamente quem suporta o custo em função do resultado. O que esse âmbito deve conter está descrito em <a href="/knowledge/third-party-peptide-testing/">recorrer a um laboratório externo</a>.</li>
+    </ol>
+    <p>Registe tudo. Um registo de receção datado, com a identidade da amostra, a balança utilizada, a versão do método e o resultado bruto, é o que transforma uma discordância numa divergência documentada — e é o que torna a próxima expedição melhor.</p>
+
+    <h2>Perguntas para o fornecedor</h2>
+    <ul>
+      <li>Quantas unidades foram retiradas deste lote, por que método, e foram agrupadas ou ensaiadas individualmente?</li>
+      <li>As unidades amostradas vieram do mesmo ciclo de liofilização que encheu os frascos expedidos, e o ciclo pode ser identificado no certificado?</li>
+      <li>Qual é a tolerância de peso de enchimento deste produto, e qual foi o intervalo observado neste lote?</li>
+      <li>Fornecerá material de retenção deste lote, na quantidade que especificarmos, guardado na condição declarada?</li>
+      <li>Se o nosso ensaio de receção discordar do seu certificado, qual é o seu procedimento de investigação e quem paga a arbitragem por terceiros?</li>
+    </ul>
+    <p>Nenhuma destas perguntas exige que o fornecedor revele um segredo comercial. Todas exigem que tenha um sistema. As respostas são mais informativas do que a coluna de «conforme» do certificado — ver <a href="/quality/coa/">ler um COA</a> para o lado documental do mesmo problema.</p>
+
+    <div class="ruo">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário. Este artigo descreve práticas de amostragem e controlo de qualidade; não formula qualquer alegação sobre um composto específico e não sustenta a sua administração a pessoas ou animais.</div>
+
+    <h2>A opinião do autor</h2>
+    <p>A amostragem é onde um lote se transforma num número. Se a amostra não for representativa, a decisão de libertação é teatro com uma assinatura.</p>
+
+    <h2>Limitações</h2>
+    <p>Este guia descreve métodos e interpretação, não limites de aceitação. Os limites têm de vir da sua própria especificação e, quando aplicável, da monografia farmacopeica relevante. O autor não realizou qualquer ensaio para esta página.</p>
+
+    <h2>Produtos referidos neste guia</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigação</a></li>
+      <li><a href="/wholesale/">Fornecimento grossista e a granel</a></li>
+    </ul>
+
+    <h2>Leituras e produtos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-qualification-sample/">Amostras de qualificação</a> — dimensionar, codificar e comparar fornecedores antes da primeira encomenda a granel</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Anexo de especificação</a> — onde pertencem o plano de amostragem e os critérios de aceitação</li>
+      <li><a href="/quality/coa/">Ler um COA</a> — o que o documento do fornecedor estabelece e o que não estabelece</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Consistência lote a lote</a> — usar os seus próprios resultados como base de tendência</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Estudos de estabilidade</a> — porque um resultado de libertação não é um prazo de validade</li>
+      <li><a href="/knowledge/peptide-lyophilization-explained/">Liofilização</a> — de onde vem a variação entre frascos</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Teor líquido de péptido</a> — peso de enchimento, água e a aritmética entre os dois</li>
+      <li><a href="/pt/knowledge/">Todos os guias de conhecimento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema title={title} description={description} path="/pt/knowledge/peptide-sampling-and-batch-release/" section="Amostragem e libertação de lote" lang="pt" />
+</BaseLayout>

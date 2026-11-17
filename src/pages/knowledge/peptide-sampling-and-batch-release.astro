@@ -5,7 +5,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Peptide sampling and batch release';
 const description = 'How many vials to test, composite versus individual samples, retain stock, and an OOS investigation that does not turn into testing into compliance.';
 ---
-<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-sampling-and-batch-release/">
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-sampling-and-batch-release/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-sampling-and-batch-release/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-sampling-and-batch-release/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Sampling & release'}]} />
     <h1>{title}</h1>

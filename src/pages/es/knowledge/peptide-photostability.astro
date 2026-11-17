@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Exposición a la luz y estabilidad de péptidos';
+const description = 'Qué residuos absorben luz, qué produce la fotooxidación, cómo cambian el riesgo el envase y la lámpara y qué puede demostrar un estudio de fotostabilidad.';
+---
+<BaseLayout lang="es" title={title} description={description} canonical="/es/knowledge/peptide-photostability/" alternates={[
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/knowledge/peptide-photostability/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/knowledge/peptide-photostability/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/knowledge/peptide-photostability/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/knowledge/peptide-photostability/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/knowledge/peptide-photostability/` },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Luz y estabilidad'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">“Conservar protegido de la luz” aparece en casi todas las etiquetas de péptidos y se aplica en casi ningún laboratorio. La luz es un aporte de energía que puede romper enlaces, generar especies reactivas de oxígeno y cambiar un péptido sin cambiar su masa molecular. Las preguntas pertinentes son qué residuos están en riesgo, cuánta luz llega realmente al material y qué evidencia existe de que la protección funciona.</p>
+
+    <p class="small muted" style="margin-bottom:18px;">Parte del <a href="/knowledge/peptide-handling-laboratory-practice/">pilar de manejo y práctica de laboratorio</a> — la cadena completa desde la recepción hasta el resultado.</p>
+    <h2>Qué parte de un péptido absorbe la luz</h2>
+    <p>La mayoría de los enlaces peptídicos solo absorben con intensidad por debajo de unos 220 nm, y por eso funciona la detección en el UV lejano, pero también por eso la luz ambiental ordinaria no excita el esqueleto. Los cromóforos que importan en el UV cercano y el visible son las cadenas laterales:</p>
+    <table>
+      <thead><tr><th>Residuo</th><th>λ<sub>max</sub> aproximada</th><th>Absortividad molar (orden de magnitud)</th><th>Riesgo fotoquímico principal</th></tr></thead>
+      <tbody>
+        <tr><td>Triptófano</td><td>~280 nm</td><td>5.500 M⁻¹cm⁻¹</td><td>Oxidación y apertura del anillo indólico; formación de radicales; el residuo común más fotorreactivo</td></tr>
+        <tr><td>Tirosina</td><td>~275 nm</td><td>1.490 M⁻¹cm⁻¹</td><td>Oxidación fenólica; acoplamiento oxidativo de dos tirosinas a ditrosina</td></tr>
+        <tr><td>Fenilalanina</td><td>~257 nm</td><td>~200 M⁻¹cm⁻¹</td><td>Absorción débil; en general un contribuyente menor</td></tr>
+        <tr><td>Cistina (disulfuro)</td><td>~250 nm</td><td>Débil</td><td>Fotólisis del enlace S–S; intercambio de disulfuros en presencia de radicales</td></tr>
+        <tr><td>Metionina, cisteína, histidina</td><td>Sin banda intensa en el UV cercano</td><td>—</td><td>Oxidación sensibilizada por otro cromóforo o por metales traza</td></tr>
+      </tbody>
+    </table>
+    <p>Los valores de absortividad molar son aproximados y dependen del disolvente; se citan aquí para mostrar la escala relativa, no como constantes con las que calcular. La consecuencia práctica es que un péptido sin Trp, Tyr ni Cys tiene mucha menos probabilidad de sufrir daño directo por la luz que uno que los contiene — pero “mucha menos probabilidad” no es “inmunidad”, porque la oxidación sensibilizada también puede alcanzar a la metionina y la histidina.</p>
+
+    <h2>Dos mecanismos, un mismo resultado</h2>
+    <p><strong>Fotólisis directa.</strong> El residuo absorbe un fotón, alcanza un estado excitado y experimenta química desde ahí. En el triptófano esto puede significar fotoionización, oxidación del anillo o escisión del anillo indólico; en la cistina, homólisis del disulfuro. Los productos suelen ser una mezcla, y muchos conservan una masa próxima a la del compuesto original.</p>
+    <p><strong>Fotooxidación sensibilizada.</strong> Otra molécula absorbe la luz, transfiere energía al oxígeno y genera oxígeno singlete o radicales que después atacan al péptido. La riboflavina, los cofactores flavínicos, las porfirinas, algunos colorantes y los metales de transición en trazas son sensibilizadores eficaces a concentraciones muy bajas. Por eso un péptido estable por sí solo en tampón puede degradarse rápidamente en un medio que contiene un componente coloreado: el medio de cultivo celular con rojo de fenol y riboflavina es el ejemplo habitual.</p>
+    <p>Los desplazamientos de masa son la parte que a veces puede revelar un certificado:</p>
+    <table>
+      <thead><tr><th>Cambio</th><th>Desplazamiento de masa aproximado</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Oxidación única (Met, Trp, His, Cys)</td><td>+15,995 Da</td><td>El producto de fotodegradación más común; también se forma por oxígeno sin luz</td></tr>
+        <tr><td>Dos oxidaciones en un mismo residuo</td><td>+31,990 Da</td><td>p. ej., ácido sulfínico a partir de cisteína; el Trp puede admitir más</td></tr>
+        <tr><td>Entrecruzamiento de ditrosina</td><td>−4,031 Da respecto a dos tirosinas</td><td>Dos residuos Tyr (2 × 163,063 = 326,126 Da) pierden cuatro hidrógenos: 326,126 − 4,031 = 322,095 Da</td></tr>
+        <tr><td>Productos de Trp con el anillo abierto</td><td>Variable</td><td>A menudo una familia de productos y no uno solo; puede no resolverse en un gradiente genérico</td></tr>
+      </tbody>
+    </table>
+    <p>Merece la pena comprobar una vez a mano la aritmética de la ditrosina, porque muestra por qué un entrecruzamiento puede confundirse con una modificación pequeña: el dímero no es la suma de los dos residuos, y su masa no cae donde buscaría una búsqueda simple de oxidación.</p>
+
+    <h2>Cuánta luz llega realmente al vial</h2>
+    <p>La exposición a la luz es función de la fuente, la distancia, la duración y el recipiente. Las diferencias son lo bastante grandes como para que un “lo guardamos a oscuras” cualitativo no sea una especificación:</p>
+    <table>
+      <thead><tr><th>Condición</th><th>Qué llega al producto</th><th>Comentario práctico</th></tr></thead>
+      <tbody>
+        <tr><td>Vial ámbar sellado en un cajón cerrado</td><td>Efectivamente nada</td><td>La condición de referencia para el almacenamiento prolongado</td></tr>
+        <tr><td>Vial ámbar en una poyata abierta bajo luz fluorescente de techo</td><td>Algo de luz visible; el vidrio filtra en gran medida el UV</td><td>Aceptable para una manipulación breve; no es una condición de almacenamiento</td></tr>
+        <tr><td>Vial transparente en la poyata</td><td>Visible y UV cercano, según el tubo</td><td>El vidrio sodocálcico corta por debajo de unos 300–320 nm; el cuarzo no</td></tr>
+        <tr><td>Cerca de una ventana con sol directo</td><td>Visible, UVA y algo de UVB</td><td>El vidrio de ventana ordinario bloquea el UVB pero transmite buena parte del UVA</td></tr>
+        <tr><td>Bajo una lámpara germicida de 254 nm</td><td>UV de onda corta a alta energía</td><td>No coloque viales ni soluciones abiertas bajo una</td></tr>
+        <tr><td>En un transiluminador UV o una cabina de documentación de geles</td><td>UV cercano intenso</td><td>Una exposición accidental frecuente en laboratorios de biología molecular</td></tr>
+      </tbody>
+    </table>
+    <p>El vidrio ámbar no es un filtro de densidad neutra; atenúa con fuerza en el azul y el UV y transmite la mayor parte del naranja-rojo. Reduce el riesgo fotoquímico, pero no lo elimina. El papel de aluminio o una bolsa secundaria opaca es la respuesta más completa, a costa de no poder ver el contenido.</p>
+
+    <h2>Polvo, disolución y el estado que importa</h2>
+    <p>La fotodegradación suele ser más rápida en disolución que en un sólido seco, por la misma razón por la que lo es la mayor parte de la química: la movilidad. En una torta liofilizada el péptido está inmovilizado y el oxígeno y el agua locales son limitados, así que la exposición durante una jornada de trabajo rara vez es el riesgo dominante. En disolución, el péptido es móvil, hay oxígeno disuelto y puede haber además un componente sensibilizador.</p>
+    <p>Esa diferencia debería orientar la manipulación más que los consejos de almacenamiento:</p>
+    <ul>
+      <li><strong>Pesaje y transferencia del polvo.</strong> Trabaje rápido, pero no trate unos minutos de luz de poyata como una crisis. La captación de humedad es el riesgo mayor en la misma operación.</li>
+      <li><strong>Solución madre reconstituida.</strong> Consérvela en un tubo ámbar o envuelta en papel de aluminio, y no la deje en la poyata entre usos. Un tubo transparente en una gradilla bajo la luz de la poyata durante una tarde sí es una exposición real.</li>
+      <li><strong>Bandejas del automuestreador.</strong> Una secuencia HPLC larga puede mantener una muestra a temperatura ambiente bajo la iluminación de la bandeja durante muchas horas. Si el método es indicador de estabilidad y la muestra es fotosensible, una bandeja refrigerada y oscura forma parte del método, no es una comodidad.</li>
+      <li><strong>Trabajo con cultivos celulares.</strong> El medio con riboflavina y rojo de fenol es un sistema sensibilizador; la exposición durante la manipulación y la iluminación de la incubación se suma a la sensibilidad propia del péptido. Se trata con más detalle en <a href="/knowledge/peptides-in-cell-culture-assays/">péptidos en ensayos de cultivo celular</a>.</li>
+    </ul>
+
+    <h2>Cómo se ejecuta realmente un estudio de fotostabilidad</h2>
+    <p>El marco estándar es ICH Q1B, que describe dos opciones. La opción 1 emplea dos fuentes de luz —una fuente fluorescente de luz blanca fría para el visible y una fuente de UV cercano— con exposiciones objetivo de al menos 1,2 millones de lux hora en visible y 200 W·h/m² en el UV cercano. La opción 2 emplea una sola fuente, típicamente una lámpara de xenón, elegida para dar una distribución espectral comparable. En ambos casos el estudio incluye un control en oscuridad, y la temperatura de la cámara se controla porque las lámparas calientan la muestra.</p>
+    <p>Tres detalles se pierden normalmente cuando se resume el estudio:</p>
+    <ul>
+      <li><strong>Qué se expuso.</strong> Sustancia farmacéutica en un vial, producto farmacéutico en su envase comercial y una disolución en una cubeta son tres experimentos distintos. Solo el segundo responde a la pregunta “¿sobrevive el producto envasado a la luz?”.</li>
+      <li><strong>Si el envase es la variable.</strong> Un estudio que muestra degradación en vidrio transparente y ninguna en vidrio ámbar indica que el envase hace el trabajo. Un estudio que no muestra degradación en ninguno de los dos indica que la molécula no es el problema.</li>
+      <li><strong>Si el método puede ver los productos.</strong> La fotodegradación produce a menudo especies de bajo nivel y elución muy próxima. Un estudio realizado con un gradiente rápido genérico puede informar “sin cambios significativos” mientras los productos quedan bajo el pico principal. La especificidad del método, demostrada idealmente con una muestra de fotodegradación forzada, es lo que da sentido al resultado negativo.</li>
+    </ul>
+    <p>Un estudio de fotostabilidad es una cuestión de diseño experimental de la misma familia que las tratadas en <a href="/knowledge/peptide-stability-studies/">estudios de estabilidad explicados</a>; la diferencia es el agente estresante, no la lógica.</p>
+
+    <h2>Qué puede y qué no puede decirle un proveedor</h2>
+    <p>“Conservar protegido de la luz” es una instrucción de manipulación, no una prueba. Es compatible con un producto que nunca se ha ensayado y con otro que tiene un paquete ICH Q1B completo. Las preguntas que separan ambos casos:</p>
+    <ol>
+      <li>¿Se ha realizado un estudio de fotostabilidad de este péptido, y fue sobre el polvo o sobre la disolución reconstituida?</li>
+      <li>¿Qué recipiente se expuso: el vial suministrado o un recipiente de laboratorio?</li>
+      <li>¿Cuáles fueron las exposiciones medidas y se incluyó un control en oscuridad?</li>
+      <li>¿Qué método analítico se empleó y se demostró que resuelve los productos de fotodegradación?</li>
+      <li>¿Qué cambió —valoración, pureza, color o nada— y cuál fue el criterio de aceptación?</li>
+    </ol>
+    <p>La mayoría de los proveedores de grado investigación responderán “ningún estudio” a la primera pregunta. Es una respuesta legítima para material de investigación, y debería llevar a precauciones de manipulación y no a una afirmación. Lo que no es legítimo es presentar el lenguaje del envase como si fueran datos.</p>
+
+    <h2>Protección práctica</h2>
+    <ul>
+      <li>Guarde los viales sellados a oscuras: un cajón cerrado o un armario, no un alféizar ni una vitrina de cristal a la luz del sol.</li>
+      <li>Mantenga las disoluciones de trabajo en tubos ámbar o envueltos en papel de aluminio; etiquételos para que el envoltorio no se convierta en la razón de que se pierdan.</li>
+      <li>Apague o sombree la iluminación de poyata innecesaria durante la manipulación de disoluciones; trabaje cerca del fondo de la poyata en lugar de bajo una lámpara directa.</li>
+      <li>Nunca coloque péptidos bajo una lámpara UV germicida, un transiluminador o una cabina de documentación de geles.</li>
+      <li>Para corridas HPLC largas, use una bandeja de automuestreador refrigerada y, si el método es sensible, una bandeja a oscuras.</li>
+      <li>No use la exposición UV como sustituto del control de contaminación en viales o superficies que contactan con el péptido.</li>
+    </ul>
+    <p>Estas medidas no cuestan nada y se aplican de forma sistemáticamente insuficiente. El modo de fallo es silencioso: ningún cambio visible, ningún olor evidente, solo una cifra de pureza que se ha desplazado y un cromatograma con una forma ligeramente distinta. Un laboratorio que ya sigue el contenido de agua y las tendencias por lote tiene los datos para notarlo; uno que solo lee el número de la etiqueta, no.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Este artículo describe mecanismos fotoquímicos y práctica de manipulación en laboratorio; no afirma nada sobre la fotosensibilidad de ningún producto concreto y no respalda su administración a humanos ni animales.</div>
+
+    <h2>La opinión del editor</h2>
+    <p>El daño por luz es acumulativo y silencioso. Los viales ámbar y el almacenamiento en oscuridad no son elecciones estéticas; son la intervención de estabilidad más barata disponible.</p>
+
+    <h2>Limitaciones</h2>
+    <p>Esto es una guía de práctica de laboratorio, no un estudio de estabilidad validado. Siga los POE de su institución y el COA del producto; cada compuesto puede comportarse de forma distinta.</p>
+
+    <h2>Productos mencionados en esta guía</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a></li>
+      <li><a href="/wholesale/">Venta al por mayor y suministro a granel</a></li>
+    </ul>
+
+    <h2>Lecturas y productos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/peptide-degradation-pathways/">Vías de degradación</a> — oxidación, hidrólisis y las reacciones que la luz acelera</li>
+      <li><a href="/knowledge/peptide-storage-handling/">Almacenamiento y manipulación</a> — temperatura, humedad y ciclos de congelación–descongelación</li>
+      <li><a href="/knowledge/peptide-packaging-configurations/">Configuraciones de envasado</a> — vidrio ámbar, bolsas de aluminio y barreras secundarias</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Estudios de estabilidad explicados</a> — cómo se diseña y se lee un estudio de estrés</li>
+      <li><a href="/knowledge/peptides-in-cell-culture-assays/">Péptidos en ensayos de cultivo celular</a> — componentes del medio que sensibilizan la fotooxidación</li>
+      <li><a href="/knowledge/peptide-reconstitution-guide/">Práctica de reconstitución</a> — manipulación de las disoluciones una vez preparadas</li>
+      <li><a href="/es/knowledge/">Todas las guías de conocimiento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema lang="es" title={title} description={description} path="/es/knowledge/peptide-photostability/" section="Manejo y práctica de laboratorio" />
+</BaseLayout>

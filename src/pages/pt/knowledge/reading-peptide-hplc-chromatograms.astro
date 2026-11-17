@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Como ler um cromatograma HPLC de péptidos';
+const description = 'Forma do pico, integração e a diferença entre área e massa: o que um cromatograma de péptidos mostra e o que esconde.';
+---
+<BaseLayout lang="pt" title={title} description={description} canonical="/pt/knowledge/reading-peptide-hplc-chromatograms/" alternates={[
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/knowledge/reading-peptide-hplc-chromatograms/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/knowledge/reading-peptide-hplc-chromatograms/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/knowledge/reading-peptide-hplc-chromatograms/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/knowledge/reading-peptide-hplc-chromatograms/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/knowledge/reading-peptide-hplc-chromatograms/` },
+  ]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Início',href:'/pt/'},{label:'Conhecimento',href:'/pt/knowledge/'},{label:'Ler cromatogramas'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Um certificado diz “pureza 98,6%”. O cromatograma por trás desse número é onde está a informação real: como a amostra foi corrida, como os picos foram integrados e se o valor descreve o péptido ou apenas a parte da amostra que por acaso absorveu luz ultravioleta.</p>
+
+    <h2>O que o instrumento regista realmente</h2>
+    <p>A HPLC de fase reversa faz passar a amostra por uma coluna apolar — habitualmente C18 — com um gradiente de água e um solvente orgânico, tipicamente acetonitrilo. Os péptidos ligam-se à coluna e eluem à medida que a fração orgânica sobe, grosso modo por ordem de hidrofobicidade. Um detetor mede a absorbância na célula de fluxo e representa-a em função do tempo.</p>
+    <p>Dois ajustes dominam o que se vê. O <strong>comprimento de onda</strong> é habitualmente 214 nm, próximo do máximo de absorbância da ligação peptídica, que deteta quase qualquer péptido independentemente da sequência; 254 ou 280 nm captam antes os resíduos aromáticos e são muito menos sensíveis para péptidos que não os têm. O <strong>gradiente</strong> — percentagem orgânica inicial e final, declive e tempo de corrida — determina a resolução. Um gradiente suave separa impurezas muito próximas; um gradiente acentuado produz uma corrida rápida e de aspeto limpo que as pode fundir.</p>
+    <p>É por isso que um tempo de retenção não é uma identidade. O mesmo péptido, corrido noutra coluna, a outra temperatura e com outro volume de atraso de gradiente, pode deslocar-se um minuto ou mais. A identidade vem da espetrometria de massa, da coinjeção com um padrão de referência, ou de ambas — ver <a href="/knowledge/peptide-mass-spec-identity/">verificações de identidade por espetrometria de massa</a> e <a href="/knowledge/how-to-verify-peptide-purity/">verificação de pureza</a>.</p>
+
+    <h2>Ler os eixos antes dos picos</h2>
+    <ul>
+      <li><strong>Tempo (minutos).</strong> Repare na duração da corrida e em onde termina o gradiente. Uma corrida de 10 minutos e uma de 40 minutos não são declarações de pureza comparáveis.</li>
+      <li><strong>Absorbância (mAU).</strong> A escala do eixo y diz-lhe se uma impureza “pequena” é pequena em termos absolutos. Um cromatograma escalado ao pico principal pode fazer um ombro de 2% parecer um traço.</li>
+      <li><strong>Frente de solvente.</strong> A primeira perturbação, perto do volume morto, é material não retido — sais, solvente, contaminantes muito polares. Os picos aí não são dados de pureza do péptido e não devem ser integrados como produto.</li>
+      <li><strong>Traço de gradiente.</strong> Muitos relatórios sobrepõem a linha de %B. Sem ela, não é possível saber se um pico tardio eluiu durante a lavagem ou depois de o gradiente regressar ao início.</li>
+    </ul>
+
+    <h2>A forma do pico é diagnóstica</h2>
+    <table>
+      <thead><tr><th>Observação</th><th>Causa comum</th><th>O que significa para o resultado</th></tr></thead>
+      <tbody>
+        <tr><td>Deformação frontal (pico inclinado para a esquerda)</td><td>Sobrecarga da coluna — massa injetada em excesso</td><td>O tempo de retenção desloca-se e a resolução cai; a área reportada pode ficar distorcida</td></tr>
+        <tr><td>Cauda (pico inclinado para a direita)</td><td>Interações secundárias com silanóis residuais; resíduos básicos</td><td>É comum e muitas vezes aceitável, mas uma cauda acentuada pode engolir uma impureza de eluição tardia</td></tr>
+        <tr><td>Ombro no pico principal</td><td>Impureza coelidente, frequentemente um produto de deleção ou oxidação</td><td>A maior fonte única de pureza sobrestimada — um ombro integrado no pico principal desaparece do número</td></tr>
+        <tr><td>Pico dividido</td><td>Vazio de coluna na cabeça, ou duas espécies com hidrofobicidade semelhante</td><td>Exige um segundo método ou MS para distinguir o artefacto da impureza</td></tr>
+        <tr><td>Deriva ascendente da linha de base</td><td>Modificador orgânico que absorve UV a baixo comprimento de onda</td><td>Normal em corridas com gradiente; uma linha de base à deriva torna arbitrária a integração de picos pequenos</td></tr>
+        <tr><td>Picos fantasma</td><td>Arrastamento da injeção anterior, ou contaminação da fase móvel</td><td>Podem ser confundidos com impurezas — ou mascará-las</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A integração é uma decisão, não uma medição</h2>
+    <p>O software não encontra picos; é um operador que define parâmetros que decidem o que conta. Qualquer um dos seguintes pode mover um valor de pureza um ponto percentual ou mais, sem que nada mude no frasco:</p>
+    <ul>
+      <li><strong>Limiar de pico e área mínima.</strong> Suba o limiar e as impurezas pequenas deixam de ser integradas.</li>
+      <li><strong>Colocação da linha de base.</strong> Traçá-la acima de um ombro exclui-o; traçá-la abaixo inclui-o.</li>
+      <li><strong>Integração manual.</strong> Legítima perante uma linha de base má, opaca quando é a única versão que lhe mostram.</li>
+      <li><strong>Suavização.</strong> Reduz o ruído e reduz também a altura dos picos pequenos.</li>
+      <li><strong>Excluir a frente de solvente ou os “picos de sistema”.</strong> Por vezes está correto; por vezes é uma forma de remover material inconveniente que elui cedo.</li>
+    </ul>
+    <p>Um relatório credível inclui por isso a tabela de integração — tempo de retenção, área, área%, altura e largura de cada pico — e não apenas uma imagem e um número de destaque. Se a tabela lista só o pico principal, os outros ou não existiam ou foram excluídos; não é possível saber qual.</p>
+
+    <h2>A percentagem de área não é a percentagem de massa</h2>
+    <p>A pureza por área assume que todos os componentes absorvem por igual ao comprimento de onda de deteção. Não absorvem. Uma impureza rica em resíduos aromáticos pode absorver mais do que o péptido principal e ser sobrestimada; uma que não absorve é subestimada ou invisível. A água, os contra-iões e os solventes residuais não absorvem de todo a 214 nm, pelo que nunca aparecem no cálculo.</p>
+    <p>É por isso que um frasco pode ser “98,5% puro” e conter, ainda assim, bem menos de 98,5% de péptido em massa. A fração em falta é água, sal e excipiente — medida por Karl Fischer e por doseamento ou análise de aminoácidos, não por HPLC. A relação está exposta nos <a href="/quality/testing-methods/">métodos de análise</a>, e a aritmética das formas salinas nas <a href="/knowledge/peptide-counter-ion-forms/">formas de contra-ião</a>.</p>
+
+    <h2>O que contém um pacote de cromatograma completo</h2>
+    <ol>
+      <li>O traço representado a um comprimento de onda declarado, com ambos os eixos identificados e a corrida completa visível — não um zoom ao pico principal.</li>
+      <li>Tipo e dimensões da coluna, composição da fase móvel, tabela de gradiente, caudal, temperatura da coluna e volume de injeção.</li>
+      <li>A tabela de integração com todos os picos integrados, incluindo a área%.</li>
+      <li>O mesmo método corrido sobre um padrão de referência, para que o tempo de retenção possa ser comparado.</li>
+      <li>Uma confirmação por espetro de massa no mesmo pacote, idealmente com a massa esperada e a observada indicadas.</li>
+    </ol>
+    <p>Sem os pontos 2 e 3, os valores de “98%” de dois fornecedores não podem ser comparados, porque podem não estar a medir a mesma coisa. Um fornecedor que consegue produzir o ficheiro de método está a executar um ensaio controlado; um que envia uma captura de ecrã sem eixos, habitualmente não.</p>
+
+    <h2>Usar o cromatograma numa conversa com um fornecedor</h2>
+    <p>Faça uma pergunta que separe os dois casos: <em>“Pode enviar-me a tabela de integração e o método de gradiente deste lote?”</em> Um fornecedor com controlo analítico interno responde a partir do registo do lote. Um revendedor reencaminha a pergunta e devolve uma imagem cortada ou nada. Essa resposta é mais informativa do que qualquer alegação de pureza.</p>
+    <p>Ao comparar lotes ao longo do tempo, guarde os cromatogramas. Um novo pico de impureza, um desvio no tempo de retenção ou uma alteração na forma do pico entre lotes é um aviso precoce de que algo se moveu no processo — mesmo quando a pureza de destaque não muda. É essa a ligação prática entre os cromatogramas e a <a href="/knowledge/peptide-lot-consistency/">consistência lote a lote</a>.</p>
+
+    <div class="ruo">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário. Este artigo descreve uma técnica analítica; não faz qualquer alegação sobre um composto específico e não sustenta a administração a humanos ou animais.</div>
+
+    <h2>A opinião do editor</h2>
+    <p>O número é a parte menos informativa do cromatograma. O método, a linha de base e o envelope de impurezas dizem-lhe se o número significa alguma coisa.</p>
+
+    <h2>Fontes e evidência</h2>
+    <ul>
+      <li>Validação de métodos: ICH Q2(R1) — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">orientações de qualidade da ICH</a>.</li>
+      <li>Especificações: ICH Q6B — a mesma página da ICH.</li>
+      <li>Água / partículas / endotoxina: USP &lt;731&gt;, &lt;788&gt;, &lt;85&gt; — <a href="https://www.usp.org/chemical-medicines" rel="noopener" target="_blank">USP</a>.</li>
+      <li>Farmacopeia Chinesa (ChP 2020) Parte IV: capítulos 0512, 0832, 0903, 1143 — citados pelo número do capítulo.</li>
+    </ul>
+    <p class="small muted">O autor não realizou qualquer ensaio laboratorial para este guia; os limites de aceitação devem vir da sua própria especificação.</p>
+
+    <h2>Limitações</h2>
+    <p>Este guia descreve métodos e interpretação, não limites de aceitação. Os limites devem vir da sua própria especificação e, quando aplicável, da monografia farmacopeica relevante. O autor não realizou qualquer ensaio para esta página.</p>
+
+    <h2>Produtos referidos neste guia</h2>
+    <ul>
+      <li><a href="/products/">Catálogo de péptidos de investigação</a></li>
+      <li><a href="/wholesale/">Venda por grosso e fornecimento a granel</a></li>
+    </ul>
+
+    <h2>Leituras e produtos relacionados</h2>
+    <ul>
+      <li><a href="/quality/testing-methods/">Métodos de análise</a> — o que o HPLC, a MS e o Karl Fischer provam cada um</li>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verificar a pureza antes de comprar</a> — a sequência do comprador</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">Sinais de alerta no COA</a> — quando o problema é o próprio documento</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Identidade por espetrometria de massa</a> — o que uma correspondência de massa prova e o que não prova</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Formas de contra-ião</a> — porque divergem a área% e a massa%</li>
+      <li><a href="/knowledge/peptide-data-integrity/">Integridade de dados</a> — as edições de integração e o registo de auditoria por trás da tabela de picos</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Consistência lote a lote</a> — ler cromatogramas entre lotes</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Amostragem e libertação de lote</a> — de que frascos saiu o cromatograma</li>
+      <li><a href="/knowledge/peptide-hplc-method-design/">Desenho de métodos HPLC</a> — coluna, par iónico e escolhas de gradiente que moldam o pico</li>
+      <li><a href="/knowledge/peptide-reference-standards/">Padrões de referência</a> — em que se apoia um valor de calibração</li>
+      <li><a href="/knowledge/peptide-aggregation-self-assembly/">Agregação e auto-montagem</a> — quando o problema da forma do pico começa em solução</li>
+      <li><a href="/tools/hplc-dilution-calculator/">Calculadora de diluição HPLC</a> — diluir a solução-mãe e confirmar a massa em coluna</li>
+      <li><a href="/pt/knowledge/">Todos os guias de conhecimento</a></li>
+    </ul>
+  </div>
+  <ArticleSchema lang="pt" title={title} description={description} path="/pt/knowledge/reading-peptide-hplc-chromatograms/" section="Técnicas analíticas" />
+</BaseLayout>

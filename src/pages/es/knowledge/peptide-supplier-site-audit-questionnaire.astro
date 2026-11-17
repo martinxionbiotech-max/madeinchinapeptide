@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+const title = 'Auditoría de proveedores de péptidos: 40 preguntas';
+const description = '40 preguntas para auditar la planta de un proveedor de péptidos: calidad, producción, documentación y trazabilidad, con criterios de puntuación.';
+---
+<BaseLayout
+  lang="es"
+  title={title}
+  description={description}
+  canonical="/es/knowledge/peptide-supplier-site-audit-questionnaire/"
+  alternates={[
+    { hreflang: 'en', href: 'https://madeinchinapeptide.com/knowledge/peptide-supplier-site-audit-questionnaire/' },
+    { hreflang: 'es', href: 'https://madeinchinapeptide.com/es/knowledge/peptide-supplier-site-audit-questionnaire/' },
+    { hreflang: 'pt', href: 'https://madeinchinapeptide.com/pt/knowledge/peptide-supplier-site-audit-questionnaire/' },
+    { hreflang: 'ar', href: 'https://madeinchinapeptide.com/ar/knowledge/peptide-supplier-site-audit-questionnaire/' },
+    { hreflang: 'x-default', href: 'https://madeinchinapeptide.com/knowledge/peptide-supplier-site-audit-questionnaire/' },
+  ]}
+>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Cuestionario de auditoría de planta'}]} />
+    <h1>{title}</h1>
+    <p class="lead muted">Un cuestionario no es una conversación. Las preguntas escritas obtienen respuestas escritas, las mismas respuestas se pueden comparar entre proveedores y una respuesta vaga queda en el registro. Lo que sigue es un conjunto de 40 puntos para enviar antes de una visita a la planta —o para llevar a ella—, agrupados de modo que cada bloque lo pueda responder quien realmente es responsable de esa función.</p>
+
+    <h2>Cómo usarlo</h2>
+    <ol>
+      <li><strong>Envíelo con dos semanas de antelación, como archivo.</strong> Pida el documento completado más los registros a los que hace referencia. Un proveedor que devuelve respuestas sin evidencia ha respondido a medias.</li>
+      <li><strong>Dirija cada bloque a su responsable.</strong> Las preguntas de calidad a QC, las de producción al responsable de síntesis, la documentación a QA y la trazabilidad a quien controle el registro de lote. Si una sola persona responde los cuatro bloques, ha aprendido que una sola persona concentra el conocimiento: un riesgo en sí mismo.</li>
+      <li><strong>Exija una referencia documental, no un sí.</strong> Cada «sí» debería señalar un número de documento, una página de libro de registro o un número de lote. Una respuesta que no se puede localizar después es una respuesta en la que no puede confiar.</li>
+      <li><strong>Puntúe de forma idéntica entre candidatos.</strong> Use el esquema 0/1/2 de abajo y puntúe antes de comparar proveedores, no después.</li>
+      <li><strong>Deje espacio para el seguimiento.</strong> El resultado más valioso suelen ser las tres preguntas que suscitaron las respuestas, no la puntuación.</li>
+    </ol>
+    <p>Esta página es la contraparte del <a href="/knowledge/remote-peptide-supplier-audit/">método de auditoría remota</a>: esa página cubre cómo realizar un recorrido en vídeo y ponderar el resultado; esta es el documento que se envía. La <a href="/knowledge/china-peptide-supplier-checklist/">lista de verificación de 12 puntos para proveedores</a> es la etapa de cribado que precede a ambas.</p>
+
+    <h2>Bloque A — Calidad y control analítico (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Pregunta</th><th>Qué contiene una respuesta utilizable</th></tr></thead>
+      <tbody>
+        <tr><td class="num">A1</td><td>¿Qué ensayos de liberación realizan internamente, cuáles subcontratan y en qué instrumento (marca, modelo, ID interno) se realiza cada uno?</td><td>Un desglose ensayo por ensayo, con ID de instrumento que coincidan con la lista de equipos</td></tr>
+        <tr><td class="num">A2</td><td>Para el producto que compro, ¿cuál es el método HPLC completo: dimensiones y tamaño de partícula de la columna, fase móvil, tabla de gradiente, longitud de onda, flujo, volumen de inyección y tiempo de ejecución?</td><td>Un resumen del método lo bastante detallado para repetirlo en otro sitio; un cromatograma con el método visible</td></tr>
+        <tr><td class="num">A3</td><td>¿Cómo se calcula la pureza —porcentaje de área a qué longitud de onda— y corrigen los factores de respuesta, el contenido de agua o la masa del contraión?</td><td>Una base declarada, y coherencia entre la cifra del COA y esa base</td></tr>
+        <tr><td class="num">A4</td><td>¿Cuál es su especificación y su método de contenido de agua (Karl Fischer, pérdida por secado), y cuál fue el resultado real del último lote?</td><td>Especificación, método y un valor ligado al lote en lugar de un intervalo</td></tr>
+        <tr><td class="num">A5</td><td>¿Cómo controlan el TFA residual, el acetato y los disolventes residuales, y qué límites están escritos en la especificación?</td><td>Método nombrado (p. ej. GC de espacio de cabeza), límites nombrados y si los límites son por producto o genéricos</td></tr>
+        <tr><td class="num">A6</td><td>¿Cómo se prepara y se cualifica el estándar de referencia, y cómo se justifica la pureza que se le asigna?</td><td>Un estándar comercial con certificado, o un lote interno con una asignación de valor documentada</td></tr>
+        <tr><td class="num">A7</td><td>Describan su procedimiento OOS: quién abre una investigación, cuánto puede durar y quién puede liberar un lote mientras está abierta.</td><td>Roles nombrados, un límite de tiempo y una declaración de que el lote queda bloqueado</td></tr>
+        <tr><td class="num">A8</td><td>¿Con qué frecuencia se calibran balanzas, medidores de pH y sistemas HPLC, quién lo hace y dónde se guardan los certificados?</td><td>Un intervalo, un proveedor interno o externo y un registro recuperable</td></tr>
+        <tr><td class="num">A9</td><td>¿Analizan la carga microbiana (bioburden) y las endotoxinas en el polvo terminado? Si es así, ¿con qué método, con qué frecuencia y con qué límites?</td><td>Un método (p. ej. LAL), una frecuencia por lote o por campaña y límites declarados — o un «no se analiza» honesto</td></tr>
+        <tr><td class="num">A10</td><td>¿Cuántos lotes rechazaron o reprocesaron en la liberación en los últimos 12 meses, y cuáles fueron los motivos?</td><td>Un número y categorías; un «cero» de una planta multiproducto es en sí mismo una respuesta</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Bloque B — Producción y proceso (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Pregunta</th><th>Qué contiene una respuesta utilizable</th></tr></thead>
+      <tbody>
+        <tr><td class="num">B1</td><td>¿A qué escala se sintetiza este producto —tipo de resina, carga y tamaño de lote en mmol— y qué reactor se utiliza?</td><td>Cifras que concuerden con la capacidad del equipo y el tamaño de lote cotizado</td></tr>
+        <tr><td class="num">B2</td><td>¿Qué química de acoplamiento y qué esquema de desprotección usan, y cómo monitorizan la completitud de cada acoplamiento?</td><td>Una química nombrada más un método de monitorización (p. ej. Kaiser o cloranil), no «SPPS estándar»</td></tr>
+        <tr><td class="num">B3</td><td>¿Cuántos residuos se acoplan por duplicado de forma predeterminada, y qué resultado desencadena un reacoplamiento?</td><td>Una regla y un umbral de resultado de ensayo, no una costumbre fija</td></tr>
+        <tr><td class="num">B4</td><td>¿Qué cóctel de escisión se usa para esta secuencia, a qué temperatura y durante cuánto tiempo, y cómo se neutraliza y se aísla el crudo?</td><td>Composición, temperatura, tiempo y la secuencia de trabajo posterior</td></tr>
+        <tr><td class="num">B5</td><td>¿Qué pasos de purificación siguen a la escisión —columna, gradiente, criterio de fracción— y cómo se agrupan las fracciones?</td><td>Un criterio de agrupación (p. ej. corte central por encima de un umbral de pureza), no solo «purificado por HPLC»</td></tr>
+        <tr><td class="num">B6</td><td>¿Cuál es su rendimiento global típico de crudo a polvo terminado para una secuencia de esta longitud, y dónde están las mayores pérdidas?</td><td>Un intervalo ligado a la clase de secuencia, con los puntos de pérdida nombrados</td></tr>
+        <tr><td class="num">B7</td><td>¿Qué ciclo de liofilización se usa —etapas de temperatura de estante, vacío, duración— y cómo se desarrolló para este producto?</td><td>Estructura del ciclo y una justificación de desarrollo (p. ej. temperatura de colapso), no un programa genérico</td></tr>
+        <tr><td class="num">B8</td><td>¿Cómo se limpia el reactor entre productos, y cómo verifican que no hay arrastre de la secuencia anterior?</td><td>Un procedimiento de limpieza más un paso de verificación (análisis de enjuague, corrida en blanco)</td></tr>
+        <tr><td class="num">B9</td><td>¿Cuántos reactores y liofilizadores operan, cuál es la utilización actual y qué plazo de entrega implica eso?</td><td>Recuentos, utilización y un plazo coherente con ambos</td></tr>
+        <tr><td class="num">B10</td><td>¿Qué pasos de este producto podrían subcontratarse, y cuáles se subcontratan hoy?</td><td>Respuesta a nivel de paso: síntesis, purificación, llenado, liofilización, análisis</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Bloque C — Documentación y sistema de calidad (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Pregunta</th><th>Qué contiene una respuesta utilizable</th></tr></thead>
+      <tbody>
+        <tr><td class="num">C1</td><td>¿Pueden facilitar el registro de lote de un lote que yo designe, con la información confidencial oculta según sea necesario, mostrando las fechas de síntesis, purificación y QC y los operadores?</td><td>Un registro cuyas fechas abarquen la fecha de liberación del COA y cuyo número de lote coincida</td></tr>
+        <tr><td class="num">C2</td><td>¿Su COA incluye número de lote, fecha de fabricación, fecha de liberación y la versión de especificación contra la que se analizó?</td><td>Los cuatro campos presentes; una versión de especificación que se pueda solicitar</td></tr>
+        <tr><td class="num">C3</td><td>¿Quién firma el COA, cuál es su función, y el firmante es independiente de producción?</td><td>Una función nombrada (p. ej. responsable de QC) separada del equipo de síntesis</td></tr>
+        <tr><td class="num">C4</td><td>¿Durante cuánto tiempo conservan los registros de lote, los cromatogramas y los datos brutos, y qué ocurre con ellos si la planta se traslada?</td><td>Un periodo de retención declarado y una respuesta sobre continuidad</td></tr>
+        <tr><td class="num">C5</td><td>¿Se conservan los archivos de datos brutos de HPLC y MS, y se pueden exportar en el formato nativo del instrumento si se solicitan?</td><td>Retención más exportabilidad: una impresión en PDF no son datos brutos</td></tr>
+        <tr><td class="num">C6</td><td>¿Qué exige su procedimiento de control de cambios antes de un cambio de método, proveedor o proceso, y cómo se notifica a los clientes afectados?</td><td>Una lista de disparadores, un paso de aprobación y una cláusula de notificación</td></tr>
+        <tr><td class="num">C7</td><td>¿Cuántas desviaciones y CAPA están abiertas ahora, y cuál es la más antigua?</td><td>Recuentos y una antigüedad; un sistema sin ninguna abierta o no tiene volumen o no registra nada</td></tr>
+        <tr><td class="num">C8</td><td>¿Emiten una hoja de especificación separada del COA, y está controlada por versiones?</td><td>Un documento separado con número de versión e historial de revisiones</td></tr>
+        <tr><td class="num">C9</td><td>¿Cuál es su política sobre auditorías de clientes y confidencialidad? ¿Firmarían un NDA antes de compartir registros?</td><td>Un sí o un no claros, con la vía de acuerdo nombrada</td></tr>
+        <tr><td class="num">C10</td><td>¿Qué certificaciones tienen, y qué alcance cubre exactamente cada una?</td><td>Número de certificado, organismo emisor, declaración de alcance — y una lista explícita de lo que <em>no</em> está certificado</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Bloque D — Trazabilidad, muestras y posventa (10)</h2>
+    <table class="audit">
+      <thead><tr><th class="num">#</th><th>Pregunta</th><th>Qué contiene una respuesta utilizable</th></tr></thead>
+      <tbody>
+        <tr><td class="num">D1</td><td>¿Pueden rastrear un vial terminado hasta el lote de resina, los lotes de aminoácidos, los lotes de disolventes y la corrida de síntesis?</td><td>Un ejemplo resuelto con un número de lote que usted proporcione</td></tr>
+        <tr><td class="num">D2</td><td>¿Cómo se identifica el material en cada punto de transferencia, qué campos de etiqueta se usan y quién los transcribe?</td><td>Lista de campos y una función nombrada responsable de la transcripción</td></tr>
+        <tr><td class="num">D3</td><td>¿Cómo se conservan las muestras de retención: cuántas por lote, qué cantidad, a qué temperatura y durante cuánto tiempo?</td><td>Recuentos, cantidad, condición y duración; idealmente el propio estante</td></tr>
+        <tr><td class="num">D4</td><td>Si reanalizo este lote dentro de doce meses y obtengo una pureza menor, ¿cuál es su posición y qué datos aportarían?</td><td>Una respuesta de política más los datos que facilitarían</td></tr>
+        <tr><td class="num">D5</td><td>¿Cuál es su esquema de numeración de lotes, y un lote reprocesado puede conservar su número original?</td><td>Un esquema y una regla de que el reproceso recibe un número nuevo o con sufijo</td></tr>
+        <tr><td class="num">D6</td><td>¿Cómo gestionan el excedente y la reposición? ¿Se llega a envasar material de un lote anterior en un lote nuevo?</td><td>Un no explícito, o una regla de mezcla documentada con trazabilidad</td></tr>
+        <tr><td class="num">D7</td><td>¿Pueden facilitar el registro de despacho de un lote: fecha, transportista, seguimiento y datos de cualquier registrador de temperatura?</td><td>Un registro, no una promesa; datos del registrador si se afirmó cadena de frío</td></tr>
+        <tr><td class="num">D8</td><td>¿Qué subcontratistas intervienen en este producto, y cómo se vinculan sus lotes a su registro de lote?</td><td>Pasos nombrados y el campo de vinculación en el registro</td></tr>
+        <tr><td class="num">D9</td><td>¿Qué ocurre con un lote rechazado o devuelto: dónde se retiene y cómo se documenta su destrucción?</td><td>Una ubicación de cuarentena y un registro de destrucción</td></tr>
+        <tr><td class="num">D10</td><td>Si el resultado de un tercero del cliente no coincide con su COA, ¿cuál es la secuencia de acciones y quién es responsable de la respuesta?</td><td>Una secuencia con responsable y plazo, más una política de reanálisis</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Puntuar las respuestas</h2>
+    <p>Puntúe cada ítem con 0, 1 o 2. La escala premia deliberadamente la evidencia por encima de la confianza.</p>
+    <table>
+      <thead><tr><th>Puntuación</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>Sin respuesta, una evasiva o una garantía general sin ejemplo («seguimos un QC estricto»)</td></tr>
+        <tr><td><strong>1</strong></td><td>Una respuesta concreta sin referencia documental, o un registro que no se puede producir si se solicita</td></tr>
+        <tr><td><strong>2</strong></td><td>Una respuesta concreta más un documento, número de lote o página de libro de registro que se pueda comprobar</td></tr>
+      </tbody>
+    </table>
+    <p>Máximo 80. Como guía práctica: por debajo de 40 el proveedor aún no es auditable y un pedido de prueba es prematuro; 40–60 es lo típico de una operación comercial competente con análisis subcontratado, y las lagunas le indican qué escribir en la especificación; por encima de 60 sin ningún 0 en los bloques C o D indica una planta que conserva registros para su propio proceso y no para sus clientes. No promedie para eliminar un solo 0 en C10: una afirmación de certificación sin evidencia es un tipo de problema distinto de una respuesta incompleta.</p>
+    <p>Puntúe por bloque además de en total. Un proveedor puede ser fuerte en producción y débil en trazabilidad, y el patrón por bloque es más accionable que la suma: un bloque D débil significa que sus recepciones serán difíciles de verificar, diga lo que diga el certificado.</p>
+
+    <h2>Preguntas que producen evasivas de forma sistemática</h2>
+    <ul>
+      <li><strong>A10 y C7</strong> — recuentos de rechazos y desviaciones. Una planta que no declara ninguno o es muy nueva o no registra. Pregunte cuál fue la última no conformidad, no si existe alguna.</li>
+      <li><strong>B6</strong> — rendimiento. Una negativa es normal; una cifra idéntica al rendimiento teórico no lo es.</li>
+      <li><strong>C5</strong> — datos brutos. Muchos proveedores pueden aportar una imagen de cromatograma pero no el archivo de adquisición. Esa distinción predice cómo irá una disputa.</li>
+      <li><strong>D6</strong> — reposición desde un lote anterior. La respuesta suele ser «solo dentro de especificación»; pida el registro de mezcla.</li>
+      <li><strong>C10</strong> — alcance de la certificación. «ISO 9001» no dice nada sobre el péptido; pida la declaración de alcance y el número de certificado, y compruebe usted mismo el registro del organismo emisor.</li>
+    </ul>
+
+    <h2>Lo que este cuestionario no puede hacer</h2>
+    <p>No puede confirmar que las respuestas describan el proceso de hoy y no el del año pasado, que el registro de lote mostrado sea el de su lote, o que el orden y el comportamiento coincidan con los documentos. Eso requiere una visita, y una visita vale más cuando el cuestionario ya está respondido: dedique el día a los tres puntos que no cuadraban en lugar de a una presentación. Cómo planificar ese día está en la <a href="/knowledge/remote-peptide-supplier-audit/">guía de auditoría remota</a>; cómo convertir las respuestas en requisitos exigibles está en <a href="/knowledge/peptide-specification-annex/">redactar un anexo de especificaciones</a>.</p>
+    <p>Una nota práctica: conserve el cuestionario completado con el expediente del proveedor y féchelo. Cuando un proveedor cambie un método o una planta dieciocho meses después, las respuestas antiguas son la línea base con la que se puede juzgar la notificación de control de cambios.</p>
+
+    <h2>La opinión del autor</h2>
+    <p>Un cuestionario es un espejo: la calidad de las respuestas le dice cuánto ha pensado realmente el proveedor en su proceso. Las respuestas vagas también son datos.</p>
+
+    <h2>Limitaciones</h2>
+    <p>Esta es una guía de diligencia comercial, no asesoramiento legal. Las afirmaciones de los proveedores deben verificarse contra los documentos de lote y, cuando se requiera, mediante una auditoría independiente.</p>
+
+    <h2>Productos mencionados en esta guía</h2>
+    <ul>
+      <li><a href="/es/products/">Catálogo de péptidos de investigación</a></li>
+      <li><a href="/es/wholesale/">Mayoreo y suministro a granel</a></li>
+    </ul>
+
+    <h2>Lecturas y productos relacionados</h2>
+    <ul>
+      <li><a href="/knowledge/remote-peptide-supplier-audit/">Auditoría remota de proveedores</a> — la lista de documentos, el recorrido y la rúbrica de puntuación para una visita que no puede hacer</li>
+      <li><a href="/knowledge/china-peptide-supplier-checklist/">Lista de verificación de proveedores de China</a> — el marco de cribado de 12 puntos</li>
+      <li><a href="/knowledge/peptide-cross-contamination/">Contaminación cruzada</a> — los registros de cambio que hay que pedir tras el recorrido</li>
+      <li><a href="/knowledge/peptide-specification-annex/">Anexo de especificaciones</a> — convertir los hallazgos en límites comprobables</li>
+      <li><a href="/knowledge/peptide-procurement-contract-terms/">Condiciones del contrato</a> — derechos de auditoría y control de cambios en el acuerdo</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">Señales de alerta en el COA</a> — qué debe y qué no debe contener un certificado</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Muestreo y liberación de lote</a> — qué hacer con la primera entrega</li>
+      <li><a href="/es/knowledge/">Todas las guías de conocimiento</a></li>
+    </ul>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Este cuestionario es una herramienta de compra; no afirma nada sobre ningún proveedor concreto, y nada de lo aquí expuesto respalda la administración de ningún compuesto a personas o animales.</div>
+  </div>
+  <ArticleSchema lang="es" title={title} description={description} path="/es/knowledge/peptide-supplier-site-audit-questionnaire/" section="Auditoría de proveedores de péptidos" />
+</BaseLayout>
+
+<style is:global>
+  @media print {
+    .site-header, .footer, .breadcrumb, .ruo { display: none !important; }
+    .wrap-narrow { max-width: none; padding: 0; }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 13pt; page-break-after: avoid; }
+    table.audit { page-break-inside: auto; font-size: 9pt; }
+    table.audit tr { page-break-inside: avoid; }
+    table.audit th { background: none; border-bottom: 1pt solid #000; }
+    table.audit td, table.audit th { border-color: #999; }
+    a { color: #000; text-decoration: none; }
+  }
+  table.audit td.num, table.audit th.num { width: 44px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+</style>

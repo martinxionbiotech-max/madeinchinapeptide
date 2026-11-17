@@ -5,7 +5,9 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Supplier corporate due diligence';
 const description = 'Verifying the company behind a peptide COA: registration records, export rights, entity matching and the capacity claims that do not survive arithmetic.';
 ---
-<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-corporate-due-diligence/">
+<BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-supplier-corporate-due-diligence/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-supplier-corporate-due-diligence/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-supplier-corporate-due-diligence/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Corporate due diligence'}]} />
     <h1>{title}</h1>
