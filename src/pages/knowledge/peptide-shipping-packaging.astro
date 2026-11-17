@@ -3,14 +3,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
-<BaseLayout title="Shipping Packaging for Peptides — Protecting the Vial in Transit" description="Packaging practice for research peptide shipments: vial cushioning, desiccation, phase-change materials, tamper evidence and label consistency with customs documents." canonical="/knowledge/peptide-shipping-packaging/">
+<BaseLayout title="Shipping Packaging for Peptides — Protecting the Vial in Transit" description="Shipping packaging for research peptides: vial protection, cold packs, insulation, documentation pouches and the temperature limits of each format." canonical="/knowledge/peptide-shipping-packaging/">
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Shipping packaging'}]} />
     <h1>Shipping packaging for peptides</h1>
     <p class="lead muted">Packaging has one job: deliver the vial in the condition it left the factory. Everything else — branding, inserts, unboxing — is secondary to mechanical protection, moisture control and temperature stability.</p>
     <p class="small muted" style="margin-bottom:18px;">Part of the <a href="/knowledge/peptide-shipping-customs-framework/">shipping &amp; customs pillar</a>.</p>
 
-    <h2>Layer by layer</h2>
+        <figure class="drawing-figure">
+      <img src="/images/drawing-cold-chain.png" alt="Cutaway of an insulated shipper: outer carton, liner, two cold packs, vial cartons, logger and document pouch." width="1600" height="1000" loading="lazy" decoding="async" />
+      <figcaption>Drawing 18 — Cold-chain pack, cutaway. Placement is indicative; a validated shipper configuration controls the pack-out.</figcaption>
+    </figure>
+
+<h2>Layer by layer</h2>
     <table>
       <thead><tr><th>Layer</th><th>Function</th><th>Practical note</th></tr></thead>
       <tbody>

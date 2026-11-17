@@ -2,13 +2,20 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Quality Control & Batch Documentation — Research Peptides" description="How research peptides are tested and released: HPLC purity, mass-spectrometry identity, water content, batch records, COA structure and traceability." canonical="/quality/">
+<BaseLayout title="Quality Control & Batch Documentation — Research Peptides" description="How research peptides are tested and released: HPLC purity, mass-spectrometry identity, water content, batch records, COA structure and traceability." canonical="/quality/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/quality/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/quality/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/quality/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/quality/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/quality/'}]}
+>
   <div class="wrap">
     <p class="breadcrumb"><a href="/">Home</a> › Quality</p>
     <h1>Quality control &amp; batch documentation</h1>
     <p class="lead muted" style="max-width:840px;">Purity claims are cheap. What matters is whether the claim on the label can be traced to a specific lot, a specific method and a specific result. This page describes the testing and release framework behind every batch we ship.</p>
 
-    <h2>The release chain</h2>
+        <figure class="drawing-figure">
+      <img src="/images/drawing-hplc.png" alt="Illustrative RP-HPLC trace with a main peak and three impurity peaks, labelled retention time and absorbance axes." width="1600" height="1000" loading="lazy" decoding="async" />
+      <figcaption>Drawing 16 — What a purity check looks like. Illustrative trace, not a batch result or a specification.</figcaption>
+    </figure>
+
+<h2>The release chain</h2>
     <table>
       <thead><tr><th>Stage</th><th>What is checked</th><th>Record</th></tr></thead>
       <tbody>

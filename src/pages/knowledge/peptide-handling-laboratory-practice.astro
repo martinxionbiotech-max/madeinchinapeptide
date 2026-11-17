@@ -4,7 +4,7 @@ import { site } from '../../data/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 ---
-<BaseLayout title="Peptide Handling and Laboratory Practice: From Receipt to Result" description="A practical framework for handling lyophilized peptides: receipt verification, storage, weighing, dissolution, filtration, aliquoting and records — with the failure modes that quietly ruin experiments." canonical="/knowledge/peptide-handling-laboratory-practice/">
+<BaseLayout title="Peptide Handling and Laboratory Practice: From Receipt to Result" description="Laboratory handling of lyophilized peptides: reconstitution, concentration, adsorption, freeze-thaw, light exposure and records that make results repeatable." canonical="/knowledge/peptide-handling-laboratory-practice/">
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Knowledge',href:'/knowledge/'},{label:'Handling & laboratory practice'}]} />
     <h1>Peptide handling and laboratory practice: from receipt to result</h1>
@@ -14,7 +14,12 @@ import ArticleSchema from '../../components/ArticleSchema.astro';
 
         <div class="note"><strong>Scope.</strong> Laboratory practice for research-grade lyophilized peptides. This is not clinical or veterinary guidance, and nothing here is a dosing or administration protocol.</div>
 
-    <h2>The uncomfortable claim</h2>
+        <figure class="drawing-figure">
+      <img src="/images/drawing-vial.png" alt="Exploded view of a lyophilised vial: crimp cap, stopper, glass vial with neck ring, headspace and lyophilised cake." width="1600" height="1000" loading="lazy" decoding="async" />
+      <figcaption>Drawing 17 — Vial components, exploded view. Not a mechanical cross-section; formats and closures vary by product.</figcaption>
+    </figure>
+
+<h2>The uncomfortable claim</h2>
     <p>Ask a lab why two runs of the same experiment disagreed and the answer is usually "the peptide". Sometimes that is true. More often, the material was fine and the handling was not: a vial left open while the balance settled, a stock vortexed instead of swirled, an aliquot thawed three times, a filter that adsorbed a meaningful fraction of a small batch.</p>
     <p>Our position: <strong>handling is part of the measurement.</strong> If you cannot describe what happened to the material — mass weighed, solvent, volume, temperature, time, number of freeze–thaw cycles — then you cannot attribute a result to the compound. The chain of custody is not paperwork for its own sake; it is the only way to separate a chemical effect from a procedural artefact.</p>
 

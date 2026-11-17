@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="pt" title="Sobre nós — Canal B2B de péptidos de pesquisa" description="Canal de compra B2B de péptidos de pesquisa fabricados na China: documentação por lote, rastreabilidade e fornecimento a laboratórios e distribuidores." canonical="/pt/about/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/about/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/about/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/about/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/about/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/about/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/pt/">Início</a> › Sobre nós</p>
+    <h1>Sobre a {site.brand}</h1>
+    <p class="lead muted">Somos um canal de compra B2B — não um marketplace e não uma loja de retalho. Trabalhamos com um número limitado de parceiros de fabrico na China e vendemos apenas a compradores qualificados de investigação e comércio.</p>
+
+    <h2>O que fazemos</h2>
+    <p>Coordenamos o aprovisionamento de produtos, a documentação de lote, a embalagem e a logística de exportação de péptidos de pesquisa. O nosso valor não está no acesso a um catálogo — catálogos existem em todo o lado — mas na capacidade de responder a três perguntas com provas: o que está no frasco, como foi testado e se o lote pode ser rastreado.</p>
+    <p>Na prática, cada encomenda começa com uma especificação escrita e termina num conjunto de documentos que corresponde a essa especificação. Quando a especificação muda — outra concentração, outro formato de frasco, outro destino — a documentação muda com ela. Não tratamos o COA como um anexo decorativo: é o registo que liga o frasco ao lote de produção e ao resultado analítico.</p>
+
+    <h2>O que não fazemos</h2>
+    <ul>
+      <li>Não vendemos a consumidores nem para uso pessoal.</li>
+      <li>Não fornecemos indicações de dose, aconselhamento médico ou terapêutico.</li>
+      <li>Não reivindicamos certificações que não possamos documentar.</li>
+      <li>Não publicamos um COA e aplicamo-lo a todos os envios.</li>
+    </ul>
+
+    <h2>Como trabalhamos</h2>
+    <ol>
+      <li><strong>Qualificação:</strong> confirmamos que o comprador é um laboratório, distribuidor ou marca.</li>
+      <li><strong>Especificação:</strong> produto, concentração, volume, destino e necessidades documentais.</li>
+      <li><strong>Prova:</strong> COA do lote e dados analíticos antes de qualquer compromisso.</li>
+      <li><strong>Fornecimento:</strong> produção, libertação pelo controlo de qualidade, documentação de exportação e envio com rastreio.</li>
+    </ol>
+
+    <h2>Para quem trabalhamos</h2>
+    <table>
+      <thead><tr><th>Tipo de comprador</th><th>O que precisa</th><th>O que fornecemos</th></tr></thead>
+      <tbody>
+        <tr><td>Laboratórios</td><td>Identidade confirmada e dados analíticos por lote</td><td>COA com cromatograma e confirmação por MS, ficha de segurança e instruções de armazenamento</td></tr>
+        <tr><td>Distribuidores</td><td>Fornecimento repetível e documentação de exportação</td><td>Preços por escalão de volume, fatura comercial, lista de embalagem e certificado de origem a pedido</td></tr>
+        <tr><td>Marcas e programas OEM</td><td>Rótulo, caixa e COA com a sua marca</td><td>Arte final, prova de rótulo e pacote documental por lote</td></tr>
+      </tbody>
+    </table>
+    <p>Se ainda não sabe que formato se adapta ao seu projeto, descreva o uso previsto e o destino. Indicamos a configuração que faz sentido e dizemos com clareza o que não podemos fazer.</p>
+
+    <h3>Onde estamos e o que mostramos</h3>
+    <p>Operamos a partir da China, com parceiros de fabrico selecionados. Os detalhes de registo da empresa e da fábrica são fornecidos a compradores qualificados durante a integração; não os publicamos abertamente porque, sem o contexto de uma auditoria, um documento isolado não prova nada. Se a sua instituição precisar dessa informação antes de emitir uma ordem de compra, peça-a e incluímos no pacote de qualificação.</p>
+    <p>Pode ver como a produção e a libertação por controlo de qualidade funcionam na <a href="/pt/quality/">página de qualidade e documentação de lote</a>. Para volumes repetidos, consulte <a href="/pt/wholesale/">atacado e fornecimento a granel</a>; para projetos com marca própria, <a href="/pt/oem-private-label/">OEM e marca própria</a>. O catálogo completo está em <a href="/pt/products/">produtos</a>.</p>
+
+    <h2>Contacto</h2>
+    <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />WhatsApp: <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Falar connosco</a></p>
+    <p>Antes de escrever, reunir a lista de produtos, as concentrações, a quantidade por SKU e o país de destino acelera a resposta. Respondemos com disponibilidade, preço por escalão, prazo e o pacote de documentação aplicável.</p>
+    <p><a href="/pt/contact/">Ver a página de contacto e cotação</a></p>
+
+    <div class="ruo" style="margin-top:28px;">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário.</div>
+  </div>
+</BaseLayout>

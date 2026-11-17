@@ -9,7 +9,7 @@ interface Props {
   description?: string;
   canonical?: string;
   noindex?: boolean;
-  lang?: 'en' | 'es' | 'ar';
+  lang?: 'en' | 'es' | 'ar' | 'pt';
   alternates?: { hreflang: string; href: string }[];
 }
 const { title, description = site.description, canonical, noindex = false, lang = 'en', alternates = [] } = Astro.props;

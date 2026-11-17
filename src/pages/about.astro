@@ -2,7 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 ---
-<BaseLayout title="About — Made in China Peptide" description="Who we are: a documentation-first B2B sourcing channel for research peptides manufactured in China, serving laboratories, distributors and OEM brands." canonical="/about/">
+<BaseLayout title="About — Made in China Peptide" description="Who we are: a documentation-first B2B sourcing channel for research peptides manufactured in China, serving laboratories, distributors and OEM brands." canonical="/about/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/about/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/about/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/about/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/about/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/about/'}]}
+>
   <div class="wrap-narrow">
     <p class="breadcrumb"><a href="/">Home</a> › About</p>
     <h1>About {site.brand}</h1>

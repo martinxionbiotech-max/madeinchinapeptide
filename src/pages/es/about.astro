@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="es" title="Sobre nosotros — Made in China Peptide" description="Canal B2B de péptidos de investigación fabricados en China: qué hacemos, qué no hacemos y cómo calificamos, documentamos y enviamos cada lote." canonical="/es/about/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/about/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/about/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/about/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/about/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/about/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/es/">Inicio</a> › Sobre nosotros</p>
+    <h1>Sobre {site.brand}</h1>
+    <p class="lead muted">Somos un canal de abastecimiento B2B, no un mercado ni una tienda minorista. Trabajamos con un número limitado de fabricantes asociados en China y vendemos únicamente a compradores cualificados de investigación y comercio.</p>
+
+    <h2>Qué hacemos</h2>
+    <p>Coordinamos el abastecimiento de producto, la documentación de lote, el envasado y la logística de exportación de péptidos de investigación. Nuestro valor no está en el acceso a un catálogo —los catálogos están en todas partes— sino en la capacidad de responder tres preguntas con evidencia: qué contiene el vial, cómo se analizó y si el lote se puede rastrear. Cada pedido se trata como un expediente: producto, concentración, cantidad y destino quedan definidos antes de confirmar la producción. Cuando un dato no está disponible, lo decimos; no rellenamos el hueco con una estimación.</p>
+
+    <h2>Qué no hacemos</h2>
+    <ul>
+      <li>No vendemos a consumidores ni para uso personal.</li>
+      <li>No damos indicaciones de dosificación ni asesoramiento médico o terapéutico.</li>
+      <li>No afirmamos certificaciones que no podamos documentar.</li>
+      <li>No publicamos un COA y lo aplicamos a todos los envíos.</li>
+    </ul>
+
+    <h2>Cómo trabajamos</h2>
+    <ol>
+      <li><strong>Calificación:</strong> confirmamos que el comprador es un laboratorio, un distribuidor o una marca.</li>
+      <li><strong>Especificación:</strong> producto, concentración, volumen, destino y necesidades documentales.</li>
+      <li><strong>Evidencia:</strong> COA del lote y datos analíticos antes de comprometer el pedido.</li>
+      <li><strong>Suministro:</strong> producción, liberación por control de calidad, documentación de exportación y envío con seguimiento.</li>
+    </ol>
+
+    <h3>Documentación que acompaña al pedido</h3>
+    <table>
+      <thead><tr><th>Documento</th><th>Contenido</th><th>Cuándo se emite</th></tr></thead>
+      <tbody>
+        <tr><td>COA del lote</td><td>Identidad, métodos, especificación, resultados y cromatograma</td><td>Antes de la compra, para el lote cotizado</td></tr>
+        <tr><td>MSDS</td><td>Manipulación, almacenamiento y primeros auxilios</td><td>Con el envío</td></tr>
+        <tr><td>Factura y lista de empaque</td><td>Descripción, cantidad, lote y destino</td><td>Con el envío</td></tr>
+        <tr><td>Certificado de origen</td><td>Origen declarado de la mercancía</td><td>A petición del comprador</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A quién servimos</h2>
+    <p>Trabajamos con laboratorios que necesitan un suministro repetible, con distribuidores que revenden en su propio mercado y con marcas que venden bajo su etiqueta. En los tres casos el requisito es el mismo: el comprador debe poder verificar la identidad del producto y la documentación de su lote antes de comprar. Por eso no publicamos precios cerrados sin contexto; la cotización depende del péptido, la concentración, el volumen, el envase y el destino. Los pedidos mixtos se cotizan línea por línea y el mínimo se aplica por SKU. Las solicitudes que indican uso humano personal se rechazan, y no hay excepciones por volumen.</p>
+    <p>Un distribuidor necesita algo más que producto: necesita que la documentación de un envío coincida con la del siguiente. Por eso el número de lote, la descripción y la cantidad se repiten igual en la etiqueta, el COA, la factura y la lista de empaque. Cuando el comprador revende, esa coherencia es lo que le permite responder a su propio cliente sin volver a preguntarnos.</p>
+
+    <h2>Contacto</h2>
+    <p>Escríbanos por correo a <a href={`mailto:${site.email}`}>{site.email}</a> o por WhatsApp para iniciar la calificación. Respondemos con disponibilidad, plazo y el COA del lote en cuestión. Si desea ver primero cómo se libera un lote, revise la página de <a href="/es/quality/">calidad y documentación</a>; si su proyecto es una marca propia, revise el programa <a href="/es/oem-private-label/">OEM y marca privada</a>. Los datos de registro de la empresa y de la fábrica se facilitan a los compradores cualificados durante el alta.</p>
+    <p class="small muted">Antes de cotizar conviene revisar el <a href="/es/products/">catálogo</a> y las condiciones de <a href="/es/wholesale/">mayoreo</a>, para que la solicitud llegue con producto, concentración y cantidad definidos.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>

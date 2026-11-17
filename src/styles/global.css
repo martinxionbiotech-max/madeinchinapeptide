@@ -114,3 +114,22 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 
 .price-line{font-size:1.02rem;color:var(--navy);margin:4px 0 14px}
 .price-line strong{color:var(--accent);font-size:1.15rem}
+
+/* Editorial line drawings */
+.drawing-figure { margin: 28px 0 34px; }
+.drawing-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f7f4ec;
+}
+.drawing-figure figcaption {
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 3px solid #d97706;
+  color: #64748b;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}

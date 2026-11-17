@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { site } from '../../data/site';
 ---
-<BaseLayout title="Research-Use-Only Statement — Made in China Peptide" description="Our research-use-only policy: what RUO means, permitted and prohibited uses, buyer eligibility, documentation duties and enforcement. Last updated 5 November 2026." canonical="/compliance/research-use-only/">
+<BaseLayout title="Research-Use-Only Statement — Made in China Peptide" description="Research-use-only policy: who may buy, what the designation means, how products are labelled, and the uses that are not permitted." canonical="/compliance/research-use-only/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/compliance/research-use-only/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/compliance/research-use-only/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/compliance/research-use-only/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/compliance/research-use-only/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/compliance/research-use-only/'}]}
+>
   <div class="wrap-narrow">
     <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Compliance',href:'/compliance/'},{label:'Research use only'}]} />
     <h1>Research-use-only statement</h1>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout lang="es" title="OEM y marca privada — Péptidos de investigación" description="Programa OEM y de marca privada: etiquetas, cajas, paquete documental y trazabilidad por lote para marcas y distribuidores." canonical="/es/oem-private-label/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/oem-private-label/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/oem-private-label/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/oem-private-label/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/oem-private-label/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/oem-private-label/'}]}>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/es/">Inicio</a> › OEM y marca privada</p>
+    <h1>OEM y marca privada</h1>
+    <p class="lead muted" style="max-width:820px;">Si vende bajo su propia marca, el producto es solo la mitad del trabajo: la etiqueta, la caja, la documentación y la consistencia entre lotes son lo que juzgan sus compradores. Ese paquete lo construimos con usted.</p>
+
+    <h2>Qué se puede personalizar</h2>
+    <table>
+      <thead><tr><th>Elemento</th><th>Opciones</th><th>Mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>Etiqueta del vial</td><td>Su marca, SKU, concentración, lote, declaración de uso en investigación, QR al COA</td><td>500 etiquetas por SKU</td></tr>
+        <tr><td>Caja / cartón</td><td>Caja impresa, tarjeta interior, precinto de seguridad</td><td>500 unidades</td></tr>
+        <tr><td>Paquete documental</td><td>Plantilla de COA con su marca, MSDS, tarjeta de almacenamiento</td><td>Con el primer pedido</td></tr>
+        <tr><td>Formato de vial</td><td>2, 3, 5 o 10 mL ámbar o transparente, crimp o flip-off</td><td>Por SKU</td></tr>
+        <tr><td>Codificación de lote</td><td>Su convención de lote o la nuestra</td><td>Según acuerdo</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Proceso</h2>
+    <ol>
+      <li><strong>Brief:</strong> lista de productos, concentraciones, volúmenes y mercados de destino.</li>
+      <li><strong>Revisión de cumplimiento:</strong> comprobamos las declaraciones de la etiqueta y los requisitos del destino antes del diseño.</li>
+      <li><strong>Diseño y prueba:</strong> prueba de arte, revisión del contenido de la etiqueta y aprobación de muestra.</li>
+      <li><strong>Producción:</strong> fabricación del lote, llenado, etiquetado, empaque y liberación por control de calidad.</li>
+      <li><strong>Documentos:</strong> COA con su marca por lote, MSDS, factura y lista de empaque.</li>
+    </ol>
+
+    <h2>Reglas de etiquetado que no flexibilizamos</h2>
+    <ul>
+      <li>Nada de declaraciones terapéuticas, de dosificación o de uso humano.</li>
+      <li>La frase «solo para uso en investigación de laboratorio» debe aparecer en la etiqueta y en la caja.</li>
+      <li>Nada de sellos de certificación falsos ni estándares que no se puedan verificar.</li>
+      <li>El número de lote y la caducidad deben estar impresos, no sobreentendidos.</li>
+    </ul>
+
+    <h3>Qué necesitamos para cotizar</h3>
+    <p>Un proyecto OEM se cotiza con la misma lógica que un pedido al por mayor, más el trabajo gráfico y documental. Para responder necesitamos la lista de productos y concentraciones, la cantidad por SKU, el país de destino, el formato de vial preferido y el arte o las referencias de marca si ya existen. Si el arte no está listo, podemos trabajar con un brief de diseño; lo que no hacemos es producir una etiqueta con declaraciones que no pasen la revisión de cumplimiento.</p>
+    <p>La aprobación de muestra ocurre antes de la producción, no después. Un cambio de arte una vez impresas las etiquetas se convierte en un coste y en un retraso, y en un lote que no se puede vender con la imagen anterior. Por eso la prueba de arte se firma y se archiva junto con el registro del pedido.</p>
+
+    <h2>Documentación y trazabilidad</h2>
+    <p>Cada lote lleva su propio COA, aunque la marca sea suya y el formato sea el que usted defina. El número de lote impreso en el vial, en la caja y en el COA debe coincidir; si no coincide, el comprador final no puede verificar nada. La plantilla de COA con su marca mantiene los mismos campos que nuestro formato estándar: identidad, métodos, resultados, cromatograma, espectro de MS, almacenamiento y firma de liberación.</p>
+
+    <h2>Hablemos del proyecto</h2>
+    <p>Escríbanos por la página de <a href="/es/contact/">contacto</a> con el brief del proyecto, o revise antes el <a href="/es/quality/">marco de calidad</a> y las condiciones de <a href="/es/wholesale/">mayoreo</a> para entender qué documentación acompaña a cada lote. Si aún no tiene claro el catálogo, el <a href="/es/products/">catálogo de productos</a> indica concentraciones y formatos disponibles.</p>
+    <p><a class="btn" href="/es/contact/">Hablar de un proyecto OEM</a> <a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener" style="margin-left:10px;">💬 Consulta por WhatsApp</a></p>
+
+    <div class="ruo" style="margin:28px 0;">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>

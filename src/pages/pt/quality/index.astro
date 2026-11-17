@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="pt" title="Qualidade e documentação de lote — Péptidos" description="Controlo de qualidade de péptidos de pesquisa: HPLC, identidade por MS, teor de água, COA por lote e rastreabilidade do frasco ao registo de produção." canonical="/pt/quality/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/quality/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/quality/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/quality/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/quality/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/quality/'}]}>
+  <div class="wrap-narrow">
+    <p class="breadcrumb"><a href="/pt/">Início</a> › Qualidade</p>
+    <h1>Controlo de qualidade e documentação de lote</h1>
+    <p class="lead muted">As afirmações de pureza são baratas. O que conta é saber se o valor impresso no rótulo pode ser ligado a um lote concreto, a um método concreto e a um resultado concreto. Esta página descreve o quadro de ensaio e libertação aplicado a cada lote que enviamos.</p>
+
+    <h2>A cadeia de libertação</h2>
+    <p>Um lote não é aprovado por um único número. Passa por etapas sucessivas, e cada etapa deixa um registo que pode ser consultado quando o comprador ou a autoridade aduaneira faz uma pergunta meses depois.</p>
+    <table>
+      <thead><tr><th>Etapa</th><th>O que é verificado</th><th>Registo</th></tr></thead>
+      <tbody>
+        <tr><td>Material recebido</td><td>Identidade, aspeto e documentação do fornecedor</td><td>Registo de receção</td></tr>
+        <tr><td>Síntese e purificação</td><td>Parâmetros de processo e frações de purificação</td><td>Registo de produção do lote</td></tr>
+        <tr><td>Liofilização</td><td>Parâmetros do ciclo e humidade residual</td><td>Registo de liofilização</td></tr>
+        <tr><td>Libertação analítica</td><td>Pureza por HPLC, identidade por MS, aspeto e teor de água</td><td>COA, cromatograma e espetro de MS</td></tr>
+        <tr><td>Embalagem e rotulagem</td><td>Peso de enchimento, conteúdo do rótulo, lote e validade</td><td>Registo de embalagem</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Métodos analíticos</h2>
+    <h3>Pureza por HPLC</h3>
+    <p>Cromatografia líquida de fase reversa com deteção UV no comprimento de onda adequado ao composto. A pureza é reportada como percentagem de área do pico principal; o cromatograma acompanha o COA para que o comprador veja a integração e não apenas um número. Um pico principal estreito com ombros visíveis conta uma história diferente de um pico limpo, e essa diferença deve ser discutida antes da compra.</p>
+    <h3>Identidade por espetrometria de massa</h3>
+    <p>Confirmação do ião molecular esperado por MS. É a verificação que distingue «o pico certo» de «a molécula certa»: um cromatograma pode estar limpo e ainda assim corresponder a outra sequência, a uma variante truncada ou a uma modificação não declarada.</p>
+    <h3>Teor de água</h3>
+    <p>Titulação de Karl Fischer quando aplicável. A humidade residual afeta a estabilidade e a exatidão da pesagem, pelo que é medida e declarada em vez de assumida.</p>
+    <h3>Aspeto e solubilidade</h3>
+    <p>Inspeção visual do bolo liofilizado e verificação de solubilidade no solvente laboratorial recomendado. Um bolo colapsado ou uma dissolução incompleta são sinais a registar antes da libertação, não depois da reclamação.</p>
+
+    <h2>O que contém um COA nosso</h2>
+    <ul>
+      <li>Nome do produto, concentração, número de lote, datas de fabrico e de validade</li>
+      <li>Ensaios, métodos, especificações e resultados</li>
+      <li>Cromatograma de HPLC com dados de integração</li>
+      <li>Espetro de MS e respetiva interpretação</li>
+      <li>Indicações de armazenamento e manuseamento</li>
+      <li>Assinatura de libertação e data</li>
+    </ul>
+
+    <h2>O que não afirmamos</h2>
+    <div class="note">Não reivindicamos uma pureza universal aplicável a todos os produtos e não reutilizamos um COA entre lotes. Se um fornecedor não lhe mostrar o cromatograma do lote que está a comprar, o número é marketing e não dado. Também não publicamos percentagens fixas de pureza nesta página: cada lote tem o seu resultado, declarado no documento que o acompanha.</div>
+
+    <h2>Como usar o COA na sua avaliação</h2>
+    <p>Comece pelo número de lote e confirme que coincide com o rótulo, a fatura e a lista de embalagem. Verifique se o método HPLC está descrito e se a integração do pico principal é apresentada. Depois leia a interpretação de MS e compare a massa com a sequência esperada. Por fim, confirme as datas: um lote dentro da validade com um COA emitido há vários meses descreve o material de então, não necessariamente o que está no frasco hoje.</p>
+    <p>Se o seu protocolo exigir um ensaio adicional ou um laboratório terceiro, diga-o antes da encomenda. Testes extra são cotados e o resultado é anexado ao pacote do lote. Para discutir especificações, use a <a href="/pt/contact/">página de contacto</a>; para volumes e escalões, consulte <a href="/pt/wholesale/">atacado</a>; para rótulos com a sua marca, <a href="/pt/oem-private-label/">OEM e marca própria</a>.</p>
+
+    <div class="ruo" style="margin-top:28px;">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário.</div>
+  </div>
+</BaseLayout>

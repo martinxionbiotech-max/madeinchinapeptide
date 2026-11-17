@@ -4,22 +4,50 @@ const path = Astro.url.pathname;
 const langMatch = path.match(/^\/(es|ar|pt)(\/.*)?$/);
 const currentLang = langMatch ? langMatch[1] : 'en';
 const basePath = langMatch ? (langMatch[2] || '/') : path;
-const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/']);
+const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/', '/about/', '/quality/', '/oem-private-label/']);
 const hrefFor = (l: string) => {
   if (l === 'en') return translated.has(basePath) ? basePath : '/';
   return translated.has(basePath) ? `/${l}${basePath}` : `/${l}/`;
 };
 const langs = [{ code: 'en', label: 'EN' }, { code: 'es', label: 'ES' }, { code: 'ar', label: 'AR' }, { code: 'pt', label: 'PT' }];
+const localizedNav: Record<string, { href: string; label: string }[]> = {
+  es: [
+    { href: '/es/products/', label: 'Productos' },
+    { href: '/es/wholesale/', label: 'Mayoreo' },
+    { href: '/es/oem-private-label/', label: 'OEM / Marca privada' },
+    { href: '/es/quality/', label: 'Calidad' },
+    { href: '/es/about/', label: 'Sobre nosotros' },
+    { href: '/es/contact/', label: 'Contacto' },
+  ],
+  pt: [
+    { href: '/pt/products/', label: 'Produtos' },
+    { href: '/pt/wholesale/', label: 'Atacado' },
+    { href: '/pt/oem-private-label/', label: 'OEM / Marca própria' },
+    { href: '/pt/quality/', label: 'Qualidade' },
+    { href: '/pt/about/', label: 'Sobre nós' },
+    { href: '/pt/contact/', label: 'Contato' },
+  ],
+  ar: [
+    { href: '/ar/products/', label: 'المنتجات' },
+    { href: '/ar/wholesale/', label: 'البيع بالجملة' },
+    { href: '/ar/oem-private-label/', label: 'التصنيع بعلامة خاصة' },
+    { href: '/ar/quality/', label: 'الجودة' },
+    { href: '/ar/about/', label: 'من نحن' },
+    { href: '/ar/contact/', label: 'اتصل بنا' },
+  ],
+};
+const items = currentLang === 'en' ? nav : localizedNav[currentLang] || nav;
+const homeHref = currentLang === 'en' ? '/' : `/${currentLang}/`;
 ---
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="/">
+    <a class="brand" href={homeHref}>
       <span class="brand-mark">MICP</span>
       <span>{site.brand}</span>
     </a>
     <nav class="site-nav" aria-label="Main">
-      {nav.map((n) => (
+      {items.map((n) => (
         <a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>
       ))}
     </nav>

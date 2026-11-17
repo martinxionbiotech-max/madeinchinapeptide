@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+---
+<BaseLayout lang="es" title="Calidad y COA por lote — Péptidos de investigación" description="Marco de control de calidad: COA por lote, cromatograma HPLC, confirmación por MS, humedad residual y trazabilidad del número de lote." canonical="/es/quality/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/quality/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/quality/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/quality/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/quality/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/quality/'}]}>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/es/">Inicio</a> › Calidad</p>
+    <h1>Control de calidad y documentación de lote</h1>
+    <p class="lead muted" style="max-width:840px;">Las afirmaciones de pureza son baratas. Lo que importa es si el número de la etiqueta se puede rastrear hasta un lote concreto, un método concreto y un resultado concreto. Esta página describe el marco de análisis y liberación que hay detrás de cada lote que enviamos.</p>
+
+    <h2>La cadena de liberación</h2>
+    <table>
+      <thead><tr><th>Etapa</th><th>Qué se controla</th><th>Registro</th></tr></thead>
+      <tbody>
+        <tr><td>Material entrante</td><td>Identidad, apariencia, documentación del proveedor</td><td>Registro de recepción</td></tr>
+        <tr><td>Síntesis y purificación</td><td>Parámetros de proceso, fracciones de purificación</td><td>Registro de producción del lote</td></tr>
+        <tr><td>Liofilización</td><td>Parámetros del ciclo, humedad residual</td><td>Bitácora de liofilización</td></tr>
+        <tr><td>Liberación analítica</td><td>Pureza por HPLC, identidad por MS, apariencia, contenido de agua</td><td>COA + cromatograma + espectro de MS</td></tr>
+        <tr><td>Envasado y etiquetado</td><td>Peso de llenado, contenido de la etiqueta, lote y caducidad</td><td>Registro de envasado</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Métodos analíticos</h2>
+    <h3>Pureza por HPLC</h3>
+    <p>Cromatografía líquida de fase inversa con detección UV en la longitud de onda adecuada para el compuesto. La pureza se informa como porcentaje de área del pico principal, y el cromatograma se incluye con el COA para que el comprador vea la integración, no solo una cifra.</p>
+    <h3>Identidad por espectrometría de masas</h3>
+    <p>Confirmación del ion molecular esperado. Es la comprobación que distingue «el pico correcto» de «la molécula correcta»: un cromatograma limpio de un compuesto equivocado sigue siendo un error.</p>
+    <h3>Contenido de agua</h3>
+    <p>La humedad residual afecta la estabilidad y la exactitud de la pesada, por lo que se informa en lugar de suponerse. Un lote que se pesa mal en el laboratorio del comprador es un problema de suministro, aunque la pureza sea la declarada.</p>
+    <h3>Apariencia y solubilidad</h3>
+    <p>Inspección visual de la torta liofilizada y comprobación de solubilidad en el disolvente de laboratorio recomendado. La apariencia no sustituye un análisis, pero una torta colapsada o un color anómalo es motivo de revisión antes de la liberación.</p>
+
+    <h2>Qué contiene un COA nuestro</h2>
+    <ul>
+      <li>Nombre del producto, concentración, número de lote, fechas de fabricación y caducidad</li>
+      <li>Parámetros analizados, métodos, especificaciones y resultados</li>
+      <li>Cromatograma HPLC con datos de integración</li>
+      <li>Espectro de MS e interpretación</li>
+      <li>Declaración de almacenamiento y manipulación</li>
+      <li>Firma y fecha de liberación</li>
+    </ul>
+
+    <h2>Lo que no afirmamos</h2>
+    <div class="note">No afirmamos una pureza universal idéntica para todos los productos, ni reutilizamos un COA entre lotes. Si un proveedor no puede mostrarle el cromatograma del lote que está comprando, el número es marketing, no dato. Tampoco presentamos sellos de certificación que no podamos respaldar con un documento verificable.</div>
+    <p>La pureza es específica de cada lote y se indica en su COA. Para evaluar un pedido, solicite el COA del lote cotizado y compárelo con la ficha del producto; si necesita un método analítico adicional, se cotiza por separado. Los compradores que repiten pedidos reciben el COA de cada nueva producción, no una copia del anterior.</p>
+
+    <h2>Siguientes pasos</h2>
+    <p>Solicite el COA del lote que está evaluando a través de la página de <a href="/es/contact/">contacto</a>, o revise el programa <a href="/es/oem-private-label/">OEM y marca privada</a> si necesita una plantilla de COA con su marca. El <a href="/es/wholesale/">suministro al por mayor</a> explica cómo se aplican los mínimos por SKU y qué documentación viaja con cada envío.</p>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>
