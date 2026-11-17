@@ -4,7 +4,7 @@ const path = Astro.url.pathname;
 const langMatch = path.match(/^\/(es|ar|pt)(\/.*)?$/);
 const currentLang = langMatch ? langMatch[1] : 'en';
 const basePath = langMatch ? (langMatch[2] || '/') : path;
-const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/', '/about/', '/quality/', '/oem-private-label/']);
+const translated = new Set(['/', '/products/', '/wholesale/', '/contact/', '/compliance/research-use-only/', '/about/', '/quality/', '/oem-private-label/', '/knowledge/']);
 const hrefFor = (l: string) => {
   if (l === 'en') return translated.has(basePath) ? basePath : '/';
   return translated.has(basePath) ? `/${l}${basePath}` : `/${l}/`;
@@ -15,6 +15,7 @@ const localizedNav: Record<string, { href: string; label: string }[]> = {
     { href: '/es/products/', label: 'Productos' },
     { href: '/es/wholesale/', label: 'Mayoreo' },
     { href: '/es/oem-private-label/', label: 'OEM / Marca privada' },
+    { href: '/es/knowledge/', label: 'Conocimiento' },
     { href: '/es/quality/', label: 'Calidad' },
     { href: '/es/about/', label: 'Sobre nosotros' },
     { href: '/es/contact/', label: 'Contacto' },
@@ -23,6 +24,7 @@ const localizedNav: Record<string, { href: string; label: string }[]> = {
     { href: '/pt/products/', label: 'Produtos' },
     { href: '/pt/wholesale/', label: 'Atacado' },
     { href: '/pt/oem-private-label/', label: 'OEM / Marca própria' },
+    { href: '/pt/knowledge/', label: 'Conhecimento' },
     { href: '/pt/quality/', label: 'Qualidade' },
     { href: '/pt/about/', label: 'Sobre nós' },
     { href: '/pt/contact/', label: 'Contato' },
@@ -31,6 +33,7 @@ const localizedNav: Record<string, { href: string; label: string }[]> = {
     { href: '/ar/products/', label: 'المنتجات' },
     { href: '/ar/wholesale/', label: 'البيع بالجملة' },
     { href: '/ar/oem-private-label/', label: 'التصنيع بعلامة خاصة' },
+    { href: '/ar/knowledge/', label: 'المعرفة' },
     { href: '/ar/quality/', label: 'الجودة' },
     { href: '/ar/about/', label: 'من نحن' },
     { href: '/ar/contact/', label: 'اتصل بنا' },

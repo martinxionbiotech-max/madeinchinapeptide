@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import { products, categories } from '../../../../data/products';
+
+const lang = 'pt';
+export function getStaticPaths() {
+  const cats = ['tirzepatide', 'semaglutide', 'retatrutide'];
+  return cats.map((category) => ({ params: { category } }));
+}
+const { category } = Astro.params as { category: string };
+const cat = categories[category];
+const items = products.filter((p) => p.category === category);
+const titles: Record<string, string> = {"tirzepatide":"Tirzepatida 2–60 mg — Péptidos de pesquisa","semaglutide":"Semaglutida 2–50 mg — Péptidos de pesquisa","retatrutide":"Retatrutida 5–60 mg — Péptidos de pesquisa"};
+const descs: Record<string, string> = {"tirzepatide":"Tirzepatida para pesquisa em formatos de 2 a 60 mg: COA por lote, HPLC/MS e fornecimento por atacado da China.","semaglutide":"Semaglutida para pesquisa em formatos de 2 a 50 mg: COA por lote, HPLC/MS e fornecimento por atacado da China.","retatrutide":"Retatrutida para pesquisa em formatos de 5 a 60 mg: COA por lote, HPLC/MS e fornecimento por atacado da China."};
+const faq = [["A pureza é igual em todos os lotes?","Não. A pureza é medida por lote e declarada no COA desse lote."],["Posso pedir uma amostra antes de um pedido por atacado?","Sim, para compradores comerciais qualificados. A amostra é enviada com o COA do seu próprio lote."],["Enviam para o meu país?","A maioria dos destinos é viável, mas alguns produtos são restritos. Confirme na fase de cotação."]];
+---
+<BaseLayout
+  lang="pt"
+  title={titles[category]}
+  description={descs[category]}
+  canonical={`/pt/products/${category}/`}
+  alternates={[
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/products/${category}/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/products/${category}/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/products/${category}/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/products/${category}/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/products/${category}/` },
+  ]}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{label:'Início',href:'/pt/'},{label:'Produtos',href:'/pt/products/'},{label: cat.name}]} />
+    <h1>{cat.name}</h1>
+    <p class="lead muted" style="max-width:820px;">Formatos, documentação e quantidades mínimas desta categoria. A pureza é específica de cada lote e declarada no respetivo COA.</p>
+    <table>
+      <thead><tr><th>Produto</th><th>Concentração</th><th>Forma</th><th>MOQ</th><th>Documentos</th><th></th></tr></thead>
+      <tbody>
+        {items.map((p) => (
+          <tr>
+            <td>{p.name}</td>
+            <td>{p.strength}</td>
+            <td>{p.form}</td>
+            <td>{p.moq}</td>
+            <td>{p.docs.join(', ')}</td>
+            <td><a href={`/products/${category}/${p.slug}/`}>Ver ficha (EN)</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="small muted" style="margin-top:10px;">As fichas individuais estão em inglês; os dados de produto —concentração, forma, MOQ e documentação— são os mesmos.</p>
+    <p style="margin:22px 0 6px;">
+      <a class="btn" href="/pt/contact/">Pedir cotação e COA do lote</a>
+      <a class="btn btn-ghost" href="/pt/wholesale/" style="margin-left:8px;">Preços por volume</a>
+    </p>
+    <h2>Como escolher dentro desta categoria</h2>
+    <p>A concentração é a primeira decisão, mas não a única. Confirme o formato de frasco adequado ao seu fluxo de trabalho, o pacote documental exigido pela sua instituição e se precisa de rotulagem padrão ou personalizada. Para compras repetidas, peça os COA de dois ou três lotes consecutivos: a consistência entre lotes importa mais do que um resultado isolado.</p>
+    <h2>Perguntas frequentes</h2>
+    {faq.map(([q, a]) => (<><h3>{q}</h3><p>{a}</p></>))}
+    <div class="ruo" style="margin:28px 0;">Apenas para uso em pesquisa laboratorial; não indicado para uso humano ou veterinário.</div>
+  </div>
+</BaseLayout>

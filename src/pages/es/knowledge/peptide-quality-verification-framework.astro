@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+---
+<BaseLayout lang="es" title="Verificación de calidad de péptidos: del COA a la liberación" description="Cómo verificar péptidos: revisión del COA, pureza por HPLC, identidad por MS, humedad, contraión y las comprobaciones antes de aceptar un lote." canonical="/es/knowledge/peptide-quality-verification-framework/" alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/peptide-quality-verification-framework/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/peptide-quality-verification-framework/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/peptide-quality-verification-framework/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/peptide-quality-verification-framework/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/peptide-quality-verification-framework/'}]}>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Verificación de la calidad de péptidos: del COA a la liberación'}]} />
+    <h1>Verificación de la calidad de péptidos: del COA a la decisión de liberación</h1>
+    <p class="lead muted">«99 % puro» es la cifra más citada y menos examinada de este mercado. La calidad no es un porcentaje en un certificado: es un conjunto de preguntas que el certificado responde o esquiva. Este es el marco que usamos para decidir si un lote es liberable.</p>
+
+<div class="quick-answer"><strong>Respuesta rápida.</strong> La calidad liberable de un péptido exige seis datos: identidad por MS, pureza por HPLC con método y cromatograma, contenido de agua, contenido neto de péptido, inspección de partículas y —cuando se declara— endotoxina. Un porcentaje de pureza por sí solo no es una decisión de liberación.</div>
+
+        <div class="note"><strong>Alcance.</strong> Esta guía cubre la verificación analítica de péptidos de grado investigación para uso de laboratorio. No es una norma reglamentaria de liberación y no formula ninguna afirmación sobre uso humano o veterinario.</div>
+
+        <figure class="drawing-figure">
+      <img src="/images/drawing-qc-release.png" alt="Secuencia de liberación de lote en seis pasos: muestra, identidad, pureza, contenido, expediente y liberación." width="1600" height="1000" loading="lazy" decoding="async" />
+      <figcaption>Dibujo 19 — Secuencia de liberación de lote. Genérico; el panel de liberación depende del producto y del destino.</figcaption>
+    </figure>
+
+<h2>La premisa: un COA es un argumento, no un hecho</h2>
+    <p>Un certificado de análisis es un documento que <em>afirma</em> un conjunto de resultados. Que esos resultados sean ciertos depende de tres cosas: si la muestra analizada era el lote enviado, si los métodos eran capaces y si el documento se generó cuando se fabricó el lote —no si se armó después a partir de una plantilla.</p>
+    <p>Nuestra posición: <strong>un COA sin vínculo con el lote no es evidencia.</strong> Todo lo demás en esta guía depende de eso. Si el número de lote del certificado no se puede vincular a la etiqueta del vial y al registro de producción, las cifras analíticas son decoración.</p>
+
+    <h2>Las seis preguntas</h2>
+    <h3>Por qué seis y no veinte</h3>
+    <p>Todo lote liberable debería poder responder estas seis preguntas con datos. Si un proveedor responde cuatro y despacha dos con vaguedades, usted está comprando una suposición.</p>
+    <table>
+      <thead><tr><th>Pregunta</th><th>Método</th><th>Modo de fallo si no se responde</th></tr></thead>
+      <tbody>
+        <tr><td>¿Es la molécula correcta?</td><td>ESI-MS o MALDI-TOF</td><td>Péptido equivocado, secuencia truncada o variante modificada</td></tr>
+        <tr><td>¿Qué proporción corresponde al pico objetivo?</td><td>RP-HPLC con método declarado</td><td>Impurezas que coeluyen inflan la cifra de pureza</td></tr>
+        <tr><td>¿Cuánta agua hay en el polvo?</td><td>Karl Fischer</td><td>Error de pesada; hidrólisis acelerada</td></tr>
+        <tr><td>¿Cuánto es realmente péptido?</td><td>Ensayo / contenido neto de péptido</td><td>Usted paga contraiones y agua</td></tr>
+        <tr><td>¿Está limpia la solución?</td><td>Inspección visual; recuento de partículas subvisibles cuando proceda</td><td>Las partículas interfieren en ensayos y trabajo celular</td></tr>
+        <tr><td>¿Está biológicamente limpio?</td><td>Endotoxina / carga microbiana (cuando se declara)</td><td>Resultados falsos en sistemas celulares sensibles</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Leer el cromatograma como un auditor</h2>
+    <h3>Primero el método, después la traza</h3>
+    <p>No empiece por el porcentaje. Empiece por el método: columna, dimensiones, fase móvil, gradiente, longitud de onda, volumen de inyección. Una cifra de pureza sin estos datos no es reproducible y no se puede comparar entre proveedores.</p>
+    <p>Después observe la traza:</p>
+    <ul>
+      <li><strong>Línea base:</strong> ¿la integración se traza sobre una línea base estable o corta a través de la deriva?</li>
+      <li><strong>Picos de impurezas:</strong> ¿los picos menores son visibles e integrados, o están suprimidos?</li>
+      <li><strong>Forma del pico:</strong> el frente o la cola sugieren sobrecarga de columna o interacciones secundarias.</li>
+      <li><strong>Tiempo de retención:</strong> ¿es coherente con el método y con la hidrofobicidad del compuesto?</li>
+      <li><strong>Escala:</strong> ¿el eje y está expandido para ocultar picos pequeños? Un cromatograma debe mostrar el rango completo.</li>
+    </ul>
+    <p><strong>Nuestra regla:</strong> un cromatograma sin impurezas visibles es una señal para revisar la integración, no un motivo para celebrar. Una síntesis real deja un perfil.</p>
+
+    <h2>La trampa de coste del contenido neto (ejemplo desarrollado)</h2>
+    <p>Los compradores comparan precio por vial. La cifra económicamente significativa es el precio por miligramo de <em>péptido</em>, no por miligramo de polvo. Considere dos lotes ilustrativos del mismo producto nominal (supuestos declarados, no datos medidos):</p>
+    <table>
+      <thead><tr><th>Parámetro</th><th>Lote A</th><th>Lote B</th></tr></thead>
+      <tbody>
+        <tr><td>Relleno nominal</td><td>10 mg</td><td>10 mg</td></tr>
+        <tr><td>Pureza HPLC (% de área)</td><td>98,0 %</td><td>96,5 %</td></tr>
+        <tr><td>Contenido de agua</td><td>3 %</td><td>8 %</td></tr>
+        <tr><td>Fracción de contraión / sal (supuesto)</td><td>6 %</td><td>6 %</td></tr>
+        <tr><td>Péptido neto (aprox.)</td><td>10 × 0,98 × 0,97 × 0,94 ≈ <strong>8,9 mg</strong></td><td>10 × 0,965 × 0,92 × 0,94 ≈ <strong>8,3 mg</strong></td></tr>
+        <tr><td>Precio por vial (ilustrativo)</td><td>120 $</td><td>108 $</td></tr>
+        <tr><td>Precio por mg de péptido neto</td><td><strong>13,5 $</strong></td><td><strong>13,0 $</strong></td></tr>
+      </tbody>
+    </table>
+    <p>En este ejemplo, el vial más barato solo lo es marginalmente por miligramo de péptido real, y además contiene más agua, lo que constituye un riesgo de estabilidad. El cálculo es ilustrativo; el punto es estructural: <strong>el porcentaje de pureza por sí solo no indica por qué está pagando.</strong> Solicite el contenido de agua y el contenido neto de péptido, y luego compare el coste por mg de péptido.</p>
+
+    <h2>La consistencia entre lotes supera cualquier resultado individual</h2>
+    <p>Un lote individual puede ser excelente por suerte. Un proceso solo es fiable si lotes consecutivos caen dentro de la misma ventana. Por eso tratamos los datos de tendencia como la señal de calidad principal y el COA individual como la condición de entrada.</p>
+    <p>Qué seguir en tendencia:</p>
+    <ul>
+      <li>Tiempo de retención y perfil de impurezas (HPLC)</li>
+      <li>Masa observada y patrón de aductos (MS)</li>
+      <li>Contenido de agua (Karl Fischer)</li>
+      <li>Contenido neto de péptido (ensayo)</li>
+      <li>Apariencia y comportamiento de reconstitución</li>
+    </ul>
+    <p>Si un proveedor no puede aportar los COA de dos o tres lotes consecutivos, no está comprando un proceso: está comprando una serie de compras independientes que casualmente comparten el nombre de un producto. <a href="/knowledge/peptide-lot-consistency/">La consistencia lote a lote</a> cubre la estadística y la práctica de la muestra de retención.</p>
+
+    <h2>Análisis por terceros: cuándo vale la pena y cuándo es teatro</h2>
+    <h3>La pregunta del muestreo lo decide</h3>
+    <p>Un análisis independiente aporta valor cuando responde a una pregunta que el proveedor no puede autocertificar de forma convincente: identidad en un lote de alto valor, endotoxina para trabajo celular o un resultado en disputa. Aporta poco cuando simplemente repite el HPLC del propio proveedor sobre una muestra elegida por el proveedor.</p>
+    <p><strong>Nuestra regla:</strong> use el análisis por terceros como desempate y herramienta de disputa, no como sustituto de la cualificación del proveedor. <a href="/knowledge/third-party-peptide-testing/">Usar un laboratorio externo</a> explica el muestreo y la cadena de custodia.</p>
+
+    <h2>La decisión de liberación</h2>
+    <table>
+      <thead><tr><th>Condición</th><th>Decisión</th></tr></thead>
+      <tbody>
+        <tr><td>COA vinculado al lote + cromatograma + MS + contenido de agua, dentro de especificación</td><td>Liberar</td></tr>
+        <tr><td>Datos completos pero un resultado marginal</td><td>Liberación condicional tras reanálisis confirmatorio</td></tr>
+        <tr><td>Falta identidad o cromatograma</td><td>Retener — no usar</td></tr>
+        <tr><td>Vínculo con el lote roto</td><td>Rechazar — el documento no se puede vincular a los bienes</td></tr>
+        <tr><td>Lotes consecutivos con deriva</td><td>Escalar — es un problema de proceso, no de lote</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Lo que este marco excluye deliberadamente</h2>
+    <p>No pretende certificar esterilidad ni convertir material de grado investigación en una declaración de grado farmacéutico. Son normas distintas con evidencia distinta. Confundirlas es uno de los errores más comunes —y más peligrosos— de este mercado.</p>
+
+    <h2>La opinión del autor</h2>
+    <p><strong>Postura.</strong> Los compradores deberían dejar de preguntar «¿cuál es la pureza?» y empezar a preguntar «¿cuál es la cadena de evidencia?». Un proveedor que puede llevarle del registro de lote al cromatograma y al vial enviado está en una categoría distinta de uno que le envía un PDF con un número.</p>
+    <p><strong>Razonamiento.</strong> La pureza es fácil de declarar y difícil de verificar; la trazabilidad es difícil de falsificar a escala. Los proveedores que invierten en registros lo hacen porque su proceso depende de ellos, que es exactamente el comportamiento en el que usted quiere apoyarse cuando algo sale mal.</p>
+    <p><strong>Declaración.</strong> Vendemos péptidos de investigación y competimos por la documentación. También rechazamos lotes que no superan este marco, lo que ocasionalmente nos cuesta pedidos.</p>
+
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿La pureza es la misma en cada lote?</h3>
+    <p>No. La pureza se mide por lote y se declara en el COA de ese lote. Un único resultado limpio no describe el proceso.</p>
+    <h3>¿Qué incluye el COA de un lote?</h3>
+    <p>Identidad por MS, pureza por HPLC con cromatograma y método, contenido de agua por Karl Fischer, apariencia y, cuando procede, contenido neto de péptido.</p>
+    <h3>¿Ofrecen análisis por terceros?</h3>
+    <p>Sí, bajo pedido y con coste adicional. Resulta más útil como desempate sobre un lote concreto, no como sustituto de la cualificación del proveedor.</p>
+    <h3>¿Cómo comparo el contenido neto de péptido entre proveedores?</h3>
+    <p>Solicite el contenido de agua y el contenido por ensayo, y luego compare el precio por miligramo de péptido neto en lugar del precio por vial.</p>
+
+    <h2>Fuentes y evidencia</h2>
+    <p class="small muted">Los métodos y conceptos de aceptación citados en esta guía se corresponden con normas publicadas. Los límites concretos deben proceder de su propia especificación, no de esta página.</p>
+    <ul>
+      <li><strong>Validación de métodos:</strong> ICH Q2(R1) — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">directrices de calidad de la ICH</a>.</li>
+      <li><strong>Fijación de especificaciones:</strong> ICH Q6B — misma página de la ICH.</li>
+      <li><strong>Contenido de agua:</strong> USP &lt;731&gt; Pérdida por secado / métodos de Karl Fischer — <a href="https://www.usp.org/chemical-medicines" rel="noopener" target="_blank">USP</a>.</li>
+      <li><strong>Material particulado:</strong> USP &lt;788&gt; — misma fuente de la USP.</li>
+      <li><strong>Endotoxina:</strong> USP &lt;85&gt; Prueba de endotoxinas bacterianas — misma fuente de la USP.</li>
+      <li><strong>Pesos moleculares de referencia:</strong> PubChem — semaglutida <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; tirzepatida <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>.</li>
+      <li><strong>Farmacopea China (ChP 2020), Parte IV:</strong> capítulo general 0512 (HPLC), 0832 (pérdida por secado), 0903 (material particulado), 1143 (endotoxinas bacterianas) — citados por número de capítulo; la edición oficial es el texto autoritativo.</li>
+    </ul>
+    <p class="small muted">El ejemplo de contenido neto es ilustrativo: los porcentajes son supuestos declarados, no resultados medidos de ningún lote.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Consultar por WhatsApp</a></p>
+
+    <h2>Productos citados en esta guía</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatida</a> — COA por lote con HPLC y MS</li>
+      <li><a href="/products/semaglutide/">Semaglutida</a> — COA por lote con HPLC y MS</li>
+      <li><a href="/products/retatrutide/">Retatrutida</a> — COA por lote con HPLC y MS</li>
+      <li><a href="/products/research/">Péptidos de investigación</a> — BPC-157, TB-500, CJC-1295, Ipamorelin</li>
+      <li><a href="/products/cosmetic/">Péptidos cosméticos</a> — GHK-Cu, glutatión</li>
+      <li><a href="/quality/">Marco de calidad</a> — cómo liberamos los lotes</li>
+      <li><a href="/quality/testing-methods/">Métodos de análisis</a> — HPLC, MS, Karl Fischer</li>
+    </ul>
+
+    <h2>Clúster: la biblioteca de calidad</h2>
+    <p>Este pilar es el marco de decisión; los artículos del clúster son el detalle de método. Un orden de lectura práctico:</p>
+    <ol>
+      <li><a href="/knowledge/how-to-verify-peptide-purity/">Verificar la pureza antes de comprar</a> — el punto de entrada</li>
+      <li><a href="/knowledge/reading-peptide-hplc-chromatograms/">Leer cromatogramas HPLC</a> — método e integración</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Identidad por espectrometría de masas</a> — qué prueba la MS</li>
+      <li><a href="/knowledge/peptide-ms-ms-sequence-confirmation/">Confirmación de secuencia por MS/MS</a> — ir más lejos</li>
+      <li><a href="/knowledge/peptide-coa-red-flags/">Señales de alarma en el COA</a> — detectar certificados reciclados</li>
+      <li><a href="/knowledge/peptide-water-content/">Contenido de agua por Karl Fischer</a> — la variable oculta</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Contenido neto y coste por mg</a> — la visión económica</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Consistencia lote a lote</a> — tendencia frente a instantánea</li>
+      <li><a href="/knowledge/peptide-stability-studies/">Estudios de estabilidad</a> — la dimensión temporal</li>
+      <li><a href="/knowledge/peptide-degradation-pathways/">Vías de degradación</a> — cómo se ve el fallo</li>
+      <li><a href="/knowledge/peptide-synthesis-impurities/">Impurezas de síntesis</a> — de dónde vienen</li>
+      <li><a href="/knowledge/peptide-counter-ion-forms/">Formas de contraión</a> — acetato frente a TFA</li>
+      <li><a href="/knowledge/peptide-residual-solvents/">Disolventes residuales</a> — el análisis que se pasa por alto</li>
+      <li><a href="/knowledge/peptide-elemental-impurities/">Impurezas elementales</a> — metales y catalizadores</li>
+      <li><a href="/knowledge/peptide-endotoxin-bioburden/">Endotoxinas y carga microbiana</a> — cuándo importa</li>
+      <li><a href="/knowledge/peptide-subvisible-particles/">Partículas subvisibles</a> — claridad de la solución</li>
+      <li><a href="/knowledge/peptide-aggregate-analytics/">Analítica de agregados</a> — SEC, DLS, AUC</li>
+      <li><a href="/knowledge/analytical-method-validation/">Validación de métodos</a> — ¿es capaz el método?</li>
+      <li><a href="/knowledge/peptide-hplc-method-design/">Diseño de métodos HPLC</a> — construir el método</li>
+      <li><a href="/knowledge/peptide-reference-standards/">Estándares de referencia</a> — el ancla</li>
+      <li><a href="/knowledge/peptide-sampling-and-batch-release/">Muestreo y liberación</a> — de la recepción a la tendencia</li>
+      <li><a href="/knowledge/peptide-appearance-inspection/">Inspección de apariencia</a> — la primera comprobación</li>
+      <li><a href="/knowledge/peptide-extractables-leachables/">Extractables y lixiviables</a> — riesgo del envase</li>
+      <li><a href="/knowledge/peptide-cross-contamination/">Contaminación cruzada</a> — riesgo a nivel de línea</li>
+      <li><a href="/knowledge/peptide-data-integrity/">Integridad de datos</a> — ¿se puede confiar en el registro?</li>
+      <li><a href="/knowledge/third-party-peptide-testing/">Análisis por terceros</a> — el desempate</li>
+    </ol>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario. Esta guía describe prácticas de verificación analítica; no es un método farmacopeico y no formula ninguna afirmación sobre los efectos de ningún compuesto ni su idoneidad para el ser humano.</div>
+  </div>
+  <ArticleSchema title="Verificación de calidad de péptidos: del COA a la liberación" description="Marco para verificar la calidad de un péptido: las seis preguntas que debe responder un COA, revisión del cromatograma, coste del contenido neto y consistencia entre lotes." path="/es/knowledge/peptide-quality-verification-framework/" section="Calidad de péptidos" lang="es" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿La pureza es la misma en cada lote?", "acceptedAnswer": {"@type": "Answer", "text": "No. La pureza se mide por lote y se declara en el COA de ese lote. Un único resultado limpio no describe el proceso."}}, {"@type": "Question", "name": "¿Qué incluye el COA de un lote?", "acceptedAnswer": {"@type": "Answer", "text": "Identidad por MS, pureza por HPLC con cromatograma y método, contenido de agua por Karl Fischer, apariencia y, cuando procede, contenido neto de péptido."}}, {"@type": "Question", "name": "¿Ofrecen análisis por terceros?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, bajo pedido y con coste adicional. Resulta más útil como desempate sobre un lote concreto, no como sustituto de la cualificación del proveedor."}}, {"@type": "Question", "name": "¿Cómo comparo el contenido neto de péptido entre proveedores?", "acceptedAnswer": {"@type": "Answer", "text": "Solicite el contenido de agua y el contenido por ensayo, y luego compare el precio por miligramo de péptido neto en lugar del precio por vial."}}]})} />
+</BaseLayout>

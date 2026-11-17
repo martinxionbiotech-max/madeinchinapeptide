@@ -9,7 +9,7 @@ import { products, categories } from '../../../data/products';
     <p class="lead muted">كل صفحة تحدد الشكل والتخزين وحزمة التوثيق. النقاء لكل دفعة: اطلب شهادة التحليل للدفعة التي تقيّمها.</p>
     {Object.entries(categories).map(([slug, c]) => (
       <section style="margin-top:32px;">
-        <h2>{c.name}</h2>
+        {['tirzepatide','semaglutide','retatrutide'].includes(slug) ? <h2><a href={`/ar/products/${slug}/`}>{c.name}</a></h2> : <h2>{c.name}</h2>}
         <table>
           <thead><tr><th>المنتج</th><th>التركيز</th><th>الشكل</th><th>الحد الأدنى</th><th></th></tr></thead>
           <tbody>

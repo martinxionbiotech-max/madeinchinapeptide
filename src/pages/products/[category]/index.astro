@@ -8,6 +8,7 @@ export function getStaticPaths() {
 const { category } = Astro.params as { category: Category };
 const cat = categories[category];
 const items = products.filter(p => p.category === category);
+const localized = ['tirzepatide', 'semaglutide', 'retatrutide'].includes(category);
 
 const faqLd = {
   '@context': 'https://schema.org',
@@ -20,7 +21,18 @@ const faqLd = {
 };
 ---
 
-<BaseLayout title={`${cat.title} | Made in China Peptide`} description={cat.description} canonical={`/products/${category}/`}>
+<BaseLayout
+  title={`${cat.title} | Made in China Peptide`}
+  description={cat.description}
+  canonical={`/products/${category}/`}
+  alternates={localized ? [
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/products/${category}/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/products/${category}/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/products/${category}/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/products/${category}/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/products/${category}/` },
+  ] : []}
+>
   <div class="wrap">
     <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name}]} />
     <h1>{cat.name}</h1>

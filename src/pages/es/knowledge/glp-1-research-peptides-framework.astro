@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { site } from '../../../data/site';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../../components/ArticleSchema.astro';
+---
+<BaseLayout lang="es" title="Péptidos GLP-1: semaglutida, tirzepatida y retatrutida" description="Marco de compra de péptidos GLP-1: identidad, pureza, datos por lote, contenido neto y preguntas que debe hacer antes de pedir." canonical="/es/knowledge/glp-1-research-peptides-framework/"
+  alternates={[{hreflang:'en',href:'https://madeinchinapeptide.com/knowledge/glp-1-research-peptides-framework/'},{hreflang:'es',href:'https://madeinchinapeptide.com/es/knowledge/glp-1-research-peptides-framework/'},{hreflang:'pt',href:'https://madeinchinapeptide.com/pt/knowledge/glp-1-research-peptides-framework/'},{hreflang:'ar',href:'https://madeinchinapeptide.com/ar/knowledge/glp-1-research-peptides-framework/'},{hreflang:'x-default',href:'https://madeinchinapeptide.com/knowledge/glp-1-research-peptides-framework/'}]}
+>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Conocimiento',href:'/es/knowledge/'},{label:'Péptidos GLP-1 de investigación comparados: semaglutida, tirzepatida y retatrutida'}]} />
+    <h1>Péptidos GLP-1 de investigación comparados: semaglutida, tirzepatida y retatrutida</h1>
+    <p class="lead muted">Tres compuestos, una abreviatura —«péptidos GLP-1»— y tres problemas analíticos distintos. Tratarlos como materiales de referencia intercambiables es el error de especificación más común que vemos en esta categoría.</p>
+
+<div class="quick-answer"><strong>Respuesta rápida.</strong> La semaglutida, la tirzepatida y la retatrutida comparten la etiqueta GLP-1, pero difieren en secuencia, peso molecular, perfil de receptores y carga analítica. Cada una necesita su propia especificación y un COA vinculado al lote; no son materiales de referencia intercambiables.</div>
+
+        <div class="note"><strong>Alcance.</strong> Esta es una comparación de materiales de investigación: propiedades moleculares, farmacología de receptores según la literatura pública, carga analítica, manipulación y verificación del suministro. No contiene posologías, ni afirmaciones de eficacia, ni orientación para uso humano. Los tres compuestos se suministran solo para investigación de laboratorio.</div>
+
+    <h2>La comparación, de un vistazo</h2>
+    <table>
+      <thead><tr><th>Propiedad</th><th>Semaglutida</th><th>Tirzepatida</th><th>Retatrutida</th></tr></thead>
+      <tbody>
+        <tr><td>Perfil de receptores notificado</td><td>Agonista del receptor GLP-1</td><td>Agonista dual GIP / GLP-1</td><td>Agonista triple GLP-1 / GIP / glucagón</td></tr>
+        <tr><td>Peso molecular de referencia</td><td>≈4113,6 g/mol</td><td>≈4813,5 g/mol</td><td>≈4731,4 g/mol</td></tr>
+        <tr><td>Clase de esqueleto</td><td>Análogo modificado de GLP-1</td><td>Péptido dual modificado</td><td>Péptido triple modificado</td></tr>
+        <tr><td>Estrategia de vida media (notificada)</td><td>Unión a albúmina mediante cadena lateral de ácido graso</td><td>Unión a albúmina mediante cadena lateral de ácido graso</td><td>Unión a albúmina mediante cadena lateral de ácido graso</td></tr>
+        <tr><td>Carga analítica</td><td>Alta — cadena lateral modificada, carácter hidrófobo</td><td>Alta — secuencia larga, modificaciones hidrófobas</td><td>Alta — secuencia larga, diseño de triple farmacología</td></tr>
+        <tr><td>Formatos de investigación habituales</td><td>Polvo liofilizado de 2–50 mg</td><td>Polvo liofilizado de 2–60 mg</td><td>Polvo liofilizado de 5–60 mg</td></tr>
+      </tbody>
+    </table>
+    <p class="small muted">Los pesos moleculares son valores de referencia de los compuestos parentales; la forma salina y el contraión afectan la masa del material real. Las asignaciones de receptores son las notificadas en la literatura pública y no constituyen una afirmación sobre efectos.</p>
+
+    <h2>Por qué la etiqueta de clase induce a error</h2>
+    <p>«Péptido GLP-1» es una abreviatura farmacológica, no una especificación. Las tres moléculas difieren en longitud de secuencia, química de cadena lateral, hidrofobicidad y perfil de receptores. Esas diferencias cambian tres cosas prácticas:</p>
+    <ul>
+      <li><strong>Comportamiento analítico:</strong> las secuencias más largas e hidrófobas generan perfiles de impurezas más complejos y pueden presentar cola en métodos RP-HPLC estándar.</li>
+      <li><strong>Solubilidad y manipulación:</strong> las modificaciones hidrófobas afectan la disolución y la adsorción; un disolvente que funciona para uno puede no funcionar para otro.</li>
+      <li><strong>Expectativas documentales:</strong> un COA adecuado para un péptido corto es escaso para un análogo modificado de 39–44 residuos.</li>
+    </ul>
+    <p><strong>Nuestra posición:</strong> cada uno de estos compuestos es su propio problema de especificación. Los compradores que redactan una especificación genérica de «péptido GLP-1» y la aplican a los tres no están simplificando la compra: están ocultando las variables que importan.</p>
+
+    <h2>Semaglutida: el análogo de referencia</h2>
+    <p>La semaglutida es un análogo modificado de GLP-1 con una cadena lateral de ácido graso que favorece la unión a albúmina. La modificación es lo que hace a la molécula analíticamente interesante: la cadena lateral aumenta la hidrofobicidad, desplaza la retención en RP-HPLC y crea un patrón de impurezas distinto del de las secuencias de GLP-1 no modificadas.</p>
+    <p>Consecuencias prácticas para el comprador:</p>
+    <ul>
+      <li>Los métodos de HPLC deben resolver el parental modificado respecto de las impurezas relacionadas con la cadena lateral.</li>
+      <li>La confirmación por MS debe comprobarse contra la masa esperada de la secuencia modificada, no la del esqueleto sin modificar.</li>
+      <li>La solubilidad en disolvente puramente acuoso puede ser limitada; debe seguirse el disolvente recomendado en el COA.</li>
+    </ul>
+    <p>El <a href="/knowledge/semaglutide-analytical-profile/">perfil analítico de la semaglutida</a> cubre secuencia, modificaciones y notas de método.</p>
+
+    <h2>Tirzepatida: el agonista dual</h2>
+    <p>La tirzepatida es un péptido modificado más largo, notificado como agonista dual GIP/GLP-1. La secuencia más larga y las modificaciones hidrófobas elevan el listón analítico: más etapas de acoplamiento, un perfil de impurezas más complejo y mayor probabilidad de que un gradiente de HPLC genérico resuelva mal el pico principal.</p>
+    <p>Qué verificar:</p>
+    <ul>
+      <li>Confirmación de masa de la secuencia modificada completa</li>
+      <li>Resolución cromatográfica del parental frente a secuencias de deleción</li>
+      <li>Contenido de agua y contenido neto de péptido: la diferencia económica a este peso molecular no es trivial</li>
+    </ul>
+    <p>El <a href="/knowledge/tirzepatide-analytical-profile/">perfil analítico de la tirzepatida</a> tiene el detalle.</p>
+
+    <h2>Retatrutida: el agonista triple</h2>
+    <p>La retatrutida se notifica como agonista triple GLP-1/GIP/glucagón. Es la más nueva de las tres en suministro de investigación, lo que tiene dos consecuencias: hay menos referencias analíticas independientes disponibles públicamente y el mercado contiene más material de procedencia incierta. Eso hace que la disciplina documental sea más importante, no menos.</p>
+    <p>Los compradores deben tener especial cuidado con:</p>
+    <ul>
+      <li>Proveedores que no pueden aportar un cromatograma vinculado al lote de este compuesto concreto</li>
+      <li>COA copiados de un compuesto relacionado con el nombre cambiado</li>
+      <li>Afirmaciones de peso molecular que no coinciden con la secuencia publicada</li>
+    </ul>
+    <p>El <a href="/knowledge/retatrutide-analytical-profile/">perfil analítico de la retatrutida</a> cubre los puntos de verificación.</p>
+
+    <h2>Verificación del suministro para esta categoría</h2>
+    <h3>El conjunto mínimo de pruebas</h3>
+    <p>Estos están entre los péptidos de investigación más falsificados, por la misma razón por la que tienen demanda: alto valor por gramo y una base de compradores que a menudo no puede realizar pruebas completas de identidad. El estándar de verificación debe ser más alto que para péptidos de uso común.</p>
+    <table>
+      <thead><tr><th>Comprobación</th><th>Prueba mínima</th><th>Por qué importa aquí</th></tr></thead>
+      <tbody>
+        <tr><td>Identidad</td><td>Espectro de MS que coincida con la secuencia modificada</td><td>Los análogos cercanos y los truncamientos pueden pasar una mirada casual</td></tr>
+        <tr><td>Pureza</td><td>Cromatograma HPLC con método e integración</td><td>Las impurezas hidrófobas coeluyen con gradientes genéricos</td></tr>
+        <tr><td>Contenido</td><td>Contenido de agua + contenido neto de péptido</td><td>Material de alto valor: el contenido determina el coste por mg</td></tr>
+        <tr><td>Vinculación al lote</td><td>Número de lote en el vial, el COA y la factura</td><td>Evita la reutilización de certificados entre lotes</td></tr>
+        <tr><td>Consistencia</td><td>Dos o tres COA de lotes consecutivos</td><td>Distingue un proceso de un abastecimiento puntual</td></tr>
+      </tbody>
+    </table>
+    <p>La <a href="/knowledge/glp-1-peptide-sourcing-checklist/">lista de verificación para el suministro de péptidos GLP-1</a> lo convierte en un documento de trabajo.</p>
+
+    <h2>Diferencias de manipulación que importan</h2>
+    <h3>Qué cambia con la hidrofobicidad</h3>
+    <p>Los tres son polvos liofilizados que se manipulan bajo los mismos principios generales —frío, seco, oscuro, mínimos ciclos de congelación-descongelación—, pero las modificaciones hidrófobas cambian los detalles:</p>
+    <ul>
+      <li><strong>Disolución:</strong> cabe esperar una humectación más lenta; añada el disolvente por la pared y dé tiempo.</li>
+      <li><strong>Adsorción:</strong> a bajas concentraciones, las secuencias hidrófobas se adsorben con más facilidad al plástico; use material de baja unión.</li>
+      <li><strong>Filtración:</strong> la elección de membrana afecta la recuperación; preenjuague y tenga en cuenta la retención.</li>
+      <li><strong>Agregación:</strong> los segmentos hidrófobos aumentan el riesgo; evite el vórtex y las concentraciones locales altas.</li>
+    </ul>
+    <p>El <a href="/knowledge/glp-1-peptide-storage-handling/">almacenamiento y manipulación de péptidos GLP-1</a> cubre el protocolo práctico.</p>
+
+    <h2>Qué no le dice esta comparación</h2>
+    <p>No le dice qué compuesto es «mejor»: eso es una pregunta de investigación, no de compra, y queda fuera del ámbito de competencia de un proveedor. Tampoco establece equivalencia entre formas salinas, grados de pureza o proveedores. Son problemas de verificación separados, cada uno con sus propios requisitos de prueba.</p>
+
+    <h2>La opinión del autor</h2>
+    <p><strong>Posición.</strong> La categoría GLP-1 premia a los compradores que bajan el ritmo. Los compuestos son caros, el listón analítico es alto y el mercado está lleno de material que parece correcto en una etiqueta. El comportamiento ganador no es encontrar el vial más barato; es negarse a comprar sin un paquete de identidad y pureza vinculado al lote.</p>
+    <p><strong>Razonamiento.</strong> A este peso molecular y esta hidrofobicidad, pequeñas diferencias analíticas se traducen en diferencias prácticas grandes: una impureza que coeluye, una forma salina equivocada o una brecha del 5 % en el contenido neto cambian lo que un experimento está probando realmente. El coste del vial es pequeño comparado con el coste de una conclusión errónea.</p>
+    <p><strong>Divulgación.</strong> Suministramos los tres compuestos y nos beneficiamos cuando los compradores prefieren material documentado. También rechazamos pedidos en los que el comprador no puede describir un uso legítimo de investigación, una política que nos cuesta ingresos y que, en nuestra opinión, forma parte de vender esta categoría con responsabilidad.</p>
+
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Son intercambiables la semaglutida, la tirzepatida y la retatrutida?</h3>
+    <p>No. Difieren en secuencia, peso molecular, perfil de receptores y comportamiento analítico. Cada una requiere su propia especificación.</p>
+    <h3>¿Qué peso molecular debe mostrar el COA?</h3>
+    <p>La masa de la secuencia modificada para la forma salina suministrada. Los valores de referencia figuran en nuestras fuentes; el COA del lote es la referencia autorizada.</p>
+    <h3>¿Proporcionan un COA por lote?</h3>
+    <p>Sí. Cada lote se envía con un COA específico del lote, un cromatograma HPLC y la confirmación por MS.</p>
+    <h3>¿Son estos productos para uso humano?</h3>
+    <p>No. Todos los productos se suministran solo para investigación de laboratorio, no para uso humano o veterinario.</p>
+
+    <h2>Fuentes y evidencia</h2>
+    <p class="small muted">Los pesos moleculares y las asignaciones de receptores siguientes se contrastan con bases de datos públicas y evaluaciones regulatorias; el COA del lote rige para el material que recibe.</p>
+    <ul>
+      <li><strong>Semaglutida:</strong> PubChem <a href="https://pubchem.ncbi.nlm.nih.gov/compound/56843331" rel="noopener" target="_blank">CID 56843331</a>; información del producto de la EMA — <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/ozempic" rel="noopener" target="_blank">Ozempic EPAR</a>.</li>
+      <li><strong>Tirzepatida:</strong> PubChem <a href="https://pubchem.ncbi.nlm.nih.gov/compound/166567236" rel="noopener" target="_blank">CID 166567236</a>; información del producto de la EMA — <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/mounjaro" rel="noopener" target="_blank">Mounjaro EPAR</a>.</li>
+      <li><strong>Retatrutida:</strong> no indexada en PubChem en el momento de la redacción; masa de referencia tomada de la literatura clínica publicada. Registros de ensayos: <a href="https://clinicaltrials.gov/search?term=retatrutide" rel="noopener" target="_blank">búsqueda en ClinicalTrials.gov</a>.</li>
+      <li><strong>Conceptos de especificación:</strong> ICH Q6B — <a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">directrices de calidad de la ICH</a>.</li>
+    </ul>
+    <p class="small muted">Las asignaciones de receptores describen la farmacología notificada de los materiales de investigación; no son afirmaciones de eficacia ni orientación para uso humano.</p>
+
+    <p><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 Preguntar por WhatsApp</a></p>
+
+    <h2>Productos mencionados en esta guía</h2>
+    <ul>
+      <li><a href="/products/tirzepatide/">Tirzepatida</a> — formatos de investigación de 2–60 mg</li>
+      <li><a href="/products/semaglutide/">Semaglutida</a> — formatos de investigación de 2–50 mg</li>
+      <li><a href="/products/retatrutide/">Retatrutida</a> — formatos de investigación de 5–60 mg</li>
+      <li><a href="/products/">Catálogo de péptidos de investigación</a> — lista completa de SKU</li>
+      <li><a href="/wholesale/">Venta al por mayor y suministro a granel</a> — MOQ y documentación</li>
+      <li><a href="/quality/testing-methods/">Métodos de análisis</a> — HPLC, MS, Karl Fischer</li>
+    </ul>
+
+    <h2>Clúster: la biblioteca GLP-1</h2>
+    <ol>
+      <li><a href="/knowledge/glp-1-research-peptides-compared/">Semaglutida vs tirzepatida vs retatrutida</a> — la comparación breve</li>
+      <li><a href="/knowledge/semaglutide-analytical-profile/">Perfil analítico de la semaglutida</a> — secuencia y notas de método</li>
+      <li><a href="/knowledge/tirzepatide-analytical-profile/">Perfil analítico de la tirzepatida</a> — analítica de secuencia larga</li>
+      <li><a href="/knowledge/retatrutide-analytical-profile/">Perfil analítico de la retatrutida</a> — puntos de verificación</li>
+      <li><a href="/knowledge/glp-1-peptide-sourcing-checklist/">Lista de verificación de suministro GLP-1</a> — qué verificar</li>
+      <li><a href="/knowledge/glp-1-peptide-storage-handling/">Almacenamiento y manipulación de GLP-1</a> — protocolo práctico</li>
+      <li><a href="/knowledge/peptide-sequence-notation/">Notación de secuencias de péptidos</a> — cómo leer la secuencia</li>
+      <li><a href="/knowledge/peptide-mass-spec-identity/">Identidad por espectrometría de masas</a> — el método de verificación</li>
+      <li><a href="/knowledge/peptide-lot-consistency/">Consistencia lote a lote</a> — la visión de tendencia</li>
+      <li><a href="/knowledge/peptide-net-content-and-cost/">Contenido neto y coste</a> — la economía</li>
+    </ol>
+
+    <div class="ruo">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+  <ArticleSchema title="Péptidos GLP-1 de investigación comparados: semaglutida, tirzepatida y retatrutida" description="Comparación a nivel de investigación de semaglutida, tirzepatida y retatrutida: peso molecular, perfil de receptores, carga analítica, manipulación y verificación del suministro." path="/es/knowledge/glp-1-research-peptides-framework/" section="Péptidos GLP-1 de investigación" lang="es" />
+  <script type="application/ld+json" set:html={JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Son intercambiables la semaglutida, la tirzepatida y la retatrutida?", "acceptedAnswer": {"@type": "Answer", "text": "No. Difieren en secuencia, peso molecular, perfil de receptores y comportamiento analítico. Cada una requiere su propia especificación."}}, {"@type": "Question", "name": "¿Qué peso molecular debe mostrar el COA?", "acceptedAnswer": {"@type": "Answer", "text": "La masa de la secuencia modificada para la forma salina suministrada. Los valores de referencia figuran en nuestras fuentes; el COA del lote es la referencia autorizada."}}, {"@type": "Question", "name": "¿Proporcionan un COA por lote?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Cada lote se envía con un COA específico del lote, un cromatograma HPLC y la confirmación por MS."}}, {"@type": "Question", "name": "¿Son estos productos para uso humano?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todos los productos se suministran solo para investigación de laboratorio, no para uso humano o veterinario."}}]})} />
+</BaseLayout>

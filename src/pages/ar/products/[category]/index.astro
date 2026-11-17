@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import { products, categories } from '../../../../data/products';
+
+const lang = 'ar';
+export function getStaticPaths() {
+  const cats = ['tirzepatide', 'semaglutide', 'retatrutide'];
+  return cats.map((category) => ({ params: { category } }));
+}
+const { category } = Astro.params as { category: string };
+const cat = categories[category];
+const items = products.filter((p) => p.category === category);
+const titles: Record<string, string> = {"tirzepatide":"تيرزيباتيد 2–60 ملغ — ببتيدات بحثية","semaglutide":"سيماغلوتيد 2–50 ملغ — ببتيدات بحثية","retatrutide":"ريتاتروتيد 5–60 ملغ — ببتيدات بحثية"};
+const descs: Record<string, string> = {"tirzepatide":"تيرزيباتيد للاستخدام البحثي بأحجام من 2 إلى 60 ملغ: شهادة تحليل لكل دفعة، HPLC/MS وتوريد بالجملة من الصين.","semaglutide":"سيماغلوتيد للاستخدام البحثي بأحجام من 2 إلى 50 ملغ: شهادة تحليل لكل دفعة، HPLC/MS وتوريد بالجملة من الصين.","retatrutide":"ريتاتروتيد للاستخدام البحثي بأحجام من 5 إلى 60 ملغ: شهادة تحليل لكل دفعة، HPLC/MS وتوريد بالجملة من الصين."};
+const faq = [["هل النقاء نفسه في كل الدفعات؟","لا. يُقاس النقاء لكل دفعة ويُذكر في شهادة التحليل الخاصة بها."],["هل يمكنني طلب عينة قبل طلب بالجملة؟","نعم، للمشترين التجاريين المؤهلين. تُرسل العينة مع شهادة التحليل الخاصة بدفعتها."],["هل تشحنون إلى بلدي؟","معظم الوجهات ممكنة، لكن بعض المنتجات مقيّدة. أكّد ذلك في مرحلة عرض السعر."]];
+---
+<BaseLayout
+  lang="ar"
+  title={titles[category]}
+  description={descs[category]}
+  canonical={`/ar/products/${category}/`}
+  alternates={[
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/products/${category}/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/products/${category}/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/products/${category}/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/products/${category}/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/products/${category}/` },
+  ]}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{label:'الرئيسية',href:'/ar/'},{label:'المنتجات',href:'/ar/products/'},{label: cat.name}]} />
+    <h1>{cat.name}</h1>
+    <p class="lead muted" style="max-width:820px;">الأحجام والوثائق والحد الأدنى للطلب في هذه الفئة. النقاء خاص بكل دفعة ويُذكر في شهادة التحليل الخاصة بها.</p>
+    <table>
+      <thead><tr><th>المنتج</th><th>التركيز</th><th>الشكل</th><th>الحد الأدنى</th><th>الوثائق</th><th></th></tr></thead>
+      <tbody>
+        {items.map((p) => (
+          <tr>
+            <td>{p.name}</td>
+            <td>{p.strength}</td>
+            <td>{p.form}</td>
+            <td>{p.moq}</td>
+            <td>{p.docs.join(', ')}</td>
+            <td><a href={`/products/${category}/${p.slug}/`}>عرض البطاقة (EN)</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="small muted" style="margin-top:10px;">بطاقات المنتجات الفردية بالإنجليزية؛ بيانات المنتج —التركيز والشكل والحد الأدنى والوثائق— هي نفسها.</p>
+    <p style="margin:22px 0 6px;">
+      <a class="btn" href="/ar/contact/">اطلب عرض سعر وشهادة التحليل</a>
+      <a class="btn btn-ghost" href="/ar/wholesale/" style="margin-left:8px;">أسعار الكميات</a>
+    </p>
+    <h2>كيف تختار داخل هذه الفئة</h2>
+    <p>التركيز هو القرار الأول، لكنه ليس الوحيد. أكّد حجم القارورة المناسب لسير عملك، وحزمة الوثائق التي تتطلبها مؤسستك، وما إذا كنت تحتاج ملصقات قياسية أم مخصصة. للمشتريات المتكررة، اطلب شهادات تحليل دفعتين أو ثلاث دفعات متتالية: الاتساق بين الدفعات أهم من نتيجة واحدة.</p>
+    <h2>الأسئلة الشائعة</h2>
+    {faq.map(([q, a]) => (<><h3>{q}</h3><p>{a}</p></>))}
+    <div class="ruo" style="margin:28px 0;">للاستخدام البحثي المخبري فقط، وليس للاستخدام البشري أو البيطري.</div>
+  </div>
+</BaseLayout>

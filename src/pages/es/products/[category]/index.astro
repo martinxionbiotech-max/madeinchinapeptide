@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import { products, categories } from '../../../../data/products';
+
+const lang = 'es';
+export function getStaticPaths() {
+  const cats = ['tirzepatide', 'semaglutide', 'retatrutide'];
+  return cats.map((category) => ({ params: { category } }));
+}
+const { category } = Astro.params as { category: string };
+const cat = categories[category];
+const items = products.filter((p) => p.category === category);
+const titles: Record<string, string> = {"tirzepatide":"Tirzepatida 2–60 mg — Péptidos de investigación","semaglutide":"Semaglutida 2–50 mg — Péptidos de investigación","retatrutide":"Retatrutida 5–60 mg — Péptidos de investigación"};
+const descs: Record<string, string> = {"tirzepatide":"Tirzepatida para investigación en formatos de 2 a 60 mg: COA por lote, HPLC/MS y suministro al por mayor desde China.","semaglutide":"Semaglutida para investigación en formatos de 2 a 50 mg: COA por lote, HPLC/MS y suministro al por mayor desde China.","retatrutide":"Retatrutida para investigación en formatos de 5 a 60 mg: COA por lote, HPLC/MS y suministro al por mayor desde China."};
+const faq = [["¿La pureza es la misma en todos los lotes?","No. La pureza se mide por lote y se declara en el COA de ese lote."],["¿Puedo pedir una muestra antes de un pedido al por mayor?","Sí, para compradores comerciales cualificados. La muestra se envía con el COA de su propio lote."],["¿Envían a mi país?","La mayoría de destinos son viables, pero algunos productos están restringidos. Confírmelo en la fase de cotización."]];
+---
+<BaseLayout
+  lang="es"
+  title={titles[category]}
+  description={descs[category]}
+  canonical={`/es/products/${category}/`}
+  alternates={[
+    { hreflang: 'en', href: `https://madeinchinapeptide.com/products/${category}/` },
+    { hreflang: 'es', href: `https://madeinchinapeptide.com/es/products/${category}/` },
+    { hreflang: 'pt', href: `https://madeinchinapeptide.com/pt/products/${category}/` },
+    { hreflang: 'ar', href: `https://madeinchinapeptide.com/ar/products/${category}/` },
+    { hreflang: 'x-default', href: `https://madeinchinapeptide.com/products/${category}/` },
+  ]}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{label:'Inicio',href:'/es/'},{label:'Productos',href:'/es/products/'},{label: cat.name}]} />
+    <h1>{cat.name}</h1>
+    <p class="lead muted" style="max-width:820px;">Formatos, documentación y cantidades mínimas de esta categoría. La pureza es específica de cada lote y se declara en su COA.</p>
+    <table>
+      <thead><tr><th>Producto</th><th>Concentración</th><th>Forma</th><th>MOQ</th><th>Documentos</th><th></th></tr></thead>
+      <tbody>
+        {items.map((p) => (
+          <tr>
+            <td>{p.name}</td>
+            <td>{p.strength}</td>
+            <td>{p.form}</td>
+            <td>{p.moq}</td>
+            <td>{p.docs.join(', ')}</td>
+            <td><a href={`/products/${category}/${p.slug}/`}>Ver ficha (EN)</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="small muted" style="margin-top:10px;">Las fichas individuales están en inglés; los datos de producto —concentración, forma, MOQ y documentación— son los mismos.</p>
+    <p style="margin:22px 0 6px;">
+      <a class="btn" href="/es/contact/">Solicitar cotización y COA del lote</a>
+      <a class="btn btn-ghost" href="/es/wholesale/" style="margin-left:8px;">Precios por volumen</a>
+    </p>
+    <h2>Cómo elegir dentro de esta categoría</h2>
+    <p>La concentración es la primera decisión, pero no la única. Confirme el formato de vial que encaja con su flujo de trabajo, el paquete de documentación que exige su institución y si necesita etiquetado estándar o personalizado. Para compras repetidas, solicite los COA de dos o tres lotes consecutivos: la consistencia entre lotes importa más que un resultado aislado.</p>
+    <h2>Preguntas frecuentes</h2>
+    {faq.map(([q, a]) => (<><h3>{q}</h3><p>{a}</p></>))}
+    <div class="ruo" style="margin:28px 0;">Solo para uso en investigación de laboratorio; no apto para uso humano o veterinario.</div>
+  </div>
+</BaseLayout>

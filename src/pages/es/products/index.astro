@@ -9,7 +9,7 @@ import { products, categories } from '../../../data/products';
     <p class="lead muted">Cada ficha indica forma, almacenamiento y documentación. La pureza es por lote: solicite el COA del lote que está evaluando.</p>
     {Object.entries(categories).map(([slug, c]) => (
       <section style="margin-top:32px;">
-        <h2>{c.name}</h2>
+        {['tirzepatide','semaglutide','retatrutide'].includes(slug) ? <h2><a href={`/es/products/${slug}/`}>{c.name}</a></h2> : <h2>{c.name}</h2>}
         <table>
           <thead><tr><th>Producto</th><th>Concentración</th><th>Forma</th><th>MOQ</th><th></th></tr></thead>
           <tbody>

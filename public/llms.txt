@@ -77,6 +77,13 @@
 - /pt/ — Portuguese home; core pages: /pt/products/, /pt/wholesale/, /pt/quality/, /pt/about/, /pt/oem-private-label/, /pt/contact/
 - /ar/ — Arabic home; core pages: /ar/products/, /ar/wholesale/, /ar/quality/, /ar/about/, /ar/oem-private-label/, /ar/contact/
 
+- /es/knowledge/ — Spanish knowledge hub: supplier evaluation, quality verification, GLP-1 sourcing
+- /pt/knowledge/ — Portuguese knowledge hub: supplier evaluation, quality verification, GLP-1 sourcing
+- /ar/knowledge/ — Arabic knowledge hub: supplier evaluation, quality verification, GLP-1 sourcing
+- /es/products/tirzepatide/ — Spanish GLP-1 category page (also semaglutide, retatrutide)
+- /pt/products/tirzepatide/ — Portuguese GLP-1 category page (also semaglutide, retatrutide)
+- /ar/products/tirzepatide/ — Arabic GLP-1 category page (also semaglutide, retatrutide)
+
 ## Notes
 - All products are for laboratory research use only; not for human or veterinary use.
 - Purity is batch-specific and stated on each lot's COA.
