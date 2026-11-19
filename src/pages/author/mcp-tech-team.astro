@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site';
+---
+<BaseLayout
+  title="MCP TechTeam — Author & Editorial Process | Made in China Peptide"
+  description="MCP TechTeam is the technical editorial team of MCP Biotech, writing about peptide identity, purity, documentation and China sourcing for laboratory buyers."
+  canonical="/author/mcp-tech-team/"
+>
+  <div class="wrap-narrow">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'MCP TechTeam' }]} />
+    <h1>MCP TechTeam</h1>
+    <p class="lead muted">
+      MCP TechTeam is the technical editorial group behind Made in China Peptide. We write and
+      review the product notes, analytical guides and sourcing frameworks published on this site.
+      Made in China Peptide is a trading name of <strong>{site.legalName}</strong>.
+    </p>
+
+    <h2>What we cover</h2>
+    <p>
+      Our work sits between the analytical laboratory and the purchasing desk. We read certificates
+      of analysis, chromatograms and mass spectra; we compare specifications against the questions a
+      laboratory actually asks; and we translate the result into a document request a buyer can send
+      to a supplier. The knowledge base covers identity and purity methods, counter-ions and net
+      content, stability and handling, packaging and cold chain, customs documentation and supplier
+      qualification.
+    </p>
+    <p>
+      The product pages are deliberately narrower than a pharmacology reference. They describe what
+      the catalogue item is, how the batch should be characterised, what the format is useful for,
+      and where a buyer should stop and ask for more evidence. They are not protocols, dosing guides
+      or medical advice.
+    </p>
+
+    <h2>How we form a view</h2>
+    <p>
+      We separate three kinds of statement. A <strong>measured value</strong> belongs to a specific
+      lot and must travel with that lot's certificate. A <strong>method statement</strong> describes
+      how a result was produced and is only comparable when the method is comparable. An
+      <strong>editorial judgement</strong> is our reading of the evidence — for example, that a
+      certificate without a batch number is not a batch record, or that two suppliers quoting the
+      same purity figure may not be measuring the same thing.
+    </p>
+    <p>
+      When the catalogue does not have a sequence, a lot result or a stability study, we say so
+      rather than fill the gap with a plausible number. That is also why some pages are shorter than
+      others: the page reflects the evidence available, not a word-count target.
+    </p>
+
+    <h2>Corrections and contact</h2>
+    <p>
+      If a sentence on this site is wrong, send the page URL, the exact sentence and the source that
+      should be checked to <a href={`mailto:${site.email}`}>{site.email}</a>. We will review the
+      source and correct the page if the evidence supports it. Do not send confidential formulas or
+      personal medical information.
+    </p>
+    <p class="small muted">
+      Publisher: {site.legalName}. Brand: {site.brand}. All products are supplied for laboratory
+      research use only, not for human or veterinary use.
+    </p>
+  </div>
+</BaseLayout>

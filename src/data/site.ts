@@ -1,5 +1,7 @@
 export const site = {
   brand: 'Made in China Peptide',
+  legalName: 'MCP Biotech',
+  author: 'MCP TechTeam',
   brandShort: 'MICP',
   domain: 'madeinchinapeptide.com',
   url: 'https://madeinchinapeptide.com',

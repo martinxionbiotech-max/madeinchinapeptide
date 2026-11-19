@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Peptide sequence and molecular weight';
-const description = 'One-letter codes, residue mass arithmetic, terminal modifications and why a catalogue molecular weight may not match your own calculation.';
+const description = 'One-letter codes, residue mass arithmetic and terminal modifications, and why the molecular weight in a catalogue may not match your own calculation.';
 ---
 <BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-sequence-notation/">
   <div class="wrap-narrow">
@@ -87,6 +87,13 @@ const description = 'One-letter codes, residue mass arithmetic, terminal modific
 
     <h2>Limitations</h2>
     <p>Reference information only; this is not an efficacy or safety assessment.</p>
+
+    <h2>Primary references</h2>
+    <ul>
+      <li><a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH Quality Guidelines — analytical validation, impurities and stability</a>.</li>
+      <li><a href="https://www.usp.org/" rel="noopener" target="_blank">USP General Chapters — compendial analytical methods</a>.</li>
+    </ul>
+    <p class="small muted">Background references for the methods and trade framework discussed; they are not lot-specific evidence for any product. Verify current editions and destination rules with the issuing body.</p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

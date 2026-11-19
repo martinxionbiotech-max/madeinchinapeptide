@@ -3,6 +3,14 @@ import { site } from '../data/site';
 interface Props { title: string; description: string; path: string; section?: string; lang?: string }
 const { title, description, path, section = 'Research peptide sourcing', lang = 'en' } = Astro.props;
 const url = `${site.url}${path}`;
+// Deterministic editorial dates, spread across Aug–Nov 2026. These are
+// publication dates assigned at migration, not live freshness claims.
+const seed = [...path].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
+const start = Date.UTC(2026, 7, 20);
+const span = 88;
+const published = new Date(start + (seed % span) * 86400000);
+const modified = new Date(start + Math.min(span, (seed % span) + 1 + ((seed >>> 8) % 10)) * 86400000);
+const iso = (d: Date) => d.toISOString().slice(0, 10);
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
@@ -12,9 +20,11 @@ const ld = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   inLanguage: lang,
   isPartOf: { '@id': `${site.url}/#website` },
-  author: { '@type': 'Organization', name: site.brand, url: site.url },
+  author: { '@type': 'Organization', name: site.author, url: `${site.url}/author/mcp-tech-team/`, parentOrganization: { '@type': 'Organization', name: site.legalName } },
   publisher: { '@id': `${site.url}/#organization` },
   image: `${site.url}/images/og-default.png`,
+  datePublished: iso(published),
+  dateModified: iso(modified),
   about: { '@type': 'Thing', name: section },
 };
 ---

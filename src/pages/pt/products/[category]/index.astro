@@ -12,7 +12,7 @@ const { category } = Astro.params as { category: string };
 const cat = categories[category];
 const items = products.filter((p) => p.category === category);
 const titles: Record<string, string> = {"tirzepatide":"Tirzepatida 2–60 mg — Péptidos de pesquisa","semaglutide":"Semaglutida 2–50 mg — Péptidos de pesquisa","retatrutide":"Retatrutida 5–60 mg — Péptidos de pesquisa"};
-const descs: Record<string, string> = {"tirzepatide":"Tirzepatida para pesquisa em formatos de 2 a 60 mg: COA por lote, HPLC/MS e fornecimento por atacado da China.","semaglutide":"Semaglutida para pesquisa em formatos de 2 a 50 mg: COA por lote, HPLC/MS e fornecimento por atacado da China.","retatrutide":"Retatrutida para pesquisa em formatos de 5 a 60 mg: COA por lote, HPLC/MS e fornecimento por atacado da China."};
+const descs: Record<string, string> = {"tirzepatide":"Tirzepatida para pesquisa em formatos de 2 a 60 mg: COA por lote, dados HPLC/MS, fornecimento por atacado e OEM da China. Solicite o COA do lote.","semaglutide":"Semaglutida para pesquisa em formatos de 2 a 50 mg: COA por lote, dados HPLC/MS, fornecimento por atacado e OEM da China. Solicite o COA do lote.","retatrutide":"Retatrutida para pesquisa em formatos de 5 a 60 mg: COA por lote, dados HPLC/MS, fornecimento por atacado e OEM da China. Solicite o COA do lote."};
 const faq = [["A pureza é igual em todos os lotes?","Não. A pureza é medida por lote e declarada no COA desse lote."],["Posso pedir uma amostra antes de um pedido por atacado?","Sim, para compradores comerciais qualificados. A amostra é enviada com o COA do seu próprio lote."],["Enviam para o meu país?","A maioria dos destinos é viável, mas alguns produtos são restritos. Confirme na fase de cotação."]];
 ---
 <BaseLayout

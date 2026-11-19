@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 const title = 'Residual solvents in peptides';
-const description = 'Acetonitrile, DMF, methanol and TFA left from synthesis and purification — ICH Q3C classes, headspace GC, and what a COA should report.';
+const description = 'Acetonitrile, DMF, methanol and TFA left from synthesis and purification: ICH Q3C classes, headspace GC and what a peptide certificate should report.';
 ---
 <BaseLayout title={`${title} | Made in China Peptide`} description={description} canonical="/knowledge/peptide-residual-solvents/">
   <div class="wrap-narrow">
@@ -89,6 +89,13 @@ const description = 'Acetonitrile, DMF, methanol and TFA left from synthesis and
 
     <h2>Limitations</h2>
     <p>This guide describes methods and interpretation, not acceptance limits. Limits must come from your own specification and, where applicable, the relevant pharmacopoeial monograph. No testing was performed by the author for this page.</p>
+
+    <h2>Primary references</h2>
+    <ul>
+      <li><a href="https://www.ich.org/page/quality-guidelines" rel="noopener" target="_blank">ICH Quality Guidelines — analytical validation, impurities and stability</a>.</li>
+      <li><a href="https://www.usp.org/" rel="noopener" target="_blank">USP General Chapters — compendial analytical methods</a>.</li>
+    </ul>
+    <p class="small muted">Background references for the methods and trade framework discussed; they are not lot-specific evidence for any product. Verify current editions and destination rules with the issuing body.</p>
 
     <h2>Products referenced in this guide</h2>
     <ul>

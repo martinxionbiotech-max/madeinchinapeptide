@@ -19,6 +19,7 @@ export interface Product {
   price: number;
   note?: string;
   researchNote?: string;
+  narrative?: string;
 }
 
 export interface CategoryInfo {

@@ -3,12 +3,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { products, categories, PRODUCT_PRICE_BAND, type Category } from '../../../data/products';
 import { site } from '../../../data/site';
+import { productNarratives } from '../../../data/product-narratives';
 export function getStaticPaths() {
   return products.map((p) => ({ params: { category: p.category, slug: p.slug } }));
 }
 const { category, slug } = Astro.params as { category: Category; slug: string };
 const p = products.find(x => x.slug === slug)!;
 const cat = categories[category];
+const narrative = productNarratives[p.slug] ?? '';
 const mgOf = (s: string) => { const m = s.match(/([\d.]+)\s*mg/); return m ? parseFloat(m[1]) : NaN; };
 const myMg = mgOf(p.strength);
 const sibs = products.filter(x => x.category === category && x.slug !== p.slug)
@@ -93,15 +95,6 @@ const ld = {
   },
 };
 
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: `Is ${p.name} for human use?`, acceptedAnswer: { '@type': 'Answer', text: 'No. It is supplied for laboratory research only, not for human or veterinary use.' } },
-    { '@type': 'Question', name: 'What documentation ships with the order?', acceptedAnswer: { '@type': 'Answer', text: 'A batch-specific COA with HPLC chromatogram and method, MS confirmation, MSDS and storage instructions.' } },
-    { '@type': 'Question', name: 'Can I order a sample before a bulk order?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, for qualified business buyers. The sample ships with its own batch COA.' } },
-  ],
-};
 
 ---
 <BaseLayout title={seoTitle} description={seoDescription} canonical={`/products/${category}/${slug}/`}>
@@ -114,6 +107,11 @@ const faqLd = {
     <div class="grid grid-2" style="align-items:start;gap:32px;">
       <div>
         <p class="lead muted" style="max-width:800px;">{p.summary}</p>
+        {narrative && (
+          <div class="product-narrative">
+            {narrative.split(/\n\n+/).map((para) => <p>{para}</p>)}
+          </div>
+        )}
         <p style="margin:20px 0 6px;">
           <a class="btn" href="/contact/">Request quotation &amp; batch COA</a>
           <a class="btn btn-ghost" href="/wholesale/" style="margin-left:8px;">Bulk pricing</a>
@@ -154,31 +152,18 @@ const faqLd = {
       </p></>
     )}
 
-    <h2>Documentation &amp; batch traceability</h2>
-    <p>Each production lot is assigned a batch number that links to its certificate of analysis, HPLC chromatogram and mass-spec confirmation. We do not publish a single "typical" purity figure as if it applied to every lot — the COA for the specific batch is the authoritative document. Request a sample COA before purchase.</p>
-
-    <h2>Bulk &amp; wholesale pricing</h2>
-    <p>Pricing is quantity-tiered and depends on strength, packaging and destination. Standard tiers start at {p.moq}; distributor and OEM volumes are quoted individually. <a href="/wholesale/">See how wholesale ordering works</a> or <a href="/contact/">request a quotation</a>.</p>
-
-    <h2>Handling notes</h2>
-    <ul>
-      <li>Store lyophilized material at −20 °C, protected from light and moisture.</li>
-      <li>Allow vials to reach room temperature before opening to avoid condensation.</li>
-      <li>Reconstitute only with appropriate laboratory-grade solvent for in-vitro work; do not use for injection.</li>
-      <li> Aliquot reconstituted material to avoid repeated freeze–thaw cycles.</li>
-    </ul>
-    <p class="small muted">Preparing a stock solution? The <a href="/tools/reconstitution-calculator/">reconstitution calculator</a> converts fill mass and diluent volume into mg/mL and µM, with purity correction.</p>
-
-    <div class="ruo" style="margin:28px 0;">{p.name} is supplied for laboratory research use only. It is not a drug, food, cosmetic or veterinary product and must not be administered to humans or animals.</div>
-
-    {cat.take && (
-      <>
-        <h2 id="authors-take">The Author's Take</h2>
-        <p><strong>Position.</strong> {cat.take.position}</p>
-        <p><strong>Reasoning.</strong> {cat.take.reasoning}</p>
-        <p class="small muted"><strong>Disclosure.</strong> {cat.take.disclosure}</p>
-      </>
-    )}
+    <h2>Documentation and handling</h2>
+    <p>
+      Every lot ships with a batch-specific COA, HPLC chromatogram and MS confirmation. Ask for the lot
+      number on the vial, the raw chromatogram if your QA needs it, and the storage record for the
+      international leg. Lyophilized material should be stored at −20 °C, protected from light and
+      moisture; let sealed vials equilibrate before opening. This page is laboratory sourcing
+      information, not a protocol.
+    </p>
+    <p class="small muted">
+      Need the batch file or a sample COA? <a href="/contact/">Send the SKU, quantity and destination</a>
+      and we will return the documents with the quotation.
+    </p>
 
     <h2>Related products</h2>
     <ul>
@@ -212,5 +197,4 @@ const faqLd = {
     </p>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </BaseLayout>

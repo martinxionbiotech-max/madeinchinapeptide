@@ -42,6 +42,7 @@ const links = [
   { label: 'Quality', href: '/quality/' },
   { label: 'Factory & QC', href: '/factory/' },
   { label: 'Knowledge', href: '/knowledge/' },
+  { label: 'MCP TechTeam', href: '/author/mcp-tech-team/' },
   { label: 'Lab tools', href: '/tools/' },
   { label: 'For laboratories', href: '/applications/laboratories/' },
   { label: 'For distributors', href: '/applications/distributors/' },
@@ -66,7 +67,7 @@ const legal = lang ? localizedLegal[lang as keyof typeof localizedLegal] : [
       <div>
         <h4>{site.brand}</h4>
         <p class="small" style="color:#a9bccf;max-width:34ch;">{site.tagline}</p>
-        <p class="tiny" style="color:#8fa3b8;">{site.ruo}</p>
+        <p class="tiny" style="color:#8fa3b8;">Operated by {site.legalName}. {site.ruo}</p>
       </div>
       <div>
         <h4>Company</h4>
@@ -80,7 +81,7 @@ const legal = lang ? localizedLegal[lang as keyof typeof localizedLegal] : [
         <h4>Contact</h4>
         <ul>
           <li><strong>Sales:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li><strong>Martin:</strong> <a href="mailto:martin@madeinchinapeptide.com">martin@madeinchinapeptide.com</a></li>
+          <li><strong>Technical:</strong> <a href="mailto:martin@madeinchinapeptide.com">martin@madeinchinapeptide.com</a></li>
           <li><strong>Admin:</strong> <a href="mailto:admin@madeinchinapeptide.com">admin@madeinchinapeptide.com</a></li>
           <li><a class="wa-btn" href={site.whatsappLink} target="_blank" rel="noopener">💬 WhatsApp</a></li>
           <li>{site.address}</li>
@@ -88,7 +89,7 @@ const legal = lang ? localizedLegal[lang as keyof typeof localizedLegal] : [
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; {year} {site.brand}. All rights reserved. Products are supplied for laboratory research use only.
+      &copy; {year} {site.legalName}. {site.brand} is a trading name of {site.legalName}. All rights reserved. Products are supplied for laboratory research use only.
     </div>
   </div>
 </footer>
