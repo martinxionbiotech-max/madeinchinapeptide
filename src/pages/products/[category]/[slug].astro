@@ -49,8 +49,14 @@ const reading: Record<Category, { href: string; label: string }[]> = {
   ],
 };
 const fullTitle = `${p.name} — Bulk & OEM Supply | Made in China Peptide`;
-// Keep the SERP title inside ~65 characters; long compound names fall back to a shorter suffix.
-const seoTitle = fullTitle.length > 65 ? `${p.name} — Bulk & OEM` : fullTitle;
+const seoTitle = fullTitle.length <= 60 ? fullTitle : `${p.name} — Bulk & OEM`;
+const seoDescription = (() => {
+  const base = `${p.name} (${p.strength}) — ${p.form.toLowerCase()} for laboratory research. Batch-specific COA with HPLC/MS data; MOQ ${p.moq}; bulk and OEM supply.`;
+  if (base.length <= 155) return base.length >= 140 ? base : `${base} Request a sample COA before ordering.`;
+  const cut = base.slice(0, 154);
+  const space = cut.lastIndexOf(' ');
+  return `${(space > 100 ? cut.slice(0, space) : cut).trimEnd()}…`;
+})();
 // The visible <img> below and the Product.image in JSON-LD must be the same URL:
 // Google requires a Product image, and it must match what the page shows.
 const productImage = `https://madeinchinapeptide.com${p.image ?? '/images/logo.png'}`;
@@ -60,8 +66,10 @@ const ld = {
   name: p.name,
   description: p.summary,
   brand: { '@type': 'Brand', name: 'Made in China Peptide' },
-  category: 'Research chemicals',
+  category: cat.name,
   image: [productImage],
+  sku: p.slug,
+  mpn: p.slug,
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Strength', value: p.strength },
     { '@type': 'PropertyValue', name: 'Form', value: p.form },
@@ -94,7 +102,7 @@ const faqLd = {
 };
 
 ---
-<BaseLayout title={seoTitle} description={`${p.name} — ${p.form.toLowerCase()} for laboratory research. Batch-specific COA with HPLC and MS data; bulk and OEM supply.`} canonical={`/products/${category}/${slug}/`}>
+<BaseLayout title={seoTitle} description={seoDescription} canonical={`/products/${category}/${slug}/`}>
   <div class="wrap">
     <Breadcrumbs items={[{label:"Home",href:"/"},{label:"Products",href:"/products/"},{label:cat.name,href:`/products/${category}/`},{label:p.name}]} />
     <h1>{p.name}</h1>

@@ -12,7 +12,9 @@ const ld = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   inLanguage: lang,
   isPartOf: { '@id': `${site.url}/#website` },
+  author: { '@type': 'Organization', name: site.brand, url: site.url },
   publisher: { '@id': `${site.url}/#organization` },
+  image: `${site.url}/images/og-default.png`,
   about: { '@type': 'Thing', name: section },
 };
 ---
