@@ -16,7 +16,10 @@
 | TechArticle author/image | 0 / 131 | **131 / 131** | ArticleSchema 增加 Organization author 与 OG image |
 | Product schema `sku`/`mpn` | 0 | **66/66** | 产品模板补 `p.slug` |
 | `founder: Sales Team` | 存在 | **已移除** | 不把部门名伪装成 Person；同时移除未核验的 foundingDate |
-| `www` | 200 重复 | **待部署 301** | Functions middleware canonical host |
+| `www` | 200 重复 | **301 → 裸域** | Functions middleware canonical host |
+| Product schema 价格 | 单一 `Offer.price`（$25–$80） | **AggregateOffer lowPrice 30 / highPrice 260 USD，66/66** | 按用户指定区间；页面可见价格同步改为 USD 30–260，避免 schema 与可见价不一致 |
+
+> 价格区间说明：产品页不再显示单个 SKU 的 `p.price`，改为“Indicative price range: USD 30–260 per vial; final quote confirms the exact SKU”。`products.ts` 里的 `price` 字段仍保留为内部数据，但不再作为可见价或 schema 价；这是按你指定的 30–260 公开区间做的商业展示口径。
 
 ## 2. 验证
 
