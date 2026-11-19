@@ -28,6 +28,8 @@ export interface CategoryInfo {
   take?: { position: string; reasoning: string; disclosure: string };
 }
 
+export const PRODUCT_PRICE_BAND = { low: 30, high: 260 } as const;
+
 export const categories: Record<Category, CategoryInfo> = {
   tirzepatide: {
     name: 'Tirzepatide',
