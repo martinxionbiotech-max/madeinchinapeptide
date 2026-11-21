@@ -59,9 +59,12 @@ const seoDescription = (() => {
   const space = cut.lastIndexOf(' ');
   return `${(space > 100 ? cut.slice(0, space) : cut).trimEnd()}…`;
 })();
-// The visible <img> below and the Product.image in JSON-LD must be the same URL:
+// The visible <img> below and Product.image in JSON-LD must be the same URL:
 // Google requires a Product image, and it must match what the page shows.
-const productImage = `https://madeinchinapeptide.com${p.image ?? '/images/logo.png'}`;
+const LOGO_IMAGE = 'https://madeinchinapeptide.com/images/logo.png';
+const productImage = p.image
+  ? `https://madeinchinapeptide.com${p.image}`
+  : LOGO_IMAGE;
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -69,7 +72,9 @@ const ld = {
   description: p.summary,
   brand: { '@type': 'Brand', name: 'Made in China Peptide' },
   category: cat.name,
-  image: [productImage],
+  // Product photo first; the site logo is the guaranteed fallback and is
+  // also exposed on the seller Organization below.
+  image: Array.from(new Set([productImage, LOGO_IMAGE])),
   sku: p.slug,
   mpn: p.slug,
   additionalProperty: [
@@ -82,16 +87,28 @@ const ld = {
   url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
   audience: { '@type': 'BusinessAudience', audienceType: 'Research laboratories and distributors' },
   offers: {
-    '@type': 'AggregateOffer',
+    // Merchant listings require Offer, not AggregateOffer. Keep the visible
+    // low-high range in priceSpecification while exposing a concrete from-price.
+    '@type': 'Offer',
     url: `https://madeinchinapeptide.com/products/${category}/${slug}/`,
     priceCurrency: 'USD',
-    lowPrice: String(PRODUCT_PRICE_BAND.low),
-    highPrice: String(PRODUCT_PRICE_BAND.high),
-    offerCount: 1,
+    price: String(PRODUCT_PRICE_BAND.low),
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      priceCurrency: 'USD',
+      minPrice: String(PRODUCT_PRICE_BAND.low),
+      maxPrice: String(PRODUCT_PRICE_BAND.high),
+    },
     priceValidUntil: '2027-12-31',
     availability: 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',
-    seller: { '@type': 'Organization', name: 'Made in China Peptide' },
+    seller: {
+      '@type': 'Organization',
+      name: 'Made in China Peptide',
+      url: 'https://madeinchinapeptide.com/',
+      logo: LOGO_IMAGE,
+      image: LOGO_IMAGE,
+    },
   },
 };
 
